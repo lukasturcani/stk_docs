@@ -1,0 +1,533 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Functional Groups &mdash; stk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> stk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">stk</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_examples.html">Basic Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cookbook.html">Cookbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Molecules</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.molecules.building_block.html">Building Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html">Constructed Molecule</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Functional Groups</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#adding-functional-groups">Adding Functional Groups</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stk.populations.html">Populations</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Topology Graphs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.polymer.html">Polymer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.cage.base.html">Organic Cage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.cof.html">Covalent Organic Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.host_guest.html">Host Guest Complex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.macrocycle.html">Macrocycle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.rotaxane.html">Rotaxane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html">Adding Topology Graphs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Calculators</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="calculators.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.optimization.optimizers.html">Optimizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.energy.energy_calculators.html">Energy Calculators</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Evolutionary Algorithm</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ea.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.fitness_calculators.html">Fitness Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.fitness_normalizers.html">Fitness Normalizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.selectors.html">Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.mutators.html">Mutation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.crossers.html">Crossover</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.plotters.html">Plotting</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">stk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Functional Groups</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/stk.molecular.functional_groups.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="module-stk.molecular.functional_groups"></span><div class="section" id="functional-groups">
+<h1>Functional Groups<a class="headerlink" href="#functional-groups" title="Permalink to this headline">¶</a></h1>
+<p>The purpose of functional groups is to identify which atoms of a
+building block are modified during construction. See
+<a class="reference internal" href="#stk.molecular.functional_groups.FunctionalGroup" title="stk.molecular.functional_groups.FunctionalGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionalGroup</span></code></a> for more details.</p>
+<p>See the documentation of <a class="reference internal" href="stk.molecular.reactor.html#stk.molecular.reactor.Reactor" title="stk.molecular.reactor.Reactor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Reactor</span></code></a> to see how reactions between
+functional groups are performed.</p>
+<div class="section" id="adding-functional-groups">
+<span id="id1"></span><h2>Adding Functional Groups<a class="headerlink" href="#adding-functional-groups" title="Permalink to this headline">¶</a></h2>
+<p>During initialization of a <a class="reference internal" href="stk.molecular.molecules.building_block.html#stk.molecular.molecules.building_block.BuildingBlock" title="stk.molecular.molecules.building_block.BuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">BuildingBlock</span></code></a> instance, the
+names of <a class="reference internal" href="#stk.molecular.functional_groups.FGType" title="stk.molecular.functional_groups.FGType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FGType</span></code></a> instances are supplied. These are used to
+create the <a class="reference internal" href="#stk.molecular.functional_groups.FunctionalGroup" title="stk.molecular.functional_groups.FunctionalGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionalGroup</span></code></a> instances
+found in <a class="reference internal" href="stk.molecular.molecules.building_block.html#stk.molecular.molecules.building_block.BuildingBlock.func_groups" title="stk.molecular.molecules.building_block.BuildingBlock.func_groups"><code class="xref py py-attr docutils literal notranslate"><span class="pre">BuildingBlock.func_groups</span></code></a> and therefore the ones
+used in the construction of <a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstructedMolecule</span></code></a> instances.
+If you want to be able to use a new <a class="reference internal" href="#stk.molecular.functional_groups.FGType" title="stk.molecular.functional_groups.FGType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FGType</span></code></a> with building
+blocks in this way, simply add a new <a class="reference internal" href="#stk.molecular.functional_groups.FGType" title="stk.molecular.functional_groups.FGType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FGType</span></code></a> instance to
+<code class="xref py py-data docutils literal notranslate"><span class="pre">fg_types</span></code>. This can be done in this file or externally.
+For example, if you want make <code class="docutils literal notranslate"><span class="pre">stk</span></code> use a new <a class="reference internal" href="#stk.molecular.functional_groups.FGType" title="stk.molecular.functional_groups.FGType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FGType</span></code></a>
+without touching the source code you can just do</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="n">new_fg_type</span> <span class="o">=</span> <span class="n">FGType</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;my_fg_type&#39;</span><span class="p">,</span>
+    <span class="n">func_group_smarts</span><span class="o">=</span><span class="s1">&#39;[N]([H])[H]&#39;</span><span class="p">,</span>
+    <span class="n">bonder_smarts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;[$([N]([H])[H])]&#39;</span><span class="p">],</span>
+    <span class="n">deleter_smarts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;[$([H][N][H])]&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span>
+<span class="p">)</span>
+<span class="n">stk</span><span class="o">.</span><span class="n">fg_types</span><span class="p">[</span><span class="n">new_fg_type</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_fg_type</span>
+
+<span class="c1"># You can now use the new_fg_type with BuildingBlocks.</span>
+<span class="n">bb</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NCCCN&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;my_fg_type&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Note that when adding SMARTS, if you want to make a SMARTS that targets
+an atom in an environment, for example, a bromine connected to a
+carbon:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[$([Br][C])]
+</pre></div>
+</div>
+<p>The atom you are targeting needs to be written first. The above SMARTS
+works but:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[$([C][Br])]
+</pre></div>
+</div>
+<p>does not.</p>
+<dl class="class">
+<dt id="stk.molecular.functional_groups.FGType">
+<em class="property">class </em><code class="sig-name descname">FGType</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">func_group_smarts</em>, <em class="sig-param">bonder_smarts</em>, <em class="sig-param">deleter_smarts</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.functional_groups.FGType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Creates <a class="reference internal" href="#stk.molecular.functional_groups.FunctionalGroup" title="stk.molecular.functional_groups.FunctionalGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionalGroup</span></code></a> instances.</p>
+<dl class="attribute">
+<dt id="stk.molecular.functional_groups.FGType.name">
+<code class="sig-name descname">name</code><a class="headerlink" href="#stk.molecular.functional_groups.FGType.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>A name for the <a class="reference internal" href="#stk.molecular.functional_groups.FGType" title="stk.molecular.functional_groups.FGType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FGType</span></code></a>. Helps with identification.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.molecular.functional_groups.FGType.get_functional_groups" title="stk.molecular.functional_groups.FGType.get_functional_groups"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_functional_groups</span></code></a>(self, mol)</p></td>
+<td><p>Yield the functional groups in <cite>mol</cite>.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.molecular.functional_groups.FGType.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em>, <em class="sig-param">func_group_smarts</em>, <em class="sig-param">bonder_smarts</em>, <em class="sig-param">deleter_smarts</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.functional_groups.FGType.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a <a class="reference internal" href="#stk.molecular.functional_groups.FGType" title="stk.molecular.functional_groups.FGType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FGType</span></code></a> instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – A name for the <a class="reference internal" href="#stk.molecular.functional_groups.FGType" title="stk.molecular.functional_groups.FGType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FGType</span></code></a>. Helps with identification.</p></li>
+<li><p><strong>func_group_smarts</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – A SMARTS string which matches all atoms in a functional
+group.</p></li>
+<li><p><strong>bonder_smarts</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – A <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> of SMARTS strings, each of which matches a
+single atom in a functional group. The matched atom is
+added to <a class="reference internal" href="#stk.molecular.functional_groups.FunctionalGroup.bonders" title="stk.molecular.functional_groups.FunctionalGroup.bonders"><code class="xref py py-attr docutils literal notranslate"><span class="pre">FunctionalGroup.bonders</span></code></a>. A SMARTS
+string needs to be repeated if a single functional group
+has multiple equivalent atoms, each of which appears in
+the same <a class="reference internal" href="#stk.molecular.functional_groups.FunctionalGroup" title="stk.molecular.functional_groups.FunctionalGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionalGroup</span></code></a>.</p></li>
+<li><p><strong>deleter_smarts</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – A <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> of SMARTS strings, each of which matches a
+single atom in a functional group. The matched atom is
+added to <a class="reference internal" href="#stk.molecular.functional_groups.FunctionalGroup.deleters" title="stk.molecular.functional_groups.FunctionalGroup.deleters"><code class="xref py py-attr docutils literal notranslate"><span class="pre">FunctionalGroup.deleters</span></code></a>. A SMARTS
+string needs to be repeated if a single functional group
+has multiple equivalent atoms, each of which appears in
+the same <a class="reference internal" href="#stk.molecular.functional_groups.FunctionalGroup" title="stk.molecular.functional_groups.FunctionalGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionalGroup</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.molecular.functional_groups.FGType.get_functional_groups">
+<code class="sig-name descname">get_functional_groups</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.functional_groups.FGType.get_functional_groups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Yield the functional groups in <cite>mol</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule which is to have functional groups
+identified.</p>
+</dd>
+<dt class="field-even">Yields</dt>
+<dd class="field-even"><p><a class="reference internal" href="#stk.molecular.functional_groups.FunctionalGroup" title="stk.molecular.functional_groups.FunctionalGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionalGroup</span></code></a> – A <a class="reference internal" href="#stk.molecular.functional_groups.FunctionalGroup" title="stk.molecular.functional_groups.FunctionalGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionalGroup</span></code></a> for every matched
+functional group in the <cite>mol</cite>.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="n">mol</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NCCN&#39;</span><span class="p">)</span>
+<span class="n">amine</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">FGType</span><span class="p">(</span>
+    <span class="n">func_group_smarts</span><span class="o">=</span><span class="s1">&#39;[N]([H])[H]&#39;</span><span class="p">,</span>
+    <span class="n">bonder_smarts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;[$([N]([H])[H])]&#39;</span><span class="p">],</span>
+    <span class="n">deleter_smarts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;[$([H][N][H])]&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span>
+<span class="p">)</span>
+
+<span class="c1"># Make mol use amine functional groups during construction</span>
+<span class="c1"># of ConstructedMolecule.</span>
+<span class="n">mol</span><span class="o">.</span><span class="n">func_groups</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">amine</span><span class="o">.</span><span class="n">get_functional_groups</span><span class="p">(</span><span class="n">mol</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stk.molecular.functional_groups.FunctionalGroup">
+<em class="property">class </em><code class="sig-name descname">FunctionalGroup</code><span class="sig-paren">(</span><em class="sig-param">atoms</em>, <em class="sig-param">bonders</em>, <em class="sig-param">deleters</em>, <em class="sig-param">fg_type</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.functional_groups.FunctionalGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a functional group in a molecule.</p>
+<p>Instances of this class should only be made via
+<a class="reference internal" href="#stk.molecular.functional_groups.FGType.get_functional_groups" title="stk.molecular.functional_groups.FGType.get_functional_groups"><code class="xref py py-meth docutils literal notranslate"><span class="pre">FGType.get_functional_groups()</span></code></a>.</p>
+<dl class="attribute">
+<dt id="stk.molecular.functional_groups.FunctionalGroup.atoms">
+<code class="sig-name descname">atoms</code><a class="headerlink" href="#stk.molecular.functional_groups.FunctionalGroup.atoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>The atoms in the functional group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <a class="reference internal" href="stk.molecular.elements.html#stk.molecular.elements.Atom" title="stk.molecular.elements.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stk.molecular.functional_groups.FunctionalGroup.bonders">
+<code class="sig-name descname">bonders</code><a class="headerlink" href="#stk.molecular.functional_groups.FunctionalGroup.bonders" title="Permalink to this definition">¶</a></dt>
+<dd><p>The bonder atoms in the functional group. These are atoms which
+have bonds added during the construction of a
+<a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstructedMolecule</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <a class="reference internal" href="stk.molecular.elements.html#stk.molecular.elements.Atom" title="stk.molecular.elements.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stk.molecular.functional_groups.FunctionalGroup.deleters">
+<code class="sig-name descname">deleters</code><a class="headerlink" href="#stk.molecular.functional_groups.FunctionalGroup.deleters" title="Permalink to this definition">¶</a></dt>
+<dd><p>The deleter atoms in the functional group. These are atoms
+which are deleted during construction of a
+<a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstructedMolecule</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <a class="reference internal" href="stk.molecular.elements.html#stk.molecular.elements.Atom" title="stk.molecular.elements.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stk.molecular.functional_groups.FunctionalGroup.fg_type">
+<code class="sig-name descname">fg_type</code><a class="headerlink" href="#stk.molecular.functional_groups.FunctionalGroup.fg_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="#stk.molecular.functional_groups.FGType" title="stk.molecular.functional_groups.FGType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FGType</span></code></a> instance which created the
+<a class="reference internal" href="#stk.molecular.functional_groups.FunctionalGroup" title="stk.molecular.functional_groups.FunctionalGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionalGroup</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#stk.molecular.functional_groups.FGType" title="stk.molecular.functional_groups.FGType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FGType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.molecular.functional_groups.FunctionalGroup.clone" title="stk.molecular.functional_groups.FunctionalGroup.clone"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clone</span></code></a>(self[, atom_map])</p></td>
+<td><p>Return a clone.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.molecular.functional_groups.FunctionalGroup.get_atom_ids" title="stk.molecular.functional_groups.FunctionalGroup.get_atom_ids"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_atom_ids</span></code></a>(self)</p></td>
+<td><p>Yield the ids of <a class="reference internal" href="#stk.molecular.functional_groups.FunctionalGroup.atoms" title="stk.molecular.functional_groups.FunctionalGroup.atoms"><code class="xref py py-attr docutils literal notranslate"><span class="pre">atoms</span></code></a> in order.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.molecular.functional_groups.FunctionalGroup.get_bonder_ids" title="stk.molecular.functional_groups.FunctionalGroup.get_bonder_ids"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_bonder_ids</span></code></a>(self)</p></td>
+<td><p>Yield the ids of <a class="reference internal" href="#stk.molecular.functional_groups.FunctionalGroup.bonders" title="stk.molecular.functional_groups.FunctionalGroup.bonders"><code class="xref py py-attr docutils literal notranslate"><span class="pre">bonders</span></code></a> in order.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.molecular.functional_groups.FunctionalGroup.get_deleter_ids" title="stk.molecular.functional_groups.FunctionalGroup.get_deleter_ids"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_deleter_ids</span></code></a>(self)</p></td>
+<td><p>Yield the ids of <a class="reference internal" href="#stk.molecular.functional_groups.FunctionalGroup.deleters" title="stk.molecular.functional_groups.FunctionalGroup.deleters"><code class="xref py py-attr docutils literal notranslate"><span class="pre">deleters</span></code></a> in order.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.molecular.functional_groups.FunctionalGroup.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">atoms</em>, <em class="sig-param">bonders</em>, <em class="sig-param">deleters</em>, <em class="sig-param">fg_type</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.functional_groups.FunctionalGroup.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a <a class="reference internal" href="#stk.molecular.functional_groups.FunctionalGroup" title="stk.molecular.functional_groups.FunctionalGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionalGroup</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>atoms</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <a class="reference internal" href="stk.molecular.elements.html#stk.molecular.elements.Atom" title="stk.molecular.elements.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a>) – The atoms in the functional group.</p></li>
+<li><p><strong>bonders</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <a class="reference internal" href="stk.molecular.elements.html#stk.molecular.elements.Atom" title="stk.molecular.elements.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a>) – The bonder atoms in the functional group.</p></li>
+<li><p><strong>deleters</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <a class="reference internal" href="stk.molecular.elements.html#stk.molecular.elements.Atom" title="stk.molecular.elements.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a>) – The deleter atoms in the functional group.</p></li>
+<li><p><strong>fg_type</strong> (<a class="reference internal" href="#stk.molecular.functional_groups.FGType" title="stk.molecular.functional_groups.FGType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FGType</span></code></a>) – The <a class="reference internal" href="#stk.molecular.functional_groups.FGType" title="stk.molecular.functional_groups.FGType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FGType</span></code></a> instance which created the
+<a class="reference internal" href="#stk.molecular.functional_groups.FunctionalGroup" title="stk.molecular.functional_groups.FunctionalGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionalGroup</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.molecular.functional_groups.FunctionalGroup.clone">
+<code class="sig-name descname">clone</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">atom_map=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.functional_groups.FunctionalGroup.clone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a clone.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>atom_map</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>, optional) – If the clone should hold different <a class="reference internal" href="stk.molecular.elements.html#stk.molecular.elements.Atom" title="stk.molecular.elements.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a>
+instances, then a <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code> should be provided, which
+maps atoms in the current <a class="reference internal" href="#stk.molecular.functional_groups.FunctionalGroup" title="stk.molecular.functional_groups.FunctionalGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionalGroup</span></code></a> to the
+atoms which should be used in the clone. Only atoms which
+need to be remapped need to be present in the <cite>atom_map</cite>.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A clone.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#stk.molecular.functional_groups.FunctionalGroup" title="stk.molecular.functional_groups.FunctionalGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionalGroup</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="n">c0</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">C</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">c1</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">C</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">bb</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NCCN&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;amine&#39;</span><span class="p">])</span>
+<span class="n">fg</span> <span class="o">=</span> <span class="n">bb</span><span class="o">.</span><span class="n">func_groups</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">a0</span><span class="p">,</span> <span class="n">a1</span> <span class="o">=</span> <span class="n">fg</span><span class="o">.</span><span class="n">atoms</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="c1"># fg_clone is a clone of fg, except that in all places</span>
+<span class="c1"># fg holds a0 fg_clone holds c0 and in all places where</span>
+<span class="c1"># fg holds a1, fg_clone holds c1.</span>
+<span class="n">fg_clone</span> <span class="o">=</span> <span class="n">fg</span><span class="o">.</span><span class="n">clone</span><span class="p">({</span>
+    <span class="n">a0</span><span class="p">:</span> <span class="n">c0</span>
+    <span class="n">a1</span><span class="p">:</span> <span class="n">c1</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.molecular.functional_groups.FunctionalGroup.get_atom_ids">
+<code class="sig-name descname">get_atom_ids</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.functional_groups.FunctionalGroup.get_atom_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Yield the ids of <a class="reference internal" href="#stk.molecular.functional_groups.FunctionalGroup.atoms" title="stk.molecular.functional_groups.FunctionalGroup.atoms"><code class="xref py py-attr docutils literal notranslate"><span class="pre">atoms</span></code></a> in order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Yields</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> – The id an <a class="reference internal" href="stk.molecular.elements.html#stk.molecular.elements.Atom" title="stk.molecular.elements.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a> in <a class="reference internal" href="#stk.molecular.functional_groups.FunctionalGroup.atoms" title="stk.molecular.functional_groups.FunctionalGroup.atoms"><code class="xref py py-attr docutils literal notranslate"><span class="pre">atoms</span></code></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.molecular.functional_groups.FunctionalGroup.get_bonder_ids">
+<code class="sig-name descname">get_bonder_ids</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.functional_groups.FunctionalGroup.get_bonder_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Yield the ids of <a class="reference internal" href="#stk.molecular.functional_groups.FunctionalGroup.bonders" title="stk.molecular.functional_groups.FunctionalGroup.bonders"><code class="xref py py-attr docutils literal notranslate"><span class="pre">bonders</span></code></a> in order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Yields</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> – The id of an <a class="reference internal" href="stk.molecular.elements.html#stk.molecular.elements.Atom" title="stk.molecular.elements.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a> in <a class="reference internal" href="#stk.molecular.functional_groups.FunctionalGroup.bonders" title="stk.molecular.functional_groups.FunctionalGroup.bonders"><code class="xref py py-attr docutils literal notranslate"><span class="pre">bonders</span></code></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.molecular.functional_groups.FunctionalGroup.get_deleter_ids">
+<code class="sig-name descname">get_deleter_ids</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.functional_groups.FunctionalGroup.get_deleter_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Yield the ids of <a class="reference internal" href="#stk.molecular.functional_groups.FunctionalGroup.deleters" title="stk.molecular.functional_groups.FunctionalGroup.deleters"><code class="xref py py-attr docutils literal notranslate"><span class="pre">deleters</span></code></a> in order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Yields</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> – The id of an <a class="reference internal" href="stk.molecular.elements.html#stk.molecular.elements.Atom" title="stk.molecular.elements.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a> in <a class="reference internal" href="#stk.molecular.functional_groups.FunctionalGroup.deleters" title="stk.molecular.functional_groups.FunctionalGroup.deleters"><code class="xref py py-attr docutils literal notranslate"><span class="pre">deleters</span></code></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Lukas Turcani
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

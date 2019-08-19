@@ -1,0 +1,575 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; stk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> stk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">stk</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_examples.html">Basic Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cookbook.html">Cookbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Molecules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.molecules.building_block.html">Building Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html">Constructed Molecule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.functional_groups.html">Functional Groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.populations.html">Populations</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Topology Graphs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.polymer.html">Polymer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.cage.base.html">Organic Cage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.cof.html">Covalent Organic Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.host_guest.html">Host Guest Complex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.macrocycle.html">Macrocycle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.rotaxane.html">Rotaxane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html">Adding Topology Graphs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Calculators</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="calculators.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.optimization.optimizers.html">Optimizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.energy.energy_calculators.html">Energy Calculators</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Evolutionary Algorithm</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ea.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.fitness_calculators.html">Fitness Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.fitness_normalizers.html">Fitness Normalizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.selectors.html">Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.mutators.html">Mutation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.crossers.html">Crossover</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.plotters.html">Plotting</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">stk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/stk.calculators.optimization.mopac.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="module-stk.calculators.optimization.mopac"></span><p>Defines MOPAC optimizers.</p>
+<dl class="class">
+<dt id="stk.calculators.optimization.mopac.MOPAC">
+<em class="property">class </em><code class="sig-name descname">MOPAC</code><span class="sig-paren">(</span><em class="sig-param">mopac_path</em>, <em class="sig-param">hamiltonian='PM7'</em>, <em class="sig-param">method='OPT'</em>, <em class="sig-param">minimum_gradient=0.01</em>, <em class="sig-param">eps=80.1</em>, <em class="sig-param">charge=0</em>, <em class="sig-param">fileout='PDBOUT'</em>, <em class="sig-param">timeout=172800</em>, <em class="sig-param">use_cache=False</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.mopac.MOPAC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.Optimizer" title="stk.calculators.optimization.optimizers.Optimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.optimization.optimizers.Optimizer</span></code></a></p>
+<p>Uses MOPAC to optimize molcules.</p>
+<dl class="attribute">
+<dt id="stk.calculators.optimization.mopac.MOPAC.mopac_path">
+<code class="sig-name descname">mopac_path</code><a class="headerlink" href="#stk.calculators.optimization.mopac.MOPAC.mopac_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>The full path to the MOPAC suite on the user’s
+machine. For example, in a default MacOS installation the
+folder will probably be something like
+<code class="docutils literal notranslate"><span class="pre">/opt/mopac/MOPAC2016.exe</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stk.calculators.optimization.mopac.MOPAC.hamiltonian">
+<code class="sig-name descname">hamiltonian</code><a class="headerlink" href="#stk.calculators.optimization.mopac.MOPAC.hamiltonian" title="Permalink to this definition">¶</a></dt>
+<dd><p>A series of different methods can be selected:
+<code class="docutils literal notranslate"><span class="pre">'PM7'</span></code>, <code class="docutils literal notranslate"><span class="pre">'PM6'</span></code>, <code class="docutils literal notranslate"><span class="pre">'AM1'</span></code>, <code class="docutils literal notranslate"><span class="pre">'CIS'</span></code>
+<code class="docutils literal notranslate"><span class="pre">'(CISD,</span> <span class="pre">CISDT)'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MNDO'</span></code>, <code class="docutils literal notranslate"><span class="pre">'RM1'</span></code>, etc.</p>
+<p><code class="docutils literal notranslate"><span class="pre">'PM7'</span></code> is the latest version of the reparametrization of
+NDDO theory, where all the atomic and diatomic
+parameters were re-optimized / updated from PM6 <a class="footnote-reference brackets" href="#id2" id="id1">1</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stk.calculators.optimization.mopac.MOPAC.method">
+<code class="sig-name descname">method</code><a class="headerlink" href="#stk.calculators.optimization.mopac.MOPAC.method" title="Permalink to this definition">¶</a></dt>
+<dd><p>The default calculation consists of a geometry
+optimization. You can run single point calculations
+(SCF) or transition search algorithms (TS). Refer to
+the MOPAC website for specific keywords.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stk.calculators.optimization.mopac.MOPAC.minimum_gradient">
+<code class="sig-name descname">minimum_gradient</code><a class="headerlink" href="#stk.calculators.optimization.mopac.MOPAC.minimum_gradient" title="Permalink to this definition">¶</a></dt>
+<dd><p>The gradient at which the geometry optimization reaches
+the convergence criteria (<code class="docutils literal notranslate"><span class="pre">kcal</span></code> / <code class="docutils literal notranslate"><span class="pre">mol</span></code> /
+<code class="docutils literal notranslate"><span class="pre">Angstrom</span></code>). For small system and high precision
+work, <code class="docutils literal notranslate"><span class="pre">0.01</span></code> is recommended.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stk.calculators.optimization.mopac.MOPAC.eps">
+<code class="sig-name descname">eps</code><a class="headerlink" href="#stk.calculators.optimization.mopac.MOPAC.eps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the dielectric constant for the solvent. Presence
+of this keyword will cause the COSMO (Conductor-like
+Screening Model) method to be used to approximate the
+effect of a solvent model surrounding the molecule.
+Solvents with a low dielectric constant are not likely
+to work well with this model. <code class="docutils literal notranslate"><span class="pre">0</span></code> means that the
+dielectric constant is not included in the calculation.
+<code class="docutils literal notranslate"><span class="pre">80.1</span></code> can be used to model a water environment at
+room temperature.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stk.calculators.optimization.mopac.MOPAC.charge">
+<code class="sig-name descname">charge</code><a class="headerlink" href="#stk.calculators.optimization.mopac.MOPAC.charge" title="Permalink to this definition">¶</a></dt>
+<dd><p>The charge of the system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stk.calculators.optimization.mopac.MOPAC.fileout">
+<code class="sig-name descname">fileout</code><a class="headerlink" href="#stk.calculators.optimization.mopac.MOPAC.fileout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines the output file type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stk.calculators.optimization.mopac.MOPAC.timeout">
+<code class="sig-name descname">timeout</code><a class="headerlink" href="#stk.calculators.optimization.mopac.MOPAC.timeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>The amount in seconds the optimization is allowed to
+run before being terminated. The default value is <code class="docutils literal notranslate"><span class="pre">2</span></code>
+days or <code class="docutils literal notranslate"><span class="pre">172,800</span></code> seconds. <code class="docutils literal notranslate"><span class="pre">None</span></code> means there
+is no timeout.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><a class="reference external" href="http://openmopac.net/PM7_accuracy/PM7_accuracy.html">http://openmopac.net/PM7_accuracy/PM7_accuracy.html</a></p>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.optimization.mopac.MOPAC.add_to_cache" title="stk.calculators.optimization.mopac.MOPAC.add_to_cache"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_to_cache</span></code></a>(self, mol)</p></td>
+<td><p>Add a molecule to the cache.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.optimization.mopac.MOPAC.generate_mop" title="stk.calculators.optimization.mopac.MOPAC.generate_mop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_mop</span></code></a>(self, mol, conformer)</p></td>
+<td><p>Creates the <code class="docutils literal notranslate"><span class="pre">.mop</span></code> file for the optimization.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.optimization.mopac.MOPAC.is_caching" title="stk.calculators.optimization.mopac.MOPAC.is_caching"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_caching</span></code></a>(self)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the optimizer has caching turned on.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.optimization.mopac.MOPAC.kill_mopac" title="stk.calculators.optimization.mopac.MOPAC.kill_mopac"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kill_mopac</span></code></a>(self, mol)</p></td>
+<td><p>Kills an in-progress MOPAC run.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.optimization.mopac.MOPAC.mop_header" title="stk.calculators.optimization.mopac.MOPAC.mop_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mop_header</span></code></a>(self)</p></td>
+<td><p>Returns the header of the <code class="docutils literal notranslate"><span class="pre">.mop</span></code> file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.optimization.mopac.MOPAC.optimize" title="stk.calculators.optimization.mopac.MOPAC.optimize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">optimize</span></code></a>(self, mol[, conformer])</p></td>
+<td><p>Optimizes a molecule.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.optimization.mopac.MOPAC.set_cache_use" title="stk.calculators.optimization.mopac.MOPAC.set_cache_use"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cache_use</span></code></a>(self, use_cache)</p></td>
+<td><p>Set cache use on or off.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 57%" />
+<col style="width: 43%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>run_mopac</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.calculators.optimization.mopac.MOPAC.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mopac_path</em>, <em class="sig-param">hamiltonian='PM7'</em>, <em class="sig-param">method='OPT'</em>, <em class="sig-param">minimum_gradient=0.01</em>, <em class="sig-param">eps=80.1</em>, <em class="sig-param">charge=0</em>, <em class="sig-param">fileout='PDBOUT'</em>, <em class="sig-param">timeout=172800</em>, <em class="sig-param">use_cache=False</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.mopac.MOPAC.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes a <a class="reference internal" href="#stk.calculators.optimization.mopac.MOPAC" title="stk.calculators.optimization.mopac.MOPAC"><code class="xref py py-class docutils literal notranslate"><span class="pre">MOPAC</span></code></a> instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mopac_path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The full path to the MOPAC suite on the user’s
+machine. For example, in a default MacOS installation the
+folder will probably be something like
+<code class="docutils literal notranslate"><span class="pre">/opt/mopac/MOPAC2016.exe</span></code>.</p></li>
+<li><p><strong>hamiltonian</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, optional) – <p>A series of different methods can be selected:
+<code class="docutils literal notranslate"><span class="pre">'PM7'</span></code>, <code class="docutils literal notranslate"><span class="pre">'PM6'</span></code>, <code class="docutils literal notranslate"><span class="pre">'AM1'</span></code>, <code class="docutils literal notranslate"><span class="pre">'CIS'</span></code>
+<code class="docutils literal notranslate"><span class="pre">'(CISD,</span> <span class="pre">CISDT)'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MNDO'</span></code>, <code class="docutils literal notranslate"><span class="pre">'RM1'</span></code>, etc.</p>
+<p><code class="docutils literal notranslate"><span class="pre">'PM7'</span></code> is the latest version of the reparametrization of
+NDDO theory, where all the atomic and diatomic
+parameters were re-optimized / updated from PM6 <a class="footnote-reference brackets" href="#id4" id="id3">2</a>.</p>
+</p></li>
+<li><p><strong>method</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, optional) – The default calculation consists of a geometry
+optimization. You can run single point calculations
+(SCF) or transition search algorithms (TS). Refer to
+the MOPAC website for specific keywords.</p></li>
+<li><p><strong>minimum_gradient</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, optional) – The gradient at which the geometry optimization reaches
+the convergence criteria (<code class="docutils literal notranslate"><span class="pre">kcal</span></code> / <code class="docutils literal notranslate"><span class="pre">mol</span></code> /
+<code class="docutils literal notranslate"><span class="pre">Angstrom</span></code>). For small system and high precision
+work, <code class="docutils literal notranslate"><span class="pre">0.01</span></code> is recommended.</p></li>
+<li><p><strong>eps</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, optional) – Sets the dielectric constant for the solvent. Presence
+of this keyword will cause the COSMO (Conductor-like
+Screening Model) method to be used to approximate the
+effect of a solvent model surrounding the molecule.
+Solvents with a low dielectric constant are not likely
+to work well with this model. <code class="docutils literal notranslate"><span class="pre">0</span></code> means that the
+dielectric constant is not included in the calculation.
+<code class="docutils literal notranslate"><span class="pre">80.1</span></code> can be used to model a water environment at
+room temperature.</p></li>
+<li><p><strong>charge</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, optional) – The charge of the system.</p></li>
+<li><p><strong>fileout</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, optional) – Determines the output file type.</p></li>
+<li><p><strong>timeout</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, optional) – The amount in seconds the optimization is allowed to
+run before being terminated. The default value is <code class="docutils literal notranslate"><span class="pre">2</span></code>
+days or <code class="docutils literal notranslate"><span class="pre">172,800</span></code> seconds. <code class="docutils literal notranslate"><span class="pre">None</span></code> means there
+is no timeout.</p></li>
+<li><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> <a class="reference internal" href="#stk.calculators.optimization.mopac.MOPAC.optimize" title="stk.calculators.optimization.mopac.MOPAC.optimize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">optimize()</span></code></a> will not run twice on the same
+molecule and conformer.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id3">2</a></span></dt>
+<dd><p><a class="reference external" href="http://openmopac.net/PM7_accuracy/PM7_accuracy.html">http://openmopac.net/PM7_accuracy/PM7_accuracy.html</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.optimization.mopac.MOPAC.add_to_cache">
+<code class="sig-name descname">add_to_cache</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.mopac.MOPAC.add_to_cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a molecule to the cache.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule to be added to the cache.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.optimization.mopac.MOPAC.generate_mop">
+<code class="sig-name descname">generate_mop</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em>, <em class="sig-param">conformer</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.mopac.MOPAC.generate_mop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the <code class="docutils literal notranslate"><span class="pre">.mop</span></code> file for the optimization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule which is to be optimized. Its molecular
+structure file is converted to a <code class="docutils literal notranslate"><span class="pre">.mop</span></code> file.</p></li>
+<li><p><strong>conformer</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The conformer of the molecule to be used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full path of the newly created <code class="docutils literal notranslate"><span class="pre">.mop</span></code> file.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.optimization.mopac.MOPAC.is_caching">
+<code class="sig-name descname">is_caching</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.mopac.MOPAC.is_caching" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the optimizer has caching turned on.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the optimizer has caching turned on.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.optimization.mopac.MOPAC.kill_mopac">
+<code class="sig-name descname">kill_mopac</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.mopac.MOPAC.kill_mopac" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kills an in-progress MOPAC run.</p>
+<p>To kill a MOPAC run, a file with the molecule’s name and a
+<code class="docutils literal notranslate"><span class="pre">.end</span></code> extension is written.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule being optimized.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.optimization.mopac.MOPAC.mop_header">
+<code class="sig-name descname">mop_header</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.mopac.MOPAC.mop_header" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the header of the <code class="docutils literal notranslate"><span class="pre">.mop</span></code> file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>String containing all the MOPAC keywords correctly
+formatted for the input file.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.optimization.mopac.MOPAC.optimize">
+<code class="sig-name descname">optimize</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em>, <em class="sig-param">conformer=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.mopac.MOPAC.optimize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Optimizes a molecule.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule to be optimized.</p></li>
+<li><p><strong>conformer</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The conformer to use.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.optimization.mopac.MOPAC.run_mopac">
+<code class="sig-name descname">run_mopac</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em>, <em class="sig-param">mopac_path</em>, <em class="sig-param">settings</em>, <em class="sig-param">timeout=7200</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.mopac.MOPAC.run_mopac" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.optimization.mopac.MOPAC.set_cache_use">
+<code class="sig-name descname">set_cache_use</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">use_cache</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.mopac.MOPAC.set_cache_use" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set cache use on or off.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> if the cache is to be used.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Lukas Turcani
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

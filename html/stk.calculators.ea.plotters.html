@@ -1,0 +1,489 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Plotting &mdash; stk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> stk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">stk</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_examples.html">Basic Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cookbook.html">Cookbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Molecules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.molecules.building_block.html">Building Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html">Constructed Molecule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.functional_groups.html">Functional Groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.populations.html">Populations</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Topology Graphs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.polymer.html">Polymer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.cage.base.html">Organic Cage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.cof.html">Covalent Organic Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.host_guest.html">Host Guest Complex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.macrocycle.html">Macrocycle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.rotaxane.html">Rotaxane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html">Adding Topology Graphs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Calculators</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="calculators.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.optimization.optimizers.html">Optimizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.energy.energy_calculators.html">Energy Calculators</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Evolutionary Algorithm</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ea.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.fitness_calculators.html">Fitness Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.fitness_normalizers.html">Fitness Normalizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.selectors.html">Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.mutators.html">Mutation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.crossers.html">Crossover</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Plotting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#making-new-plotters">Making New Plotters</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">stk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Plotting</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/stk.calculators.ea.plotters.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="module-stk.calculators.ea.plotters"></span><div class="section" id="plotting">
+<h1>Plotting<a class="headerlink" href="#plotting" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#stk.calculators.ea.plotters.ProgressPlotter" title="stk.calculators.ea.plotters.ProgressPlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProgressPlotter</span></code></a></p></li>
+<li><p><a class="reference internal" href="#stk.calculators.ea.plotters.SelectionPlotter" title="stk.calculators.ea.plotters.SelectionPlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SelectionPlotter</span></code></a></p></li>
+</ol>
+<p>Plotting is done by <a class="reference internal" href="#stk.calculators.ea.plotters.Plotter" title="stk.calculators.ea.plotters.Plotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plotter</span></code></a> objects. Plotters are calculators
+which produce graphs. They generally do this
+by decorating other calculators to hook into them, collect data from
+them and then plot the results. To see examples of how to use plotters
+work, look at the documentation of the individual plotters. For example
+<a class="reference internal" href="#stk.calculators.ea.plotters.SelectionPlotter" title="stk.calculators.ea.plotters.SelectionPlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SelectionPlotter</span></code></a> and <a class="reference internal" href="#stk.calculators.ea.plotters.ProgressPlotter" title="stk.calculators.ea.plotters.ProgressPlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProgressPlotter</span></code></a>.</p>
+<div class="section" id="making-new-plotters">
+<span id="adding-plotters"></span><h2>Making New Plotters<a class="headerlink" href="#making-new-plotters" title="Permalink to this headline">¶</a></h2>
+<p>New plotters should inherit <a class="reference internal" href="#stk.calculators.ea.plotters.Plotter" title="stk.calculators.ea.plotters.Plotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plotter</span></code></a> and define a
+<a class="reference internal" href="#stk.calculators.ea.plotters.Plotter.plot" title="stk.calculators.ea.plotters.Plotter.plot"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot()</span></code></a> method. Note that plotters do no necessarily have
+to make a plot when <a class="reference internal" href="#stk.calculators.ea.plotters.Plotter.plot" title="stk.calculators.ea.plotters.Plotter.plot"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot()</span></code></a> is made. For example,
+<a class="reference internal" href="#stk.calculators.ea.plotters.SelectionPlotter" title="stk.calculators.ea.plotters.SelectionPlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SelectionPlotter</span></code></a> plots every time the
+<a class="reference internal" href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> it is used with becomes exhausted and it’s
+<a class="reference internal" href="#stk.calculators.ea.plotters.SelectionPlotter.plot" title="stk.calculators.ea.plotters.SelectionPlotter.plot"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot()</span></code></a> does nothing.</p>
+<dl class="class">
+<dt id="stk.calculators.ea.plotters.Plotter">
+<em class="property">class </em><code class="sig-name descname">Plotter</code><a class="headerlink" href="#stk.calculators.ea.plotters.Plotter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A base class for plotters.</p>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.plotters.Plotter.plot" title="stk.calculators.ea.plotters.Plotter.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code></a>(self, progress)</p></td>
+<td><p>Plots a graph.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.calculators.ea.plotters.Plotter.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">/</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.plotters.Plotter.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.plotters.Plotter.plot">
+<code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">progress</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.plotters.Plotter.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots a graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>progress</strong> (<a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a>) – A <a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a> where each generation of the GA is
+a subpopulation.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stk.calculators.ea.plotters.ProgressPlotter">
+<em class="property">class </em><code class="sig-name descname">ProgressPlotter</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">property_fn</em>, <em class="sig-param">y_label</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.plotters.ProgressPlotter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stk.calculators.ea.plotters.Plotter" title="stk.calculators.ea.plotters.Plotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.plotters.Plotter</span></code></a></p>
+<p>Plots how a property changes during a GA run.</p>
+<p>The produced plot will show the GA generations on the x axis and
+the min, mean and max values of an attribute on the y axis.</p>
+<p class="rubric">Examples</p>
+<p>Plot how fitness value changes with GA generations</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="c1"># progress has subpopulations where each subpopulation is a</span>
+<span class="c1"># generation of a GA.</span>
+<span class="n">progress</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+<span class="c1"># Make the plotter which plots the fitness change across</span>
+<span class="c1"># generations.</span>
+<span class="n">plotter</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ProgressPlotter</span><span class="p">(</span>
+    <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;fitness_plot&#39;</span><span class="p">,</span>
+    <span class="n">property_fn</span><span class="o">=</span><span class="k">lambda</span> <span class="n">mol</span><span class="p">:</span> <span class="n">mol</span><span class="o">.</span><span class="n">fitness</span><span class="p">,</span>
+    <span class="n">y_label</span><span class="o">=</span><span class="s1">&#39;Fitness&#39;</span>
+<span class="p">)</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">progress</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Plot how the number of atoms changes with GA generations</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plotter</span> <span class="o">=</span> <span class="n">ProgressPlotter</span><span class="p">(</span>
+    <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;atom_plot&#39;</span><span class="p">,</span>
+    <span class="n">property_fn</span><span class="o">=</span><span class="k">lambda</span> <span class="n">mol</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">atoms</span><span class="p">),</span>
+    <span class="n">y_label</span><span class="o">=</span><span class="s1">&#39;Number of Atoms&#39;</span>
+<span class="p">)</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">progress</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.plotters.ProgressPlotter.plot" title="stk.calculators.ea.plotters.ProgressPlotter.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code></a>(self, progress)</p></td>
+<td><p>Plot a progress plot.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.calculators.ea.plotters.ProgressPlotter.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">filename</em>, <em class="sig-param">property_fn</em>, <em class="sig-param">y_label</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.plotters.ProgressPlotter.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a <a class="reference internal" href="#stk.calculators.ea.plotters.ProgressPlotter" title="stk.calculators.ea.plotters.ProgressPlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProgressPlotter</span></code></a> instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The basename of the files. This means it should not include
+file extensions.</p></li>
+<li><p><strong>propety_fn</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code>) – A <code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code> which takes a <code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span>
+<span class="pre">object</span> <span class="pre">and</span> <span class="pre">returns</span> <span class="pre">a</span> <span class="pre">property</span> <span class="pre">value</span> <span class="pre">of</span> <span class="pre">that</span> <span class="pre">molecule,</span>
+<span class="pre">which</span> <span class="pre">is</span> <span class="pre">used</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">plot.</span> <span class="pre">The</span> <span class="pre">:class:`callable</span></code> must
+return a valid value for each <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> in the
+population.</p></li>
+<li><p><strong>y_label</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The y label for the produced graph.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.plotters.ProgressPlotter.plot">
+<code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">progress</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.plotters.ProgressPlotter.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot a progress plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>progress</strong> (<a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a>) – A <a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a> where each generation of the GA is
+a subpopulation.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stk.calculators.ea.plotters.SelectionPlotter">
+<em class="property">class </em><code class="sig-name descname">SelectionPlotter</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">selector</em>, <em class="sig-param">x_label='Molecule: name - fitness value'</em>, <em class="sig-param">molecule_label=&lt;function SelectionPlotter.&lt;lambda&gt;&gt;</em>, <em class="sig-param">heat_map_value=&lt;function SelectionPlotter.&lt;lambda&gt;&gt;</em>, <em class="sig-param">heat_map_label='Fitness'</em>, <em class="sig-param">order_by=&lt;function SelectionPlotter.&lt;lambda&gt;&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.plotters.SelectionPlotter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stk.calculators.ea.plotters.Plotter" title="stk.calculators.ea.plotters.Plotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.plotters.Plotter</span></code></a></p>
+<p>Plots which molecules a <a class="reference internal" href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> selects.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="c1"># Make a population of molecules.</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+<span class="c1"># Make a selector.</span>
+<span class="n">roulette</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Roulette</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Make a plotter.</span>
+<span class="n">stk</span><span class="o">.</span><span class="n">SelectionPlotter</span><span class="p">(</span><span class="s1">&#39;roulette_counter&#39;</span><span class="p">,</span> <span class="n">roulette</span><span class="p">)</span>
+
+<span class="c1"># Select the molecules.</span>
+<span class="n">selected</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">roulette</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pop</span><span class="p">))</span>
+
+<span class="c1"># There should now be a file called &quot;roulette_counter_1.png&quot;</span>
+<span class="c1"># which shows a graph of all the selected molecules.</span>
+
+<span class="c1"># Make another population.</span>
+<span class="n">pop2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+<span class="c1"># Select molecules from this other population.</span>
+<span class="n">selected2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">roulette</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pop2</span><span class="p">))</span>
+
+<span class="c1"># There should now be a file called &quot;roulette_counter_2.png&quot;</span>
+<span class="c1"># which shows a graph of all the selected molecules.</span>
+
+<span class="c1"># Select from the original population again.</span>
+<span class="n">selected3</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">roulette</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pop</span><span class="p">))</span>
+
+<span class="c1"># There should now be a file called &quot;roulette_counter_3.png&quot;</span>
+<span class="c1"># which shows a graph of all the selected molecules.</span>
+
+<span class="c1"># And so on every time you use &quot;roulette.select()&quot;.</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.plotters.SelectionPlotter.plot" title="stk.calculators.ea.plotters.SelectionPlotter.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code></a>(self, progress)</p></td>
+<td><p>Does nothing.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.calculators.ea.plotters.SelectionPlotter.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">filename</em>, <em class="sig-param">selector</em>, <em class="sig-param">x_label='Molecule: name - fitness value'</em>, <em class="sig-param">molecule_label=&lt;function SelectionPlotter.&lt;lambda&gt; at 0x7f276368e0d0&gt;</em>, <em class="sig-param">heat_map_value=&lt;function SelectionPlotter.&lt;lambda&gt; at 0x7f276368e158&gt;</em>, <em class="sig-param">heat_map_label='Fitness'</em>, <em class="sig-param">order_by=&lt;function SelectionPlotter.&lt;lambda&gt; at 0x7f276368e1e0&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.plotters.SelectionPlotter.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a <a class="reference internal" href="#stk.calculators.ea.plotters.SelectionPlotter" title="stk.calculators.ea.plotters.SelectionPlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SelectionPlotter</span></code></a> instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The basename of the files. This means it should not include
+file extensions.</p></li>
+<li><p><strong>selector</strong> (<a class="reference internal" href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a>) – The <a class="reference internal" href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> whose selection of molecules is
+plotted.</p></li>
+<li><p><strong>x_label</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, optional) – The label use for the x axis.</p></li>
+<li><p><strong>molecule_label</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code>, optional) – A <code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code> which takes one parameter, a
+<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> which is to be included on the x-axis
+of the counter plot. It shoud return a string, which is the
+label used for the <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> on the plot.</p></li>
+<li><p><strong>heat_map_value</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code>, optional) – <dl class="simple">
+<dt>A <code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code>, which takes a single parameter,</dt><dd><p>a <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> which is to be included on the x-axis
+and returns a value. The value is used for coloring the
+heat map used in the plot.</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>heat_map_label</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, optional) – The label used for the heat map key.</p></li>
+<li><p><strong>order_by</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code>, optional) – A <code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code>, which takes a single parameter, a
+<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> which is to be included on the x-axis
+and returns a value. The value is used to sort the plotted
+molecules along the x-axis in descending order.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.plotters.SelectionPlotter.plot">
+<code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">progress</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.plotters.SelectionPlotter.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does nothing.</p>
+<p>This <a class="reference internal" href="#stk.calculators.ea.plotters.Plotter" title="stk.calculators.ea.plotters.Plotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plotter</span></code></a> creates a plot each time <code class="xref py py-attr docutils literal notranslate"><span class="pre">selector</span></code>
+is finished selecting molecules.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>progress</strong> (<a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a>) – A <a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a> where each generation of the GA is
+a subpopulation.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Lukas Turcani
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

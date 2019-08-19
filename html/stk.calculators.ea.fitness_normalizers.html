@@ -1,0 +1,962 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Fitness Normalizers &mdash; stk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> stk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">stk</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_examples.html">Basic Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cookbook.html">Cookbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Molecules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.molecules.building_block.html">Building Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html">Constructed Molecule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.functional_groups.html">Functional Groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.populations.html">Populations</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Topology Graphs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.polymer.html">Polymer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.cage.base.html">Organic Cage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.cof.html">Covalent Organic Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.host_guest.html">Host Guest Complex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.macrocycle.html">Macrocycle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.rotaxane.html">Rotaxane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html">Adding Topology Graphs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Calculators</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="calculators.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.optimization.optimizers.html">Optimizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.energy.energy_calculators.html">Energy Calculators</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Evolutionary Algorithm</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ea.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.fitness_calculators.html">Fitness Calculators</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Fitness Normalizers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#making-new-fitness-normalizers">Making New Fitness Normalizers</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.selectors.html">Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.mutators.html">Mutation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.crossers.html">Crossover</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.plotters.html">Plotting</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">stk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Fitness Normalizers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/stk.calculators.ea.fitness_normalizers.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="module-stk.calculators.ea.fitness_normalizers"></span><div class="section" id="fitness-normalizers">
+<h1>Fitness Normalizers<a class="headerlink" href="#fitness-normalizers" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.NullFitnessNormalizer" title="stk.calculators.ea.fitness_normalizers.NullFitnessNormalizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">NullFitnessNormalizer</span></code></a></p></li>
+<li><p><a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.Power" title="stk.calculators.ea.fitness_normalizers.Power"><code class="xref py py-class docutils literal notranslate"><span class="pre">Power</span></code></a></p></li>
+<li><p><a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.Multiply" title="stk.calculators.ea.fitness_normalizers.Multiply"><code class="xref py py-class docutils literal notranslate"><span class="pre">Multiply</span></code></a></p></li>
+<li><p><a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.Sum" title="stk.calculators.ea.fitness_normalizers.Sum"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sum</span></code></a></p></li>
+<li><p><a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.ScaleByMean" title="stk.calculators.ea.fitness_normalizers.ScaleByMean"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScaleByMean</span></code></a></p></li>
+<li><p><a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.ShiftUp" title="stk.calculators.ea.fitness_normalizers.ShiftUp"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShiftUp</span></code></a></p></li>
+<li><p><a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.NormalizerSequence" title="stk.calculators.ea.fitness_normalizers.NormalizerSequence"><code class="xref py py-class docutils literal notranslate"><span class="pre">NormalizerSequence</span></code></a></p></li>
+</ol>
+<p>Fitness normalizers are classes which are responsible for normalizing
+the fitness values in a <a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a>. They analyze the
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code> values across the entire population and update them.
+Calling <a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.FitnessNormalizer.normalize" title="stk.calculators.ea.fitness_normalizers.FitnessNormalizer.normalize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">normalize()</span></code></a> directly modifies the
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code> attribute of <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> objects.</p>
+<p>To see how <a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.FitnessNormalizer" title="stk.calculators.ea.fitness_normalizers.FitnessNormalizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">FitnessNormalizer</span></code></a> can be used, look at the
+documention of the classes which inherit it, for example
+<a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.Power" title="stk.calculators.ea.fitness_normalizers.Power"><code class="xref py py-class docutils literal notranslate"><span class="pre">Power</span></code></a>, <a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.Sum" title="stk.calculators.ea.fitness_normalizers.Sum"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sum</span></code></a> <a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.ScaleByMean" title="stk.calculators.ea.fitness_normalizers.ScaleByMean"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScaleByMean</span></code></a>. In addition,
+multiple <a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.FitnessNormalizer" title="stk.calculators.ea.fitness_normalizers.FitnessNormalizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">FitnessNormalizer</span></code></a> can be chained using
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">NormalizerSequence()</span></code>.</p>
+<div class="section" id="making-new-fitness-normalizers">
+<span id="adding-fitness-normalizers"></span><h2>Making New Fitness Normalizers<a class="headerlink" href="#making-new-fitness-normalizers" title="Permalink to this headline">¶</a></h2>
+<p>A new class inheriting <a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.FitnessNormalizer" title="stk.calculators.ea.fitness_normalizers.FitnessNormalizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">FitnessNormalizer</span></code></a> must be made.
+The class must define a <a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.FitnessNormalizer.normalize" title="stk.calculators.ea.fitness_normalizers.FitnessNormalizer.normalize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">normalize()</span></code></a> method,
+which takes one argument, which is a <a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a> of
+<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>.</p>
+<dl class="class">
+<dt id="stk.calculators.ea.fitness_normalizers.FitnessNormalizer">
+<em class="property">class </em><code class="sig-name descname">FitnessNormalizer</code><a class="headerlink" href="#stk.calculators.ea.fitness_normalizers.FitnessNormalizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Normalizes fitness values across a <a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a>.</p>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.FitnessNormalizer.normalize" title="stk.calculators.ea.fitness_normalizers.FitnessNormalizer.normalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalize</span></code></a>(self, population)</p></td>
+<td><p>Normalize the fitness values in <cite>population</cite>.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.calculators.ea.fitness_normalizers.FitnessNormalizer.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.fitness_normalizers.FitnessNormalizer.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.fitness_normalizers.FitnessNormalizer.normalize">
+<code class="sig-name descname">normalize</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">population</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.fitness_normalizers.FitnessNormalizer.normalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalize the fitness values in <cite>population</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>population</strong> (<a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a>) – A <a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a> of molecules whose fitness values
+should be normalized.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>None</strong> – The <code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code> attributes of the molecules in
+<cite>population</cite> are modified in place.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stk.calculators.ea.fitness_normalizers.Multiply">
+<em class="property">class </em><code class="sig-name descname">Multiply</code><span class="sig-paren">(</span><em class="sig-param">coefficient</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.fitness_normalizers.Multiply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.FitnessNormalizer" title="stk.calculators.ea.fitness_normalizers.FitnessNormalizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.fitness_normalizers.FitnessNormalizer</span></code></a></p>
+<p>Multiplies the fitness value by some coefficent.</p>
+<p class="rubric">Examples</p>
+<p>Multiplying a <code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code> value by a coefficent.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="c1"># Create the molecules and give them some arbitrary fitness.</span>
+<span class="c1"># Normally the fitness would be set by the get_fitness() method</span>
+<span class="c1"># of some a fitness calculator.</span>
+
+<span class="n">mol1</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NCCCN&#39;</span><span class="p">)</span>
+<span class="n">mol2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;[Br]CCC[Br]&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;bromine&#39;</span><span class="p">])</span>
+<span class="n">mol3</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
+    <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">mol2</span><span class="p">],</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">5</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">mol1</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">mol2</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">mol3</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="c1"># Place the molecules in a Population.</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="n">mol1</span><span class="p">,</span> <span class="n">mol2</span><span class="p">,</span> <span class="n">mol3</span><span class="p">)</span>
+
+<span class="c1"># Create the normalizer.</span>
+<span class="n">multiply</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Multiply</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Normalize the fitness values.</span>
+<span class="n">multiply</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
+
+<span class="c1"># mol1.fitness is now 2.</span>
+<span class="c1"># mol2.fitness is now 4.</span>
+<span class="c1"># mol3.fitness is now 6</span>
+</pre></div>
+</div>
+<p>Multiplying a <code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code> vector by some coefficent.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Give the molecules some arbitrary fitness vectors.</span>
+<span class="c1"># Normally the fitness would be set by the get_fitness() method</span>
+<span class="c1"># of some a fitness calculator.</span>
+<span class="n">mol1</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">mol2</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">mol3</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="c1"># Place the molecules in a Population.</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="n">mol1</span><span class="p">,</span> <span class="n">mol2</span><span class="p">,</span> <span class="n">mol3</span><span class="p">)</span>
+
+<span class="c1"># Create the normalizer.</span>
+<span class="n">multiply</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Multiply</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Normalize the fitness values.</span>
+<span class="n">multiply</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
+
+<span class="c1"># mol1.fitness is now [2, 4, 6].</span>
+<span class="c1"># mol2.fitness is now [8, 10, 12].</span>
+<span class="c1"># mol3.fitness is now [14, 16, 18]</span>
+</pre></div>
+</div>
+<p>Multiplying a <code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code> vector by different coefficents.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Give the molecules some arbitrary fitness vectors.</span>
+<span class="c1"># Normally the fitness would be set by the get_fitness() method</span>
+<span class="c1"># of some a fitness calculator.</span>
+<span class="n">mol1</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">mol2</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">mol3</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="c1"># Create the normalizer.</span>
+<span class="n">multiply</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Multiply</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+
+<span class="c1"># Normalize the fitness values.</span>
+<span class="n">multiply</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
+
+<span class="c1"># mol1.fitness is now [1, 4, 9].</span>
+<span class="c1"># mol2.fitness is now [4, 10, 18].</span>
+<span class="c1"># mol3.fitness is now [7, 16, 27]</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.Multiply.normalize" title="stk.calculators.ea.fitness_normalizers.Multiply.normalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalize</span></code></a>(self, population)</p></td>
+<td><p>Normalize the fitness values in <cite>population</cite>.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.calculators.ea.fitness_normalizers.Multiply.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">coefficient</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.fitness_normalizers.Multiply.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a <a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.Multiply" title="stk.calculators.ea.fitness_normalizers.Multiply"><code class="xref py py-class docutils literal notranslate"><span class="pre">Multiply</span></code></a> instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>coefficent</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The cofficients each <code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code> value by. Can be
+a single number or multiple numbers.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.fitness_normalizers.Multiply.normalize">
+<code class="sig-name descname">normalize</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">population</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.fitness_normalizers.Multiply.normalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalize the fitness values in <cite>population</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>population</strong> (<a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a>) – A <a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a> of molecules whose fitness values
+should be normalized.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>None</strong> – The <code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code> attributes of the molecules in
+<cite>population</cite> are modified in place.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stk.calculators.ea.fitness_normalizers.NormalizerSequence">
+<em class="property">class </em><code class="sig-name descname">NormalizerSequence</code><span class="sig-paren">(</span><em class="sig-param">*normalizers</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.fitness_normalizers.NormalizerSequence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.FitnessNormalizer" title="stk.calculators.ea.fitness_normalizers.FitnessNormalizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.fitness_normalizers.FitnessNormalizer</span></code></a></p>
+<p>Applies a collection of normalizers in sequence.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="c1"># Make the normalizer.</span>
+<span class="n">sequence</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">NormalizerSequence</span><span class="p">(</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">Power</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">Sum</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="c1"># Make a population of molecules.</span>
+<span class="n">mol1</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NCCCN&#39;</span><span class="p">)</span>
+<span class="n">mol2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;[Br]CCC[Br]&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;bromine&#39;</span><span class="p">])</span>
+<span class="n">mol3</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
+    <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">mol2</span><span class="p">],</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">5</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="n">mol1</span><span class="p">,</span> <span class="n">mol2</span><span class="p">,</span> <span class="n">mol3</span><span class="p">)</span>
+
+<span class="c1"># Set the fitness values.</span>
+<span class="n">mol1</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">mol2</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">mol3</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="c1"># Apply the normalizer.</span>
+<span class="n">sequence</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
+
+<span class="c1"># mol1.fitness is now 14.</span>
+<span class="c1"># mol2.fitness is now 77.</span>
+<span class="c1"># mol3.fitness is now 194.</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.NormalizerSequence.normalize" title="stk.calculators.ea.fitness_normalizers.NormalizerSequence.normalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalize</span></code></a>(self, population)</p></td>
+<td><p>Normalize the fitness values in <cite>population</cite>.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.calculators.ea.fitness_normalizers.NormalizerSequence.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">*normalizers</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.fitness_normalizers.NormalizerSequence.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a <a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.NormalizerSequence" title="stk.calculators.ea.fitness_normalizers.NormalizerSequence"><code class="xref py py-class docutils literal notranslate"><span class="pre">NormalizerSequence</span></code></a> instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>normalizers</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.FitnessNormalizer" title="stk.calculators.ea.fitness_normalizers.FitnessNormalizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">FitnessNormalizer</span></code></a>) – The normalizers which get applied in sequence by
+<a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.NormalizerSequence.normalize" title="stk.calculators.ea.fitness_normalizers.NormalizerSequence.normalize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">normalize()</span></code></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.fitness_normalizers.NormalizerSequence.normalize">
+<code class="sig-name descname">normalize</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">population</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.fitness_normalizers.NormalizerSequence.normalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalize the fitness values in <cite>population</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>population</strong> (<a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a>) – A <a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a> of molecules whose fitness values
+should be normalized.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>None</strong> – The <code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code> attributes of the molecules in
+<cite>population</cite> are modified in place.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stk.calculators.ea.fitness_normalizers.NullFitnessNormalizer">
+<em class="property">class </em><code class="sig-name descname">NullFitnessNormalizer</code><a class="headerlink" href="#stk.calculators.ea.fitness_normalizers.NullFitnessNormalizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.FitnessNormalizer" title="stk.calculators.ea.fitness_normalizers.FitnessNormalizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.fitness_normalizers.FitnessNormalizer</span></code></a></p>
+<p>Does nothing.</p>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.NullFitnessNormalizer.normalize" title="stk.calculators.ea.fitness_normalizers.NullFitnessNormalizer.normalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalize</span></code></a>(self, population)</p></td>
+<td><p>Do not normalize the fitness values in <cite>population</cite>.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.calculators.ea.fitness_normalizers.NullFitnessNormalizer.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.fitness_normalizers.NullFitnessNormalizer.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.fitness_normalizers.NullFitnessNormalizer.normalize">
+<code class="sig-name descname">normalize</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">population</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.fitness_normalizers.NullFitnessNormalizer.normalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do not normalize the fitness values in <cite>population</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>population</strong> (<a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a>) – A <a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a> of molecules whose fitness values
+are not normalized.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>None</strong> – This method does nothing.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stk.calculators.ea.fitness_normalizers.Power">
+<em class="property">class </em><code class="sig-name descname">Power</code><span class="sig-paren">(</span><em class="sig-param">power</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.fitness_normalizers.Power" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.FitnessNormalizer" title="stk.calculators.ea.fitness_normalizers.FitnessNormalizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.fitness_normalizers.FitnessNormalizer</span></code></a></p>
+<p>Raises fitness values to some power.</p>
+<p>This works for cases where the <code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code> is single
+<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code> and where it is <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>.</p>
+<p class="rubric">Examples</p>
+<p>Raising a <code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code> value by some power.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="c1"># Create the molecules and give them some arbitrary fitness.</span>
+<span class="c1"># Normally the fitness would be set by the get_fitness() method of</span>
+<span class="c1"># some a fitness calculator.</span>
+<span class="n">mol1</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NCCCN&#39;</span><span class="p">)</span>
+<span class="n">mol2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;[Br]CCC[Br]&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;bromine&#39;</span><span class="p">])</span>
+<span class="n">mol3</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
+    <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">mol2</span><span class="p">],</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">5</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">mol1</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">mol2</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">mol3</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="c1"># Place the molecules in a Population.</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="n">mol1</span><span class="p">,</span> <span class="n">mol2</span><span class="p">,</span> <span class="n">mol3</span><span class="p">)</span>
+
+<span class="c1"># Create the normalizer.</span>
+<span class="n">power</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Power</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Normalize the fitness values.</span>
+<span class="n">power</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
+
+<span class="c1"># mol1.fitness is now 1.</span>
+<span class="c1"># mol2.fitness is now 4.</span>
+<span class="c1"># mol3.fitness is now 9</span>
+</pre></div>
+</div>
+<p>Raising a <code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code> vector by some power.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Normally the fitness would be set by the get_fitness() method</span>
+<span class="c1"># of some a fitness calculator.</span>
+<span class="n">mol1</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">mol2</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">mol3</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="c1"># Create the normalizer.</span>
+<span class="n">power</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Power</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Normalize the fitness values.</span>
+<span class="n">power</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
+
+<span class="c1"># mol1.fitness is now [1, 4, 9].</span>
+<span class="c1"># mol2.fitness is now [16, 25, 36].</span>
+<span class="c1"># mol3.fitness is now [49, 64, 81]</span>
+</pre></div>
+</div>
+<p>Raising a <code class="xref py py-attr docutils literal notranslate"><span class="pre">get_fitness</span></code> vector by different powers.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Give the molecules some arbitrary fitness vectors.</span>
+<span class="c1"># Normally the fitness would be set by the get_fitness() method</span>
+<span class="c1"># of some a fitness calculator.</span>
+<span class="n">mol1</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">mol2</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">mol3</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="c1"># Create the normalizer.</span>
+<span class="n">power</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Power</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+
+<span class="c1"># Normalize the fitness values.</span>
+<span class="n">power</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
+
+<span class="c1"># mol1.fitness is now [1, 4, 27].</span>
+<span class="c1"># mol2.fitness is now [4, 25, 216].</span>
+<span class="c1"># mol3.fitness is now [7, 64, 729]</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.Power.normalize" title="stk.calculators.ea.fitness_normalizers.Power.normalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalize</span></code></a>(self, population)</p></td>
+<td><p>Normalize the fitness values in <cite>population</cite>.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.calculators.ea.fitness_normalizers.Power.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">power</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.fitness_normalizers.Power.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a <a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.Power" title="stk.calculators.ea.fitness_normalizers.Power"><code class="xref py py-class docutils literal notranslate"><span class="pre">Power</span></code></a> instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>power</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The power to raise each <code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code> value to. Can be
+a single number or multiple numbers.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.fitness_normalizers.Power.normalize">
+<code class="sig-name descname">normalize</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">population</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.fitness_normalizers.Power.normalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalize the fitness values in <cite>population</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>population</strong> (<a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a>) – A <a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a> of molecules whose fitness values
+should be normalized.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>None</strong> – The <code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code> attributes of the molecules in
+<cite>population</cite> are modified in place.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stk.calculators.ea.fitness_normalizers.ScaleByMean">
+<em class="property">class </em><code class="sig-name descname">ScaleByMean</code><a class="headerlink" href="#stk.calculators.ea.fitness_normalizers.ScaleByMean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.FitnessNormalizer" title="stk.calculators.ea.fitness_normalizers.FitnessNormalizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.fitness_normalizers.FitnessNormalizer</span></code></a></p>
+<p>Divides fitness values by the population mean.</p>
+<p>While this function can be used if the <code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code> attribute
+of each <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> in the <a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a> is a single
+number it is most useful when <code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code> is a <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>
+of numbers. In this case, it is necessary to somehow combine the
+numbers so that a single <code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code> value is produced.
+For example, take a <code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code> vector holding the properties
+<code class="docutils literal notranslate"><span class="pre">[energy,</span> <span class="pre">diameter,</span> <span class="pre">num_atoms]</span></code>. For a given molecule these
+numbers may be something like <code class="docutils literal notranslate"><span class="pre">[200,000,</span> <span class="pre">12,</span> <span class="pre">140]</span></code>. If we were
+to sum these numbers, the energy term would dominate the final
+fitness value. In order to combine these numbers we can divide them
+by the population averages. For example, if the average energy
+of molecules in the population is <code class="docutils literal notranslate"><span class="pre">300,000</span></code> the average diameter
+is <code class="docutils literal notranslate"><span class="pre">10</span></code> and the average number of atoms is <code class="docutils literal notranslate"><span class="pre">70</span></code> then the
+fitness vector would be scaled to <code class="docutils literal notranslate"><span class="pre">[0.5,</span> <span class="pre">1.2,</span> <span class="pre">2]</span></code>. These
+numbers are now of a similar magnitude and can be some to give a
+reasonable value. After scaling each parameter represents how
+much better than the population average each property value is.
+In essence we have removed the units from each parameter.</p>
+<p class="rubric">Examples</p>
+<p>Scale fitness values.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="c1"># Create the molecules and give them some arbitrary fitness</span>
+<span class="c1"># vectors.</span>
+<span class="c1"># Normally the fitness would be set by the fitness() method of</span>
+<span class="c1"># some a fitness calculator.</span>
+<span class="n">mol1</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NCCCN&#39;</span><span class="p">)</span>
+<span class="n">mol2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;[Br]CCC[Br]&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;bromine&#39;</span><span class="p">])</span>
+<span class="n">mol3</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
+    <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">mol2</span><span class="p">],</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">5</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">mol1</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">mol2</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">mol3</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="c1"># Place the molecules in a Population.</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="n">mol1</span><span class="p">,</span> <span class="n">mol2</span><span class="p">,</span> <span class="n">mol3</span><span class="p">)</span>
+
+<span class="c1"># Create the normalizer.</span>
+<span class="n">mean_scaler</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ScaleByMean</span><span class="p">()</span>
+
+<span class="c1"># Normalize the fitness values.</span>
+<span class="n">mean_scaler</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
+
+<span class="c1"># mol1.fitness is now 0.5.</span>
+<span class="c1"># mol2.fitness is now 1.</span>
+<span class="c1"># mol3.fitness is now 1.5.</span>
+</pre></div>
+</div>
+<p>Scale fitness vectors.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Give the molecules some arbitrary fitness vectors.</span>
+<span class="c1"># Normally the fitness would be set by the get_fitness() method</span>
+<span class="c1"># of some a fitness calculator.</span>
+<span class="n">mol1</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<span class="n">mol2</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">200</span><span class="p">]</span>
+<span class="n">mol3</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">300</span><span class="p">]</span>
+
+<span class="c1"># Create the normalizer.</span>
+<span class="n">mean_scaler</span> <span class="o">=</span> <span class="n">ScaleByMean</span><span class="p">()</span>
+
+<span class="c1"># Normalize the fitness values.</span>
+<span class="n">mean_scaler</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
+
+<span class="c1"># mol1.fitness is now [0.5, 0.5, 0.5].</span>
+<span class="c1"># mol2.fitness is now [1, 1, 1].</span>
+<span class="c1"># mol3.fitness is now [1.5, 1.5, 1.5].</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.ScaleByMean.normalize" title="stk.calculators.ea.fitness_normalizers.ScaleByMean.normalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalize</span></code></a>(self, population)</p></td>
+<td><p>Normalize the fitness values in <cite>population</cite>.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.calculators.ea.fitness_normalizers.ScaleByMean.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.fitness_normalizers.ScaleByMean.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.fitness_normalizers.ScaleByMean.normalize">
+<code class="sig-name descname">normalize</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">population</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.fitness_normalizers.ScaleByMean.normalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalize the fitness values in <cite>population</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>population</strong> (<a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a>) – A <a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a> of molecules whose fitness values
+should be normalized.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>None</strong> – The <code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code> attributes of the molecules in
+<cite>population</cite> are modified in place.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stk.calculators.ea.fitness_normalizers.ShiftUp">
+<em class="property">class </em><code class="sig-name descname">ShiftUp</code><a class="headerlink" href="#stk.calculators.ea.fitness_normalizers.ShiftUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.FitnessNormalizer" title="stk.calculators.ea.fitness_normalizers.FitnessNormalizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.fitness_normalizers.FitnessNormalizer</span></code></a></p>
+<p>Shifts negative values to be positive.</p>
+<p>Assume you have a fitness vector, where each number represents
+a different property of the molecule</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>One way to convert the fitness array into a fitness value is
+by summing the elements, and the result in this case would be
+<code class="docutils literal notranslate"><span class="pre">-8</span></code>. Clearly this doesn’t work, because the resulting fitness
+value is not a positive number. To fix this, the <code class="docutils literal notranslate"><span class="pre">-10</span></code> should be
+shifted to a positive value.</p>
+<p>This <a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.FitnessNormalizer" title="stk.calculators.ea.fitness_normalizers.FitnessNormalizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">FitnessNormalizer</span></code></a> finds the minimum value of each
+property across the entire population, and for properties where
+this minimum value is less than <code class="docutils literal notranslate"><span class="pre">0</span></code>, shifts up the property value
+for every molecule in the population, so that the minimum value is
+<code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
+<p>For example, take a population with the fitness vectors</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mol1</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">mol2</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">mol3</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>After normalization fitness vectors will be.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mol1</span><span class="o">.</span><span class="n">fitness</span>  <span class="c1"># [1, 6, 5]</span>
+<span class="n">mol2</span><span class="o">.</span><span class="n">fitness</span>  <span class="c1"># [3, 1, 2]</span>
+<span class="n">mol3</span><span class="o">.</span><span class="n">fitness</span>  <span class="c1"># [2, 31, 1]</span>
+</pre></div>
+</div>
+<p>This <a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.FitnessNormalizer" title="stk.calculators.ea.fitness_normalizers.FitnessNormalizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">FitnessNormalizer</span></code></a> also works when the <code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code>
+is a single value.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the molecules and give them some arbitrary fitness</span>
+<span class="c1"># vectors.</span>
+<span class="c1"># Normally the fitness would be set by the fitness() method of</span>
+<span class="c1"># some a fitness calculator.</span>
+<span class="n">mol1</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NCCCN&#39;</span><span class="p">)</span>
+<span class="n">mol2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;[Br]CCC[Br]&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;bromine&#39;</span><span class="p">])</span>
+<span class="n">mol3</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
+    <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">mol2</span><span class="p">],</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">5</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">mol1</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">mol2</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">mol3</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="c1"># Place the molecules in a Population.</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="n">Population</span><span class="p">(</span><span class="n">mol1</span><span class="p">,</span> <span class="n">mol2</span><span class="p">,</span> <span class="n">mol3</span><span class="p">)</span>
+
+<span class="c1"># Create the normalizer.</span>
+<span class="n">shifter</span> <span class="o">=</span> <span class="n">ShiftUp</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+
+<span class="c1"># Normalize the fitness values.</span>
+<span class="n">shifter</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
+
+<span class="c1"># mol1.fitness is now [1, 1, 10].</span>
+<span class="c1"># mol2.fitness is now [4, 8, 1].</span>
+<span class="c1"># mol3.fitness is now [7, 11, 16]</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.ShiftUp.normalize" title="stk.calculators.ea.fitness_normalizers.ShiftUp.normalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalize</span></code></a>(self, population)</p></td>
+<td><p>Normalize the fitness values in <cite>population</cite>.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.calculators.ea.fitness_normalizers.ShiftUp.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.fitness_normalizers.ShiftUp.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.fitness_normalizers.ShiftUp.normalize">
+<code class="sig-name descname">normalize</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">population</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.fitness_normalizers.ShiftUp.normalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalize the fitness values in <cite>population</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>population</strong> (<a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a>) – A <a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a> of molecules whose fitness values
+should be normalized.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>None</strong> – The <code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code> attributes of the molecules in
+<cite>population</cite> are modified in place.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stk.calculators.ea.fitness_normalizers.Sum">
+<em class="property">class </em><code class="sig-name descname">Sum</code><a class="headerlink" href="#stk.calculators.ea.fitness_normalizers.Sum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.FitnessNormalizer" title="stk.calculators.ea.fitness_normalizers.FitnessNormalizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.fitness_normalizers.FitnessNormalizer</span></code></a></p>
+<p>Sums the values in a <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mol1</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NCCCN&#39;</span><span class="p">)</span>
+<span class="n">mol2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;[Br]CCC[Br]&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;bromine&#39;</span><span class="p">])</span>
+<span class="n">mol3</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
+    <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">mol2</span><span class="p">],</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">5</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># Create the molecules and give them some arbitrary fitness</span>
+<span class="c1"># vectors.</span>
+<span class="c1"># Normally the fitness would be set by the fitness() method of</span>
+<span class="c1"># some a fitness calculator.</span>
+<span class="n">mol1</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">mol2</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">mol3</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="c1"># Place the molecules in a Population.</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="n">mol1</span><span class="p">,</span> <span class="n">mol2</span><span class="p">,</span> <span class="n">mol3</span><span class="p">)</span>
+
+<span class="c1"># Create the normalizer.</span>
+<span class="n">sum_normalizer</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Sum</span><span class="p">()</span>
+
+<span class="c1"># Normalize the fitness values.</span>
+<span class="n">sum_normalizer</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
+
+<span class="c1"># mol1.fitness is now 6.</span>
+<span class="c1"># mol2.fitness is now 15.</span>
+<span class="c1"># mol3.fitness is now 24.</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.fitness_normalizers.Sum.normalize" title="stk.calculators.ea.fitness_normalizers.Sum.normalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalize</span></code></a>(self, population)</p></td>
+<td><p>Normalize the fitness values in <cite>population</cite>.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.calculators.ea.fitness_normalizers.Sum.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.fitness_normalizers.Sum.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.fitness_normalizers.Sum.normalize">
+<code class="sig-name descname">normalize</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">population</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.fitness_normalizers.Sum.normalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalize the fitness values in <cite>population</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>population</strong> (<a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a>) – A <a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a> of molecules whose fitness values
+should be normalized.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>None</strong> – The <code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code> attributes of the molecules in
+<cite>population</cite> are modified in place.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Lukas Turcani
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

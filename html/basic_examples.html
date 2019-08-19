@@ -1,0 +1,628 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Basic Examples &mdash; stk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Cookbook" href="cookbook.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> stk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">stk</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Basic Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creating-building-blocks">Creating Building Blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#constructing-molecules">Constructing Molecules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-multiple-building-blocks">Using Multiple Building Blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optimizing-molecular-structures">Optimizing Molecular Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#calculating-molecular-energy">Calculating Molecular Energy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-multiple-functional-groups">Using Multiple Functional Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#removing-extra-functional-groups">Removing Extra Functional Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#constructing-molecules-in-bulk">Constructing Molecules in Bulk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optimizing-molecules-in-bulk">Optimizing Molecules in Bulk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#converting-between-rdkit-molecules">Converting between <code class="xref py py-mod docutils literal notranslate"><span class="pre">rdkit</span></code> Molecules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#saving-molecules">Saving Molecules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#caching">Caching</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cookbook.html">Cookbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Molecules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.molecules.building_block.html">Building Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html">Constructed Molecule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.functional_groups.html">Functional Groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.populations.html">Populations</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Topology Graphs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.polymer.html">Polymer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.cage.base.html">Organic Cage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.cof.html">Covalent Organic Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.host_guest.html">Host Guest Complex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.macrocycle.html">Macrocycle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.rotaxane.html">Rotaxane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html">Adding Topology Graphs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Calculators</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="calculators.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.optimization.optimizers.html">Optimizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.energy.energy_calculators.html">Energy Calculators</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Evolutionary Algorithm</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ea.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.fitness_calculators.html">Fitness Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.fitness_normalizers.html">Fitness Normalizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.selectors.html">Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.mutators.html">Mutation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.crossers.html">Crossover</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.plotters.html">Plotting</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">stk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Basic Examples</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/basic_examples.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="basic-examples">
+<h1>Basic Examples<a class="headerlink" href="#basic-examples" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="creating-building-blocks">
+<h2>Creating Building Blocks<a class="headerlink" href="#creating-building-blocks" title="Permalink to this headline">¶</a></h2>
+<p>There are a number of ways to create <a class="reference internal" href="stk.molecular.molecules.building_block.html#stk.molecular.molecules.building_block.BuildingBlock" title="stk.molecular.molecules.building_block.BuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">BuildingBlock</span></code></a> molecules,
+but the two most common ways are direct creation through SMILES
+strings and loading them from molecule structure files.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="n">bb1</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NCCCN&#39;</span><span class="p">)</span>
+<span class="n">bb2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="o">.</span><span class="n">init_from_file</span><span class="p">(</span><span class="s1">&#39;path/to/file.mol&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Look at the documentation of <a class="reference internal" href="stk.molecular.molecules.building_block.html#stk.molecular.molecules.building_block.BuildingBlock" title="stk.molecular.molecules.building_block.BuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">BuildingBlock</span></code></a> to see other
+available initialization methods.</p>
+</div>
+<div class="section" id="constructing-molecules">
+<h2>Constructing Molecules<a class="headerlink" href="#constructing-molecules" title="Permalink to this headline">¶</a></h2>
+<p>To construct molecules, you need to create a new
+<a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstructedMolecule</span></code></a>. The required input consists of
+building block molecules and a topology graph. <a class="reference internal" href="stk.molecular.molecules.building_block.html#stk.molecular.molecules.building_block.BuildingBlock" title="stk.molecular.molecules.building_block.BuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">BuildingBlock</span></code></a>
+molecules which undergo reactions during construction need to have
+the functional groups which undergo them specified</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="c1"># React the amine functional group during construction.</span>
+<span class="n">bb1</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NCCN&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;amine&#39;</span><span class="p">])</span>
+<span class="c1"># React the aldehyde functional group during construction.</span>
+<span class="n">bb2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;O=CC(C=O)C=O&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;aldehyde&#39;</span><span class="p">])</span>
+<span class="c1"># Build a bunch of cages, each has the same building blocks but</span>
+<span class="c1"># different topology graphs.</span>
+<span class="n">cage</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
+    <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">bb1</span><span class="p">,</span> <span class="n">bb2</span><span class="p">],</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">cage</span><span class="o">.</span><span class="n">FourPlusSix</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="n">cage2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
+    <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">bb1</span><span class="p">,</span> <span class="n">bb2</span><span class="p">],</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">cage</span><span class="o">.</span><span class="n">EightPlusTwelve</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="n">cage3</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
+    <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">bb1</span><span class="p">,</span> <span class="n">bb2</span><span class="p">],</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">cage</span><span class="o">.</span><span class="n">TwentyPlusThirty</span><span class="p">()</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Created <a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstructedMolecule</span></code></a> instances can be used as building
+blocks for others</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">guest</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;BrBr&#39;</span><span class="p">)</span>
+<span class="n">host_guest_complex</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
+    <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">cage</span><span class="p">,</span> <span class="n">guest</span><span class="p">],</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">host_guest</span><span class="o">.</span><span class="n">Complex</span><span class="p">()</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Look at the documentation of the topology graph to see any requirements
+associated with building <a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstructedMolecule</span></code></a> instances
+with it as well as usage examples.</p>
+</div>
+<div class="section" id="using-multiple-building-blocks">
+<h2>Using Multiple Building Blocks<a class="headerlink" href="#using-multiple-building-blocks" title="Permalink to this headline">¶</a></h2>
+<p>You can have as many different building blocks in any
+<a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstructedMolecule</span></code></a> as there are vertices, however you will
+often have to assign them manually. This is because there are often
+multiple equally valid ways to place the building blocks on the
+vertrices and <code class="docutils literal notranslate"><span class="pre">stk</span></code> has no way to figure out which one you want.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="n">bb1</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;O=CC(C=O)C=O&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;aldehyde&#39;</span><span class="p">])</span>
+<span class="n">bb2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;O=CC(Cl)(C=O)C=O&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;aldehyde&#39;</span><span class="p">])</span>
+<span class="n">bb3</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NCCN&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;amine&#39;</span><span class="p">])</span>
+<span class="n">bb4</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NCC(Cl)N&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;amine&#39;</span><span class="p">])</span>
+<span class="n">bb5</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NCCCCN&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;amine&#39;</span><span class="p">])</span>
+
+<span class="n">tetrahedron</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">cage</span><span class="o">.</span><span class="n">FourPlusSix</span><span class="p">()</span>
+<span class="n">cage</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
+    <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">bb1</span><span class="p">,</span> <span class="n">bb2</span><span class="p">,</span> <span class="n">bb3</span><span class="p">,</span> <span class="n">bb4</span><span class="p">,</span> <span class="n">bb5</span><span class="p">],</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">tetrahedron</span><span class="p">,</span>
+    <span class="n">building_block_vertices</span><span class="o">=</span><span class="p">{</span>
+        <span class="n">bb1</span><span class="p">:</span> <span class="n">tetrahedron</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span>
+        <span class="n">bb2</span><span class="p">:</span> <span class="n">tetrahedron</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">],</span>
+        <span class="n">bb3</span><span class="p">:</span> <span class="n">tetrahedron</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">5</span><span class="p">],</span>
+        <span class="n">bb4</span><span class="p">:</span> <span class="n">tetrahedron</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">6</span><span class="p">],</span>
+        <span class="n">bb5</span><span class="p">:</span> <span class="n">tetrahedron</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="mi">6</span><span class="p">:]</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="optimizing-molecular-structures">
+<h2>Optimizing Molecular Structures<a class="headerlink" href="#optimizing-molecular-structures" title="Permalink to this headline">¶</a></h2>
+<p>Molecules used by <code class="docutils literal notranslate"><span class="pre">stk</span></code> can be optimized both before and after
+construction. Optimization is performed by <a class="reference external" href="stk.calculators.optimization.html">optimizers</a>, which implement
+the <a class="reference internal" href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.Optimizer.optimize" title="stk.calculators.optimization.optimizers.Optimizer.optimize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">optimize()</span></code></a> method.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="c1"># Optimize with the MMFF force field.</span>
+<span class="n">mmff</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">MMFF</span><span class="p">()</span>
+<span class="n">bb</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;BrCCBr&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;bromine&#39;</span><span class="p">])</span>
+<span class="n">mmff</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">bb</span><span class="p">)</span>
+
+<span class="n">polymer</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
+    <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">bb</span><span class="p">],</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">mmff</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">polymer</span><span class="p">)</span>
+
+<span class="c1"># Optimize with UFF.</span>
+<span class="n">uff</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">UFF</span><span class="p">()</span>
+<span class="n">uff</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">bb</span><span class="p">)</span>
+<span class="n">uff</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">polymer</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>All optimizers support the <em>use_cache</em> option, which prevents a
+second optimization from being run on the same molecule twice</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mmff</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">MMFF</span><span class="p">()</span>
+<span class="n">bb</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;CCCC&#39;</span><span class="p">)</span>
+<span class="c1"># Runs an optimization.</span>
+<span class="n">mmff</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">bb</span><span class="p">)</span>
+<span class="c1"># Run an optimization again.</span>
+<span class="n">mmff</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">bb</span><span class="p">)</span>
+
+<span class="n">caching_mmff</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">MMFF</span><span class="p">(</span><span class="n">use_cache</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="c1"># Runs an optimization.</span>
+<span class="n">caching_mmff</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">bb</span><span class="p">)</span>
+<span class="c1"># Does not run an optimization, returns immediately.</span>
+<span class="n">caching_mmff</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">bb</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>An important optimizer to take note of is the
+<a class="reference internal" href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.OptimizerSequence" title="stk.calculators.optimization.optimizers.OptimizerSequence"><code class="xref py py-class docutils literal notranslate"><span class="pre">OptimizerSequence</span></code></a>, which allows you to chain multiple
+optimizers in one go. For example, you may wish to embed a molecule
+with the ETKDG algorithm before running a UFF optimization</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sequence</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">OptimizerSequence</span><span class="p">(</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">ETKDG</span><span class="p">(),</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">UFF</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="c1"># Embed with ETKDG then do a UFF optimization.</span>
+<span class="n">sequence</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">bb</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="calculating-molecular-energy">
+<h2>Calculating Molecular Energy<a class="headerlink" href="#calculating-molecular-energy" title="Permalink to this headline">¶</a></h2>
+<p>The energy of molecules can be calculated with <a class="reference external" href="stk.calculators.energy.html">energy calculators</a>.</p>
+<p>All energy calculators define the <a class="reference internal" href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.EnergyCalculator.get_energy" title="stk.calculators.energy.energy_calculators.EnergyCalculator.get_energy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_energy()</span></code></a>
+method, which is used to calculate the energy</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="n">mmff</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">MMFFEnergy</span><span class="p">()</span>
+<span class="n">bb</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;BrCCBr&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;bromine&#39;</span><span class="p">])</span>
+<span class="n">bb_energy</span> <span class="o">=</span> <span class="n">mmff</span><span class="o">.</span><span class="n">get_energy</span><span class="p">(</span><span class="n">bb</span><span class="p">)</span>
+
+<span class="n">polymer</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
+    <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">bb</span><span class="p">],</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">polymer_energy</span> <span class="o">=</span> <span class="n">mmff</span><span class="o">.</span><span class="n">get_energy</span><span class="p">(</span><span class="n">polymer</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Much like optimizers, energy calculators support a <em>use_cache</em>
+option. If this is turned on the energy calculator will not
+calculate the energy of a molecule twice. Instead, if the same
+molecule is passed a second time, the previous value will be returned
+from memory</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mmff</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">MMFF</span><span class="p">()</span>
+<span class="n">caching_mmff</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">MMFFEnergy</span><span class="p">(</span><span class="n">use_cache</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">bb_energy</span> <span class="o">=</span> <span class="n">caching_mmff</span><span class="o">.</span><span class="n">get_energy</span><span class="p">(</span><span class="n">bb</span><span class="p">)</span>
+<span class="n">mmff</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">bb</span><span class="p">)</span>
+<span class="c1"># bb_energy2 is equal to bb_energy even though the structure</span>
+<span class="c1"># changed, since the old value was returned from memory.</span>
+<span class="n">bb_energy2</span> <span class="o">=</span> <span class="n">caching_mmff</span><span class="o">.</span><span class="n">get_energy</span><span class="p">(</span><span class="n">bb</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-multiple-functional-groups">
+<h2>Using Multiple Functional Groups<a class="headerlink" href="#using-multiple-functional-groups" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes you may have a <a class="reference internal" href="stk.molecular.molecules.building_block.html#stk.molecular.molecules.building_block.BuildingBlock" title="stk.molecular.molecules.building_block.BuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">BuildingBlock</span></code></a> where multiple
+functional groups should be used during construction. To allow this
+you can pass the names of any number of functional groups to the
+<a class="reference internal" href="stk.molecular.molecules.building_block.html#stk.molecular.molecules.building_block.BuildingBlock" title="stk.molecular.molecules.building_block.BuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">BuildingBlock</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="n">bb</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;ICCBr&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;bromine&#39;</span><span class="p">,</span> <span class="s1">&#39;iodine&#39;</span><span class="p">])</span>
+<span class="n">polymer</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
+    <span class="n">bulding_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">bb</span><span class="p">],</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="removing-extra-functional-groups">
+<h2>Removing Extra Functional Groups<a class="headerlink" href="#removing-extra-functional-groups" title="Permalink to this headline">¶</a></h2>
+<p>Some building blocks may have too many functional groups to be used
+with a topology graph. For example a <a class="reference internal" href="stk.molecular.topology_graphs.polymer.html#stk.molecular.topology_graphs.polymer.Linear" title="stk.molecular.topology_graphs.polymer.Linear"><code class="xref py py-class docutils literal notranslate"><span class="pre">Linear</span></code></a> topology graph
+requires two functional groups on a <a class="reference internal" href="stk.molecular.molecules.building_block.html#stk.molecular.molecules.building_block.BuildingBlock" title="stk.molecular.molecules.building_block.BuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">BuildingBlock</span></code></a>.
+If there are more than two it is not clear which of the functional
+groups should be used to form bonds during construction, as they are
+all equivalent to <code class="docutils literal notranslate"><span class="pre">stk</span></code>. However, it is possible to resolve this
+ambguity by removing the extra functional groups</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="c1"># This buildingb block has 5 functional groups.</span>
+<span class="n">bb</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;BrCC(Br)CC(Br)CC(Br)CC(Br)CC&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;bromine&#39;</span><span class="p">])</span>
+<span class="c1"># Keep only the first 2 functional groups.</span>
+<span class="n">bb</span><span class="o">.</span><span class="n">func_groups</span> <span class="o">=</span> <span class="n">bb</span><span class="o">.</span><span class="n">func_groups</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+<span class="c1"># bb can now be used to construct linear polymers.</span>
+<span class="n">polymer</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
+    <span class="n">bulding_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">bb</span><span class="p">],</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="constructing-molecules-in-bulk">
+<h2>Constructing Molecules in Bulk<a class="headerlink" href="#constructing-molecules-in-bulk" title="Permalink to this headline">¶</a></h2>
+<p>If you have a bunch of building blocks and topologies and you want
+to create all possible <a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstructedMolecule</span></code></a> instances, use
+<a class="reference internal" href="stk.populations.html#stk.populations.Population.init_all" title="stk.populations.Population.init_all"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Population.init_all()</span></code></a>.</p>
+<p>If you want to create a random population of a finite size, use
+<a class="reference internal" href="stk.populations.html#stk.populations.Population.init_random" title="stk.populations.Population.init_random"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Population.init_random()</span></code></a>.</p>
+</div>
+<div class="section" id="optimizing-molecules-in-bulk">
+<h2>Optimizing Molecules in Bulk<a class="headerlink" href="#optimizing-molecules-in-bulk" title="Permalink to this headline">¶</a></h2>
+<p>To optimize a bunch of molecules at the same time, in parallel across
+your CPU cores, place them into a <a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="n">bb1</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NCCCN&#39;</span><span class="p">)</span>
+<span class="n">bb2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;BrCCBr&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;bromine&#39;</span><span class="p">])</span>
+<span class="n">polymer</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
+    <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">bb2</span><span class="p">],</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="n">bb1</span><span class="p">,</span> <span class="n">bb2</span><span class="p">,</span> <span class="n">polymer</span><span class="p">)</span>
+
+<span class="n">mmff</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">MMFF</span><span class="p">()</span>
+<span class="c1"># Optimization done on all molecules in parallel.</span>
+<span class="n">pop</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">mmff</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="converting-between-rdkit-molecules">
+<h2>Converting between <code class="xref py py-mod docutils literal notranslate"><span class="pre">rdkit</span></code> Molecules<a class="headerlink" href="#converting-between-rdkit-molecules" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-mod docutils literal notranslate"><span class="pre">rdkit</span></code> is a popular and powerful cheminformatics library which
+provides many useful tools for molecular analysis. To take advantage
+of it <code class="docutils literal notranslate"><span class="pre">stk</span></code> can convert its molecules into those of <code class="xref py py-mod docutils literal notranslate"><span class="pre">rdkit</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="n">bb</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;ICCBr&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;bromine&#39;</span><span class="p">,</span> <span class="s1">&#39;iodine&#39;</span><span class="p">])</span>
+<span class="n">bb_rdkit</span> <span class="o">=</span> <span class="n">bb</span><span class="o">.</span><span class="n">to_rdkit_mol</span><span class="p">()</span>
+
+<span class="n">polymer</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
+    <span class="n">bulding_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">bb</span><span class="p">],</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">polymer_rdkit</span> <span class="o">=</span> <span class="n">polymer</span><span class="o">.</span><span class="n">to_rdkit_mol</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">stk</span></code> also allows you to update the structure of molecules from
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">rdkit</span></code> molecules</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Update structure of bb to match structure of bb_rdkit.</span>
+<span class="n">bb</span><span class="o">.</span><span class="n">update_from_rdkit_mol</span><span class="p">(</span><span class="n">bb_rdkit</span><span class="p">)</span>
+<span class="c1"># Update structure of polymer to match structure of polymer_rdkit.</span>
+<span class="n">polymer</span><span class="o">.</span><span class="n">update_from_rdkit_mol</span><span class="p">(</span><span class="n">polymer_rdkit</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Finally, <code class="docutils literal notranslate"><span class="pre">stk</span></code> allows initialization of new building blocks from
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">rdkit</span></code> molecules directly</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bb2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="o">.</span><span class="n">init_from_rdkit_mol</span><span class="p">(</span><span class="n">bb_rdkit</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="saving-molecules">
+<h2>Saving Molecules<a class="headerlink" href="#saving-molecules" title="Permalink to this headline">¶</a></h2>
+<p>The simplest way to save molecules is to write them to a file</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="n">bb</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;ICCBr&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;bromine&#39;</span><span class="p">,</span> <span class="s1">&#39;iodine&#39;</span><span class="p">])</span>
+<span class="n">bb</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;bb.mol&#39;</span><span class="p">)</span>
+
+<span class="n">polymer</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
+    <span class="n">bulding_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">bb</span><span class="p">],</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">polymer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;polymer.mol&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>However, writing to regular chemical file format is lossy. This is
+because <a class="reference internal" href="stk.molecular.molecules.building_block.html#stk.molecular.molecules.building_block.BuildingBlock" title="stk.molecular.molecules.building_block.BuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">BuildingBlock</span></code></a> and <a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstructedMolecule</span></code></a>
+contain data that is not held by these files. <a class="reference internal" href="stk.molecular.molecules.building_block.html#stk.molecular.molecules.building_block.BuildingBlock" title="stk.molecular.molecules.building_block.BuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">BuildingBlock</span></code></a>
+holds information about which functional groups are to be used
+during construction and <a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstructedMolecule</span></code></a> holds information
+about which building blocks molecules and topology graph were used to
+construct it. While a <a class="reference internal" href="stk.molecular.molecules.building_block.html#stk.molecular.molecules.building_block.BuildingBlock" title="stk.molecular.molecules.building_block.BuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">BuildingBlock</span></code></a> can be initialized from
+chemical file formats a <a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstructedMolecule</span></code></a> cannot, as there
+is no way to recover the information regarding building blocks and
+the topology graph.</p>
+<p>If you wish to be able to fully recover <a class="reference internal" href="stk.molecular.molecules.building_block.html#stk.molecular.molecules.building_block.BuildingBlock" title="stk.molecular.molecules.building_block.BuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">BuildingBlock</span></code></a> and
+<a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstructedMolecule</span></code></a> instances, you can write them as
+JSON files</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bb</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="s1">&#39;bb.dump&#39;</span><span class="p">)</span>
+<span class="n">polymer</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="s1">&#39;polymer.dump&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>These can then be loaded in a later session</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">recovered_bb</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Molecule</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;bb.dump&#39;</span><span class="p">)</span>
+<span class="n">recovered_polymer</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Molecule</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;polymer.dump&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Using the <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule.load" title="stk.molecular.molecules.molecule.Molecule.load"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Molecule.load()</span></code></a> method means you do not have to know
+if the molecule in the file was a <a class="reference internal" href="stk.molecular.molecules.building_block.html#stk.molecular.molecules.building_block.BuildingBlock" title="stk.molecular.molecules.building_block.BuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">BuildingBlock</span></code></a> or a
+<a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstructedMolecule</span></code></a>, the correct class be determined
+for you automatically.</p>
+<p>You can write and dump molecules in bulk with a <a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pop</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="n">bb</span><span class="p">,</span> <span class="n">polymer</span><span class="p">)</span>
+<span class="n">pop</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;my_pop&#39;</span><span class="p">)</span>
+<span class="n">pop</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="s1">&#39;population.dump&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and load it too</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">recovered_pop</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Population</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;population.dump&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="caching">
+<h2>Caching<a class="headerlink" href="#caching" title="Permalink to this headline">¶</a></h2>
+<p>A powerful but dangerous feature of <code class="docutils literal notranslate"><span class="pre">stk</span></code> use the molecular cache.
+Every constructor for a <a class="reference internal" href="stk.molecular.molecules.building_block.html#stk.molecular.molecules.building_block.BuildingBlock" title="stk.molecular.molecules.building_block.BuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">BuildingBlock</span></code></a> or a
+<a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstructedMolecule</span></code></a> has a <em>use_cache</em> option. If
+this is set to <code class="docutils literal notranslate"><span class="pre">True</span></code> and an identical molecule has already been
+loaded or constructed by <code class="docutils literal notranslate"><span class="pre">stk</span></code>, then <code class="docutils literal notranslate"><span class="pre">stk</span></code> will not create a
+new instance but return the existing one from memory. In the case of
+<a class="reference internal" href="stk.molecular.molecules.building_block.html#stk.molecular.molecules.building_block.BuildingBlock" title="stk.molecular.molecules.building_block.BuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">BuildingBlock</span></code></a> it can mean that the memory footprint is
+dramatically reduced, while in the case of
+<a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstructedMolecule</span></code></a> it means that expensive constructions do
+not have to be repeated.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="n">bb</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;BrCCBr&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;bromine&#39;</span><span class="p">])</span>
+<span class="c1"># bb and bb2 are separate instances because when bb was created it</span>
+<span class="c1"># was not added to the cache.</span>
+<span class="n">bb2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;BrCCBr&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;bromine&#39;</span><span class="p">],</span> <span class="n">use_cache</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="c1"># bb2 and bb3 are different names for the same object, as</span>
+<span class="c1"># both bb2 and bb3 had use_cache set to True.</span>
+<span class="n">bb3</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;BrCCBr&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;bromine&#39;</span><span class="p">],</span> <span class="n">use_cache</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="c1"># bb4 is a completely new instance.</span>
+<span class="n">bb4</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;BrCCBr&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;bromine&#39;</span><span class="p">])</span>
+
+
+<span class="n">polymer</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
+    <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">bb</span><span class="p">],</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="c1"># polymer2 is a separate instance.</span>
+<span class="n">polymer2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
+    <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">bb</span><span class="p">],</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+    <span class="n">use_cache</span><span class="o">=</span><span class="bp">True</span>
+<span class="p">)</span>
+<span class="c1"># polymer2 and polymer3 are different names for the same object as</span>
+<span class="c1"># both polymer2 and polymer3 had use_cache set to True.</span>
+<span class="c1"># No construction was carried out when making polymer3, it was</span>
+<span class="c1"># returned directly from memory.</span>
+<span class="n">polymer3</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
+    <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">bb</span><span class="p">],</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+    <span class="n">use_cache</span><span class="o">=</span><span class="bp">True</span>
+<span class="p">)</span>
+<span class="c1"># polymer4 is a completely new instance, construction was</span>
+<span class="c1"># done from scratch.</span>
+<span class="n">polymer4</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
+    <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">bb</span><span class="p">],</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cookbook.html" class="btn btn-neutral float-right" title="Cookbook" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Lukas Turcani
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

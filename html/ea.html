@@ -1,0 +1,630 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Evolutionary Algorithm &mdash; stk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Fitness Calculators" href="stk.calculators.ea.fitness_calculators.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> stk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">stk</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_examples.html">Basic Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cookbook.html">Cookbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Molecules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.molecules.building_block.html">Building Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html">Constructed Molecule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.functional_groups.html">Functional Groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.populations.html">Populations</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Topology Graphs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.polymer.html">Polymer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.cage.base.html">Organic Cage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.cof.html">Covalent Organic Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.host_guest.html">Host Guest Complex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.macrocycle.html">Macrocycle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.rotaxane.html">Rotaxane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html">Adding Topology Graphs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Calculators</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="calculators.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.optimization.optimizers.html">Optimizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.energy.energy_calculators.html">Energy Calculators</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Evolutionary Algorithm</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#evolutionary-algorithm-input-file-variables">Evolutionary algorithm input file variables.</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.fitness_calculators.html">Fitness Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.fitness_normalizers.html">Fitness Normalizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.selectors.html">Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.mutators.html">Mutation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.crossers.html">Crossover</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.plotters.html">Plotting</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">stk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Evolutionary Algorithm</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/ea.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="evolutionary-algorithm">
+<h1>Evolutionary Algorithm<a class="headerlink" href="#evolutionary-algorithm" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">stk</span></code> includes an evolutionary algorithm which
+can be used to evolve molecules that fulfil user defined design criteria.
+The evolutionary algorithm can be run from the command line using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m stk.ea input_file.py
+</pre></div>
+</div>
+<p>The input file is a simple python script which defines the
+calculators the evolutionary algorithm should use, as well as some optional
+parameters.</p>
+<p>The evolutionary algorithm automatically works with any molecules that <code class="docutils literal notranslate"><span class="pre">stk</span></code>
+uses, both <a class="reference internal" href="stk.molecular.molecules.building_block.html#stk.molecular.molecules.building_block.BuildingBlock" title="stk.molecular.molecules.building_block.BuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">BuildingBlock</span></code></a> and <a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstructedMolecule</span></code></a> objects.</p>
+<p>Take for example the following input file which runs the EA on polymers
+and selects building blocks which have the most atoms.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># #####################################################################</span>
+<span class="c1"># Imports.</span>
+<span class="c1"># #####################################################################</span>
+
+<span class="kn">import</span> <span class="nn">stk</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c1"># #####################################################################</span>
+<span class="c1"># Run GA serially.</span>
+<span class="c1"># #####################################################################</span>
+
+<span class="n">processes</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># #####################################################################</span>
+<span class="c1"># Set logging level.</span>
+<span class="c1"># #####################################################################</span>
+
+<span class="n">logging_level</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span>
+
+<span class="c1"># #####################################################################</span>
+<span class="c1"># Initial population.</span>
+<span class="c1"># #####################################################################</span>
+
+<span class="n">carbon</span> <span class="o">=</span> <span class="s1">&#39;C&#39;</span>
+<span class="n">building_blocks</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;[Br]{carbon*i}[Br]&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;bromine&#39;</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">27</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">topology_graphs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">population</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">EAPopulation</span><span class="o">.</span><span class="n">init_random</span><span class="p">(</span>
+    <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">building_blocks</span><span class="p">],</span>
+    <span class="n">topology_graphs</span><span class="o">=</span><span class="n">topology_graphs</span><span class="p">,</span>
+    <span class="n">size</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+    <span class="n">use_cache</span><span class="o">=</span><span class="bp">True</span>
+<span class="p">)</span>
+
+<span class="c1"># #####################################################################</span>
+<span class="c1"># Selector for selecting the next generation.</span>
+<span class="c1"># #####################################################################</span>
+
+<span class="n">generation_selector</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">SelectorSequence</span><span class="p">(</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">Fittest</span><span class="p">(</span><span class="n">num_batches</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">duplicates</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">Roulette</span><span class="p">(</span><span class="n">num_batches</span><span class="o">=</span><span class="mi">22</span><span class="p">,</span> <span class="n">duplicates</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># #####################################################################</span>
+<span class="c1"># Selector for selecting parents.</span>
+<span class="c1"># #####################################################################</span>
+
+<span class="n">crossover_selector</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">AboveAverage</span><span class="p">(</span><span class="n">num_batches</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># #####################################################################</span>
+<span class="c1"># Selector for selecting molecules for mutation.</span>
+<span class="c1"># #####################################################################</span>
+
+<span class="n">mutation_selector</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">SelectorFunnel</span><span class="p">(</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">AboveAverage</span><span class="p">(</span><span class="n">num_batches</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">duplicates</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">Roulette</span><span class="p">(</span><span class="n">num_batches</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># #####################################################################</span>
+<span class="c1"># Crosser.</span>
+<span class="c1"># #####################################################################</span>
+
+<span class="n">crosser</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Jumble</span><span class="p">(</span><span class="n">num_offspring_building_blocks</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># #####################################################################</span>
+<span class="c1"># Mutator.</span>
+<span class="c1"># #####################################################################</span>
+
+<span class="n">mutator</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">RandomMutation</span><span class="p">(</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">RandomTopologyGraph</span><span class="p">(</span><span class="n">topology_graphs</span><span class="p">),</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">RandomBuildingBlock</span><span class="p">(</span><span class="n">building_blocks</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">mol</span><span class="p">:</span> <span class="bp">True</span><span class="p">),</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">SimilarBuildingBlock</span><span class="p">(</span><span class="n">building_blocks</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">mol</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># #####################################################################</span>
+<span class="c1"># Optimizer.</span>
+<span class="c1"># #####################################################################</span>
+
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">NullOptimizer</span><span class="p">(</span><span class="n">use_cache</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="c1"># #####################################################################</span>
+<span class="c1"># Fitness calculator.</span>
+<span class="c1"># #####################################################################</span>
+
+
+<span class="k">def</span> <span class="nf">num_atoms</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">atoms</span><span class="p">)</span>
+
+
+<span class="n">fitness_calculator</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">PropertyVector</span><span class="p">(</span><span class="n">num_atoms</span><span class="p">)</span>
+
+<span class="c1"># #####################################################################</span>
+<span class="c1"># Fitness normalizer.</span>
+<span class="c1"># #####################################################################</span>
+
+<span class="c1"># The PropertyVector fitness calculator will set the fitness as</span>
+<span class="c1"># [n_atoms] use the Sum() fitness normalizer to convert the fitness to</span>
+<span class="c1"># just n_atoms^0.5. The sqrt is because we use the Power normalizer.</span>
+<span class="n">fitness_normalizer</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">NormalizerSequence</span><span class="p">(</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">Power</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">Sum</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="c1"># #####################################################################</span>
+<span class="c1"># Exit condition.</span>
+<span class="c1"># #####################################################################</span>
+
+<span class="n">terminator</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">NumGenerations</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+
+<span class="c1"># #####################################################################</span>
+<span class="c1"># Make plotters.</span>
+<span class="c1"># #####################################################################</span>
+
+<span class="n">plotters</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">ProgressPlotter</span><span class="p">(</span>
+        <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;fitness_plot&#39;</span><span class="p">,</span>
+        <span class="n">property_fn</span><span class="o">=</span><span class="k">lambda</span> <span class="n">mol</span><span class="p">:</span> <span class="n">mol</span><span class="o">.</span><span class="n">fitness</span><span class="p">,</span>
+        <span class="n">y_label</span><span class="o">=</span><span class="s1">&#39;Fitness&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">ProgressPlotter</span><span class="p">(</span>
+        <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;atom_number_plot&#39;</span><span class="p">,</span>
+        <span class="n">property_fn</span><span class="o">=</span><span class="k">lambda</span> <span class="n">mol</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">atoms</span><span class="p">),</span>
+        <span class="n">y_label</span><span class="o">=</span><span class="s1">&#39;Number of Atoms&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">stk</span><span class="o">.</span><span class="n">SelectionPlotter</span><span class="p">(</span>
+    <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;generational_selection&#39;</span><span class="p">,</span>
+    <span class="n">selector</span><span class="o">=</span><span class="n">generation_selector</span>
+<span class="p">)</span>
+<span class="n">stk</span><span class="o">.</span><span class="n">SelectionPlotter</span><span class="p">(</span>
+    <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;crossover_selection&#39;</span><span class="p">,</span>
+    <span class="n">selector</span><span class="o">=</span><span class="n">crossover_selector</span>
+<span class="p">)</span>
+<span class="n">stk</span><span class="o">.</span><span class="n">SelectionPlotter</span><span class="p">(</span>
+    <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;mutation_selection&#39;</span><span class="p">,</span>
+    <span class="n">selector</span><span class="o">=</span><span class="n">mutation_selector</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Running the evolutionary algorithm with this input file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m stk.ea big_monomers.py
+</pre></div>
+</div>
+<p>will produce the following directory structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|--</span> <span class="n">stk_ea_runs</span>
+<span class="o">|</span>   <span class="o">|--</span> <span class="mi">0</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">scratch</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">atom_number_plot</span><span class="o">.</span><span class="n">png</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">atom_number_plot</span><span class="o">.</span><span class="n">csv</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">fitness_plot</span><span class="o">.</span><span class="n">png</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">fitness_plot</span><span class="o">.</span><span class="n">csv</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">generational_selection_1</span><span class="o">.</span><span class="n">png</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">crossover_selection_1</span><span class="o">.</span><span class="n">png</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">mutation_selection_1</span><span class="o">.</span><span class="n">png</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">progress</span><span class="o">.</span><span class="n">log</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="o">...</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">final_pop</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="mf">150.</span><span class="n">mol</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="mf">2160.</span><span class="n">mol</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="mf">9471.</span><span class="n">mol</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="o">...</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">big_monomers</span><span class="o">.</span><span class="n">py</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">database</span><span class="o">.</span><span class="n">json</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">progress</span><span class="o">.</span><span class="n">json</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">errors</span><span class="o">.</span><span class="n">log</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">output</span><span class="o">.</span><span class="n">tgz</span>
+</pre></div>
+</div>
+<p>A glance at the evolutionary progress plot in
+<code class="docutils literal notranslate"><span class="pre">scratch/fitness_plot.png</span></code> will show us how well our EA did.</p>
+<img alt="_images/epp.png" src="_images/epp.png" />
+<p>Running the evolutionary algorithm again:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m stk.ea big_monomers.py
+</pre></div>
+</div>
+<p>will add a second subfolder with the same structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|--</span> <span class="n">stk_ea_runs</span>
+<span class="o">|</span>   <span class="o">|--</span> <span class="mi">0</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">counters</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">gen_1_crossover_counter</span><span class="o">.</span><span class="n">png</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">gen_1_mutation_counter</span><span class="o">.</span><span class="n">png</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">gen_1_selection_counter</span><span class="o">.</span><span class="n">png</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="o">...</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">final_pop</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="mf">150.</span><span class="n">mol</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="mf">2160.</span><span class="n">mol</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="mf">9471.</span><span class="n">mol</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="o">...</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">big_monomers</span><span class="o">.</span><span class="n">py</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">database</span><span class="o">.</span><span class="n">json</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">progress</span><span class="o">.</span><span class="n">json</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">errors</span><span class="o">.</span><span class="n">log</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">progress</span><span class="o">.</span><span class="n">log</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">epp</span><span class="o">.</span><span class="n">png</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">epp</span><span class="o">.</span><span class="n">csv</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">output</span><span class="o">.</span><span class="n">tgz</span>
+<span class="o">|</span>
+<span class="o">|</span>   <span class="o">|--</span> <span class="mi">1</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">scratch</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">atom_number_plot</span><span class="o">.</span><span class="n">png</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">atom_number_plot</span><span class="o">.</span><span class="n">csv</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">fitness_plot</span><span class="o">.</span><span class="n">png</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">fitness_plot</span><span class="o">.</span><span class="n">csv</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">generational_selection_1</span><span class="o">.</span><span class="n">png</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">crossover_selection_1</span><span class="o">.</span><span class="n">png</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">mutation_selection_1</span><span class="o">.</span><span class="n">png</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">progress</span><span class="o">.</span><span class="n">log</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="o">...</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">final_pop</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="mf">150.</span><span class="n">mol</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="mf">2160.</span><span class="n">mol</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="mf">9471.</span><span class="n">mol</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="o">...</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">big_monomers</span><span class="o">.</span><span class="n">py</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">database</span><span class="o">.</span><span class="n">json</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">progress</span><span class="o">.</span><span class="n">json</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">errors</span><span class="o">.</span><span class="n">log</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">output</span><span class="o">.</span><span class="n">tgz</span>
+</pre></div>
+</div>
+<p>The evolutionary algorithm can also be run multiple times in a row:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m stk.ea -l 5 big_monomers.py
+</pre></div>
+</div>
+<p>which will run the EA 5 separate times adding 5 more subfolders to the
+directory structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|--</span> <span class="n">stk_ea_runs</span>
+<span class="o">|</span>   <span class="o">|--</span> <span class="mi">0</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="o">...</span>
+<span class="o">|</span>   <span class="o">|</span>
+<span class="o">|</span>   <span class="o">|--</span> <span class="mi">1</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="o">...</span>
+<span class="o">|</span>   <span class="o">|</span>
+<span class="o">|</span>   <span class="o">|--</span> <span class="mi">2</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="o">...</span>
+<span class="o">|</span>   <span class="o">|</span>
+<span class="o">|</span>   <span class="o">|--</span> <span class="mi">3</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="o">...</span>
+<span class="o">|</span>   <span class="o">|</span>
+<span class="o">|</span>   <span class="o">|--</span> <span class="mi">4</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="o">...</span>
+<span class="o">|</span>   <span class="o">|</span>
+<span class="o">|</span>   <span class="o">|--</span> <span class="mi">5</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="o">...</span>
+<span class="o">|</span>   <span class="o">|</span>
+<span class="o">|</span>   <span class="o">|--</span> <span class="mi">6</span>
+        <span class="o">|--</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>The benefit of using the <code class="docutils literal notranslate"><span class="pre">-l</span></code> option is that the molecular cache is
+not reset between each run. This means that a molecule which was constructed,
+optimized and had its fitness value calculated in the first run will
+not need to be re-constructed, re-optimized or have fitness value
+re-calculated in any of the subsequent runs. The cached version
+of the molecule will be used.</p>
+<p>However, the molecular cache be pre-loaded even when the <code class="docutils literal notranslate"><span class="pre">-l</span></code> option is
+not used, simply load the molecules in the input file.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># some input_file.py</span>
+
+<span class="c1"># There is no need to save this population into a variable.</span>
+<span class="c1"># It is enough to load the molecules to place them into the cache.</span>
+<span class="n">stk</span><span class="o">.</span><span class="n">Population</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;dumped_molecules.json&#39;</span><span class="p">,</span>
+                    <span class="n">stk</span><span class="o">.</span><span class="n">Molecule</span><span class="o">.</span><span class="n">from_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The output of a single EA consists of a number of files and
+directories. The <code class="docutils literal notranslate"><span class="pre">scratch</span></code> directory holds any files created during
+the EA run. For example, the <code class="docutils literal notranslate"><span class="pre">.png</span></code> files showing
+how frequently a member of the population was selected for mutation,
+crossover and generational selection. For example, this is a
+mutation counter</p>
+<img alt="_images/counter_example.png" src="_images/counter_example.png" />
+<p>It shows that molecule <code class="docutils literal notranslate"><span class="pre">8</span></code> was selected three times for mutation, while molecules
+<code class="docutils literal notranslate"><span class="pre">40</span></code>, <code class="docutils literal notranslate"><span class="pre">23`</span></code> were selected once. The
+remaining molecules were not mutated in that generation.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">final_pop</span></code> directory holds the <code class="docutils literal notranslate"><span class="pre">.mol</span></code> files holding the
+structures of the last generation of molecules.
+The file <code class="docutils literal notranslate"><span class="pre">big_monomers.py</span></code> is a copy of the input file. The <code class="docutils literal notranslate"><span class="pre">database.json</span></code>
+file is a population dump file which holds every molecule produced by
+the EA during the run. <code class="docutils literal notranslate"><span class="pre">progress.json</span></code> is also a population dump file.
+This population holds
+every generation of the EA as a subpopulation. This is quite useful
+if you want to analyse the output of the EA generation-wise.</p>
+<p><code class="docutils literal notranslate"><span class="pre">errors.log</span></code> is a file which contains every exception and its
+traceback encountered by the EA during its run.</p>
+<p><code class="docutils literal notranslate"><span class="pre">progress.log</span></code> is a file which lists which molecules make up each
+generation, and their respective fitness values.</p>
+<p><code class="docutils literal notranslate"><span class="pre">output.tgz</span></code> is a tarred and compressed copy of the output folder for
+the run.
+This means if you want to share you entire run output you can just
+share this file.</p>
+<p>Finally, when running the EA the progress will be printed into
+stderr. The message should be relatively straightforward, such as</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">======================================================================</span>
+
+<span class="mi">17</span><span class="p">:</span><span class="mi">42</span><span class="p">:</span><span class="mi">20</span> <span class="o">-</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">stk</span><span class="o">.</span><span class="n">ea</span><span class="o">.</span><span class="n">mutation</span> <span class="o">-</span> <span class="n">Using</span> <span class="n">random_bb</span><span class="o">.</span>
+
+<span class="o">======================================================================</span>
+</pre></div>
+</div>
+<p>which shows the time, the level of the message which can be, in order of
+priority DEBUG, INFO, WARNING, ERROR or CRITICAL, the module where
+the message originated and finally the message itself.</p>
+<div class="section" id="evolutionary-algorithm-input-file-variables">
+<h2>Evolutionary algorithm input file variables.<a class="headerlink" href="#evolutionary-algorithm-input-file-variables" title="Permalink to this headline">¶</a></h2>
+<p>This section lists the variables that need to be defined in the EA
+input file, along with a description of each variable.</p>
+<ul class="simple">
+<li><p><code class="xref py py-data docutils literal notranslate"><span class="pre">population</span></code> - <a class="reference internal" href="stk.populations.html#stk.populations.EAPopulation" title="stk.populations.EAPopulation"><code class="xref py py-class docutils literal notranslate"><span class="pre">EAPopulation</span></code></a> - <strong>mandatory</strong> -
+The initial population of the EA.</p></li>
+<li><p><code class="xref py py-data docutils literal notranslate"><span class="pre">optimizer</span></code> - <a class="reference internal" href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.Optimizer" title="stk.calculators.optimization.optimizers.Optimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Optimizer</span></code></a> - <strong>mandatory</strong> - The
+optimizer used to optimize the molecules created by the EA.</p></li>
+<li><p><code class="xref py py-data docutils literal notranslate"><span class="pre">fitness_calculator</span></code> - <a class="reference internal" href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.FitnessCalculator" title="stk.calculators.ea.fitness_calculators.FitnessCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">FitnessCalculator</span></code></a> -
+<strong>mandatory</strong> - The fitness calculator used to calculate fitness of
+molecules.</p></li>
+<li><p><code class="xref py py-data docutils literal notranslate"><span class="pre">crosser</span></code> - <a class="reference internal" href="stk.calculators.ea.crossers.html#stk.calculators.ea.crossers.Crosser" title="stk.calculators.ea.crossers.Crosser"><code class="xref py py-class docutils literal notranslate"><span class="pre">Crosser</span></code></a> - <strong>mandatory</strong> - The crosser
+used to carry out crossover operations.</p></li>
+<li><p><code class="xref py py-data docutils literal notranslate"><span class="pre">mutator</span></code> - <a class="reference internal" href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.Mutator" title="stk.calculators.ea.mutators.Mutator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mutator</span></code></a> - <strong>mandatory</strong> - The mutator
+used to carry out mutation operations.</p></li>
+<li><p><code class="xref py py-data docutils literal notranslate"><span class="pre">generation_selector</span></code> - <a class="reference internal" href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> - <strong>mandatory</strong> -
+The selector used to select the next generation.
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">batch_size</span></code> must be <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
+<li><p><code class="xref py py-data docutils literal notranslate"><span class="pre">mutation_selector</span></code> - <a class="reference internal" href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> - <strong>mandatory</strong> - The
+selector used to select molecules to mutate.
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">batch_size</span></code> must be <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
+<li><p><code class="xref py py-data docutils literal notranslate"><span class="pre">crossover_selector</span></code> - <a class="reference internal" href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> - <strong>mandatory</strong> -
+The selector used to select molecules for crossover.</p></li>
+<li><p><code class="xref py py-data docutils literal notranslate"><span class="pre">terminator</span></code> - <a class="reference internal" href="stk.calculators.ea.terminators.html#stk.calculators.ea.terminators.Terminator" title="stk.calculators.ea.terminators.Terminator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Terminator</span></code></a> - <strong>mandatory</strong> -
+The terminator which determines if the EA has satisfied its exit
+condition.</p></li>
+<li><p><code class="xref py py-data docutils literal notranslate"><span class="pre">fitness_normalizer</span></code> - <a class="reference internal" href="stk.calculators.ea.fitness_normalizers.html#stk.calculators.ea.fitness_normalizers.FitnessNormalizer" title="stk.calculators.ea.fitness_normalizers.FitnessNormalizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">FitnessNormalizer</span></code></a> -
+<em>optional, default =</em> <a class="reference internal" href="stk.calculators.ea.fitness_normalizers.html#stk.calculators.ea.fitness_normalizers.NullFitnessNormalizer" title="stk.calculators.ea.fitness_normalizers.NullFitnessNormalizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">NullFitnessNormalizer()</span></code></a> - The fitness
+normalizer which normalizes fitness values each generation.</p></li>
+<li><p><code class="xref py py-data docutils literal notranslate"><span class="pre">num_processes</span></code> - <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> -
+<em>optional, default =</em> <code class="xref py py-func docutils literal notranslate"><span class="pre">psutil.cpu_count()</span></code> - The number of CPU
+cores the EA should use.</p></li>
+<li><p><code class="xref py py-data docutils literal notranslate"><span class="pre">plotters</span></code> - <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> of <a class="reference internal" href="stk.calculators.ea.plotters.html#stk.calculators.ea.plotters.Plotter" title="stk.calculators.ea.plotters.Plotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plotter</span></code></a> -
+<em>optional, default =</em> <code class="docutils literal notranslate"><span class="pre">[]</span></code> - Plotters which are used to plot graphs
+at the end of the EA.</p></li>
+<li><p><code class="xref py py-data docutils literal notranslate"><span class="pre">log_file</span></code> - <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code> -
+<em>optional, default =</em> <code class="docutils literal notranslate"><span class="pre">True</span></code> - Toggles whether a log file which
+lists which molecules are present in each generation should be made.</p></li>
+<li><p><code class="xref py py-data docutils literal notranslate"><span class="pre">database_dump</span></code> - <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code> -
+<em>optional, default =</em> <code class="docutils literal notranslate"><span class="pre">True</span></code> - Toggles whether a
+<a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a> JSON file should be made at the end of the EA
+run. It will hold every molecule made by the EA.</p></li>
+<li><p><code class="xref py py-data docutils literal notranslate"><span class="pre">progress_dump</span></code> - <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code> -
+<em>optional, default =</em> <code class="docutils literal notranslate"><span class="pre">True</span></code> - Toggles whether a
+<a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a> JSON file should be made at the end of the EA
+run. It will hold every generation of the EA as a separate
+subpopulation.</p></li>
+<li><p><code class="xref py py-data docutils literal notranslate"><span class="pre">debug_dumps</span></code> - <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code> -
+<em>optional, default =</em> <code class="docutils literal notranslate"><span class="pre">False</span></code> - If <code class="docutils literal notranslate"><span class="pre">True</span></code> a database and progress
+dump is made after every generation rather than just the end. This is
+nice for debugging but can seriously slow down the EA.</p></li>
+<li><p><code class="xref py py-data docutils literal notranslate"><span class="pre">tar_output</span></code> - <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code> -
+<em>optional, default =</em> <code class="docutils literal notranslate"><span class="pre">False</span></code> - If <code class="docutils literal notranslate"><span class="pre">True</span></code> then a compressed tar
+archive of the output folder will be made.</p></li>
+<li><p><code class="xref py py-data docutils literal notranslate"><span class="pre">logging_level</span></code> - <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> -
+<em>optional, default =</em> <code class="docutils literal notranslate"><span class="pre">logging.INFO</span></code> - Sets the logging level in
+the EA.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="stk.calculators.ea.fitness_calculators.html" class="btn btn-neutral float-right" title="Fitness Calculators" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Lukas Turcani
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,484 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; stk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> stk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">stk</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_examples.html">Basic Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cookbook.html">Cookbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Molecules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.molecules.building_block.html">Building Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html">Constructed Molecule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.functional_groups.html">Functional Groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.populations.html">Populations</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Topology Graphs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.polymer.html">Polymer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.cage.base.html">Organic Cage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.cof.html">Covalent Organic Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.host_guest.html">Host Guest Complex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.macrocycle.html">Macrocycle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.rotaxane.html">Rotaxane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html">Adding Topology Graphs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Calculators</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="calculators.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.optimization.optimizers.html">Optimizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.energy.energy_calculators.html">Energy Calculators</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Evolutionary Algorithm</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ea.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.fitness_calculators.html">Fitness Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.fitness_normalizers.html">Fitness Normalizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.selectors.html">Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.mutators.html">Mutation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.crossers.html">Crossover</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.plotters.html">Plotting</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">stk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/stk.molecular.bonds.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="module-stk.molecular.bonds"></span><p>Defines classes which represent bonds.</p>
+<dl class="class">
+<dt id="stk.molecular.bonds.Bond">
+<em class="property">class </em><code class="sig-name descname">Bond</code><span class="sig-paren">(</span><em class="sig-param">atom1</em>, <em class="sig-param">atom2</em>, <em class="sig-param">order</em>, <em class="sig-param">periodicity=(0</em>, <em class="sig-param">0</em>, <em class="sig-param">0)</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.bonds.Bond" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents an atomic bond.</p>
+<dl class="attribute">
+<dt id="stk.molecular.bonds.Bond.atom1">
+<code class="sig-name descname">atom1</code><a class="headerlink" href="#stk.molecular.bonds.Bond.atom1" title="Permalink to this definition">¶</a></dt>
+<dd><p>The first atom in the bond.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="stk.molecular.elements.html#stk.molecular.elements.Atom" title="stk.molecular.elements.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stk.molecular.bonds.Bond.atom2">
+<code class="sig-name descname">atom2</code><a class="headerlink" href="#stk.molecular.bonds.Bond.atom2" title="Permalink to this definition">¶</a></dt>
+<dd><p>The second atom in the bond.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="stk.molecular.elements.html#stk.molecular.elements.Atom" title="stk.molecular.elements.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stk.molecular.bonds.Bond.order">
+<code class="sig-name descname">order</code><a class="headerlink" href="#stk.molecular.bonds.Bond.order" title="Permalink to this definition">¶</a></dt>
+<dd><p>The bond order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stk.molecular.bonds.Bond.periodicity">
+<code class="sig-name descname">periodicity</code><a class="headerlink" href="#stk.molecular.bonds.Bond.periodicity" title="Permalink to this definition">¶</a></dt>
+<dd><p>The directions across which the bond is periodic. For example,
+<code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">0,</span> <span class="pre">-1)</span></code> means that when going from
+<a class="reference internal" href="#stk.molecular.bonds.Bond.atom1" title="stk.molecular.bonds.Bond.atom1"><code class="xref py py-attr docutils literal notranslate"><span class="pre">atom1</span></code></a> to <a class="reference internal" href="#stk.molecular.bonds.Bond.atom2" title="stk.molecular.bonds.Bond.atom2"><code class="xref py py-attr docutils literal notranslate"><span class="pre">atom2</span></code></a> the bond is
+periodic across the x axis in the positive direction, is not
+periodic across the y axis and is periodic across the z axis
+in the negative direction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Examples</p>
+<p><em>Adding additional attributes.</em></p>
+<p>Each bond can be given additional attributes. For example</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="n">bond1</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Bond</span><span class="p">(</span><span class="n">stk</span><span class="o">.</span><span class="n">H</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">stk</span><span class="o">.</span><span class="n">H</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">bond1</span><span class="o">.</span><span class="n">attr1</span> <span class="o">=</span> <span class="mf">12.2</span>
+<span class="n">bond1</span><span class="o">.</span><span class="n">attr2</span> <span class="o">=</span> <span class="s1">&#39;something&#39;</span>
+</pre></div>
+</div>
+<p>A <a class="reference internal" href="#stk.molecular.bonds.Bond" title="stk.molecular.bonds.Bond"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bond</span></code></a> can also initialized with additional attributes
+directly</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bond2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Bond</span><span class="p">(</span>
+    <span class="n">atom1</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">C</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+    <span class="n">atom2</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">C</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+    <span class="n">order</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">attr1</span><span class="o">=</span><span class="mi">123</span><span class="p">,</span>
+    <span class="n">attr2</span><span class="o">=</span><span class="s1">&#39;hi&#39;</span>
+<span class="p">)</span>
+
+<span class="n">bond2</span><span class="o">.</span><span class="n">attr1</span>  <span class="c1"># Holds 123.</span>
+<span class="n">bond2</span><span class="o">.</span><span class="n">attr2</span>  <span class="c1"># Holds &#39;hi&#39;.</span>
+</pre></div>
+</div>
+<p><em>Printing</em></p>
+<p>To print a brief summary of a bond you can run</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Prints Bond(C(2), C(3), 1).</span>
+<span class="k">print</span><span class="p">(</span><span class="n">bond2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To print a complete description of a bond, including additional
+attributes, you can run</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Prints Bond(C(2), C(3), 1, attr1=123, attr2=&#39;hi&#39;)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">bond2</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>If the atoms have additional attributes, they will be printed too</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add a custom attribute to an atom.</span>
+<span class="n">bond2</span><span class="o">.</span><span class="n">atom1</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Prints Bond(C(2, alpha=1), C(3), 1, attr1=123, attr2=&#39;hi&#39;)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">bond2</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>If private attributes were added to a bond, they will not be
+printed</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bond2</span><span class="o">.</span><span class="n">_attr3</span> <span class="o">=</span> <span class="s1">&#39;private&#39;</span>
+<span class="c1"># Prints Bond(C(2, alpha=1), C(3), 1, attr1=123, attr2=&#39;hi&#39;)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">bond2</span><span class="p">))</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.molecular.bonds.Bond.clone" title="stk.molecular.bonds.Bond.clone"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clone</span></code></a>(self[, atom_map])</p></td>
+<td><p>Return a clone.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.molecular.bonds.Bond.is_periodic" title="stk.molecular.bonds.Bond.is_periodic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_periodic</span></code></a>(self)</p></td>
+<td><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the bond is periodic.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.molecular.bonds.Bond.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">atom1</em>, <em class="sig-param">atom2</em>, <em class="sig-param">order</em>, <em class="sig-param">periodicity=(0</em>, <em class="sig-param">0</em>, <em class="sig-param">0)</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.bonds.Bond.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a <a class="reference internal" href="#stk.molecular.bonds.Bond" title="stk.molecular.bonds.Bond"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bond</span></code></a>.</p>
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">atom1</code></dt>
+<dd><p>The first atom in the bond.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="stk.molecular.elements.html#stk.molecular.elements.Atom" title="stk.molecular.elements.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">atom2</code></dt>
+<dd><p>The second atom in the bond.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="stk.molecular.elements.html#stk.molecular.elements.Atom" title="stk.molecular.elements.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">order</code></dt>
+<dd><p>The bond order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">periodicity</code></dt>
+<dd><p>The directions across which the bond is periodic. For
+example, <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">0,</span> <span class="pre">-1)</span></code> means that when going from
+<a class="reference internal" href="#stk.molecular.bonds.Bond.atom1" title="stk.molecular.bonds.Bond.atom1"><code class="xref py py-attr docutils literal notranslate"><span class="pre">atom1</span></code></a> to <a class="reference internal" href="#stk.molecular.bonds.Bond.atom2" title="stk.molecular.bonds.Bond.atom2"><code class="xref py py-attr docutils literal notranslate"><span class="pre">atom2</span></code></a> the bond is
+periodic across the x axis in the positive direction, is
+not periodic across the y axis and is periodic across the z
+axis in the negative direction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">**kwargs</code></dt>
+<dd><p>Additional attributes to be added to the bond.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code>, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.molecular.bonds.Bond.clone">
+<code class="sig-name descname">clone</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">atom_map=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.bonds.Bond.clone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a clone.</p>
+<p>Private attributes are not passed to the clone.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>atom_map</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>, optional) – If the clone should hold different <a class="reference internal" href="stk.molecular.elements.html#stk.molecular.elements.Atom" title="stk.molecular.elements.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a>
+instances, then a <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code> should be provided, which
+maps atoms in the current <a class="reference internal" href="#stk.molecular.bonds.Bond" title="stk.molecular.bonds.Bond"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bond</span></code></a> to the
+atoms which should be used in the clone. Only atoms which
+need to be remapped need to be present in the <cite>atom_map</cite>.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The clone.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#stk.molecular.bonds.Bond" title="stk.molecular.bonds.Bond"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bond</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="n">c0</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">C</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">c1</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">C</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">bond</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Bond</span><span class="p">(</span><span class="n">c0</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">custom_attr</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">_private_attr</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># bond_clone holds c0 and c1 in its atom1 and atom2</span>
+<span class="c1"># attributes, respectively. It also has a custom_attr</span>
+<span class="c1"># with a value of 12 but it does not have a _private_attr</span>
+<span class="c1"># attribute.</span>
+<span class="n">bond_clone</span> <span class="o">=</span> <span class="n">bond</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>It is possible to make sure that the clone holds different
+atoms</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">li2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Li</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">n3</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">N</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># clone2 is also a clone, except that it holds</span>
+<span class="c1"># li2 in the atom2 attribute. Its atom1 attribute still</span>
+<span class="c1"># holds c0.</span>
+<span class="n">clone2</span> <span class="o">=</span> <span class="n">bond</span><span class="o">.</span><span class="n">clone</span><span class="p">(</span><span class="n">atom_map</span><span class="o">=</span><span class="p">{</span>
+    <span class="n">c1</span><span class="p">:</span> <span class="n">li2</span>
+<span class="p">})</span>
+
+<span class="c1"># clone3 is also a clone, except that it holds n3 and</span>
+<span class="c1"># li2 in its atom1 and atom2 attributes, respectively.</span>
+<span class="n">clone3</span> <span class="o">=</span> <span class="n">bond</span><span class="o">.</span><span class="n">clone</span><span class="p">(</span><span class="n">atom_map</span><span class="o">=</span><span class="p">{</span>
+    <span class="n">c0</span><span class="p">:</span> <span class="n">n3</span><span class="p">,</span>
+    <span class="n">c1</span><span class="p">:</span> <span class="n">li2</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.molecular.bonds.Bond.is_periodic">
+<code class="sig-name descname">is_periodic</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.bonds.Bond.is_periodic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the bond is periodic.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the bond is periodic.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Lukas Turcani
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

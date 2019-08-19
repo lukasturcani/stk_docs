@@ -1,0 +1,358 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Extending stk: Adding complex reactions. &mdash; stk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> stk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">stk</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_examples.html">Basic Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cookbook.html">Cookbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Molecules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.molecules.building_block.html">Building Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html">Constructed Molecule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.functional_groups.html">Functional Groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.populations.html">Populations</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Topology Graphs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.polymer.html">Polymer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.cage.base.html">Organic Cage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.cof.html">Covalent Organic Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.host_guest.html">Host Guest Complex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.macrocycle.html">Macrocycle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.rotaxane.html">Rotaxane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html">Adding Topology Graphs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Calculators</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="calculators.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.optimization.optimizers.html">Optimizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.energy.energy_calculators.html">Energy Calculators</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Evolutionary Algorithm</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ea.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.fitness_calculators.html">Fitness Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.fitness_normalizers.html">Fitness Normalizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.selectors.html">Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.mutators.html">Mutation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.crossers.html">Crossover</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.plotters.html">Plotting</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">stk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Extending stk: Adding complex reactions.</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/stk.molecular.reactor.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="module-stk.molecular.reactor"></span><p>Defines <a class="reference internal" href="#stk.molecular.reactor.Reactor" title="stk.molecular.reactor.Reactor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Reactor</span></code></a>.</p>
+<div class="section" id="extending-stk-adding-complex-reactions">
+<span id="adding-complex-reactions"></span><h1>Extending stk: Adding complex reactions.<a class="headerlink" href="#extending-stk-adding-complex-reactions" title="Permalink to this headline">¶</a></h1>
+<p>See <a class="reference internal" href="#stk.molecular.reactor.Reactor" title="stk.molecular.reactor.Reactor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Reactor</span></code></a>.</p>
+<dl class="class">
+<dt id="stk.molecular.reactor.Reactor">
+<em class="property">class </em><code class="sig-name descname">Reactor</code><span class="sig-paren">(</span><em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.reactor.Reactor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Performs reactions between functional groups of a molecule.</p>
+<p>The <a class="reference internal" href="#stk.molecular.reactor.Reactor" title="stk.molecular.reactor.Reactor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Reactor</span></code></a> is initialized with the
+<a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstructedMolecule</span></code></a> instance on which it will perform
+reactions.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reactor</span> <span class="o">=</span> <span class="n">Reactor</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <a class="reference internal" href="#stk.molecular.reactor.Reactor" title="stk.molecular.reactor.Reactor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Reactor</span></code></a> registers which functional groups need to have
+reactions performed with <a class="reference internal" href="#stk.molecular.reactor.Reactor.add_reaction" title="stk.molecular.reactor.Reactor.add_reaction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_reaction()</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fg1</span><span class="p">,</span> <span class="n">fg2</span><span class="p">,</span> <span class="n">fg3</span><span class="p">,</span> <span class="n">fg4</span><span class="p">,</span> <span class="n">fg5</span><span class="p">,</span> <span class="n">fg6</span><span class="p">,</span> <span class="n">fg7</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">func_groups</span>
+
+<span class="c1"># Register a reaction between the atoms in fg1 and fg2.</span>
+<span class="n">reactor</span><span class="o">.</span><span class="n">add_reaction</span><span class="p">(</span><span class="n">fg1</span><span class="p">,</span> <span class="n">fg2</span><span class="p">)</span>
+
+<span class="c1"># Register a reaction between atoms in fg3 and fg4.</span>
+<span class="n">reactor</span><span class="o">.</span><span class="n">add_reaction</span><span class="p">(</span><span class="n">fg3</span><span class="p">,</span> <span class="n">fg4</span><span class="p">)</span>
+
+<span class="c1"># Some reactions can take multiple functional groups.</span>
+<span class="c1"># You can put in as many functional groups as you like, given</span>
+<span class="c1"># an appropriate reaction is defined.</span>
+<span class="n">reactor</span><span class="o">.</span><span class="n">add_reaction</span><span class="p">(</span><span class="n">fg5</span><span class="p">,</span> <span class="n">fg6</span><span class="p">,</span> <span class="n">fg7</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Once all the reactions have been registered, they are perfomed
+in a single step</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reactor</span><span class="o">.</span><span class="n">finalize</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>An obvious question given this tutorial, is what reaction does
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">react()</span></code> carry out? This is documented by <code class="xref py py-meth docutils literal notranslate"><span class="pre">react()</span></code>.
+However, <code class="xref py py-meth docutils literal notranslate"><span class="pre">react()</span></code> in most cases, will carry out a default
+reaction, which adds a bond between the bonder atoms of two
+functional groups. The bond order of the added bond is single by
+default but can be modified by editing <code class="xref py py-attr docutils literal notranslate"><span class="pre">_bond_orders</span></code>. Here
+you will specify the <code class="xref py py-class docutils literal notranslate"><span class="pre">_ReactionKey</span></code> for a reaction and what
+bond order you want that reaction to use.</p>
+<p>For some reactions you may wish to forgo the default reaction and
+do something more complex. This is neccessary because some
+reactions cannot be described by the simple combination of adding a
+bond while deleting some existing atoms. For example,
+consider the aldol reaction:</p>
+<blockquote>
+<div><p>CH3C(=O)CH3 + CH3C(=O)CH3 –&gt; CH3(=O)CH2C(OH)(CH3)CH3</p>
+</div></blockquote>
+<p>Here a ketone is converted into an alcohol. If you wish to
+support a complex reaction, add it as a method within this class.
+The method will need take some <code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionalGroup</span></code> instances
+as arguments. These are the functional groups which react.</p>
+<p>Once the method is defined, <code class="xref py py-attr docutils literal notranslate"><span class="pre">_custom_reactions</span></code> needs to
+be updated.</p>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.molecular.reactor.Reactor.add_reaction" title="stk.molecular.reactor.Reactor.add_reaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_reaction</span></code></a>(self, func_groups, periodicity)</p></td>
+<td><p>Create bonds between functional groups.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.molecular.reactor.Reactor.finalize" title="stk.molecular.reactor.Reactor.finalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finalize</span></code></a>(self)</p></td>
+<td><p>Finish performing reactions.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.molecular.reactor.Reactor.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.reactor.Reactor.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a <a class="reference internal" href="#stk.molecular.reactor.Reactor" title="stk.molecular.reactor.Reactor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Reactor</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstructedMolecule</span></code></a>) – The molecule on which the reactor adds and removes atoms
+and bonds.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.molecular.reactor.Reactor.add_reaction">
+<code class="sig-name descname">add_reaction</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">func_groups</em>, <em class="sig-param">periodicity</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.reactor.Reactor.add_reaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create bonds between functional groups.</p>
+<p>This function first looks at the functional groups provided via
+the <cite>func_groups</cite> argument and checks which functional groups
+are involved in the reaction. If the functional groups are
+handled by one of the custom reactions specified in
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">_custom_reactions</span></code> then that function is executed.</p>
+<p>In all other cases the function is assumed to have received two
+functional groups to react. In these functional groups, the
+bonder atoms have a bond added. The bond is single,
+unless otherwise specified in <code class="xref py py-attr docutils literal notranslate"><span class="pre">_bond_orders</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>func_groups</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <a class="reference internal" href="stk.molecular.functional_groups.html#stk.molecular.functional_groups.FunctionalGroup" title="stk.molecular.functional_groups.FunctionalGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionalGroup</span></code></a>) – The functional groups to react.</p></li>
+<li><p><strong>periodicity</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Specifies the periodicity of the bonds added by the
+reaction, which bridge the <cite>func_groups</cite>. See
+<a class="reference internal" href="stk.molecular.bonds.html#stk.molecular.bonds.Bond.periodicity" title="stk.molecular.bonds.Bond.periodicity"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Bond.periodicity</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.molecular.reactor.Reactor.finalize">
+<code class="sig-name descname">finalize</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.reactor.Reactor.finalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finish performing reactions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>None</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Lukas Turcani
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

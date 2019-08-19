@@ -1,0 +1,810 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mutation &mdash; stk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> stk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">stk</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_examples.html">Basic Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cookbook.html">Cookbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Molecules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.molecules.building_block.html">Building Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html">Constructed Molecule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.functional_groups.html">Functional Groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.populations.html">Populations</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Topology Graphs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.polymer.html">Polymer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.cage.base.html">Organic Cage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.cof.html">Covalent Organic Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.host_guest.html">Host Guest Complex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.macrocycle.html">Macrocycle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.rotaxane.html">Rotaxane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html">Adding Topology Graphs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Calculators</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="calculators.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.optimization.optimizers.html">Optimizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.energy.energy_calculators.html">Energy Calculators</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Evolutionary Algorithm</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ea.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.fitness_calculators.html">Fitness Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.fitness_normalizers.html">Fitness Normalizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.selectors.html">Selection</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Mutation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#making-new-mutators">Making New Mutators</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.crossers.html">Crossover</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.plotters.html">Plotting</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">stk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Mutation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/stk.calculators.ea.mutators.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="module-stk.calculators.ea.mutators"></span><div class="section" id="mutation">
+<h1>Mutation<a class="headerlink" href="#mutation" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#stk.calculators.ea.mutators.RandomBuildingBlock" title="stk.calculators.ea.mutators.RandomBuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">RandomBuildingBlock</span></code></a></p></li>
+<li><p><a class="reference internal" href="#stk.calculators.ea.mutators.SimilarBuildingBlock" title="stk.calculators.ea.mutators.SimilarBuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimilarBuildingBlock</span></code></a></p></li>
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">RandomTopology</span></code></p></li>
+<li><p><a class="reference internal" href="#stk.calculators.ea.mutators.RandomMutation" title="stk.calculators.ea.mutators.RandomMutation"><code class="xref py py-class docutils literal notranslate"><span class="pre">RandomMutation</span></code></a></p></li>
+</ol>
+<p>Mutation is carried by <a class="reference internal" href="#stk.calculators.ea.mutators.Mutator" title="stk.calculators.ea.mutators.Mutator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mutator</span></code></a> objects. They inherit
+<a class="reference internal" href="#stk.calculators.ea.mutators.Mutator" title="stk.calculators.ea.mutators.Mutator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mutator</span></code></a> and define a method <a class="reference internal" href="#stk.calculators.ea.mutators.Mutator.mutate" title="stk.calculators.ea.mutators.Mutator.mutate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">mutate()</span></code></a>. This
+method must take a single molecule and return a mutant.</p>
+<p>Examples of how mutators work can be seen the documentation of
+the various <a class="reference internal" href="#stk.calculators.ea.mutators.Mutator" title="stk.calculators.ea.mutators.Mutator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mutator</span></code></a> classes, for example
+<a class="reference internal" href="#stk.calculators.ea.mutators.RandomBuildingBlock" title="stk.calculators.ea.mutators.RandomBuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">RandomBuildingBlock</span></code></a>, <a class="reference internal" href="#stk.calculators.ea.mutators.SimilarBuildingBlock" title="stk.calculators.ea.mutators.SimilarBuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimilarBuildingBlock</span></code></a>
+or <a class="reference internal" href="#stk.calculators.ea.mutators.RandomMutation" title="stk.calculators.ea.mutators.RandomMutation"><code class="xref py py-class docutils literal notranslate"><span class="pre">RandomMutation</span></code></a>.</p>
+<div class="section" id="making-new-mutators">
+<span id="adding-mutators"></span><h2>Making New Mutators<a class="headerlink" href="#making-new-mutators" title="Permalink to this headline">¶</a></h2>
+<p>Mutators must simple inherit the <a class="reference internal" href="#stk.calculators.ea.mutators.Mutator" title="stk.calculators.ea.mutators.Mutator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mutator</span></code></a> class and define a
+method called <code class="xref py py-meth docutils literal notranslate"><span class="pre">mutate()</span></code>, which take a single molecule
+and returns a mutant molecule. There are no requirements besides this.</p>
+<dl class="exception">
+<dt id="stk.calculators.ea.mutators.MutationError">
+<em class="property">exception </em><code class="sig-name descname">MutationError</code><a class="headerlink" href="#stk.calculators.ea.mutators.MutationError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Used for errors which occuring during mutation operations.</p>
+<dl class="method">
+<dt id="stk.calculators.ea.mutators.MutationError.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">/</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.mutators.MutationError.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stk.calculators.ea.mutators.MutationError.args">
+<code class="sig-name descname">args</code><a class="headerlink" href="#stk.calculators.ea.mutators.MutationError.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.mutators.MutationError.with_traceback">
+<code class="sig-name descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.mutators.MutationError.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stk.calculators.ea.mutators.Mutator">
+<em class="property">class </em><code class="sig-name descname">Mutator</code><span class="sig-paren">(</span><em class="sig-param">use_cache</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.mutators.Mutator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Creates mutants.</p>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.mutators.Mutator.mutate" title="stk.calculators.ea.mutators.Mutator.mutate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mutate</span></code></a>(self, mol)</p></td>
+<td><p>Return a mutant of <cite>mol</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.ea.mutators.Mutator.set_cache_use" title="stk.calculators.ea.mutators.Mutator.set_cache_use"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cache_use</span></code></a>(self, use_cache)</p></td>
+<td><p>Set cache use on or off.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.calculators.ea.mutators.Mutator.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">use_cache</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.mutators.Mutator.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a <a class="reference internal" href="#stk.calculators.ea.mutators.Mutator" title="stk.calculators.ea.mutators.Mutator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mutator</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Toggles use of the molecular cache.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.mutators.Mutator.mutate">
+<code class="sig-name descname">mutate</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.mutators.Mutator.mutate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a mutant of <cite>mol</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule to be mutated.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>mol</strong> – The mutant.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> – This is a virtual method which must be implemented by
+a subclass.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.mutators.Mutator.set_cache_use">
+<code class="sig-name descname">set_cache_use</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">use_cache</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.mutators.Mutator.set_cache_use" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set cache use on or off.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> if the cache is to be used.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stk.calculators.ea.mutators.RandomBuildingBlock">
+<em class="property">class </em><code class="sig-name descname">RandomBuildingBlock</code><span class="sig-paren">(</span><em class="sig-param">building_blocks</em>, <em class="sig-param">key</em>, <em class="sig-param">duplicate_building_blocks=False</em>, <em class="sig-param">random_seed=None</em>, <em class="sig-param">use_cache=False</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.mutators.RandomBuildingBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stk.calculators.ea.mutators.Mutator" title="stk.calculators.ea.mutators.Mutator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.mutators.Mutator</span></code></a></p>
+<p>Substitutes random building blocks.</p>
+<p>This mutator takes a <a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstructedMolecule</span></code></a> and substitutes
+the building blocks with one chosen at random from a given set.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="c1"># Create a molecule which is to be mutated.</span>
+<span class="n">bb1</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NCCN&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;amine&#39;</span><span class="p">])</span>
+<span class="n">bb2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;O=CCC=O&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;aldehyde&#39;</span><span class="p">])</span>
+<span class="n">polymer</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
+    <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">bb1</span><span class="p">,</span> <span class="n">bb2</span><span class="p">],</span>
+    <span class="n">topology_graphs</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="s1">&#39;AB&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># Create molecules used to substitute building blocks.</span>
+<span class="n">building_blocks</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NC[Si]CCN&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;amine&#39;</span><span class="p">]),</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NCCCCCCCN&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;amine&#39;</span><span class="p">]),</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NC1CCCCC1N&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;amine&#39;</span><span class="p">])</span>
+<span class="p">]</span>
+
+<span class="c1"># Create the mutator.</span>
+<span class="n">random_bb</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">RandomBuildingBlock</span><span class="p">(</span>
+    <span class="n">building_blocks</span><span class="o">=</span><span class="n">building_blocks</span><span class="p">,</span>
+    <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">mol</span><span class="p">:</span> <span class="n">mol</span><span class="o">.</span><span class="n">func_groups</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">fg_type</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;amine&#39;</span>
+<span class="p">)</span>
+
+<span class="c1"># Mutate a molecule.</span>
+<span class="n">mutant1</span> <span class="o">=</span> <span class="n">random_bb</span><span class="o">.</span><span class="n">mutate</span><span class="p">(</span><span class="n">polymer</span><span class="p">)</span>
+
+<span class="c1"># Mutate the molecule a second time.</span>
+<span class="n">mutant2</span> <span class="o">=</span> <span class="n">random_bb</span><span class="o">.</span><span class="n">mutate</span><span class="p">(</span><span class="n">polymer</span><span class="p">)</span>
+
+<span class="c1"># Mutate a mutant.</span>
+<span class="n">mutant3</span> <span class="o">=</span> <span class="n">random_bb</span><span class="o">.</span><span class="n">mutate</span><span class="p">(</span><span class="n">mutant1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.mutators.RandomBuildingBlock.mutate" title="stk.calculators.ea.mutators.RandomBuildingBlock.mutate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mutate</span></code></a>(self, mol)</p></td>
+<td><p>Return a mutant of <cite>mol</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.ea.mutators.RandomBuildingBlock.set_cache_use" title="stk.calculators.ea.mutators.RandomBuildingBlock.set_cache_use"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cache_use</span></code></a>(self, use_cache)</p></td>
+<td><p>Set cache use on or off.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.calculators.ea.mutators.RandomBuildingBlock.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">building_blocks</em>, <em class="sig-param">key</em>, <em class="sig-param">duplicate_building_blocks=False</em>, <em class="sig-param">random_seed=None</em>, <em class="sig-param">use_cache=False</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.mutators.RandomBuildingBlock.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a <a class="reference internal" href="#stk.calculators.ea.mutators.RandomBuildingBlock" title="stk.calculators.ea.mutators.RandomBuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">RandomBuildingBlock</span></code></a> instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>building_blocks</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – A group of molecules which are used to replace building
+blocks in molecules being mutated.</p></li>
+<li><p><strong>key</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">function</span></code>) – A function which takes a <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> and
+returns <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. This function is applied to
+every building block in the molecule being mutated.
+Building blocks which returned <code class="docutils literal notranslate"><span class="pre">True</span></code> are liable for
+substition by one of the molecules in <cite>building_blocks</cite>.</p></li>
+<li><p><strong>duplicate_building_blocks</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – Indicates whether the building blocks used to construct the
+mutant must all be unique.</p></li>
+<li><p><strong>random_seed</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – The random seed to use.</p></li>
+<li><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – Toggles use of the molecular cache.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.mutators.RandomBuildingBlock.mutate">
+<code class="sig-name descname">mutate</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.mutators.RandomBuildingBlock.mutate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a mutant of <cite>mol</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstructedMolecule</span></code></a>) – The molecule to be mutated.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>mol</strong> – The mutant.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstructedMolecule</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.mutators.RandomBuildingBlock.set_cache_use">
+<code class="sig-name descname">set_cache_use</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">use_cache</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.mutators.RandomBuildingBlock.set_cache_use" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set cache use on or off.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> if the cache is to be used.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stk.calculators.ea.mutators.RandomMutation">
+<em class="property">class </em><code class="sig-name descname">RandomMutation</code><span class="sig-paren">(</span><em class="sig-param">*mutators</em>, <em class="sig-param">weights=None</em>, <em class="sig-param">random_seed=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.mutators.RandomMutation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stk.calculators.ea.mutators.Mutator" title="stk.calculators.ea.mutators.Mutator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.mutators.Mutator</span></code></a></p>
+<p>Uses a random <a class="reference internal" href="#stk.calculators.ea.mutators.Mutator" title="stk.calculators.ea.mutators.Mutator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mutator</span></code></a> to carry out mutations.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="c1"># Create a molecule which is to be mutated.</span>
+<span class="n">bb1</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NCCN&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;amine&#39;</span><span class="p">])</span>
+<span class="n">bb2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;O=CCC(=O)CC=O&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;aldehyde&#39;</span><span class="p">])</span>
+<span class="n">cage</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
+    <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">bb1</span><span class="p">,</span> <span class="n">bb2</span><span class="p">],</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">cage</span><span class="o">.</span><span class="n">FourPlusSix</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="c1"># Create the first mutator.</span>
+<span class="n">topology_graphs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">cage</span><span class="o">.</span><span class="n">TwoPlusThree</span><span class="p">(),</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">cage</span><span class="o">.</span><span class="n">EightPlusTwelve</span><span class="p">(),</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">cage</span><span class="o">.</span><span class="n">TwentyPlusThirty</span><span class="p">()</span>
+<span class="p">]</span>
+<span class="n">random_topology</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">RandomTopologyGraph</span><span class="p">(</span><span class="n">topology_graphs</span><span class="p">)</span>
+
+<span class="c1"># Create the second and third mutator.</span>
+<span class="n">building_blocks</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NC[Si]CCN&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;amine&#39;</span><span class="p">]),</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NCCCCCCCN&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;amine&#39;</span><span class="p">]),</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NC1CCCCC1N&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;amine&#39;</span><span class="p">])</span>
+<span class="p">]</span>
+
+<span class="n">random_bb</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">RandomBuildingBlock</span><span class="p">(</span>
+    <span class="n">building_blocks</span><span class="o">=</span><span class="n">building_blocks</span><span class="p">,</span>
+    <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">mol</span><span class="p">:</span> <span class="n">mol</span><span class="o">.</span><span class="n">func_groups</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">fg_type</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;amine&#39;</span>
+<span class="p">)</span>
+
+<span class="n">similar_bb</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">SimilarBuildingBlock</span><span class="p">(</span>
+    <span class="n">building_blocks</span><span class="o">=</span><span class="n">building_blocks</span><span class="p">,</span>
+    <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">mol</span><span class="p">:</span> <span class="n">mol</span><span class="o">.</span><span class="n">func_groups</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">fg_type</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;amine&#39;</span>
+<span class="p">)</span>
+
+<span class="c1"># Create the mutator used to carry out the mutations.</span>
+<span class="n">random_mutator</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">RandomMutation</span><span class="p">(</span>
+    <span class="n">random_topology</span><span class="p">,</span>
+    <span class="n">random_bb</span><span class="p">,</span>
+    <span class="n">similar_bb</span>
+<span class="p">)</span>
+
+<span class="c1"># Mutate a molecule, one of random_topology,</span>
+<span class="c1"># random_bb or similar_bb will be used.</span>
+<span class="n">mutant1</span> <span class="o">=</span> <span class="n">random_mutator</span><span class="o">.</span><span class="n">mutate</span><span class="p">(</span><span class="n">cage</span><span class="p">)</span>
+
+<span class="c1"># Mutate the molecule a second time, one of random_topology,</span>
+<span class="c1"># random_bb or similar_bb will be used.</span>
+<span class="n">mutant2</span> <span class="o">=</span> <span class="n">random_mutator</span><span class="o">.</span><span class="n">mutate</span><span class="p">(</span><span class="n">cage</span><span class="p">)</span>
+
+<span class="c1"># Mutate a mutant, one of random_topology,</span>
+<span class="c1"># random_bb or similar_bb will be used.</span>
+<span class="n">mutant3</span> <span class="o">=</span> <span class="n">random_mutator</span><span class="o">.</span><span class="n">mutate</span><span class="p">(</span><span class="n">mutant1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.mutators.RandomMutation.mutate" title="stk.calculators.ea.mutators.RandomMutation.mutate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mutate</span></code></a>(self, mol)</p></td>
+<td><p>Return a mutant of <cite>mol</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.ea.mutators.RandomMutation.set_cache_use" title="stk.calculators.ea.mutators.RandomMutation.set_cache_use"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cache_use</span></code></a>(self, use_cache)</p></td>
+<td><p>Set cache use on or off.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.calculators.ea.mutators.RandomMutation.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">*mutators</em>, <em class="sig-param">weights=None</em>, <em class="sig-param">random_seed=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.mutators.RandomMutation.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a <a class="reference internal" href="#stk.calculators.ea.mutators.RandomMutation" title="stk.calculators.ea.mutators.RandomMutation"><code class="xref py py-class docutils literal notranslate"><span class="pre">RandomMutation</span></code></a> instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>*mutators</strong> (<a class="reference internal" href="#stk.calculators.ea.mutators.Mutator" title="stk.calculators.ea.mutators.Mutator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mutator</span></code></a>) – <a class="reference internal" href="#stk.calculators.ea.mutators.Mutator" title="stk.calculators.ea.mutators.Mutator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mutator</span></code></a> objects which are used to carry out the
+mutations.</p></li>
+<li><p><strong>weights</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, optional) – The probability that each <a class="reference internal" href="#stk.calculators.ea.mutators.Mutator" title="stk.calculators.ea.mutators.Mutator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mutator</span></code></a> will be selected
+to carry out a mutation.</p></li>
+<li><p><strong>random_seed</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – The random seed to use.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.mutators.RandomMutation.mutate">
+<code class="sig-name descname">mutate</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.mutators.RandomMutation.mutate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a mutant of <cite>mol</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule to be mutated.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>mol</strong> – The mutant.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.mutators.RandomMutation.set_cache_use">
+<code class="sig-name descname">set_cache_use</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">use_cache</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.mutators.RandomMutation.set_cache_use" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set cache use on or off.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> if the cache is to be used.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stk.calculators.ea.mutators.RandomTopologyGraph">
+<em class="property">class </em><code class="sig-name descname">RandomTopologyGraph</code><span class="sig-paren">(</span><em class="sig-param">topology_graphs</em>, <em class="sig-param">random_seed=None</em>, <em class="sig-param">use_cache=False</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.mutators.RandomTopologyGraph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stk.calculators.ea.mutators.Mutator" title="stk.calculators.ea.mutators.Mutator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.mutators.Mutator</span></code></a></p>
+<p>Changes topology graphs at random.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="c1"># Create a molecule which is to be mutated.</span>
+<span class="n">bb1</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NCCN&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;amine&#39;</span><span class="p">])</span>
+<span class="n">bb2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;O=CCC(=O)CC=O&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;aldehyde&#39;</span><span class="p">])</span>
+<span class="n">cage</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
+    <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">bb1</span><span class="p">,</span> <span class="n">bb2</span><span class="p">],</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">cage</span><span class="o">.</span><span class="n">FourPlusSix</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="c1"># Create topologies used for substition.</span>
+<span class="n">topology_graphs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">cage</span><span class="o">.</span><span class="n">TwoPlusThree</span><span class="p">(),</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">cage</span><span class="o">.</span><span class="n">EightPlusTwelve</span><span class="p">(),</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">cage</span><span class="o">.</span><span class="n">TwentyPlusThirty</span><span class="p">()</span>
+<span class="p">]</span>
+
+<span class="c1"># Create the mutator.</span>
+<span class="n">random_topology</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">RandomTopologyGraph</span><span class="p">(</span><span class="n">topology_graphs</span><span class="p">)</span>
+
+<span class="c1"># Mutate a molecule.</span>
+<span class="n">mutant1</span> <span class="o">=</span> <span class="n">random_topology</span><span class="o">.</span><span class="n">mutate</span><span class="p">(</span><span class="n">cage</span><span class="p">)</span>
+
+<span class="c1"># Mutate the molecule a second time.</span>
+<span class="n">mutant2</span> <span class="o">=</span> <span class="n">random_topology</span><span class="o">.</span><span class="n">mutate</span><span class="p">(</span><span class="n">cage</span><span class="p">)</span>
+
+<span class="c1"># Mutate a mutant.</span>
+<span class="n">mutant3</span> <span class="o">=</span> <span class="n">random_topology</span><span class="o">.</span><span class="n">mutate</span><span class="p">(</span><span class="n">mutant1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.mutators.RandomTopologyGraph.mutate" title="stk.calculators.ea.mutators.RandomTopologyGraph.mutate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mutate</span></code></a>(self, mol)</p></td>
+<td><p>Return a mutant of <cite>mol</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.ea.mutators.RandomTopologyGraph.set_cache_use" title="stk.calculators.ea.mutators.RandomTopologyGraph.set_cache_use"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cache_use</span></code></a>(self, use_cache)</p></td>
+<td><p>Set cache use on or off.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.calculators.ea.mutators.RandomTopologyGraph.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">topology_graphs</em>, <em class="sig-param">random_seed=None</em>, <em class="sig-param">use_cache=False</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.mutators.RandomTopologyGraph.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a <code class="xref py py-class docutils literal notranslate"><span class="pre">RandomTopology</span></code> instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>topology_graphs</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> of <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.TopologyGraph" title="stk.molecular.topology_graphs.topology_graph.TopologyGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopologyGraph</span></code></a>) – This lists holds the topology instances from which one is
+selected at random to form a new molecule.</p></li>
+<li><p><strong>random_seed</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – The random seed to use.</p></li>
+<li><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – Toggles use of the molecular cache.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.mutators.RandomTopologyGraph.mutate">
+<code class="sig-name descname">mutate</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.mutators.RandomTopologyGraph.mutate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a mutant of <cite>mol</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstructedMolecule</span></code></a>) – The molecule to be mutated.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>mol</strong> – The mutant.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstructedMolecule</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.mutators.RandomTopologyGraph.set_cache_use">
+<code class="sig-name descname">set_cache_use</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">use_cache</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.mutators.RandomTopologyGraph.set_cache_use" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set cache use on or off.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> if the cache is to be used.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stk.calculators.ea.mutators.SimilarBuildingBlock">
+<em class="property">class </em><code class="sig-name descname">SimilarBuildingBlock</code><span class="sig-paren">(</span><em class="sig-param">building_blocks</em>, <em class="sig-param">key</em>, <em class="sig-param">duplicate_building_blocks</em>, <em class="sig-param">random_seed=None</em>, <em class="sig-param">use_cache=False</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.mutators.SimilarBuildingBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stk.calculators.ea.mutators.Mutator" title="stk.calculators.ea.mutators.Mutator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.mutators.Mutator</span></code></a></p>
+<p>Substitutes similar building blocks.</p>
+<p>This mutator takes a <a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstructedMolecule</span></code></a> and substitutes
+the building blocks with the most similar one from a given set.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="c1"># Create a molecule which is to be mutated.</span>
+<span class="n">bb1</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NCCN&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;amine&#39;</span><span class="p">])</span>
+<span class="n">bb2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;O=CCC=O&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;aldehyde&#39;</span><span class="p">])</span>
+<span class="n">polymer</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
+    <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">bb1</span><span class="p">,</span> <span class="n">bb2</span><span class="p">],</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="s1">&#39;AB&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># Create molecules used to substitute building blocks.</span>
+<span class="n">building_blocks</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NC[Si]CCN&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;amine&#39;</span><span class="p">]),</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NCCCCCCCN&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;amine&#39;</span><span class="p">]),</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NC1CCCCC1N&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;amine&#39;</span><span class="p">])</span>
+<span class="p">]</span>
+
+<span class="c1"># Create the mutator.</span>
+<span class="n">similar_bb</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">SimilarBuildingBlock</span><span class="p">(</span>
+    <span class="n">building_blocks</span><span class="o">=</span><span class="n">building_blocks</span><span class="p">,</span>
+    <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">mol</span><span class="p">:</span> <span class="n">mol</span><span class="o">.</span><span class="n">func_groups</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">fg_type</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;amine&#39;</span>
+<span class="p">)</span>
+
+<span class="c1"># Mutate a molecule.</span>
+<span class="n">mutant1</span> <span class="o">=</span> <span class="n">random_bb</span><span class="o">.</span><span class="n">mutate</span><span class="p">(</span><span class="n">polymer</span><span class="p">)</span>
+
+<span class="c1"># Mutate the molecule a second time.</span>
+<span class="n">mutant2</span> <span class="o">=</span> <span class="n">random_bb</span><span class="o">.</span><span class="n">mutate</span><span class="p">(</span><span class="n">polymer</span><span class="p">)</span>
+
+<span class="c1"># Mutate a mutant.</span>
+<span class="n">mutant3</span> <span class="o">=</span> <span class="n">random_bb</span><span class="o">.</span><span class="n">mutate</span><span class="p">(</span><span class="n">mutant1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.mutators.SimilarBuildingBlock.mutate" title="stk.calculators.ea.mutators.SimilarBuildingBlock.mutate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mutate</span></code></a>(self, mol)</p></td>
+<td><p>Return a mutant of <cite>mol</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.ea.mutators.SimilarBuildingBlock.set_cache_use" title="stk.calculators.ea.mutators.SimilarBuildingBlock.set_cache_use"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cache_use</span></code></a>(self, use_cache)</p></td>
+<td><p>Set cache use on or off.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.calculators.ea.mutators.SimilarBuildingBlock.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">building_blocks</em>, <em class="sig-param">key</em>, <em class="sig-param">duplicate_building_blocks</em>, <em class="sig-param">random_seed=None</em>, <em class="sig-param">use_cache=False</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.mutators.SimilarBuildingBlock.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a <a class="reference internal" href="#stk.calculators.ea.mutators.RandomBuildingBlock" title="stk.calculators.ea.mutators.RandomBuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">RandomBuildingBlock</span></code></a> instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>building_blocks</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – A group of molecules which are used to replace building
+blocks in molecules being mutated.</p></li>
+<li><p><strong>key</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">function</span></code>) – A function which takes a <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> and returns
+<code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. This function is applied to every
+building block of the molecule being mutated. Building
+blocks which returned <code class="docutils literal notranslate"><span class="pre">True</span></code> are liable for substition by
+one of the molecules in <code class="xref py py-attr docutils literal notranslate"><span class="pre">building_blocks</span></code>.</p></li>
+<li><p><strong>duplicate_building_blocks</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – Indicates whether the building blocks used to construct the
+mutant must all be unique.</p></li>
+<li><p><strong>random_seed</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – The random seed to use.</p></li>
+<li><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – Toggles use of the molecular cache.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.mutators.SimilarBuildingBlock.mutate">
+<code class="sig-name descname">mutate</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.mutators.SimilarBuildingBlock.mutate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a mutant of <cite>mol</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstructedMolecule</span></code></a>) – The molecule to be mutated.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>mol</strong> – The mutant.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstructedMolecule</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.mutators.SimilarBuildingBlock.set_cache_use">
+<code class="sig-name descname">set_cache_use</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">use_cache</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.mutators.SimilarBuildingBlock.set_cache_use" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set cache use on or off.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> if the cache is to be used.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Lukas Turcani
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

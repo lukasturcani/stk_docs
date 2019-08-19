@@ -1,0 +1,356 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Calculators &mdash; stk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Optimizers" href="stk.calculators.optimization.optimizers.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> stk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">stk</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_examples.html">Basic Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cookbook.html">Cookbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Molecules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.molecules.building_block.html">Building Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html">Constructed Molecule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.functional_groups.html">Functional Groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.populations.html">Populations</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Topology Graphs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.polymer.html">Polymer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.cage.base.html">Organic Cage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.cof.html">Covalent Organic Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.host_guest.html">Host Guest Complex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.macrocycle.html">Macrocycle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.rotaxane.html">Rotaxane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html">Adding Topology Graphs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Calculators</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#combining-calculators">Combining Calculators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#making-new-calculators">Making New Calculators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#saving-calculator-results">Saving Calculator Results</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.optimization.optimizers.html">Optimizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.energy.energy_calculators.html">Energy Calculators</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Evolutionary Algorithm</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ea.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.fitness_calculators.html">Fitness Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.fitness_normalizers.html">Fitness Normalizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.selectors.html">Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.mutators.html">Mutation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.crossers.html">Crossover</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.plotters.html">Plotting</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">stk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Calculators</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/calculators.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="calculators">
+<h1>Calculators<a class="headerlink" href="#calculators" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">stk</span></code> makes extensive use of calculator objects. Calculators are a
+very general pattern for performing operations on molecules. All
+calculators are objects with a special method, used to perform the
+calculation. For example, an optimizer has a special method called
+<a class="reference internal" href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.Optimizer.optimize" title="stk.calculators.optimization.optimizers.Optimizer.optimize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">optimize()</span></code></a>, which optimizes a molecule.</p>
+<p>Other types of calculators will have different special methods used to
+perform calculations on molecules. For example, an
+<a class="reference internal" href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.EnergyCalculator" title="stk.calculators.energy.energy_calculators.EnergyCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnergyCalculator</span></code></a> will define a
+<a class="reference internal" href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.EnergyCalculator.get_energy" title="stk.calculators.energy.energy_calculators.EnergyCalculator.get_energy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_energy()</span></code></a> method. This method calculates
+the energy of a molecule.</p>
+<p>All evolutionary algorithm operations are also implemented through
+calculators, take for example a <a class="reference internal" href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.Mutator" title="stk.calculators.ea.mutators.Mutator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mutator</span></code></a> such as
+<a class="reference internal" href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.RandomTopologyGraph" title="stk.calculators.ea.mutators.RandomTopologyGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">RandomTopologyGraph</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="n">topology_graphs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">cage</span><span class="o">.</span><span class="n">EightPlusTwelve</span><span class="p">(),</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">cage</span><span class="o">.</span><span class="n">FourPlusSix</span><span class="p">(),</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">cage</span><span class="o">.</span><span class="n">TwentyPlusThirty</span><span class="p">()</span>
+
+<span class="n">random_top</span> <span class="o">=</span> <span class="n">RandomTopologyGraph</span><span class="p">(</span><span class="n">topology_graphs</span><span class="p">)</span>
+
+<span class="n">cage</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">([</span><span class="n">bb1</span><span class="p">,</span> <span class="n">bb2</span><span class="p">],</span> <span class="n">stk</span><span class="o">.</span><span class="n">cage</span><span class="o">.</span><span class="n">SixPlusNine</span><span class="p">())</span>
+
+<span class="c1"># Perform a mutation.</span>
+<span class="n">mutant</span> <span class="o">=</span> <span class="n">random_top</span><span class="o">.</span><span class="n">mutate</span><span class="p">(</span><span class="n">cage</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A <a class="reference internal" href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.Mutator" title="stk.calculators.ea.mutators.Mutator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mutator</span></code></a> is a calculator which implements a
+<a class="reference internal" href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.Mutator.mutate" title="stk.calculators.ea.mutators.Mutator.mutate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">mutate()</span></code></a> method. This method takes a molecule and
+returns a mutant, <em>i.e.</em> a modified version, of that molecule.
+In this example, the <code class="docutils literal notranslate"><span class="pre">random_top</span></code> is a <a class="reference internal" href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.Mutator" title="stk.calculators.ea.mutators.Mutator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mutator</span></code></a>, which
+replaces the topology of a molecule with a new one, in order to
+generate the mutant. In this case, the new topologies would be one of
+<a class="reference internal" href="stk.molecular.topology_graphs.cage.two_plus_three.html#stk.molecular.topology_graphs.cage.two_plus_three.EightPlusTwelve" title="stk.molecular.topology_graphs.cage.two_plus_three.EightPlusTwelve"><code class="xref py py-class docutils literal notranslate"><span class="pre">EightPlusTwelve</span></code></a>, <a class="reference internal" href="stk.molecular.topology_graphs.cage.two_plus_three.html#stk.molecular.topology_graphs.cage.two_plus_three.FourPlusSix" title="stk.molecular.topology_graphs.cage.two_plus_three.FourPlusSix"><code class="xref py py-class docutils literal notranslate"><span class="pre">FourPlusSix</span></code></a> or
+<a class="reference internal" href="stk.molecular.topology_graphs.cage.two_plus_three.html#stk.molecular.topology_graphs.cage.two_plus_three.TwentyPlusThirty" title="stk.molecular.topology_graphs.cage.two_plus_three.TwentyPlusThirty"><code class="xref py py-class docutils literal notranslate"><span class="pre">TwentyPlusThirty</span></code></a>.</p>
+<p>Calculators often support additional options to modify their behaviour.
+For example, calculators of type <a class="reference internal" href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.Optimizer" title="stk.calculators.optimization.optimizers.Optimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Optimizer</span></code></a> or
+<a class="reference internal" href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.EnergyCalculator" title="stk.calculators.energy.energy_calculators.EnergyCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnergyCalculator</span></code></a> support caching. This means that if the
+same molecule and conformer is supplied to the calculator, it will not
+run the optimization or energy calculation again, it will return the
+previously calculated value.</p>
+<div class="section" id="combining-calculators">
+<h2>Combining Calculators<a class="headerlink" href="#combining-calculators" title="Permalink to this headline">¶</a></h2>
+<p>Calculators can be combined to create complex behaviour on the fly.
+For example, we may wish to make a 2 step optimization process. First,
+we perform an optimization using the MMFF force field and the run
+a MacroModel molecular dynamics conformer search with
+<a class="reference internal" href="stk.calculators.optimization.macromodel.html#stk.calculators.optimization.macromodel.MacroModelMD" title="stk.calculators.optimization.macromodel.MacroModelMD"><code class="xref py py-class docutils literal notranslate"><span class="pre">MacroModelMD</span></code></a>. The obvious way to do
+this is to run the two optimizers in sequence</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mmff</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">MMFF</span><span class="p">()</span>
+<span class="n">macromodel</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">MacroModelMD</span><span class="p">(</span><span class="s1">&#39;/opt/schrodinger2017-4&#39;</span><span class="p">)</span>
+<span class="n">mmff</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+<span class="n">macromodel</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>However, there is a better way! We can use an optimizer called
+<a class="reference internal" href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.OptimizerSequence" title="stk.calculators.optimization.optimizers.OptimizerSequence"><code class="xref py py-class docutils literal notranslate"><span class="pre">OptimizerSequence</span></code></a>. The <a class="reference internal" href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.OptimizerSequence.optimize" title="stk.calculators.optimization.optimizers.OptimizerSequence.optimize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">optimize()</span></code></a>
+method of this optimizer calls the <a class="reference internal" href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.Optimizer.optimize" title="stk.calculators.optimization.optimizers.Optimizer.optimize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">optimize()</span></code></a> methods
+of the optimizers it was initialized with</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opt_sequence</span> <span class="o">=</span> <span class="n">OptimizerSequence</span><span class="p">(</span><span class="n">mmff</span><span class="p">,</span> <span class="n">macromodel</span><span class="p">)</span>
+<span class="c1"># Optimize with mmff and then with macromodel.</span>
+<span class="n">opt_sequence</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This pattern is quite common and powerful. For example, we can take
+three different <a class="reference internal" href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.Mutator" title="stk.calculators.ea.mutators.Mutator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mutator</span></code></a> objects. Each of these defines
+a different <a class="reference internal" href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.Mutator.mutate" title="stk.calculators.ea.mutators.Mutator.mutate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">mutate()</span></code></a> method. We want to apply one of
+these mutations at random. We can simply use <a class="reference internal" href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.RandomMutation" title="stk.calculators.ea.mutators.RandomMutation"><code class="xref py py-class docutils literal notranslate"><span class="pre">RandomMutation</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">random_bb</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">RandomBuildingBlock</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">similar_bb</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">SimilarBulidingBlock</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">random_topology</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">RandomTopology</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+<span class="n">random_mutation</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">RandomMutation</span><span class="p">(</span>
+    <span class="n">random_bb</span><span class="p">,</span>
+    <span class="n">similar_bb</span><span class="p">,</span>
+    <span class="n">random_topology</span>
+<span class="p">)</span>
+
+<span class="c1"># Use one of the mutate() methods of random_bb, similar_bb and</span>
+<span class="c1"># random_topology at random.</span>
+<span class="n">mutant1</span> <span class="o">=</span> <span class="n">random_mutation</span><span class="o">.</span><span class="n">mutate</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+<span class="c1"># The next call use a different mutation to the call above.</span>
+<span class="n">mutant2</span> <span class="o">=</span> <span class="n">random_mutation</span><span class="o">.</span><span class="n">mutate</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <a class="reference internal" href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.RandomMutation.mutate" title="stk.calculators.ea.mutators.RandomMutation.mutate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">RandomMutation.mutate()</span></code></a> method randomly selects a
+<a class="reference internal" href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.Mutator" title="stk.calculators.ea.mutators.Mutator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mutator</span></code></a> it was initialized with to carry out the mutation
+on its behalf.</p>
+</div>
+<div class="section" id="making-new-calculators">
+<h2>Making New Calculators<a class="headerlink" href="#making-new-calculators" title="Permalink to this headline">¶</a></h2>
+<p>New calculators can be added very simply and they can be defined in
+user code.</p>
+<p>A simple example of adding a new calculator in user code.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="k">class</span> <span class="nc">NewEnergyCalculator</span><span class="p">(</span><span class="n">stk</span><span class="o">.</span><span class="n">EnergyCalculator</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_energy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mol</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">15</span>
+
+<span class="n">energy_calc</span> <span class="o">=</span> <span class="n">NewEnergyCalculator</span><span class="p">()</span>
+<span class="c1"># Calculate the energy with the new calculator.</span>
+<span class="n">energy_calc</span><span class="o">.</span><span class="n">get_energy</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that you can also modify the behaviour of existing calculators in
+your code, see the <a class="reference internal" href="cookbook.html"><span class="doc">Cookbook</span></a>.</p>
+</div>
+<div class="section" id="saving-calculator-results">
+<h2>Saving Calculator Results<a class="headerlink" href="#saving-calculator-results" title="Permalink to this headline">¶</a></h2>
+<p>If you want to save the results which your calculator found you should
+set <code class="docutils literal notranslate"><span class="pre">use_cache=True</span></code> and then you can simply use <code class="xref py py-mod docutils literal notranslate"><span class="pre">pickle</span></code>
+to dump and load the calculator object.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="stk.calculators.optimization.optimizers.html" class="btn btn-neutral float-right" title="Optimizers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Lukas Turcani
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

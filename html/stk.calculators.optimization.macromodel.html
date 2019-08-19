@@ -1,0 +1,659 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; stk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> stk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">stk</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_examples.html">Basic Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cookbook.html">Cookbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Molecules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.molecules.building_block.html">Building Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html">Constructed Molecule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.functional_groups.html">Functional Groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.populations.html">Populations</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Topology Graphs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.polymer.html">Polymer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.cage.base.html">Organic Cage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.cof.html">Covalent Organic Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.host_guest.html">Host Guest Complex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.macrocycle.html">Macrocycle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.rotaxane.html">Rotaxane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html">Adding Topology Graphs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Calculators</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="calculators.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.optimization.optimizers.html">Optimizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.energy.energy_calculators.html">Energy Calculators</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Evolutionary Algorithm</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ea.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.fitness_calculators.html">Fitness Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.fitness_normalizers.html">Fitness Normalizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.selectors.html">Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.mutators.html">Mutation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.crossers.html">Crossover</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.plotters.html">Plotting</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">stk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/stk.calculators.optimization.macromodel.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="module-stk.calculators.optimization.macromodel"></span><p>Defines MacroModel optimizers.</p>
+<dl class="exception">
+<dt id="stk.calculators.optimization.macromodel.MacroModelConversionError">
+<em class="property">exception </em><code class="sig-name descname">MacroModelConversionError</code><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelConversionError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<dl class="method">
+<dt id="stk.calculators.optimization.macromodel.MacroModelConversionError.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">/</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelConversionError.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stk.calculators.optimization.macromodel.MacroModelConversionError.args">
+<code class="sig-name descname">args</code><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelConversionError.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.optimization.macromodel.MacroModelConversionError.with_traceback">
+<code class="sig-name descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelConversionError.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stk.calculators.optimization.macromodel.MacroModelForceField">
+<em class="property">class </em><code class="sig-name descname">MacroModelForceField</code><span class="sig-paren">(</span><em class="sig-param">macromodel_path</em>, <em class="sig-param">output_dir=None</em>, <em class="sig-param">restricted=False</em>, <em class="sig-param">timeout=None</em>, <em class="sig-param">force_field=16</em>, <em class="sig-param">maximum_iterations=2500</em>, <em class="sig-param">minimum_gradient=0.05</em>, <em class="sig-param">use_cache=False</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelForceField" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.optimization.macromodel._MacroModel</span></code></p>
+<p>Uses MacroModel force fields to optimize molecules.</p>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.optimization.macromodel.MacroModelForceField.add_to_cache" title="stk.calculators.optimization.macromodel.MacroModelForceField.add_to_cache"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_to_cache</span></code></a>(self, mol)</p></td>
+<td><p>Add a molecule to the cache.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.optimization.macromodel.MacroModelForceField.is_caching" title="stk.calculators.optimization.macromodel.MacroModelForceField.is_caching"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_caching</span></code></a>(self)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the optimizer has caching turned on.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.optimization.macromodel.MacroModelForceField.optimize" title="stk.calculators.optimization.macromodel.MacroModelForceField.optimize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">optimize</span></code></a>(self, mol)</p></td>
+<td><p>Optimize a molecule.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.optimization.macromodel.MacroModelForceField.set_cache_use" title="stk.calculators.optimization.macromodel.MacroModelForceField.set_cache_use"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cache_use</span></code></a>(self, use_cache)</p></td>
+<td><p>Set cache use on or off.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.calculators.optimization.macromodel.MacroModelForceField.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">macromodel_path</em>, <em class="sig-param">output_dir=None</em>, <em class="sig-param">restricted=False</em>, <em class="sig-param">timeout=None</em>, <em class="sig-param">force_field=16</em>, <em class="sig-param">maximum_iterations=2500</em>, <em class="sig-param">minimum_gradient=0.05</em>, <em class="sig-param">use_cache=False</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelForceField.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a <a class="reference internal" href="#stk.calculators.optimization.macromodel.MacroModelForceField" title="stk.calculators.optimization.macromodel.MacroModelForceField"><code class="xref py py-class docutils literal notranslate"><span class="pre">MacroModelForceField</span></code></a> object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>macromodel_path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The full path of the Schrodinger suite within the user’s
+machine. For example, on a Linux machine this may be
+something like <code class="docutils literal notranslate"><span class="pre">'/opt/schrodinger2017-2'</span></code>.</p></li>
+<li><p><strong>output_dir</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, optional) – The name of the directory into which files generated during
+the optimization are written, if <code class="docutils literal notranslate"><span class="pre">None</span></code> then
+<code class="xref py py-func docutils literal notranslate"><span class="pre">uuid.uuid4()</span></code> is used.</p></li>
+<li><p><strong>restricted</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> then an optimization is performed only on the
+bonds added by <code class="xref py py-meth docutils literal notranslate"><span class="pre">construct()</span></code>. If <code class="docutils literal notranslate"><span class="pre">False</span></code>
+then all bonds are optimized.</p></li>
+<li><p><strong>timeout</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, optional) – The amount in seconds the optimization is allowed to run
+before being terminated. <code class="docutils literal notranslate"><span class="pre">None</span></code> means there is no
+timeout.</p></li>
+<li><p><strong>force_field</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The number of the force field to be used.</p></li>
+<li><p><strong>maximum_iterations</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The maximum number of iterations done during the
+optimization. Cannot be more than <code class="docutils literal notranslate"><span class="pre">999999</span></code>.</p></li>
+<li><p><strong>minimum_gradient</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, optional) – The gradient at which optimization is stopped.
+Cannot be less than <code class="docutils literal notranslate"><span class="pre">0.0001</span></code>.</p></li>
+<li><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> <a class="reference internal" href="#stk.calculators.optimization.macromodel.MacroModelForceField.optimize" title="stk.calculators.optimization.macromodel.MacroModelForceField.optimize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">optimize()</span></code></a> will not run twice on the same
+molecule.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.optimization.macromodel.MacroModelForceField.add_to_cache">
+<code class="sig-name descname">add_to_cache</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelForceField.add_to_cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a molecule to the cache.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule to be added to the cache.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.optimization.macromodel.MacroModelForceField.is_caching">
+<code class="sig-name descname">is_caching</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelForceField.is_caching" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the optimizer has caching turned on.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the optimizer has caching turned on.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.optimization.macromodel.MacroModelForceField.optimize">
+<code class="sig-name descname">optimize</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelForceField.optimize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Optimize a molecule.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule to be optimized.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.optimization.macromodel.MacroModelForceField.set_cache_use">
+<code class="sig-name descname">set_cache_use</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">use_cache</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelForceField.set_cache_use" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set cache use on or off.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> if the cache is to be used.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="stk.calculators.optimization.macromodel.MacroModelForceFieldError">
+<em class="property">exception </em><code class="sig-name descname">MacroModelForceFieldError</code><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelForceFieldError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<dl class="method">
+<dt id="stk.calculators.optimization.macromodel.MacroModelForceFieldError.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">/</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelForceFieldError.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stk.calculators.optimization.macromodel.MacroModelForceFieldError.args">
+<code class="sig-name descname">args</code><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelForceFieldError.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.optimization.macromodel.MacroModelForceFieldError.with_traceback">
+<code class="sig-name descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelForceFieldError.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="stk.calculators.optimization.macromodel.MacroModelInputError">
+<em class="property">exception </em><code class="sig-name descname">MacroModelInputError</code><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelInputError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<dl class="method">
+<dt id="stk.calculators.optimization.macromodel.MacroModelInputError.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">/</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelInputError.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stk.calculators.optimization.macromodel.MacroModelInputError.args">
+<code class="sig-name descname">args</code><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelInputError.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.optimization.macromodel.MacroModelInputError.with_traceback">
+<code class="sig-name descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelInputError.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="stk.calculators.optimization.macromodel.MacroModelLewisStructureError">
+<em class="property">exception </em><code class="sig-name descname">MacroModelLewisStructureError</code><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelLewisStructureError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<dl class="method">
+<dt id="stk.calculators.optimization.macromodel.MacroModelLewisStructureError.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">/</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelLewisStructureError.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stk.calculators.optimization.macromodel.MacroModelLewisStructureError.args">
+<code class="sig-name descname">args</code><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelLewisStructureError.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.optimization.macromodel.MacroModelLewisStructureError.with_traceback">
+<code class="sig-name descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelLewisStructureError.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stk.calculators.optimization.macromodel.MacroModelMD">
+<em class="property">class </em><code class="sig-name descname">MacroModelMD</code><span class="sig-paren">(</span><em class="sig-param">macromodel_path</em>, <em class="sig-param">output_dir=None</em>, <em class="sig-param">timeout=None</em>, <em class="sig-param">force_field=16</em>, <em class="sig-param">temperature=300</em>, <em class="sig-param">conformers=50</em>, <em class="sig-param">time_step=1</em>, <em class="sig-param">eq_time=10</em>, <em class="sig-param">simulation_time=200</em>, <em class="sig-param">maximum_iterations=2500</em>, <em class="sig-param">minimum_gradient=0.05</em>, <em class="sig-param">restricted_bonds=None</em>, <em class="sig-param">restricted_bond_angles=None</em>, <em class="sig-param">restricted_torsional_angles=None</em>, <em class="sig-param">use_cache=False</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelMD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.optimization.macromodel._MacroModel</span></code></p>
+<p>Runs a molecular dynamics conformer search using MacroModel.</p>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.optimization.macromodel.MacroModelMD.add_to_cache" title="stk.calculators.optimization.macromodel.MacroModelMD.add_to_cache"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_to_cache</span></code></a>(self, mol)</p></td>
+<td><p>Add a molecule to the cache.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.optimization.macromodel.MacroModelMD.is_caching" title="stk.calculators.optimization.macromodel.MacroModelMD.is_caching"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_caching</span></code></a>(self)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the optimizer has caching turned on.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.optimization.macromodel.MacroModelMD.optimize" title="stk.calculators.optimization.macromodel.MacroModelMD.optimize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">optimize</span></code></a>(self, mol)</p></td>
+<td><p>Optimize a molecule.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.optimization.macromodel.MacroModelMD.set_cache_use" title="stk.calculators.optimization.macromodel.MacroModelMD.set_cache_use"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cache_use</span></code></a>(self, use_cache)</p></td>
+<td><p>Set cache use on or off.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.calculators.optimization.macromodel.MacroModelMD.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">macromodel_path</em>, <em class="sig-param">output_dir=None</em>, <em class="sig-param">timeout=None</em>, <em class="sig-param">force_field=16</em>, <em class="sig-param">temperature=300</em>, <em class="sig-param">conformers=50</em>, <em class="sig-param">time_step=1</em>, <em class="sig-param">eq_time=10</em>, <em class="sig-param">simulation_time=200</em>, <em class="sig-param">maximum_iterations=2500</em>, <em class="sig-param">minimum_gradient=0.05</em>, <em class="sig-param">restricted_bonds=None</em>, <em class="sig-param">restricted_bond_angles=None</em>, <em class="sig-param">restricted_torsional_angles=None</em>, <em class="sig-param">use_cache=False</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelMD.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a <a class="reference internal" href="#stk.calculators.optimization.macromodel.MacroModelMD" title="stk.calculators.optimization.macromodel.MacroModelMD"><code class="xref py py-class docutils literal notranslate"><span class="pre">MacroModelMD</span></code></a> instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>macromodel_path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The full path of the Schrodinger suite within the user’s
+machine. For example, on a Linux machine this may be
+something like <code class="docutils literal notranslate"><span class="pre">'/opt/schrodinger2017-2'</span></code>.</p></li>
+<li><p><strong>output_dir</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, optional) – The name of the directory into which files generated during
+the optimization are written, if <code class="docutils literal notranslate"><span class="pre">None</span></code> then
+<code class="xref py py-func docutils literal notranslate"><span class="pre">uuid.uuid4()</span></code> is used.</p></li>
+<li><p><strong>timeout</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, optional) – The amount in seconds the MD is allowed to run before
+being terminated. <code class="docutils literal notranslate"><span class="pre">None</span></code> means there is no timeout.</p></li>
+<li><p><strong>force_field</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The number of the force field to be used.</p></li>
+<li><p><strong>temperature</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, optional) – The temperature in Kelvin at which the MD is run.
+Cannot be more than <code class="docutils literal notranslate"><span class="pre">99999.99</span></code>.</p></li>
+<li><p><strong>conformers'</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The number of conformers sampled and optimized from the MD.
+Cannot be more than <code class="docutils literal notranslate"><span class="pre">9999</span></code>.</p></li>
+<li><p><strong>simulation_time</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, optional) – The simulation time in <code class="docutils literal notranslate"><span class="pre">ps</span></code> of the MD.
+Cannot be more than <code class="docutils literal notranslate"><span class="pre">999999.99</span></code>.</p></li>
+<li><p><strong>time_step</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, optional) – The time step in <code class="docutils literal notranslate"><span class="pre">fs</span></code> for the MD.
+Cannot be more than <code class="docutils literal notranslate"><span class="pre">99999.99</span></code>.</p></li>
+<li><p><strong>eq_time</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, optional) – The equilibriation time in <code class="docutils literal notranslate"><span class="pre">ps</span></code> before the MD is run.
+Cannot be more than <code class="docutils literal notranslate"><span class="pre">999999.99</span></code>.</p></li>
+<li><p><strong>maximum_iterations</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The maximum number of iterations done during the
+optimization. Cannot be more than <code class="docutils literal notranslate"><span class="pre">999999</span></code>.</p></li>
+<li><p><strong>minimum_gradient</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, optional) – The gradient at which optimization is stopped.
+Cannot be less than <code class="docutils literal notranslate"><span class="pre">0.0001</span></code>.</p></li>
+<li><p><strong>restricted_bonds</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code>, optional) – <p>A <code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code> of the form</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">restricted_bonds</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nb">frozenset</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)),</span>
+    <span class="nb">frozenset</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">14</span><span class="p">)),</span>
+    <span class="nb">frozenset</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Where each <code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code> defines which bonds should
+have a fixed length via the atom ids of atoms in the bond.</p>
+</p></li>
+<li><p><strong>restricted_bond_angles</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code>, optional) – <p>A <code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code> of the form</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">restricted_bonds</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nb">frozenset</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">)),</span>
+    <span class="nb">frozenset</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">7</span><span class="p">)),</span>
+    <span class="nb">frozenset</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Where each <code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code> defines which bond angles
+should have a fixed size via the atom ids of atoms in the
+bond angle.</p>
+</p></li>
+<li><p><strong>restricted_torsional_angles</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code>, optional) – <p>A <code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code> of the form</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">restricted_bonds</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nb">frozenset</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span>
+    <span class="nb">frozenset</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">)),</span>
+    <span class="nb">frozenset</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Where each <code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code> defines which torsional
+angles should have a fixed size via the atom ids of atoms
+in the torsional angle.</p>
+</p></li>
+<li><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> <a class="reference internal" href="#stk.calculators.optimization.macromodel.MacroModelMD.optimize" title="stk.calculators.optimization.macromodel.MacroModelMD.optimize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">optimize()</span></code></a> will not run twice on the same
+molecule.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.optimization.macromodel.MacroModelMD.add_to_cache">
+<code class="sig-name descname">add_to_cache</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelMD.add_to_cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a molecule to the cache.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule to be added to the cache.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.optimization.macromodel.MacroModelMD.is_caching">
+<code class="sig-name descname">is_caching</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelMD.is_caching" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the optimizer has caching turned on.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the optimizer has caching turned on.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.optimization.macromodel.MacroModelMD.optimize">
+<code class="sig-name descname">optimize</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelMD.optimize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Optimize a molecule.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule to be optimized.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.optimization.macromodel.MacroModelMD.set_cache_use">
+<code class="sig-name descname">set_cache_use</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">use_cache</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelMD.set_cache_use" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set cache use on or off.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> if the cache is to be used.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="stk.calculators.optimization.macromodel.MacroModelOptimizationError">
+<em class="property">exception </em><code class="sig-name descname">MacroModelOptimizationError</code><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelOptimizationError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<dl class="method">
+<dt id="stk.calculators.optimization.macromodel.MacroModelOptimizationError.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">/</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelOptimizationError.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stk.calculators.optimization.macromodel.MacroModelOptimizationError.args">
+<code class="sig-name descname">args</code><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelOptimizationError.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.optimization.macromodel.MacroModelOptimizationError.with_traceback">
+<code class="sig-name descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelOptimizationError.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="stk.calculators.optimization.macromodel.MacroModelPathError">
+<em class="property">exception </em><code class="sig-name descname">MacroModelPathError</code><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelPathError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<dl class="method">
+<dt id="stk.calculators.optimization.macromodel.MacroModelPathError.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">/</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelPathError.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stk.calculators.optimization.macromodel.MacroModelPathError.args">
+<code class="sig-name descname">args</code><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelPathError.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.optimization.macromodel.MacroModelPathError.with_traceback">
+<code class="sig-name descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.macromodel.MacroModelPathError.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+</dd></dl>
+
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Lukas Turcani
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
