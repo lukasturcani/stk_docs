@@ -288,7 +288,7 @@ vertrices and <code class="docutils literal notranslate"><span class="pre">stk</
 <div class="section" id="optimizing-molecular-structures">
 <h2>Optimizing Molecular Structures<a class="headerlink" href="#optimizing-molecular-structures" title="Permalink to this headline">¶</a></h2>
 <p>Molecules used by <code class="docutils literal notranslate"><span class="pre">stk</span></code> can be optimized both before and after
-construction. Optimization is performed by <a class="reference external" href="stk.calculators.optimization.html">optimizers</a>, which implement
+construction. Optimization is performed by <a class="reference external" href="stk.calculators.optimization.optimizers.html">optimizers</a>, which implement
 the <a class="reference internal" href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.Optimizer.optimize" title="stk.calculators.optimization.optimizers.Optimizer.optimize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">optimize()</span></code></a> method.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
 
@@ -340,7 +340,7 @@ with the ETKDG algorithm before running a UFF optimization</p>
 </div>
 <div class="section" id="calculating-molecular-energy">
 <h2>Calculating Molecular Energy<a class="headerlink" href="#calculating-molecular-energy" title="Permalink to this headline">¶</a></h2>
-<p>The energy of molecules can be calculated with <a class="reference external" href="stk.calculators.energy.html">energy calculators</a>.</p>
+<p>The energy of molecules can be calculated with <a class="reference external" href="stk.calculators.energy.energy_calculators.html">energy calculators</a>.</p>
 <p>All energy calculators define the <a class="reference internal" href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.EnergyCalculator.get_energy" title="stk.calculators.energy.energy_calculators.EnergyCalculator.get_energy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_energy()</span></code></a>
 method, which is used to calculate the energy</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
