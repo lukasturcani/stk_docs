@@ -560,7 +560,7 @@ offspring must all be unique.</p></li>
 
 <dl class="class">
 <dt id="stk.calculators.ea.crossers.RandomCrossover">
-<em class="property">class </em><code class="sig-name descname">RandomCrossover</code><span class="sig-paren">(</span><em class="sig-param">*crossers</em>, <em class="sig-param">weights=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.crossers.RandomCrossover" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-name descname">RandomCrossover</code><span class="sig-paren">(</span><em class="sig-param">*crossers</em>, <em class="sig-param">weights=None</em>, <em class="sig-param">random_seed=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.crossers.RandomCrossover" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#stk.calculators.ea.crossers.Crosser" title="stk.calculators.ea.crossers.Crosser"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.crossers.Crosser</span></code></a></p>
 <p>Uses a random <a class="reference internal" href="#stk.calculators.ea.crossers.Crosser" title="stk.calculators.ea.crossers.Crosser"><code class="xref py py-class docutils literal notranslate"><span class="pre">Crosser</span></code></a> to carry out crossovers.</p>
 <p class="rubric">Examples</p>
@@ -635,7 +635,7 @@ any number of parents.</p>
 </table>
 <dl class="method">
 <dt id="stk.calculators.ea.crossers.RandomCrossover.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">*crossers</em>, <em class="sig-param">weights=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.crossers.RandomCrossover.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">*crossers</em>, <em class="sig-param">weights=None</em>, <em class="sig-param">random_seed=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.crossers.RandomCrossover.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize a <a class="reference internal" href="#stk.calculators.ea.crossers.RandomCrossover" title="stk.calculators.ea.crossers.RandomCrossover"><code class="xref py py-class docutils literal notranslate"><span class="pre">RandomCrossover</span></code></a> instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -644,6 +644,7 @@ any number of parents.</p>
 crossovers.</p></li>
 <li><p><strong>weights</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, optional) – The probability that each <a class="reference internal" href="#stk.calculators.ea.crossers.Crosser" title="stk.calculators.ea.crossers.Crosser"><code class="xref py py-class docutils literal notranslate"><span class="pre">Crosser</span></code></a> will be selected
 to carry out a crossover.</p></li>
+<li><p><strong>random_seed</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The random seed to use.</p></li>
 </ul>
 </dd>
 </dl>

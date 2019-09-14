@@ -245,6 +245,19 @@ except that no bonds are formed between them.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
+<p>The repeating unit can also be specified through the indices of
+the building blocks</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># r1 and r2 are different ways to write the same thing.</span>
+<span class="n">r1</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
+    <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">axle</span><span class="p">,</span> <span class="n">cycle</span><span class="p">,</span> <span class="n">cycle2</span><span class="p">,</span> <span class="n">cycle3</span><span class="p">],</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">rotaxane</span><span class="o">.</span><span class="n">NRotaxane</span><span class="p">(</span><span class="s1">&#39;ACB&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
+    <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">axle</span><span class="p">,</span> <span class="n">cycle</span><span class="p">,</span> <span class="n">cycle2</span><span class="p">,</span> <span class="n">cycle3</span><span class="p">],</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">rotaxane</span><span class="o">.</span><span class="n">NRotaxane</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -267,10 +280,13 @@ except that no bonds are formed between them.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>repeating_unit</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – A string specifying the repeating unit of the macrocycles.
-For example, <code class="docutils literal notranslate"><span class="pre">'AB'</span></code> or <code class="docutils literal notranslate"><span class="pre">'ABB'</span></code>. Letters are assigned to
-building block molecules in the order they are passed to
-<a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule.__init__" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ConstructedMolecule.__init__()</span></code></a>.</p></li>
+<li><p><strong>repeating_unit</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – <p>A string specifying the repeating unit of the macrocycles.
+For example, <code class="docutils literal notranslate"><span class="pre">'AB'</span></code> or <code class="docutils literal notranslate"><span class="pre">'ABB'</span></code>. The first macrocycle
+passed to <cite>building_blocks</cite> is <code class="docutils literal notranslate"><span class="pre">'A'</span></code> and so on.</p>
+<p>The repeating unit can also be specified by the indices of
+<cite>building_blocks</cite>, for example <code class="docutils literal notranslate"><span class="pre">'ABB'</span></code> can be
+written as <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2,</span> <span class="pre">2)</span></code>.</p>
+</p></li>
 <li><p><strong>num_repeating_units</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The number of repeating units threaded along the axle.</p></li>
 <li><p><strong>orientations</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, optional) – For each character in the repeating unit, a value
 between <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">1</span></code> (both inclusive) must be given in

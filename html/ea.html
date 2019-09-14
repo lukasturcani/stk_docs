@@ -209,10 +209,16 @@ and selects building blocks which have the most atoms.</p>
 <span class="kn">import</span> <span class="nn">logging</span>
 
 <span class="c1"># #####################################################################</span>
+<span class="c1"># Pick a random seed.</span>
+<span class="c1"># #####################################################################</span>
+
+<span class="n">random_seed</span> <span class="o">=</span> <span class="mi">12</span>
+
+<span class="c1"># #####################################################################</span>
 <span class="c1"># Run GA serially.</span>
 <span class="c1"># #####################################################################</span>
 
-<span class="n">processes</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">num_processes</span> <span class="o">=</span> <span class="mi">1</span>
 
 <span class="c1"># #####################################################################</span>
 <span class="c1"># Set logging level.</span>
@@ -240,7 +246,8 @@ and selects building blocks which have the most atoms.</p>
     <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">building_blocks</span><span class="p">],</span>
     <span class="n">topology_graphs</span><span class="o">=</span><span class="n">topology_graphs</span><span class="p">,</span>
     <span class="n">size</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
-    <span class="n">use_cache</span><span class="o">=</span><span class="bp">True</span>
+    <span class="n">use_cache</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">random_seed</span><span class="o">=</span><span class="n">random_seed</span>
 <span class="p">)</span>
 
 <span class="c1"># #####################################################################</span>
@@ -249,7 +256,11 @@ and selects building blocks which have the most atoms.</p>
 
 <span class="n">generation_selector</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">SelectorSequence</span><span class="p">(</span>
     <span class="n">stk</span><span class="o">.</span><span class="n">Fittest</span><span class="p">(</span><span class="n">num_batches</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">duplicates</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span>
-    <span class="n">stk</span><span class="o">.</span><span class="n">Roulette</span><span class="p">(</span><span class="n">num_batches</span><span class="o">=</span><span class="mi">22</span><span class="p">,</span> <span class="n">duplicates</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">Roulette</span><span class="p">(</span>
+        <span class="n">num_batches</span><span class="o">=</span><span class="mi">22</span><span class="p">,</span>
+        <span class="n">duplicates</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+        <span class="n">random_seed</span><span class="o">=</span><span class="n">random_seed</span>
+    <span class="p">)</span>
 <span class="p">)</span>
 
 <span class="c1"># #####################################################################</span>
@@ -264,23 +275,36 @@ and selects building blocks which have the most atoms.</p>
 
 <span class="n">mutation_selector</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">SelectorFunnel</span><span class="p">(</span>
     <span class="n">stk</span><span class="o">.</span><span class="n">AboveAverage</span><span class="p">(</span><span class="n">num_batches</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">duplicates</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span>
-    <span class="n">stk</span><span class="o">.</span><span class="n">Roulette</span><span class="p">(</span><span class="n">num_batches</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">Roulette</span><span class="p">(</span><span class="n">num_batches</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="n">random_seed</span><span class="p">)</span>
 <span class="p">)</span>
 
 <span class="c1"># #####################################################################</span>
 <span class="c1"># Crosser.</span>
 <span class="c1"># #####################################################################</span>
 
-<span class="n">crosser</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Jumble</span><span class="p">(</span><span class="n">num_offspring_building_blocks</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">crosser</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Jumble</span><span class="p">(</span>
+    <span class="n">num_offspring_building_blocks</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">random_seed</span><span class="o">=</span><span class="n">random_seed</span>
+<span class="p">)</span>
 
 <span class="c1"># #####################################################################</span>
 <span class="c1"># Mutator.</span>
 <span class="c1"># #####################################################################</span>
 
 <span class="n">mutator</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">RandomMutation</span><span class="p">(</span>
-    <span class="n">stk</span><span class="o">.</span><span class="n">RandomTopologyGraph</span><span class="p">(</span><span class="n">topology_graphs</span><span class="p">),</span>
-    <span class="n">stk</span><span class="o">.</span><span class="n">RandomBuildingBlock</span><span class="p">(</span><span class="n">building_blocks</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">mol</span><span class="p">:</span> <span class="bp">True</span><span class="p">),</span>
-    <span class="n">stk</span><span class="o">.</span><span class="n">SimilarBuildingBlock</span><span class="p">(</span><span class="n">building_blocks</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">mol</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">RandomTopologyGraph</span><span class="p">(</span><span class="n">topology_graphs</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="n">random_seed</span><span class="p">),</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">RandomBuildingBlock</span><span class="p">(</span>
+        <span class="n">building_blocks</span><span class="o">=</span><span class="n">building_blocks</span><span class="p">,</span>
+        <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">mol</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+        <span class="n">random_seed</span><span class="o">=</span><span class="n">random_seed</span>
+    <span class="p">),</span>
+    <span class="n">stk</span><span class="o">.</span><span class="n">SimilarBuildingBlock</span><span class="p">(</span>
+        <span class="n">building_blocks</span><span class="o">=</span><span class="n">building_blocks</span><span class="p">,</span>
+        <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">mol</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+        <span class="n">duplicate_building_blocks</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+        <span class="n">random_seed</span><span class="o">=</span><span class="n">random_seed</span>
+    <span class="p">),</span>
+    <span class="n">random_seed</span><span class="o">=</span><span class="n">random_seed</span>
 <span class="p">)</span>
 
 <span class="c1"># #####################################################################</span>
@@ -337,15 +361,21 @@ and selects building blocks which have the most atoms.</p>
 
 <span class="n">stk</span><span class="o">.</span><span class="n">SelectionPlotter</span><span class="p">(</span>
     <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;generational_selection&#39;</span><span class="p">,</span>
-    <span class="n">selector</span><span class="o">=</span><span class="n">generation_selector</span>
+    <span class="n">selector</span><span class="o">=</span><span class="n">generation_selector</span><span class="p">,</span>
+    <span class="n">molecule_label</span><span class="o">=</span><span class="k">lambda</span> <span class="n">mol</span><span class="p">:</span> <span class="n">f</span><span class="s1">&#39;{mol.id} - {mol.fitness}&#39;</span><span class="p">,</span>
+    <span class="n">x_label</span><span class="o">=</span><span class="s1">&#39;Molecule: id - fitness value&#39;</span>
 <span class="p">)</span>
 <span class="n">stk</span><span class="o">.</span><span class="n">SelectionPlotter</span><span class="p">(</span>
     <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;crossover_selection&#39;</span><span class="p">,</span>
-    <span class="n">selector</span><span class="o">=</span><span class="n">crossover_selector</span>
+    <span class="n">selector</span><span class="o">=</span><span class="n">crossover_selector</span><span class="p">,</span>
+    <span class="n">molecule_label</span><span class="o">=</span><span class="k">lambda</span> <span class="n">mol</span><span class="p">:</span> <span class="n">f</span><span class="s1">&#39;{mol.id} - {mol.fitness}&#39;</span><span class="p">,</span>
+    <span class="n">x_label</span><span class="o">=</span><span class="s1">&#39;Molecule: id - fitness value&#39;</span>
 <span class="p">)</span>
 <span class="n">stk</span><span class="o">.</span><span class="n">SelectionPlotter</span><span class="p">(</span>
     <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;mutation_selection&#39;</span><span class="p">,</span>
-    <span class="n">selector</span><span class="o">=</span><span class="n">mutation_selector</span>
+    <span class="n">selector</span><span class="o">=</span><span class="n">mutation_selector</span><span class="p">,</span>
+    <span class="n">molecule_label</span><span class="o">=</span><span class="k">lambda</span> <span class="n">mol</span><span class="p">:</span> <span class="n">f</span><span class="s1">&#39;{mol.id} - {mol.fitness}&#39;</span><span class="p">,</span>
+    <span class="n">x_label</span><span class="o">=</span><span class="s1">&#39;Molecule: id - fitness value&#39;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
