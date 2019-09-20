@@ -203,6 +203,30 @@
 <a class="reference internal" href="#stk.molecular.topology_graphs.cof.COF.vertices" title="stk.molecular.topology_graphs.cof.COF.vertices"><code class="xref py py-attr docutils literal notranslate"><span class="pre">vertices</span></code></a> and <a class="reference internal" href="#stk.molecular.topology_graphs.cof.COF.edges" title="stk.molecular.topology_graphs.cof.COF.edges"><code class="xref py py-attr docutils literal notranslate"><span class="pre">edges</span></code></a> of the topology as class
 attributes.</p>
 <dl class="attribute">
+<dt id="stk.molecular.topology_graphs.cof.COF.vertex_data">
+<code class="sig-name descname">vertex_data</code><a class="headerlink" href="#stk.molecular.topology_graphs.cof.COF.vertex_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class attribute. Holds the data of the vertices which make up
+the topology graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.VertexData" title="stk.molecular.topology_graphs.topology_graph.VertexData"><code class="xref py py-class docutils literal notranslate"><span class="pre">VertexData</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stk.molecular.topology_graphs.cof.COF.edge_data">
+<code class="sig-name descname">edge_data</code><a class="headerlink" href="#stk.molecular.topology_graphs.cof.COF.edge_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class attribute. Holds the data of the edges which make up
+the topology graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.EdgeData" title="stk.molecular.topology_graphs.topology_graph.EdgeData"><code class="xref py py-class docutils literal notranslate"><span class="pre">EdgeData</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="stk.molecular.topology_graphs.cof.COF.vertices">
 <code class="sig-name descname">vertices</code><a class="headerlink" href="#stk.molecular.topology_graphs.cof.COF.vertices" title="Permalink to this definition">¶</a></dt>
 <dd><p>The vertices which make up the topology graph.</p>
@@ -225,8 +249,8 @@ attributes.</p>
 </dd></dl>
 
 <p class="rubric">Examples</p>
-<p><a class="reference internal" href="#stk.molecular.topology_graphs.cof.COF" title="stk.molecular.topology_graphs.cof.COF"><code class="xref py py-class docutils literal notranslate"><span class="pre">COF</span></code></a> instances can be made without supplying
-additional arguments (using <a class="reference internal" href="#stk.molecular.topology_graphs.cof.Honeycomb" title="stk.molecular.topology_graphs.cof.Honeycomb"><code class="xref py py-class docutils literal notranslate"><span class="pre">Honeycomb</span></code></a> as an example)</p>
+<p><a class="reference internal" href="#stk.molecular.topology_graphs.cof.COF" title="stk.molecular.topology_graphs.cof.COF"><code class="xref py py-class docutils literal notranslate"><span class="pre">COF</span></code></a> instances can be made by supplying only
+the lattice size (using <a class="reference internal" href="#stk.molecular.topology_graphs.cof.Honeycomb" title="stk.molecular.topology_graphs.cof.Honeycomb"><code class="xref py py-class docutils literal notranslate"><span class="pre">Honeycomb</span></code></a> as an example)</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
 
 <span class="n">bb1</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NCCN&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;amine&#39;</span><span class="p">])</span>
@@ -239,14 +263,9 @@ additional arguments (using <a class="reference internal" href="#stk.molecular.t
 </div>
 <p>Different structural isomers of COFs can be made by using the
 <cite>vertex_alignments</cite> optional parameter</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">v0</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">cof</span><span class="o">.</span><span class="n">Honeycomb</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">v2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">cof</span><span class="o">.</span><span class="n">Honeycomb</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="n">lattice</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">cof</span><span class="o">.</span><span class="n">Honeycomb</span><span class="p">(</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lattice</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">cof</span><span class="o">.</span><span class="n">Honeycomb</span><span class="p">(</span>
     <span class="n">lattice_size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-    <span class="n">vertex_alignments</span><span class="o">=</span><span class="p">{</span>
-        <span class="n">v0</span><span class="p">:</span> <span class="n">v0</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-        <span class="n">v2</span><span class="p">:</span> <span class="n">v2</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-    <span class="p">}</span>
+    <span class="n">vertex_alignments</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
 <span class="p">)</span>
 <span class="n">cof2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
     <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">bb1</span><span class="p">,</span> <span class="n">bb2</span><span class="p">],</span>
@@ -254,46 +273,29 @@ additional arguments (using <a class="reference internal" href="#stk.molecular.t
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>By changing which edge each vertex is aligned with, a different
-structural isomer of the COF can be formed.</p>
-<p>Note the in the <cite>vertex_alignments</cite> parameter the class vertices
-and edges are used, however when the <cite>building_block_vertices</cite>
-parameter is used, the instance vertices are used. <strong>These are not
-interchangeable!</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the class vertices and edges to set vertex_alignments</span>
-<span class="c1"># and create a topology graph.</span>
-<span class="n">v0</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">cof</span><span class="o">.</span><span class="n">Honeycomb</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">v2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">cof</span><span class="o">.</span><span class="n">Honeycomb</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="n">lattice</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">cof</span><span class="o">.</span><span class="n">Honeycomb</span><span class="p">(</span>
+<p>The parameter maps the <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex.id" title="stk.molecular.topology_graphs.topology_graph.Vertex.id"><code class="xref py py-attr docutils literal notranslate"><span class="pre">id</span></code></a> of a vertex to a number
+between 0 (inclusive) and the number of edges the vertex is
+connected to (exclusive). So a vertex connected to three edges
+can be mapped to <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p>
+<p>You can also build COFs with multiple building blocks, but you
+have to assign each building block to a vertex with
+<cite>building_block_vertices</cite>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lattice</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">cof</span><span class="o">.</span><span class="n">Honeycomb</span><span class="p">(</span>
     <span class="n">lattice_size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-    <span class="n">vertex_alignments</span><span class="o">=</span><span class="p">{</span>
-        <span class="n">v0</span><span class="p">:</span> <span class="n">v0</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-        <span class="n">v2</span><span class="p">:</span> <span class="n">v2</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-    <span class="p">}</span>
+    <span class="n">vertex_alignments</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
 <span class="p">)</span>
 <span class="n">bb3</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NCOCN&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;amine&#39;</span><span class="p">])</span>
 <span class="n">cof2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
     <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">bb1</span><span class="p">,</span> <span class="n">bb2</span><span class="p">,</span> <span class="n">bb3</span><span class="p">],</span>
     <span class="n">topology_graph</span><span class="o">=</span><span class="n">lattice</span>
-    <span class="c1"># Use the instance vertices in the building_block_vertices</span>
-    <span class="c1"># parameter.</span>
     <span class="n">building_block_vertices</span><span class="o">=</span><span class="p">{</span>
-        <span class="n">bb1</span><span class="p">:</span> <span class="n">lattice</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span>
-        <span class="n">bb2</span><span class="p">:</span> <span class="n">lattice</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="mi">4</span><span class="p">:],</span>
-        <span class="n">bb3</span><span class="p">:</span> <span class="n">lattice</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+        <span class="n">bb1</span><span class="p">:</span> <span class="n">lattice</span><span class="o">.</span><span class="n">verices</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span>
+        <span class="n">bb2</span><span class="p">:</span> <span class="n">lattice</span><span class="o">.</span><span class="n">verices</span><span class="p">[</span><span class="mi">4</span><span class="p">:],</span>
+        <span class="n">bb3</span><span class="p">:</span> <span class="n">lattice</span><span class="o">.</span><span class="n">verices</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
     <span class="p">}</span>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>The example above also demonstrates how COFs with many building
-blocks can be built. You can add as many <a class="reference internal" href="stk.molecular.molecules.building_block.html#stk.molecular.molecules.building_block.BuildingBlock" title="stk.molecular.molecules.building_block.BuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">BuildingBlock</span></code></a>
-instances into <cite>building_blocks</cite> as you like. If you do not
-assign where each building block is placed with
-<cite>building_block_vertices</cite>, they will be placed on the
-<a class="reference internal" href="#stk.molecular.topology_graphs.cof.COF.vertices" title="stk.molecular.topology_graphs.cof.COF.vertices"><code class="xref py py-attr docutils literal notranslate"><span class="pre">vertices</span></code></a> of the <a class="reference internal" href="#stk.molecular.topology_graphs.cof.COF" title="stk.molecular.topology_graphs.cof.COF"><code class="xref py py-class docutils literal notranslate"><span class="pre">COF</span></code></a> at random. Random
-placement will account for the fact that the length of
-<a class="reference internal" href="stk.molecular.molecules.building_block.html#stk.molecular.molecules.building_block.BuildingBlock.func_groups" title="stk.molecular.molecules.building_block.BuildingBlock.func_groups"><code class="xref py py-attr docutils literal notranslate"><span class="pre">BuildingBlock.func_groups</span></code></a> needs to match the number of
-edges connected to a vertex.</p>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -321,22 +323,18 @@ x, y and z dimensions, respectively.</p></li>
 <li><p><strong>periodic</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If periodic bonds are to be made across the lattice,
 this should be <code class="docutils literal notranslate"><span class="pre">True</span></code>. If <code class="docutils literal notranslate"><span class="pre">False</span></code> the functional
 groups on the ends of the lattice will be unreacted.</p></li>
-<li><p><strong>vertex_alignments</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>, optional) – <p>A mapping from a <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex" title="stk.molecular.topology_graphs.topology_graph.Vertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vertex</span></code></a>, in the class
-attribute <a class="reference internal" href="#stk.molecular.topology_graphs.cof.COF.vertices" title="stk.molecular.topology_graphs.cof.COF.vertices"><code class="xref py py-attr docutils literal notranslate"><span class="pre">vertices</span></code></a>, to an <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a>, in the
-class attribute <a class="reference internal" href="#stk.molecular.topology_graphs.cof.COF.edges" title="stk.molecular.topology_graphs.cof.COF.edges"><code class="xref py py-attr docutils literal notranslate"><span class="pre">edges</span></code></a>, connected to it.
+<li><p><strong>vertex_alignments</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>, optional) – A mapping from the <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex.id" title="stk.molecular.topology_graphs.topology_graph.Vertex.id"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Vertex.id</span></code></a> of a <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex" title="stk.molecular.topology_graphs.topology_graph.Vertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vertex</span></code></a>
+<a class="reference internal" href="#stk.molecular.topology_graphs.cof.COF.vertices" title="stk.molecular.topology_graphs.cof.COF.vertices"><code class="xref py py-attr docutils literal notranslate"><span class="pre">vertices</span></code></a> to an <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a> connected to it.
 The <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a> is used to align the first
 <a class="reference internal" href="stk.molecular.functional_groups.html#stk.molecular.functional_groups.FunctionalGroup" title="stk.molecular.functional_groups.FunctionalGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionalGroup</span></code></a> of a <a class="reference internal" href="stk.molecular.molecules.building_block.html#stk.molecular.molecules.building_block.BuildingBlock" title="stk.molecular.molecules.building_block.BuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">BuildingBlock</span></code></a>
 placed on that vertex. Only vertices which need to have
-their default alignment changed need to be present in the
-<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>. If <code class="docutils literal notranslate"><span class="pre">None</span></code> then the first <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a>
-in <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex.edges" title="stk.molecular.topology_graphs.topology_graph.Vertex.edges"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Vertex.edges</span></code></a> is used for each vertex. Changing
-which <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a> is used will mean that the topology
-graph will represent a different structural isomer.</p>
-<p>The vertices and edges can also be referred to by their
-indices. The vertices are referred to by their index in
-the class attribute <a class="reference internal" href="#stk.molecular.topology_graphs.cof.COF.vertices" title="stk.molecular.topology_graphs.cof.COF.vertices"><code class="xref py py-attr docutils literal notranslate"><span class="pre">vertices</span></code></a> while the edges are
-referred to by their index in <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex.edges" title="stk.molecular.topology_graphs.topology_graph.Vertex.edges"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Vertex.edges</span></code></a>.</p>
-</p></li>
+their default edge changed need to be present in the
+<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>. If <code class="docutils literal notranslate"><span class="pre">None</span></code> then the default edge is used
+for each vertex. Changing which <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a> is used will
+mean that the topology graph represents different
+structural isomers. The edge is refered to by a number
+between <code class="docutils literal notranslate"><span class="pre">0</span></code> (inclusive) and the number of edges the
+vertex is connected to (exclusive).</p></li>
 <li><p><strong>num_processes</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The number of parallel processes to create during
 <a class="reference internal" href="#stk.molecular.topology_graphs.cof.COF.construct" title="stk.molecular.topology_graphs.cof.COF.construct"><code class="xref py py-meth docutils literal notranslate"><span class="pre">construct()</span></code></a>.</p></li>
 </ul>
@@ -414,6 +412,30 @@ be constructed.</p>
 for this topology graph.</p>
 <p>See <a class="reference internal" href="#stk.molecular.topology_graphs.cof.COF" title="stk.molecular.topology_graphs.cof.COF"><code class="xref py py-class docutils literal notranslate"><span class="pre">COF</span></code></a> for more details and examples.</p>
 <dl class="attribute">
+<dt id="stk.molecular.topology_graphs.cof.Hexagonal.vertex_data">
+<code class="sig-name descname">vertex_data</code><a class="headerlink" href="#stk.molecular.topology_graphs.cof.Hexagonal.vertex_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class attribute. Holds the data of the vertices which make up
+the topology graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.VertexData" title="stk.molecular.topology_graphs.topology_graph.VertexData"><code class="xref py py-class docutils literal notranslate"><span class="pre">VertexData</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stk.molecular.topology_graphs.cof.Hexagonal.edge_data">
+<code class="sig-name descname">edge_data</code><a class="headerlink" href="#stk.molecular.topology_graphs.cof.Hexagonal.edge_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class attribute. Holds the data of the edges which make up
+the topology graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.EdgeData" title="stk.molecular.topology_graphs.topology_graph.EdgeData"><code class="xref py py-class docutils literal notranslate"><span class="pre">EdgeData</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="stk.molecular.topology_graphs.cof.Hexagonal.vertices">
 <code class="sig-name descname">vertices</code><a class="headerlink" href="#stk.molecular.topology_graphs.cof.Hexagonal.vertices" title="Permalink to this definition">¶</a></dt>
 <dd><p>The vertices which make up the topology graph.</p>
@@ -462,22 +484,18 @@ x, y and z dimensions, respectively.</p></li>
 <li><p><strong>periodic</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If periodic bonds are to be made across the lattice,
 this should be <code class="docutils literal notranslate"><span class="pre">True</span></code>. If <code class="docutils literal notranslate"><span class="pre">False</span></code> the functional
 groups on the ends of the lattice will be unreacted.</p></li>
-<li><p><strong>vertex_alignments</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>, optional) – <p>A mapping from a <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex" title="stk.molecular.topology_graphs.topology_graph.Vertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vertex</span></code></a>, in the class
-attribute <a class="reference internal" href="#stk.molecular.topology_graphs.cof.Hexagonal.vertices" title="stk.molecular.topology_graphs.cof.Hexagonal.vertices"><code class="xref py py-attr docutils literal notranslate"><span class="pre">vertices</span></code></a>, to an <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a>, in the
-class attribute <a class="reference internal" href="#stk.molecular.topology_graphs.cof.Hexagonal.edges" title="stk.molecular.topology_graphs.cof.Hexagonal.edges"><code class="xref py py-attr docutils literal notranslate"><span class="pre">edges</span></code></a>, connected to it.
+<li><p><strong>vertex_alignments</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>, optional) – A mapping from the <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex.id" title="stk.molecular.topology_graphs.topology_graph.Vertex.id"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Vertex.id</span></code></a> of a <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex" title="stk.molecular.topology_graphs.topology_graph.Vertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vertex</span></code></a>
+<a class="reference internal" href="#stk.molecular.topology_graphs.cof.Hexagonal.vertices" title="stk.molecular.topology_graphs.cof.Hexagonal.vertices"><code class="xref py py-attr docutils literal notranslate"><span class="pre">vertices</span></code></a> to an <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a> connected to it.
 The <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a> is used to align the first
 <a class="reference internal" href="stk.molecular.functional_groups.html#stk.molecular.functional_groups.FunctionalGroup" title="stk.molecular.functional_groups.FunctionalGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionalGroup</span></code></a> of a <a class="reference internal" href="stk.molecular.molecules.building_block.html#stk.molecular.molecules.building_block.BuildingBlock" title="stk.molecular.molecules.building_block.BuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">BuildingBlock</span></code></a>
 placed on that vertex. Only vertices which need to have
-their default alignment changed need to be present in the
-<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>. If <code class="docutils literal notranslate"><span class="pre">None</span></code> then the first <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a>
-in <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex.edges" title="stk.molecular.topology_graphs.topology_graph.Vertex.edges"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Vertex.edges</span></code></a> is used for each vertex. Changing
-which <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a> is used will mean that the topology
-graph will represent a different structural isomer.</p>
-<p>The vertices and edges can also be referred to by their
-indices. The vertices are referred to by their index in
-the class attribute <a class="reference internal" href="#stk.molecular.topology_graphs.cof.Hexagonal.vertices" title="stk.molecular.topology_graphs.cof.Hexagonal.vertices"><code class="xref py py-attr docutils literal notranslate"><span class="pre">vertices</span></code></a> while the edges are
-referred to by their index in <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex.edges" title="stk.molecular.topology_graphs.topology_graph.Vertex.edges"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Vertex.edges</span></code></a>.</p>
-</p></li>
+their default edge changed need to be present in the
+<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>. If <code class="docutils literal notranslate"><span class="pre">None</span></code> then the default edge is used
+for each vertex. Changing which <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a> is used will
+mean that the topology graph represents different
+structural isomers. The edge is refered to by a number
+between <code class="docutils literal notranslate"><span class="pre">0</span></code> (inclusive) and the number of edges the
+vertex is connected to (exclusive).</p></li>
 <li><p><strong>num_processes</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The number of parallel processes to create during
 <a class="reference internal" href="#stk.molecular.topology_graphs.cof.Hexagonal.construct" title="stk.molecular.topology_graphs.cof.Hexagonal.construct"><code class="xref py py-meth docutils literal notranslate"><span class="pre">construct()</span></code></a>.</p></li>
 </ul>
@@ -546,12 +564,12 @@ be constructed.</p>
 
 <dl class="attribute">
 <dt>
-<code class="sig-name descname">edges</code><em class="property"> = (Edge(4, 0), Edge(4, 1), Edge(5, 0), Edge(5, 2), Edge(6, 1), Edge(6, 2), Edge(7, 1), Edge(7, 3), Edge(8, 2), Edge(8, 3), Edge(9, 0), Edge(9, 2, periodicity=(-1, 0, 0)), Edge(10, 0), Edge(10, 1, periodicity=(0, -1, 0)), Edge(11, 0), Edge(11, 3, periodicity=(0, -1, 0)), Edge(12, 2), Edge(12, 1, periodicity=(1, -1, 0)), Edge(13, 2), Edge(13, 3, periodicity=(0, -1, 0)), Edge(14, 1), Edge(14, 3, periodicity=(-1, 0, 0)), Edge(15, 3), Edge(15, 0, periodicity=(1, 0, 0)))</em></dt>
+<code class="sig-name descname">edge_data</code><em class="property"> = (EdgeData(4, 0, id=0), EdgeData(4, 1, id=1), EdgeData(5, 0, id=2), EdgeData(5, 2, id=3), EdgeData(6, 1, id=4), EdgeData(6, 2, id=5), EdgeData(7, 1, id=6), EdgeData(7, 3, id=7), EdgeData(8, 2, id=8), EdgeData(8, 3, id=9), EdgeData(9, 0, id=10), EdgeData(9, 2, id=11, periodicity=(-1, 0, 0)), EdgeData(10, 0, id=12), EdgeData(10, 1, id=13, periodicity=(0, -1, 0)), EdgeData(11, 0, id=14), EdgeData(11, 3, id=15, periodicity=(0, -1, 0)), EdgeData(12, 2, id=16), EdgeData(12, 1, id=17, periodicity=(1, -1, 0)), EdgeData(13, 2, id=18), EdgeData(13, 3, id=19, periodicity=(0, -1, 0)), EdgeData(14, 1, id=20), EdgeData(14, 3, id=21, periodicity=(-1, 0, 0)), EdgeData(15, 3, id=22), EdgeData(15, 0, id=23, periodicity=(1, 0, 0)))</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt>
-<code class="sig-name descname">vertices</code><em class="property"> = (Vertex(id=0, position=[0.375, 0.2165, 1.4433346804457017], aligner_edge=None), Vertex(id=1, position=[0.625, 0.6495, 1.4433346804457017], aligner_edge=None), Vertex(id=2, position=[0.875, 0.2165, 1.4433346804457017], aligner_edge=None), Vertex(id=3, position=[1.125, 0.6495, 1.4433346804457017], aligner_edge=None), Vertex(id=4, position=[0.5, 0.433, 1.4433346804457017], aligner_edge=None), Vertex(id=5, position=[0.625, 0.2165, 1.4433346804457017], aligner_edge=None), Vertex(id=6, position=[0.75, 0.433, 1.4433346804457017], aligner_edge=None), Vertex(id=7, position=[0.875, 0.6495, 1.4433346804457017], aligner_edge=None), Vertex(id=8, position=[1.0, 0.433, 1.4433346804457017], aligner_edge=None), Vertex(id=9, position=[0.125, 0.2165, 1.4433346804457017], aligner_edge=None), Vertex(id=10, position=[0.25, -1.3877787807814457e-17, 1.4433346804457017], aligner_edge=None), Vertex(id=11, position=[0.5, -1.3877787807814457e-17, 1.4433346804457017], aligner_edge=None), Vertex(id=12, position=[1.0, -1.3877787807814457e-17, 1.4433346804457017], aligner_edge=None), Vertex(id=13, position=[0.75, -1.3877787807814457e-17, 1.4433346804457017], aligner_edge=None), Vertex(id=14, position=[0.375, 0.6495, 1.4433346804457017], aligner_edge=None), Vertex(id=15, position=[1.25, 0.433, 1.4433346804457017], aligner_edge=None))</em></dt>
+<code class="sig-name descname">vertex_data</code><em class="property"> = (VertexData(id=0, position=[0.375, 0.2165, 1.4433346804457017]), VertexData(id=1, position=[0.625, 0.6495, 1.4433346804457017]), VertexData(id=2, position=[0.875, 0.2165, 1.4433346804457017]), VertexData(id=3, position=[1.125, 0.6495, 1.4433346804457017]), VertexData(id=4, position=[0.5, 0.433, 1.4433346804457017]), VertexData(id=5, position=[0.625, 0.2165, 1.4433346804457017]), VertexData(id=6, position=[0.75, 0.433, 1.4433346804457017]), VertexData(id=7, position=[0.875, 0.6495, 1.4433346804457017]), VertexData(id=8, position=[1.0, 0.433, 1.4433346804457017]), VertexData(id=9, position=[0.125, 0.2165, 1.4433346804457017]), VertexData(id=10, position=[0.25, -1.3877787807814457e-17, 1.4433346804457017]), VertexData(id=11, position=[0.5, -1.3877787807814457e-17, 1.4433346804457017]), VertexData(id=12, position=[1.0, -1.3877787807814457e-17, 1.4433346804457017]), VertexData(id=13, position=[0.75, -1.3877787807814457e-17, 1.4433346804457017]), VertexData(id=14, position=[0.375, 0.6495, 1.4433346804457017]), VertexData(id=15, position=[1.25, 0.433, 1.4433346804457017]))</em></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -564,6 +582,30 @@ be constructed.</p>
 <p>Building blocks with three and two functional groups are required
 for this topology graph.</p>
 <p>See <a class="reference internal" href="#stk.molecular.topology_graphs.cof.COF" title="stk.molecular.topology_graphs.cof.COF"><code class="xref py py-class docutils literal notranslate"><span class="pre">COF</span></code></a> for more details and examples.</p>
+<dl class="attribute">
+<dt id="stk.molecular.topology_graphs.cof.Honeycomb.vertex_data">
+<code class="sig-name descname">vertex_data</code><a class="headerlink" href="#stk.molecular.topology_graphs.cof.Honeycomb.vertex_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class attribute. Holds the data of the vertices which make up
+the topology graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.VertexData" title="stk.molecular.topology_graphs.topology_graph.VertexData"><code class="xref py py-class docutils literal notranslate"><span class="pre">VertexData</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stk.molecular.topology_graphs.cof.Honeycomb.edge_data">
+<code class="sig-name descname">edge_data</code><a class="headerlink" href="#stk.molecular.topology_graphs.cof.Honeycomb.edge_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class attribute. Holds the data of the edges which make up
+the topology graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.EdgeData" title="stk.molecular.topology_graphs.topology_graph.EdgeData"><code class="xref py py-class docutils literal notranslate"><span class="pre">EdgeData</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="stk.molecular.topology_graphs.cof.Honeycomb.vertices">
 <code class="sig-name descname">vertices</code><a class="headerlink" href="#stk.molecular.topology_graphs.cof.Honeycomb.vertices" title="Permalink to this definition">¶</a></dt>
@@ -613,22 +655,18 @@ x, y and z dimensions, respectively.</p></li>
 <li><p><strong>periodic</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If periodic bonds are to be made across the lattice,
 this should be <code class="docutils literal notranslate"><span class="pre">True</span></code>. If <code class="docutils literal notranslate"><span class="pre">False</span></code> the functional
 groups on the ends of the lattice will be unreacted.</p></li>
-<li><p><strong>vertex_alignments</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>, optional) – <p>A mapping from a <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex" title="stk.molecular.topology_graphs.topology_graph.Vertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vertex</span></code></a>, in the class
-attribute <a class="reference internal" href="#stk.molecular.topology_graphs.cof.Honeycomb.vertices" title="stk.molecular.topology_graphs.cof.Honeycomb.vertices"><code class="xref py py-attr docutils literal notranslate"><span class="pre">vertices</span></code></a>, to an <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a>, in the
-class attribute <a class="reference internal" href="#stk.molecular.topology_graphs.cof.Honeycomb.edges" title="stk.molecular.topology_graphs.cof.Honeycomb.edges"><code class="xref py py-attr docutils literal notranslate"><span class="pre">edges</span></code></a>, connected to it.
+<li><p><strong>vertex_alignments</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>, optional) – A mapping from the <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex.id" title="stk.molecular.topology_graphs.topology_graph.Vertex.id"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Vertex.id</span></code></a> of a <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex" title="stk.molecular.topology_graphs.topology_graph.Vertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vertex</span></code></a>
+<a class="reference internal" href="#stk.molecular.topology_graphs.cof.Honeycomb.vertices" title="stk.molecular.topology_graphs.cof.Honeycomb.vertices"><code class="xref py py-attr docutils literal notranslate"><span class="pre">vertices</span></code></a> to an <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a> connected to it.
 The <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a> is used to align the first
 <a class="reference internal" href="stk.molecular.functional_groups.html#stk.molecular.functional_groups.FunctionalGroup" title="stk.molecular.functional_groups.FunctionalGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionalGroup</span></code></a> of a <a class="reference internal" href="stk.molecular.molecules.building_block.html#stk.molecular.molecules.building_block.BuildingBlock" title="stk.molecular.molecules.building_block.BuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">BuildingBlock</span></code></a>
 placed on that vertex. Only vertices which need to have
-their default alignment changed need to be present in the
-<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>. If <code class="docutils literal notranslate"><span class="pre">None</span></code> then the first <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a>
-in <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex.edges" title="stk.molecular.topology_graphs.topology_graph.Vertex.edges"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Vertex.edges</span></code></a> is used for each vertex. Changing
-which <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a> is used will mean that the topology
-graph will represent a different structural isomer.</p>
-<p>The vertices and edges can also be referred to by their
-indices. The vertices are referred to by their index in
-the class attribute <a class="reference internal" href="#stk.molecular.topology_graphs.cof.Honeycomb.vertices" title="stk.molecular.topology_graphs.cof.Honeycomb.vertices"><code class="xref py py-attr docutils literal notranslate"><span class="pre">vertices</span></code></a> while the edges are
-referred to by their index in <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex.edges" title="stk.molecular.topology_graphs.topology_graph.Vertex.edges"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Vertex.edges</span></code></a>.</p>
-</p></li>
+their default edge changed need to be present in the
+<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>. If <code class="docutils literal notranslate"><span class="pre">None</span></code> then the default edge is used
+for each vertex. Changing which <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a> is used will
+mean that the topology graph represents different
+structural isomers. The edge is refered to by a number
+between <code class="docutils literal notranslate"><span class="pre">0</span></code> (inclusive) and the number of edges the
+vertex is connected to (exclusive).</p></li>
 <li><p><strong>num_processes</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The number of parallel processes to create during
 <a class="reference internal" href="#stk.molecular.topology_graphs.cof.Honeycomb.construct" title="stk.molecular.topology_graphs.cof.Honeycomb.construct"><code class="xref py py-meth docutils literal notranslate"><span class="pre">construct()</span></code></a>.</p></li>
 </ul>
@@ -697,12 +735,12 @@ be constructed.</p>
 
 <dl class="attribute">
 <dt>
-<code class="sig-name descname">edges</code><em class="property"> = (Edge(2, 0), Edge(2, 1), Edge(3, 0), Edge(3, 1, periodicity=(0, -1, 0)), Edge(4, 0), Edge(4, 1, periodicity=(-1, 0, 0)))</em></dt>
+<code class="sig-name descname">edge_data</code><em class="property"> = (EdgeData(2, 0, id=0), EdgeData(2, 1, id=1), EdgeData(3, 0, id=2), EdgeData(3, 1, id=3, periodicity=(0, -1, 0)), EdgeData(4, 0, id=4), EdgeData(4, 1, id=5, periodicity=(-1, 0, 0)))</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt>
-<code class="sig-name descname">vertices</code><em class="property"> = (Vertex(id=0, position=[0.5, 0.2886666666666666, 1.4433346804457017], aligner_edge=None), Vertex(id=1, position=[1.0, 0.5773333333333333, 1.4433346804457017], aligner_edge=None), Vertex(id=2, position=[0.75, 0.43299999999999994, 1.4433346804457017], aligner_edge=None), Vertex(id=3, position=[0.5, -5.551115123125783e-17, 1.4433346804457017], aligner_edge=None), Vertex(id=4, position=[0.25, 0.43299999999999994, 1.4433346804457017], aligner_edge=None))</em></dt>
+<code class="sig-name descname">vertex_data</code><em class="property"> = (VertexData(id=0, position=[0.5, 0.2886666666666666, 1.4433346804457017]), VertexData(id=1, position=[1.0, 0.5773333333333333, 1.4433346804457017]), VertexData(id=2, position=[0.75, 0.43299999999999994, 1.4433346804457017]), VertexData(id=3, position=[0.5, -5.551115123125783e-17, 1.4433346804457017]), VertexData(id=4, position=[0.25, 0.43299999999999994, 1.4433346804457017]))</em></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -715,6 +753,30 @@ be constructed.</p>
 <p>Building blocks with four and two functional groups are required
 for this topology graph.</p>
 <p>See <a class="reference internal" href="#stk.molecular.topology_graphs.cof.COF" title="stk.molecular.topology_graphs.cof.COF"><code class="xref py py-class docutils literal notranslate"><span class="pre">COF</span></code></a> for more details and examples.</p>
+<dl class="attribute">
+<dt id="stk.molecular.topology_graphs.cof.Kagome.vertex_data">
+<code class="sig-name descname">vertex_data</code><a class="headerlink" href="#stk.molecular.topology_graphs.cof.Kagome.vertex_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class attribute. Holds the data of the vertices which make up
+the topology graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.VertexData" title="stk.molecular.topology_graphs.topology_graph.VertexData"><code class="xref py py-class docutils literal notranslate"><span class="pre">VertexData</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stk.molecular.topology_graphs.cof.Kagome.edge_data">
+<code class="sig-name descname">edge_data</code><a class="headerlink" href="#stk.molecular.topology_graphs.cof.Kagome.edge_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class attribute. Holds the data of the edges which make up
+the topology graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.EdgeData" title="stk.molecular.topology_graphs.topology_graph.EdgeData"><code class="xref py py-class docutils literal notranslate"><span class="pre">EdgeData</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="stk.molecular.topology_graphs.cof.Kagome.vertices">
 <code class="sig-name descname">vertices</code><a class="headerlink" href="#stk.molecular.topology_graphs.cof.Kagome.vertices" title="Permalink to this definition">¶</a></dt>
@@ -764,22 +826,18 @@ x, y and z dimensions, respectively.</p></li>
 <li><p><strong>periodic</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If periodic bonds are to be made across the lattice,
 this should be <code class="docutils literal notranslate"><span class="pre">True</span></code>. If <code class="docutils literal notranslate"><span class="pre">False</span></code> the functional
 groups on the ends of the lattice will be unreacted.</p></li>
-<li><p><strong>vertex_alignments</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>, optional) – <p>A mapping from a <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex" title="stk.molecular.topology_graphs.topology_graph.Vertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vertex</span></code></a>, in the class
-attribute <a class="reference internal" href="#stk.molecular.topology_graphs.cof.Kagome.vertices" title="stk.molecular.topology_graphs.cof.Kagome.vertices"><code class="xref py py-attr docutils literal notranslate"><span class="pre">vertices</span></code></a>, to an <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a>, in the
-class attribute <a class="reference internal" href="#stk.molecular.topology_graphs.cof.Kagome.edges" title="stk.molecular.topology_graphs.cof.Kagome.edges"><code class="xref py py-attr docutils literal notranslate"><span class="pre">edges</span></code></a>, connected to it.
+<li><p><strong>vertex_alignments</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>, optional) – A mapping from the <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex.id" title="stk.molecular.topology_graphs.topology_graph.Vertex.id"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Vertex.id</span></code></a> of a <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex" title="stk.molecular.topology_graphs.topology_graph.Vertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vertex</span></code></a>
+<a class="reference internal" href="#stk.molecular.topology_graphs.cof.Kagome.vertices" title="stk.molecular.topology_graphs.cof.Kagome.vertices"><code class="xref py py-attr docutils literal notranslate"><span class="pre">vertices</span></code></a> to an <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a> connected to it.
 The <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a> is used to align the first
 <a class="reference internal" href="stk.molecular.functional_groups.html#stk.molecular.functional_groups.FunctionalGroup" title="stk.molecular.functional_groups.FunctionalGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionalGroup</span></code></a> of a <a class="reference internal" href="stk.molecular.molecules.building_block.html#stk.molecular.molecules.building_block.BuildingBlock" title="stk.molecular.molecules.building_block.BuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">BuildingBlock</span></code></a>
 placed on that vertex. Only vertices which need to have
-their default alignment changed need to be present in the
-<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>. If <code class="docutils literal notranslate"><span class="pre">None</span></code> then the first <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a>
-in <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex.edges" title="stk.molecular.topology_graphs.topology_graph.Vertex.edges"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Vertex.edges</span></code></a> is used for each vertex. Changing
-which <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a> is used will mean that the topology
-graph will represent a different structural isomer.</p>
-<p>The vertices and edges can also be referred to by their
-indices. The vertices are referred to by their index in
-the class attribute <a class="reference internal" href="#stk.molecular.topology_graphs.cof.Kagome.vertices" title="stk.molecular.topology_graphs.cof.Kagome.vertices"><code class="xref py py-attr docutils literal notranslate"><span class="pre">vertices</span></code></a> while the edges are
-referred to by their index in <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex.edges" title="stk.molecular.topology_graphs.topology_graph.Vertex.edges"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Vertex.edges</span></code></a>.</p>
-</p></li>
+their default edge changed need to be present in the
+<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>. If <code class="docutils literal notranslate"><span class="pre">None</span></code> then the default edge is used
+for each vertex. Changing which <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a> is used will
+mean that the topology graph represents different
+structural isomers. The edge is refered to by a number
+between <code class="docutils literal notranslate"><span class="pre">0</span></code> (inclusive) and the number of edges the
+vertex is connected to (exclusive).</p></li>
 <li><p><strong>num_processes</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The number of parallel processes to create during
 <a class="reference internal" href="#stk.molecular.topology_graphs.cof.Kagome.construct" title="stk.molecular.topology_graphs.cof.Kagome.construct"><code class="xref py py-meth docutils literal notranslate"><span class="pre">construct()</span></code></a>.</p></li>
 </ul>
@@ -848,12 +906,12 @@ be constructed.</p>
 
 <dl class="attribute">
 <dt>
-<code class="sig-name descname">edges</code><em class="property"> = (Edge(3, 0), Edge(3, 1), Edge(4, 0), Edge(4, 2), Edge(5, 1), Edge(5, 2), Edge(6, 0), Edge(6, 1, periodicity=(-1, 0, 0)), Edge(7, 0), Edge(7, 2, periodicity=(-1, 1, 0)), Edge(8, 1), Edge(8, 2, periodicity=(0, 1, 0)))</em></dt>
+<code class="sig-name descname">edge_data</code><em class="property"> = (EdgeData(3, 0, id=0), EdgeData(3, 1, id=1), EdgeData(4, 0, id=2), EdgeData(4, 2, id=3), EdgeData(5, 1, id=4), EdgeData(5, 2, id=5), EdgeData(6, 0, id=6), EdgeData(6, 1, id=7, periodicity=(-1, 0, 0)), EdgeData(7, 0, id=8), EdgeData(7, 2, id=9, periodicity=(-1, 1, 0)), EdgeData(8, 1, id=10), EdgeData(8, 2, id=11, periodicity=(0, 1, 0)))</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt>
-<code class="sig-name descname">vertices</code><em class="property"> = (Vertex(id=0, position=[0.625, 0.6495, 1.4433346804457017], aligner_edge=None), Vertex(id=1, position=[1.125, 0.6495, 1.4433346804457017], aligner_edge=None), Vertex(id=2, position=[0.875, 0.2165, 1.4433346804457017], aligner_edge=None), Vertex(id=3, position=[0.875, 0.6495, 1.4433346804457017], aligner_edge=None), Vertex(id=4, position=[0.75, 0.433, 1.4433346804457017], aligner_edge=None), Vertex(id=5, position=[1.0, 0.433, 1.4433346804457017], aligner_edge=None), Vertex(id=6, position=[0.375, 0.6495, 1.4433346804457017], aligner_edge=None), Vertex(id=7, position=[0.5, 0.866, 1.4433346804457017], aligner_edge=None), Vertex(id=8, position=[1.25, 0.866, 1.4433346804457017], aligner_edge=None))</em></dt>
+<code class="sig-name descname">vertex_data</code><em class="property"> = (VertexData(id=0, position=[0.625, 0.6495, 1.4433346804457017]), VertexData(id=1, position=[1.125, 0.6495, 1.4433346804457017]), VertexData(id=2, position=[0.875, 0.2165, 1.4433346804457017]), VertexData(id=3, position=[0.875, 0.6495, 1.4433346804457017]), VertexData(id=4, position=[0.75, 0.433, 1.4433346804457017]), VertexData(id=5, position=[1.0, 0.433, 1.4433346804457017]), VertexData(id=6, position=[0.375, 0.6495, 1.4433346804457017]), VertexData(id=7, position=[0.5, 0.866, 1.4433346804457017]), VertexData(id=8, position=[1.25, 0.866, 1.4433346804457017]))</em></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -866,6 +924,30 @@ be constructed.</p>
 <p>Building blocks with three functional groups are required
 for this topology graph.</p>
 <p>See <a class="reference internal" href="#stk.molecular.topology_graphs.cof.COF" title="stk.molecular.topology_graphs.cof.COF"><code class="xref py py-class docutils literal notranslate"><span class="pre">COF</span></code></a> for more details and examples.</p>
+<dl class="attribute">
+<dt id="stk.molecular.topology_graphs.cof.LinkerlessHoneycomb.vertex_data">
+<code class="sig-name descname">vertex_data</code><a class="headerlink" href="#stk.molecular.topology_graphs.cof.LinkerlessHoneycomb.vertex_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class attribute. Holds the data of the vertices which make up
+the topology graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.VertexData" title="stk.molecular.topology_graphs.topology_graph.VertexData"><code class="xref py py-class docutils literal notranslate"><span class="pre">VertexData</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stk.molecular.topology_graphs.cof.LinkerlessHoneycomb.edge_data">
+<code class="sig-name descname">edge_data</code><a class="headerlink" href="#stk.molecular.topology_graphs.cof.LinkerlessHoneycomb.edge_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class attribute. Holds the data of the edges which make up
+the topology graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.EdgeData" title="stk.molecular.topology_graphs.topology_graph.EdgeData"><code class="xref py py-class docutils literal notranslate"><span class="pre">EdgeData</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="stk.molecular.topology_graphs.cof.LinkerlessHoneycomb.vertices">
 <code class="sig-name descname">vertices</code><a class="headerlink" href="#stk.molecular.topology_graphs.cof.LinkerlessHoneycomb.vertices" title="Permalink to this definition">¶</a></dt>
@@ -915,22 +997,18 @@ x, y and z dimensions, respectively.</p></li>
 <li><p><strong>periodic</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If periodic bonds are to be made across the lattice,
 this should be <code class="docutils literal notranslate"><span class="pre">True</span></code>. If <code class="docutils literal notranslate"><span class="pre">False</span></code> the functional
 groups on the ends of the lattice will be unreacted.</p></li>
-<li><p><strong>vertex_alignments</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>, optional) – <p>A mapping from a <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex" title="stk.molecular.topology_graphs.topology_graph.Vertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vertex</span></code></a>, in the class
-attribute <a class="reference internal" href="#stk.molecular.topology_graphs.cof.LinkerlessHoneycomb.vertices" title="stk.molecular.topology_graphs.cof.LinkerlessHoneycomb.vertices"><code class="xref py py-attr docutils literal notranslate"><span class="pre">vertices</span></code></a>, to an <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a>, in the
-class attribute <a class="reference internal" href="#stk.molecular.topology_graphs.cof.LinkerlessHoneycomb.edges" title="stk.molecular.topology_graphs.cof.LinkerlessHoneycomb.edges"><code class="xref py py-attr docutils literal notranslate"><span class="pre">edges</span></code></a>, connected to it.
+<li><p><strong>vertex_alignments</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>, optional) – A mapping from the <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex.id" title="stk.molecular.topology_graphs.topology_graph.Vertex.id"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Vertex.id</span></code></a> of a <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex" title="stk.molecular.topology_graphs.topology_graph.Vertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vertex</span></code></a>
+<a class="reference internal" href="#stk.molecular.topology_graphs.cof.LinkerlessHoneycomb.vertices" title="stk.molecular.topology_graphs.cof.LinkerlessHoneycomb.vertices"><code class="xref py py-attr docutils literal notranslate"><span class="pre">vertices</span></code></a> to an <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a> connected to it.
 The <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a> is used to align the first
 <a class="reference internal" href="stk.molecular.functional_groups.html#stk.molecular.functional_groups.FunctionalGroup" title="stk.molecular.functional_groups.FunctionalGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionalGroup</span></code></a> of a <a class="reference internal" href="stk.molecular.molecules.building_block.html#stk.molecular.molecules.building_block.BuildingBlock" title="stk.molecular.molecules.building_block.BuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">BuildingBlock</span></code></a>
 placed on that vertex. Only vertices which need to have
-their default alignment changed need to be present in the
-<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>. If <code class="docutils literal notranslate"><span class="pre">None</span></code> then the first <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a>
-in <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex.edges" title="stk.molecular.topology_graphs.topology_graph.Vertex.edges"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Vertex.edges</span></code></a> is used for each vertex. Changing
-which <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a> is used will mean that the topology
-graph will represent a different structural isomer.</p>
-<p>The vertices and edges can also be referred to by their
-indices. The vertices are referred to by their index in
-the class attribute <a class="reference internal" href="#stk.molecular.topology_graphs.cof.LinkerlessHoneycomb.vertices" title="stk.molecular.topology_graphs.cof.LinkerlessHoneycomb.vertices"><code class="xref py py-attr docutils literal notranslate"><span class="pre">vertices</span></code></a> while the edges are
-referred to by their index in <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex.edges" title="stk.molecular.topology_graphs.topology_graph.Vertex.edges"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Vertex.edges</span></code></a>.</p>
-</p></li>
+their default edge changed need to be present in the
+<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>. If <code class="docutils literal notranslate"><span class="pre">None</span></code> then the default edge is used
+for each vertex. Changing which <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a> is used will
+mean that the topology graph represents different
+structural isomers. The edge is refered to by a number
+between <code class="docutils literal notranslate"><span class="pre">0</span></code> (inclusive) and the number of edges the
+vertex is connected to (exclusive).</p></li>
 <li><p><strong>num_processes</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The number of parallel processes to create during
 <a class="reference internal" href="#stk.molecular.topology_graphs.cof.LinkerlessHoneycomb.construct" title="stk.molecular.topology_graphs.cof.LinkerlessHoneycomb.construct"><code class="xref py py-meth docutils literal notranslate"><span class="pre">construct()</span></code></a>.</p></li>
 </ul>
@@ -999,12 +1077,12 @@ be constructed.</p>
 
 <dl class="attribute">
 <dt>
-<code class="sig-name descname">edges</code><em class="property"> = (Edge(0, 1), Edge(0, 1, periodicity=(-1, 0, 0)), Edge(0, 1, periodicity=(0, -1, 0)))</em></dt>
+<code class="sig-name descname">edge_data</code><em class="property"> = (EdgeData(0, 1, id=0), EdgeData(0, 1, id=1, periodicity=(-1, 0, 0)), EdgeData(0, 1, id=2, periodicity=(0, -1, 0)))</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt>
-<code class="sig-name descname">vertices</code><em class="property"> = (Vertex(id=0, position=[0.5, 0.2886666666666666, 1.4433346804457017], aligner_edge=None), Vertex(id=1, position=[1.0, 0.5773333333333333, 1.4433346804457017], aligner_edge=None))</em></dt>
+<code class="sig-name descname">vertex_data</code><em class="property"> = (VertexData(id=0, position=[0.5, 0.2886666666666666, 1.4433346804457017]), VertexData(id=1, position=[1.0, 0.5773333333333333, 1.4433346804457017]))</em></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1017,6 +1095,30 @@ be constructed.</p>
 <p>Building blocks with four and two functional groups are required
 for this topology graph.</p>
 <p>See <a class="reference internal" href="#stk.molecular.topology_graphs.cof.COF" title="stk.molecular.topology_graphs.cof.COF"><code class="xref py py-class docutils literal notranslate"><span class="pre">COF</span></code></a> for more details and examples.</p>
+<dl class="attribute">
+<dt id="stk.molecular.topology_graphs.cof.Square.vertex_data">
+<code class="sig-name descname">vertex_data</code><a class="headerlink" href="#stk.molecular.topology_graphs.cof.Square.vertex_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class attribute. Holds the data of the vertices which make up
+the topology graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.VertexData" title="stk.molecular.topology_graphs.topology_graph.VertexData"><code class="xref py py-class docutils literal notranslate"><span class="pre">VertexData</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stk.molecular.topology_graphs.cof.Square.edge_data">
+<code class="sig-name descname">edge_data</code><a class="headerlink" href="#stk.molecular.topology_graphs.cof.Square.edge_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class attribute. Holds the data of the edges which make up
+the topology graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.EdgeData" title="stk.molecular.topology_graphs.topology_graph.EdgeData"><code class="xref py py-class docutils literal notranslate"><span class="pre">EdgeData</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="stk.molecular.topology_graphs.cof.Square.vertices">
 <code class="sig-name descname">vertices</code><a class="headerlink" href="#stk.molecular.topology_graphs.cof.Square.vertices" title="Permalink to this definition">¶</a></dt>
@@ -1066,22 +1168,18 @@ x, y and z dimensions, respectively.</p></li>
 <li><p><strong>periodic</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If periodic bonds are to be made across the lattice,
 this should be <code class="docutils literal notranslate"><span class="pre">True</span></code>. If <code class="docutils literal notranslate"><span class="pre">False</span></code> the functional
 groups on the ends of the lattice will be unreacted.</p></li>
-<li><p><strong>vertex_alignments</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>, optional) – <p>A mapping from a <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex" title="stk.molecular.topology_graphs.topology_graph.Vertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vertex</span></code></a>, in the class
-attribute <a class="reference internal" href="#stk.molecular.topology_graphs.cof.Square.vertices" title="stk.molecular.topology_graphs.cof.Square.vertices"><code class="xref py py-attr docutils literal notranslate"><span class="pre">vertices</span></code></a>, to an <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a>, in the
-class attribute <a class="reference internal" href="#stk.molecular.topology_graphs.cof.Square.edges" title="stk.molecular.topology_graphs.cof.Square.edges"><code class="xref py py-attr docutils literal notranslate"><span class="pre">edges</span></code></a>, connected to it.
+<li><p><strong>vertex_alignments</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>, optional) – A mapping from the <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex.id" title="stk.molecular.topology_graphs.topology_graph.Vertex.id"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Vertex.id</span></code></a> of a <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex" title="stk.molecular.topology_graphs.topology_graph.Vertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vertex</span></code></a>
+<a class="reference internal" href="#stk.molecular.topology_graphs.cof.Square.vertices" title="stk.molecular.topology_graphs.cof.Square.vertices"><code class="xref py py-attr docutils literal notranslate"><span class="pre">vertices</span></code></a> to an <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a> connected to it.
 The <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a> is used to align the first
 <a class="reference internal" href="stk.molecular.functional_groups.html#stk.molecular.functional_groups.FunctionalGroup" title="stk.molecular.functional_groups.FunctionalGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionalGroup</span></code></a> of a <a class="reference internal" href="stk.molecular.molecules.building_block.html#stk.molecular.molecules.building_block.BuildingBlock" title="stk.molecular.molecules.building_block.BuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">BuildingBlock</span></code></a>
 placed on that vertex. Only vertices which need to have
-their default alignment changed need to be present in the
-<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>. If <code class="docutils literal notranslate"><span class="pre">None</span></code> then the first <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a>
-in <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex.edges" title="stk.molecular.topology_graphs.topology_graph.Vertex.edges"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Vertex.edges</span></code></a> is used for each vertex. Changing
-which <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a> is used will mean that the topology
-graph will represent a different structural isomer.</p>
-<p>The vertices and edges can also be referred to by their
-indices. The vertices are referred to by their index in
-the class attribute <a class="reference internal" href="#stk.molecular.topology_graphs.cof.Square.vertices" title="stk.molecular.topology_graphs.cof.Square.vertices"><code class="xref py py-attr docutils literal notranslate"><span class="pre">vertices</span></code></a> while the edges are
-referred to by their index in <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex.edges" title="stk.molecular.topology_graphs.topology_graph.Vertex.edges"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Vertex.edges</span></code></a>.</p>
-</p></li>
+their default edge changed need to be present in the
+<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>. If <code class="docutils literal notranslate"><span class="pre">None</span></code> then the default edge is used
+for each vertex. Changing which <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a> is used will
+mean that the topology graph represents different
+structural isomers. The edge is refered to by a number
+between <code class="docutils literal notranslate"><span class="pre">0</span></code> (inclusive) and the number of edges the
+vertex is connected to (exclusive).</p></li>
 <li><p><strong>num_processes</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The number of parallel processes to create during
 <a class="reference internal" href="#stk.molecular.topology_graphs.cof.Square.construct" title="stk.molecular.topology_graphs.cof.Square.construct"><code class="xref py py-meth docutils literal notranslate"><span class="pre">construct()</span></code></a>.</p></li>
 </ul>
@@ -1150,12 +1248,12 @@ be constructed.</p>
 
 <dl class="attribute">
 <dt>
-<code class="sig-name descname">edges</code><em class="property"> = (Edge(1, 0), Edge(1, 0, periodicity=(1, 0, 0)), Edge(2, 0), Edge(2, 0, periodicity=(0, 1, 0)))</em></dt>
+<code class="sig-name descname">edge_data</code><em class="property"> = (EdgeData(1, 0, id=0), EdgeData(1, 0, id=1, periodicity=(1, 0, 0)), EdgeData(2, 0, id=2), EdgeData(2, 0, id=3, periodicity=(0, 1, 0)))</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt>
-<code class="sig-name descname">vertices</code><em class="property"> = (Vertex(id=0, position=[0.5, 0.5, 0.5], aligner_edge=None), Vertex(id=1, position=[1.0, 0.5, 0.5], aligner_edge=None), Vertex(id=2, position=[0.5, 1.0, 0.5], aligner_edge=None))</em></dt>
+<code class="sig-name descname">vertex_data</code><em class="property"> = (VertexData(id=0, position=[0.5, 0.5, 0.5]), VertexData(id=1, position=[1.0, 0.5, 0.5]), VertexData(id=2, position=[0.5, 1.0, 0.5]))</em></dt>
 <dd></dd></dl>
 
 </dd></dl>
