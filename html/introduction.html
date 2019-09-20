@@ -335,7 +335,7 @@ structural isomers of a single cage in one swoop</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">itertools</span> <span class="kn">as</span> <span class="nn">it</span>
 
 <span class="n">edges</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="nb">range</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">get_num_edges</span><span class="p">())</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">stk</span><span class="o">.</span><span class="n">cage</span><span class="o">.</span><span class="n">FourPlusSix</span><span class="o">.</span><span class="n">vertices</span>
+    <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">edges</span><span class="p">))</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">stk</span><span class="o">.</span><span class="n">cage</span><span class="o">.</span><span class="n">FourPlusSix</span><span class="o">.</span><span class="n">vertex_data</span>
 <span class="p">)</span>
 <span class="c1"># Create 5184 structural isomers.</span>
 <span class="n">isomers</span> <span class="o">=</span> <span class="p">[]</span>
@@ -344,7 +344,7 @@ structural isomers of a single cage in one swoop</p>
         <span class="n">vertex_alignments</span><span class="o">=</span><span class="p">{</span>
             <span class="n">vertex</span><span class="o">.</span><span class="n">id</span><span class="p">:</span> <span class="n">edge</span>
             <span class="k">for</span> <span class="n">vertex</span><span class="p">,</span> <span class="n">edge</span>
-            <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">stk</span><span class="o">.</span><span class="n">cage</span><span class="o">.</span><span class="n">FourPlusSix</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="n">aligners</span><span class="p">)</span>
+            <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">stk</span><span class="o">.</span><span class="n">cage</span><span class="o">.</span><span class="n">FourPlusSix</span><span class="o">.</span><span class="n">vertex_data</span><span class="p">,</span> <span class="n">aligners</span><span class="p">)</span>
         <span class="p">}</span>
     <span class="p">)</span>
     <span class="n">isomer</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
