@@ -262,35 +262,32 @@ block along to the chain to be flipped</p>
 on a node.</p>
 <p>Note that whether a building block will be flipped or not
 is decided during the initialization of <a class="reference internal" href="#stk.molecular.topology_graphs.polymer.Linear" title="stk.molecular.topology_graphs.polymer.Linear"><code class="xref py py-class docutils literal notranslate"><span class="pre">Linear</span></code></a></p>
-<p>. code-block:: python</p>
-<blockquote>
-<div><p># chain will always construct the same polymer.
-chain = stk.polymer.Linear(</p>
-<blockquote>
-<div><p>repeating_unit=’AB’,
-num_repeating_untis=5,
-orientations=(0.65, 0.45)</p>
-</div></blockquote>
-<p>)
-# p4 and p5 are guaranteed to be the same as they used the same
-# topology graph.
-p4 = stk.ConstructedMolecule([bb2, bb4], chain)
-p5 = stk.ConstructedMolecule([bb2, bb4], chain)</p>
-<p># chain2 may lead to a different polymer than chain, despite
-# being initialized with the same parameters.
-chain2 = stk.polymer.Linear(</p>
-<blockquote>
-<div><p>repeating_unit=’AB’,
-num_repeating_untis=5,
-orientations=(0.65, 0.45)</p>
-</div></blockquote>
-<p>)</p>
-<p># p6 and p7 are guaranteed to be the same because they used the
-# the same topology graph. However, they may be different to
-# p4 and p5.
-p6 = stk.ConstructedMolecule([bb2, bb4], chain2)
-p7 = stk.ConstructedMolecule([bb2, bb4], chain2)</p>
-</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># chain will always construct the same polymer.</span>
+<span class="n">chain</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span>
+    <span class="n">repeating_unit</span><span class="o">=</span><span class="s1">&#39;AB&#39;</span><span class="p">,</span>
+    <span class="n">num_repeating_untis</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">orientations</span><span class="o">=</span><span class="p">(</span><span class="mf">0.65</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="c1"># p4 and p5 are guaranteed to be the same as they used the same</span>
+<span class="c1"># topology graph.</span>
+<span class="n">p4</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">([</span><span class="n">bb2</span><span class="p">,</span> <span class="n">bb4</span><span class="p">],</span> <span class="n">chain</span><span class="p">)</span>
+<span class="n">p5</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">([</span><span class="n">bb2</span><span class="p">,</span> <span class="n">bb4</span><span class="p">],</span> <span class="n">chain</span><span class="p">)</span>
+
+<span class="c1"># chain2 may lead to a different polymer than chain, despite</span>
+<span class="c1"># being initialized with the same parameters.</span>
+<span class="n">chain2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span>
+    <span class="n">repeating_unit</span><span class="o">=</span><span class="s1">&#39;AB&#39;</span><span class="p">,</span>
+    <span class="n">num_repeating_untis</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">orientations</span><span class="o">=</span><span class="p">(</span><span class="mf">0.65</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># p6 and p7 are guaranteed to be the same because they used the</span>
+<span class="c1"># the same topology graph. However, they may be different to</span>
+<span class="c1"># p4 and p5.</span>
+<span class="n">p6</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">([</span><span class="n">bb2</span><span class="p">,</span> <span class="n">bb4</span><span class="p">],</span> <span class="n">chain2</span><span class="p">)</span>
+<span class="n">p7</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">([</span><span class="n">bb2</span><span class="p">,</span> <span class="n">bb4</span><span class="p">],</span> <span class="n">chain2</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>The <cite>random_seed</cite> parameter can be used to get reproducible results</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># p8 and p9 are guaranteed to be the same, because chain3 and</span>
 <span class="c1"># chain4 used the same random seeed.</span>
