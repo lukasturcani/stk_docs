@@ -191,7 +191,7 @@
 </ol>
 <dl class="class">
 <dt id="stk.molecular.topology_graphs.rotaxane.NRotaxane">
-<em class="property">class </em><code class="sig-name descname">NRotaxane</code><span class="sig-paren">(</span><em class="sig-param">repeating_unit</em>, <em class="sig-param">num_repeating_units</em>, <em class="sig-param">orientations=None</em>, <em class="sig-param">num_processes=1</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.topology_graphs.rotaxane.NRotaxane" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-name descname">NRotaxane</code><span class="sig-paren">(</span><em class="sig-param">repeating_unit</em>, <em class="sig-param">num_repeating_units</em>, <em class="sig-param">orientations=None</em>, <em class="sig-param">random_seed=None</em>, <em class="sig-param">num_processes=1</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.topology_graphs.rotaxane.NRotaxane" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.TopologyGraph" title="stk.molecular.topology_graphs.topology_graph.TopologyGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.molecular.topology_graphs.topology_graph.TopologyGraph</span></code></a></p>
 <p>Represents [n]rotaxane topology graphs.</p>
 <p>This class assumes one axle with (n-1) macrocycles threaded on it.
@@ -258,6 +258,9 @@ the building blocks</p>
 <span class="p">)</span>
 </pre></div>
 </div>
+<p><a class="reference internal" href="#stk.molecular.topology_graphs.rotaxane.NRotaxane" title="stk.molecular.topology_graphs.rotaxane.NRotaxane"><code class="xref py py-class docutils literal notranslate"><span class="pre">NRotaxane</span></code></a> shares many parameters with <a class="reference internal" href="stk.molecular.topology_graphs.polymer.html#stk.molecular.topology_graphs.polymer.Linear" title="stk.molecular.topology_graphs.polymer.Linear"><code class="xref py py-class docutils literal notranslate"><span class="pre">Linear</span></code></a>,
+and the examples described there are also valid for this class.
+Be sure to read them.</p>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -275,7 +278,7 @@ the building blocks</p>
 </table>
 <dl class="method">
 <dt id="stk.molecular.topology_graphs.rotaxane.NRotaxane.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">repeating_unit</em>, <em class="sig-param">num_repeating_units</em>, <em class="sig-param">orientations=None</em>, <em class="sig-param">num_processes=1</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.topology_graphs.rotaxane.NRotaxane.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">repeating_unit</em>, <em class="sig-param">num_repeating_units</em>, <em class="sig-param">orientations=None</em>, <em class="sig-param">random_seed=None</em>, <em class="sig-param">num_processes=1</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.topology_graphs.rotaxane.NRotaxane.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize a <a class="reference internal" href="#stk.molecular.topology_graphs.rotaxane.NRotaxane" title="stk.molecular.topology_graphs.rotaxane.NRotaxane"><code class="xref py py-class docutils literal notranslate"><span class="pre">NRotaxane</span></code></a> instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -288,7 +291,7 @@ passed to <cite>building_blocks</cite> is <code class="docutils literal notransl
 written as <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2,</span> <span class="pre">2)</span></code>.</p>
 </p></li>
 <li><p><strong>num_repeating_units</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The number of repeating units threaded along the axle.</p></li>
-<li><p><strong>orientations</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, optional) – For each character in the repeating unit, a value
+<li><p><strong>orientations</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, optional) – <p>For each character in the repeating unit, a value
 between <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">1</span></code> (both inclusive) must be given in
 a <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>. It indicates the probability that each
 macrocycle will have its orientation along the axle
@@ -297,7 +300,13 @@ flip. If <code class="docutils literal notranslate"><span class="pre">1</span></
 user to create head-to-head or head-to-tail chains, as well
 as chain with a preference for head-to-head or head-to-tail
 if a number between <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">1</span></code> is chosen. If
-<code class="docutils literal notranslate"><span class="pre">None</span></code> then defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code> in every case.</p></li>
+<code class="docutils literal notranslate"><span class="pre">None</span></code> then defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code> in every case.</p>
+<p>It is also possible to supply an orientation for every
+cycle vertex in the final topology graph. In this case, the
+length of <cite>orientations</cite> must be equal to
+<code class="docutils literal notranslate"><span class="pre">len(repeating_unit)*num_repeating_units</span></code>.</p>
+</p></li>
+<li><p><strong>random_seed</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The random seed to use when choosing random orientations.</p></li>
 <li><p><strong>num_processes</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The number of parallel processes to create during
 <a class="reference internal" href="#stk.molecular.topology_graphs.rotaxane.NRotaxane.construct" title="stk.molecular.topology_graphs.rotaxane.NRotaxane.construct"><code class="xref py py-meth docutils literal notranslate"><span class="pre">construct()</span></code></a>.</p></li>
 </ul>

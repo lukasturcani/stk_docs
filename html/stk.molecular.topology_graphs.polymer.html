@@ -191,7 +191,7 @@
 </ol>
 <dl class="class">
 <dt id="stk.molecular.topology_graphs.polymer.Linear">
-<em class="property">class </em><code class="sig-name descname">Linear</code><span class="sig-paren">(</span><em class="sig-param">repeating_unit</em>, <em class="sig-param">num_repeating_units</em>, <em class="sig-param">orientations=None</em>, <em class="sig-param">num_processes=1</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.topology_graphs.polymer.Linear" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-name descname">Linear</code><span class="sig-paren">(</span><em class="sig-param">repeating_unit</em>, <em class="sig-param">num_repeating_units</em>, <em class="sig-param">orientations=None</em>, <em class="sig-param">random_seed=None</em>, <em class="sig-param">num_processes=1</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.topology_graphs.polymer.Linear" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.TopologyGraph" title="stk.molecular.topology_graphs.topology_graph.TopologyGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.molecular.topology_graphs.topology_graph.TopologyGraph</span></code></a></p>
 <p>Represents a linear polymer topology graph.</p>
 <dl class="attribute">
@@ -235,12 +235,81 @@ the building blocks</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># p1 and p2 are different ways to write the same thing.</span>
 <span class="n">p1</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
     <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">bb1</span><span class="p">,</span> <span class="n">bb2</span><span class="p">,</span> <span class="n">bb3</span><span class="p">],</span>
-    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="s1">&#39;ACB&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="s1">&#39;ACB&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="p">)</span>
 <span class="n">p2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
     <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">bb1</span><span class="p">,</span> <span class="n">bb2</span><span class="p">,</span> <span class="n">bb3</span><span class="p">],</span>
-    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
 <span class="p">)</span>
+</pre></div>
+</div>
+<p>The <cite>orientations</cite> parameter allows the direction of each building
+block along to the chain to be flipped</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bb4</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NCNCCN&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;amine&#39;</span><span class="p">])</span>
+
+<span class="n">p3</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
+    <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">bb2</span><span class="p">,</span> <span class="n">bb4</span><span class="p">],</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span>
+        <span class="n">repeating_unit</span><span class="o">=</span><span class="s1">&#39;AB&#39;</span><span class="p">,</span>
+        <span class="n">num_repeating_units</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+        <span class="n">orientations</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>In the above example, <code class="docutils literal notranslate"><span class="pre">bb1</span></code> is guaranteed to be flipped,
+<code class="docutils literal notranslate"><span class="pre">bb2</span></code> has a 50 % chance of being flipped, each time it is placed
+on a node.</p>
+<p>Note that whether a building block will be flipped or not
+is decided during the initialization of <a class="reference internal" href="#stk.molecular.topology_graphs.polymer.Linear" title="stk.molecular.topology_graphs.polymer.Linear"><code class="xref py py-class docutils literal notranslate"><span class="pre">Linear</span></code></a></p>
+<p>. code-block:: python</p>
+<blockquote>
+<div><p># chain will always construct the same polymer.
+chain = stk.polymer.Linear(</p>
+<blockquote>
+<div><p>repeating_unit=’AB’,
+num_repeating_untis=5,
+orientations=(0.65, 0.45)</p>
+</div></blockquote>
+<p>)
+# p4 and p5 are guaranteed to be the same as they used the same
+# topology graph.
+p4 = stk.ConstructedMolecule([bb2, bb4], chain)
+p5 = stk.ConstructedMolecule([bb2, bb4], chain)</p>
+<p># chain2 may lead to a different polymer than chain, despite
+# being initialized with the same parameters.
+chain2 = stk.polymer.Linear(</p>
+<blockquote>
+<div><p>repeating_unit=’AB’,
+num_repeating_untis=5,
+orientations=(0.65, 0.45)</p>
+</div></blockquote>
+<p>)</p>
+<p># p6 and p7 are guaranteed to be the same because they used the
+# the same topology graph. However, they may be different to
+# p4 and p5.
+p6 = stk.ConstructedMolecule([bb2, bb4], chain2)
+p7 = stk.ConstructedMolecule([bb2, bb4], chain2)</p>
+</div></blockquote>
+<p>The <cite>random_seed</cite> parameter can be used to get reproducible results</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># p8 and p9 are guaranteed to be the same, because chain3 and</span>
+<span class="c1"># chain4 used the same random seeed.</span>
+
+<span class="n">chain3</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span>
+    <span class="n">repeating_unit</span><span class="o">=</span><span class="s1">&#39;AB&#39;</span><span class="p">,</span>
+    <span class="n">num_repeating_untis</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">orientations</span><span class="o">=</span><span class="p">(</span><span class="mf">0.65</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">),</span>
+    <span class="n">random_seed</span><span class="o">=</span><span class="mi">4</span>
+<span class="p">)</span>
+<span class="n">p8</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">([</span><span class="n">bb2</span><span class="p">,</span> <span class="n">bb4</span><span class="p">],</span> <span class="n">chain3</span><span class="p">)</span>
+
+<span class="n">chain4</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span>
+    <span class="n">repeating_unit</span><span class="o">=</span><span class="s1">&#39;AB&#39;</span><span class="p">,</span>
+    <span class="n">num_repeating_untis</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">orientations</span><span class="o">=</span><span class="p">(</span><span class="mf">0.65</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">),</span>
+    <span class="n">random_seed</span><span class="o">=</span><span class="mi">4</span>
+<span class="p">)</span>
+<span class="n">p9</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">([</span><span class="n">bb2</span><span class="p">,</span> <span class="n">bb4</span><span class="p">],</span> <span class="n">chain4</span><span class="p">)</span>
 </pre></div>
 </div>
 <p class="rubric">Methods</p>
@@ -260,7 +329,7 @@ the building blocks</p>
 </table>
 <dl class="method">
 <dt id="stk.molecular.topology_graphs.polymer.Linear.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">repeating_unit</em>, <em class="sig-param">num_repeating_units</em>, <em class="sig-param">orientations=None</em>, <em class="sig-param">num_processes=1</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.topology_graphs.polymer.Linear.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">repeating_unit</em>, <em class="sig-param">num_repeating_units</em>, <em class="sig-param">orientations=None</em>, <em class="sig-param">random_seed=None</em>, <em class="sig-param">num_processes=1</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.topology_graphs.polymer.Linear.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize a <a class="reference internal" href="#stk.molecular.topology_graphs.polymer.Linear" title="stk.molecular.topology_graphs.polymer.Linear"><code class="xref py py-class docutils literal notranslate"><span class="pre">Linear</span></code></a> instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -274,7 +343,7 @@ written as <code class="docutils literal notranslate"><span class="pre">(0,</spa
 </p></li>
 <li><p><strong>num_repeating_units</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The number of repeating units which are used to make the
 polymer.</p></li>
-<li><p><strong>orientations</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – For each character in the repeating unit, a value
+<li><p><strong>orientations</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, optional) – <p>For each character in the repeating unit, a value
 between <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">1</span></code> (both inclusive) must be given in
 a <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>. It indicates the probability that each
 monomer will have its orientation along the chain flipped.
@@ -283,10 +352,20 @@ If <code class="docutils literal notranslate"><span class="pre">0</span></code> 
 create head-to-head or head-to-tail chains, as well as
 chain with a preference for head-to-head or head-to-tail if
 a number between <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">1</span></code> is chosen. If <code class="docutils literal notranslate"><span class="pre">None</span></code>
-then <code class="docutils literal notranslate"><span class="pre">0</span></code> is picked in all cases.</p></li>
+then <code class="docutils literal notranslate"><span class="pre">0</span></code> is picked in all cases.</p>
+<p>It is also possible to supply an orientation for every
+vertex in the final topology graph. In this case, the
+length of <cite>orientations</cite> must be equal to
+<code class="docutils literal notranslate"><span class="pre">len(repeating_unit)*num_repeating_units</span></code>.</p>
+</p></li>
+<li><p><strong>random_seed</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The random seed to use when choosing random orientations.</p></li>
 <li><p><strong>num_processes</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The number of parallel processes to create during
 <a class="reference internal" href="#stk.molecular.topology_graphs.polymer.Linear.construct" title="stk.molecular.topology_graphs.polymer.Linear.construct"><code class="xref py py-meth docutils literal notranslate"><span class="pre">construct()</span></code></a>.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the length of <cite>orientations</cite> is not equal in length to
+<cite>repeating_unit</cite> or to the total number of vertices.</p>
 </dd>
 </dl>
 </dd></dl>

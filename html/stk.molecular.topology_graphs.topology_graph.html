@@ -100,7 +100,10 @@
 <li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.host_guest.html">Host Guest Complex</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.macrocycle.html">Macrocycle</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.rotaxane.html">Rotaxane</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Adding Topology Graphs</a><ul class="simple">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Adding Topology Graphs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#why-is-both-vertexdata-and-vertex-needed">Why is both <code class="xref py py-class docutils literal notranslate"><span class="pre">VertexData</span></code> and <code class="xref py py-class docutils literal notranslate"><span class="pre">Vertex</span></code> needed?</a><ul class="simple">
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -187,17 +190,53 @@
   <span class="target" id="module-stk.molecular.topology_graphs.topology_graph"></span><div class="section" id="adding-topology-graphs">
 <h1>Adding Topology Graphs<a class="headerlink" href="#adding-topology-graphs" title="Permalink to this headline">¶</a></h1>
 <p>To add a new topology graph a new subclass of <a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.TopologyGraph" title="stk.molecular.topology_graphs.topology_graph.TopologyGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopologyGraph</span></code></a>
-must be added, which implements its virtual methods. Similarly,
-a new subclass of <a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.Vertex" title="stk.molecular.topology_graphs.topology_graph.Vertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vertex</span></code></a> must also be made and its virtual
-methods implemented. When the new subclass of <a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.TopologyGraph" title="stk.molecular.topology_graphs.topology_graph.TopologyGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopologyGraph</span></code></a>
-is initialized, it must create instances of the <a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.Vertex" title="stk.molecular.topology_graphs.topology_graph.Vertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vertex</span></code></a>
-subclass, together with <a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a> instances. Once your
-topology graph has the vertices and edges it wants, simply run
+must be added, which implements its virtual methods. Similarly, new
+subclasses of <code class="xref py py-class docutils literal notranslate"><span class="pre">VertexData`</span></code> and <a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.Vertex" title="stk.molecular.topology_graphs.topology_graph.Vertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vertex</span></code></a> must also be
+made and their virtual methods implemented. When the new subclass of
+<a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.TopologyGraph" title="stk.molecular.topology_graphs.topology_graph.TopologyGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopologyGraph</span></code></a> is initialized, it must create instances of the
+<a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.VertexData" title="stk.molecular.topology_graphs.topology_graph.VertexData"><code class="xref py py-class docutils literal notranslate"><span class="pre">VertexData</span></code></a>
+subclass, together with <a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.EdgeData" title="stk.molecular.topology_graphs.topology_graph.EdgeData"><code class="xref py py-class docutils literal notranslate"><span class="pre">EdgeData</span></code></a> instances. Once your
+topology graph has the vertex and edge data it wants, simply run
 <a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.TopologyGraph.__init__" title="stk.molecular.topology_graphs.topology_graph.TopologyGraph.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TopologyGraph.__init__()</span></code></a> and you’re done.</p>
-<p>The subclass can also create <cite>construction_stages</cite> if parallel
-construction needs to be broken down into separate stages. However,
+<p>When creating a <a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.VertexData" title="stk.molecular.topology_graphs.topology_graph.VertexData"><code class="xref py py-class docutils literal notranslate"><span class="pre">VertexData</span></code></a> subclass,
+<a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.VertexData.get_vertex" title="stk.molecular.topology_graphs.topology_graph.VertexData.get_vertex"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_vertex()</span></code></a> needs to be implemented such that it
+returns an instance of your <a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.Vertex" title="stk.molecular.topology_graphs.topology_graph.Vertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vertex</span></code></a> subclass. If you need to
+define a new <code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code> method for either subclass, you will
+also need to implement <code class="xref py py-meth docutils literal notranslate"><span class="pre">clone()</span></code> for it.</p>
+<p>The <a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.TopologyGraph" title="stk.molecular.topology_graphs.topology_graph.TopologyGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopologyGraph</span></code></a> subclass can also create
+<cite>construction_stages</cite> if parallel construction needs to be broken down
+into separate stages. However,
 if this is not the case, then an empty <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> can simply be
 passed.</p>
+<div class="section" id="why-is-both-vertexdata-and-vertex-needed">
+<h2>Why is both <a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.VertexData" title="stk.molecular.topology_graphs.topology_graph.VertexData"><code class="xref py py-class docutils literal notranslate"><span class="pre">VertexData</span></code></a> and <a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.Vertex" title="stk.molecular.topology_graphs.topology_graph.Vertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vertex</span></code></a> needed?<a class="headerlink" href="#why-is-both-vertexdata-and-vertex-needed" title="Permalink to this headline">¶</a></h2>
+<p>At first, it may appear that having both <a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.VertexData" title="stk.molecular.topology_graphs.topology_graph.VertexData"><code class="xref py py-class docutils literal notranslate"><span class="pre">VertexData</span></code></a> and
+<a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.Vertex" title="stk.molecular.topology_graphs.topology_graph.Vertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vertex</span></code></a> is an unnecssary inconvenience, as when you create
+a new <a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.TopologyGraph" title="stk.molecular.topology_graphs.topology_graph.TopologyGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopologyGraph</span></code></a> subclass you have to subclass both of
+these classes rather than just <a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.Vertex" title="stk.molecular.topology_graphs.topology_graph.Vertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vertex</span></code></a>. The answer is
+related to how these two classes reference other objects in the
+<a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.TopologyGraph" title="stk.molecular.topology_graphs.topology_graph.TopologyGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopologyGraph</span></code></a>.</p>
+<p><a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.VertexData" title="stk.molecular.topology_graphs.topology_graph.VertexData"><code class="xref py py-class docutils literal notranslate"><span class="pre">VertexData</span></code></a> and <a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.EdgeData" title="stk.molecular.topology_graphs.topology_graph.EdgeData"><code class="xref py py-class docutils literal notranslate"><span class="pre">EdgeData</span></code></a> objects keep pointers
+to each other in the <a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.VertexData.edges" title="stk.molecular.topology_graphs.topology_graph.VertexData.edges"><code class="xref py py-attr docutils literal notranslate"><span class="pre">edges</span></code></a> and
+<a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.EdgeData.vertices" title="stk.molecular.topology_graphs.topology_graph.EdgeData.vertices"><code class="xref py py-attr docutils literal notranslate"><span class="pre">vertices</span></code></a>. This is extremely convenient for
+defining a <a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.TopologyGraph" title="stk.molecular.topology_graphs.topology_graph.TopologyGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopologyGraph</span></code></a> because its components can directly
+reference each other. However, it poses a significant issue for
+serialization. Topology graphs are usually highly-cyclic structures
+and are therefore often not possible to serialize with off-the-shelf
+serialization tools like <code class="xref py py-mod docutils literal notranslate"><span class="pre">pickle</span></code> or <code class="xref py py-mod docutils literal notranslate"><span class="pre">dill</span></code>. However,
+serialization is necessary and fundamental for allowing
+parallelization of <a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.TopologyGraph" title="stk.molecular.topology_graphs.topology_graph.TopologyGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopologyGraph</span></code></a> construction. The
+vertices and edges of the graph have to be serialized and sent to
+other cores so that they can place and connect building blocks in
+parallel. As a  result, <a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.VertexData" title="stk.molecular.topology_graphs.topology_graph.VertexData"><code class="xref py py-class docutils literal notranslate"><span class="pre">VertexData</span></code></a> exists to allow a
+convenient definition of a <a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.TopologyGraph" title="stk.molecular.topology_graphs.topology_graph.TopologyGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopologyGraph</span></code></a>, while
+<a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.Vertex" title="stk.molecular.topology_graphs.topology_graph.Vertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vertex</span></code></a> exists to provide a serializable representation of it.
+<code class="xref py py-class docutils literal notranslate"><span class="pre">Verex</span></code> and <a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.Edge" title="stk.molecular.topology_graphs.topology_graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a> do not reference other objects
+directly, instead they refer to them by their <a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.Vertex.id" title="stk.molecular.topology_graphs.topology_graph.Vertex.id"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Vertex.id</span></code></a>,
+which is used to get an index into <a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.TopologyGraph.vertices" title="stk.molecular.topology_graphs.topology_graph.TopologyGraph.vertices"><code class="xref py py-attr docutils literal notranslate"><span class="pre">TopologyGraph.vertices</span></code></a>
+and <a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.TopologyGraph.edges" title="stk.molecular.topology_graphs.topology_graph.TopologyGraph.edges"><code class="xref py py-attr docutils literal notranslate"><span class="pre">TopologyGraph.edges</span></code></a>.</p>
+<p><a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.VertexData.get_vertex" title="stk.molecular.topology_graphs.topology_graph.VertexData.get_vertex"><code class="xref py py-meth docutils literal notranslate"><span class="pre">VertexData.get_vertex()</span></code></a> is used to convert <a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.VertexData" title="stk.molecular.topology_graphs.topology_graph.VertexData"><code class="xref py py-class docutils literal notranslate"><span class="pre">VertexData</span></code></a>
+into its <a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.Vertex" title="stk.molecular.topology_graphs.topology_graph.Vertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vertex</span></code></a> counterpart.</p>
 <dl class="class">
 <dt id="stk.molecular.topology_graphs.topology_graph.Edge">
 <em class="property">class </em><code class="sig-name descname">Edge</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.topology_graphs.topology_graph.Edge" title="Permalink to this definition">¶</a></dt>
@@ -1169,7 +1208,8 @@ subclass.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><p><strong>NotImplementedError</strong> – This is a virtual method which needs to be implemented in
-a subclass.</p>
+a subclass. The implementation should return an instance of
+the matching <a class="reference internal" href="#stk.molecular.topology_graphs.topology_graph.Vertex" title="stk.molecular.topology_graphs.topology_graph.Vertex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vertex</span></code></a> subclass.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1193,6 +1233,7 @@ a subclass.</p>
 
 </dd></dl>
 
+</div>
 </div>
 
 

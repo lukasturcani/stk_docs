@@ -397,11 +397,11 @@ remove some in order to use it</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#stk.molecular.molecules.constructed_molecule.ConstructedMolecule.dump" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule.dump"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dump</span></code></a>(self, path[, include_attrs, …])</p></td>
 <td><p>Write a <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code> representation to a file.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#stk.molecular.molecules.constructed_molecule.ConstructedMolecule.get_atom_coords" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule.get_atom_coords"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_atom_coords</span></code></a>(self[, atom_ids])</p></td>
-<td><p>Yield the coordinates of atoms.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#stk.molecular.molecules.constructed_molecule.ConstructedMolecule.get_atom_distance" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule.get_atom_distance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_atom_distance</span></code></a>(self, atom1_id, atom2_id)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.molecular.molecules.constructed_molecule.ConstructedMolecule.get_atom_distance" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule.get_atom_distance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_atom_distance</span></code></a>(self, atom1_id, atom2_id)</p></td>
 <td><p>Return the distance between 2 atoms.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.molecular.molecules.constructed_molecule.ConstructedMolecule.get_atom_positions" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule.get_atom_positions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_atom_positions</span></code></a>(self[, atom_ids])</p></td>
+<td><p>Yield the positions of atoms.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#stk.molecular.molecules.constructed_molecule.ConstructedMolecule.get_building_blocks" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule.get_building_blocks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_building_blocks</span></code></a>(self)</p></td>
 <td><p>Yield the building blocks.</p></td>
@@ -624,22 +624,6 @@ held by the <code class="xref py py-class docutils literal notranslate"><span cl
 </dd></dl>
 
 <dl class="method">
-<dt id="stk.molecular.molecules.constructed_molecule.ConstructedMolecule.get_atom_coords">
-<code class="sig-name descname">get_atom_coords</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">atom_ids=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.molecules.constructed_molecule.ConstructedMolecule.get_atom_coords" title="Permalink to this definition">¶</a></dt>
-<dd><p>Yield the coordinates of atoms.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>atom_ids</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">iterable</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The ids of the atoms whose coordinates are desired.
-If <code class="docutils literal notranslate"><span class="pre">None</span></code>, then the coordinates of all atoms will be
-yielded.</p>
-</dd>
-<dt class="field-even">Yields</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> – The x, y and z coordinates of an atom.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
 <dt id="stk.molecular.molecules.constructed_molecule.ConstructedMolecule.get_atom_distance">
 <code class="sig-name descname">get_atom_distance</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">atom1_id</em>, <em class="sig-param">atom2_id</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.molecules.constructed_molecule.ConstructedMolecule.get_atom_distance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the distance between 2 atoms.</p>
@@ -657,6 +641,22 @@ atoms.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.molecular.molecules.constructed_molecule.ConstructedMolecule.get_atom_positions">
+<code class="sig-name descname">get_atom_positions</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">atom_ids=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.molecules.constructed_molecule.ConstructedMolecule.get_atom_positions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Yield the positions of atoms.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>atom_ids</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">iterable</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The ids of the atoms whose positions are desired.
+If <code class="docutils literal notranslate"><span class="pre">None</span></code>, then the positions of all atoms will be
+yielded.</p>
+</dd>
+<dt class="field-even">Yields</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> – The x, y and z coordinates of an atom.</p>
 </dd>
 </dl>
 </dd></dl>
