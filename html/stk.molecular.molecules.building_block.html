@@ -951,7 +951,7 @@ yet exist the created one will be added to the cache.</p></li>
 
 <dl class="method">
 <dt id="stk.molecular.molecules.building_block.BuildingBlock.init_from_random_file">
-<em class="property">classmethod </em><code class="sig-name descname">init_from_random_file</code><span class="sig-paren">(</span><em class="sig-param">file_glob</em>, <em class="sig-param">functional_groups=None</em>, <em class="sig-param">use_cache=False</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.molecules.building_block.BuildingBlock.init_from_random_file" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">init_from_random_file</code><span class="sig-paren">(</span><em class="sig-param">file_glob</em>, <em class="sig-param">functional_groups=None</em>, <em class="sig-param">random_seed=None</em>, <em class="sig-param">use_cache=False</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.molecules.building_block.BuildingBlock.init_from_random_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize from a random file in <cite>file_glob</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -961,6 +961,7 @@ a <a class="reference internal" href="#stk.molecular.molecules.building_block.Bu
 <li><p><strong>functional_groups</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">iterable</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, optional) – The names of the functional group types which are to be
 added to <a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.func_groups" title="stk.molecular.molecules.building_block.BuildingBlock.func_groups"><code class="xref py py-attr docutils literal notranslate"><span class="pre">func_groups</span></code></a>. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, then no
 functional groups are added.</p></li>
+<li><p><strong>random_seed</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The random seed to use.</p></li>
 <li><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, a new <a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock" title="stk.molecular.molecules.building_block.BuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">BuildingBlock</span></code></a> will
 not be made if a cached and identical one already exists,
 the one which already exists will be returned. If <code class="docutils literal notranslate"><span class="pre">True</span></code>
