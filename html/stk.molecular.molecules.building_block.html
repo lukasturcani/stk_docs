@@ -254,68 +254,74 @@ id of a <a class="reference internal" href="stk.molecular.functional_groups.html
 <tr class="row-even"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.apply_rotation_to_minimize_angle" title="stk.molecular.molecules.building_block.BuildingBlock.apply_rotation_to_minimize_angle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_rotation_to_minimize_angle</span></code></a>(self, …)</p></td>
 <td><p>Rotate to minimize the angle between <cite>start</cite> and <cite>target</cite>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.dump" title="stk.molecular.molecules.building_block.BuildingBlock.dump"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dump</span></code></a>(self, path[, include_attrs, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.clone" title="stk.molecular.molecules.building_block.BuildingBlock.clone"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clone</span></code></a>(self)</p></td>
+<td><p>Return a clone.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.dump" title="stk.molecular.molecules.building_block.BuildingBlock.dump"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dump</span></code></a>(self, path[, include_attrs, …])</p></td>
 <td><p>Write a <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code> representation to a file.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_atom_distance" title="stk.molecular.molecules.building_block.BuildingBlock.get_atom_distance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_atom_distance</span></code></a>(self, atom1_id, atom2_id)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_atom_distance" title="stk.molecular.molecules.building_block.BuildingBlock.get_atom_distance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_atom_distance</span></code></a>(self, atom1_id, atom2_id)</p></td>
 <td><p>Return the distance between 2 atoms.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_atom_positions" title="stk.molecular.molecules.building_block.BuildingBlock.get_atom_positions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_atom_positions</span></code></a>(self[, atom_ids])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_atom_positions" title="stk.molecular.molecules.building_block.BuildingBlock.get_atom_positions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_atom_positions</span></code></a>(self[, atom_ids])</p></td>
 <td><p>Yield the positions of atoms.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_bonder_centroids" title="stk.molecular.molecules.building_block.BuildingBlock.get_bonder_centroids"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_bonder_centroids</span></code></a>(self[, fg_ids])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_bonder_centroids" title="stk.molecular.molecules.building_block.BuildingBlock.get_bonder_centroids"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_bonder_centroids</span></code></a>(self[, fg_ids])</p></td>
 <td><p>Yield the centroids of bonder atoms.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_bonder_direction_vectors" title="stk.molecular.molecules.building_block.BuildingBlock.get_bonder_direction_vectors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_bonder_direction_vectors</span></code></a>(self[, fg_ids])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_bonder_direction_vectors" title="stk.molecular.molecules.building_block.BuildingBlock.get_bonder_direction_vectors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_bonder_direction_vectors</span></code></a>(self[, fg_ids])</p></td>
 <td><p>Yield the direction vectors between bonder centroids.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_bonder_distances" title="stk.molecular.molecules.building_block.BuildingBlock.get_bonder_distances"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_bonder_distances</span></code></a>(self[, fg_ids])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_bonder_distances" title="stk.molecular.molecules.building_block.BuildingBlock.get_bonder_distances"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_bonder_distances</span></code></a>(self[, fg_ids])</p></td>
 <td><p>Yield distances between pairs of bonder centroids.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_bonder_ids" title="stk.molecular.molecules.building_block.BuildingBlock.get_bonder_ids"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_bonder_ids</span></code></a>(self[, fg_ids])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_bonder_ids" title="stk.molecular.molecules.building_block.BuildingBlock.get_bonder_ids"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_bonder_ids</span></code></a>(self[, fg_ids])</p></td>
 <td><p>Yield ids of bonder atoms.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_bonder_plane" title="stk.molecular.molecules.building_block.BuildingBlock.get_bonder_plane"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_bonder_plane</span></code></a>(self[, fg_ids])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_bonder_plane" title="stk.molecular.molecules.building_block.BuildingBlock.get_bonder_plane"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_bonder_plane</span></code></a>(self[, fg_ids])</p></td>
 <td><p>Return coeffs of the plane formed by the bonder centroids.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_bonder_plane_normal" title="stk.molecular.molecules.building_block.BuildingBlock.get_bonder_plane_normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_bonder_plane_normal</span></code></a>(self[, fg_ids])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_bonder_plane_normal" title="stk.molecular.molecules.building_block.BuildingBlock.get_bonder_plane_normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_bonder_plane_normal</span></code></a>(self[, fg_ids])</p></td>
 <td><p>Return the normal to the plane formed by bonder centroids.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_cached_mol" title="stk.molecular.molecules.building_block.BuildingBlock.get_cached_mol"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cached_mol</span></code></a>(identity_key[, default])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_cached_mol" title="stk.molecular.molecules.building_block.BuildingBlock.get_cached_mol"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cached_mol</span></code></a>(identity_key[, default])</p></td>
 <td><p>Get a molecule from the cache.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_center_of_mass" title="stk.molecular.molecules.building_block.BuildingBlock.get_center_of_mass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_center_of_mass</span></code></a>(self[, atom_ids])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_center_of_mass" title="stk.molecular.molecules.building_block.BuildingBlock.get_center_of_mass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_center_of_mass</span></code></a>(self[, atom_ids])</p></td>
 <td><p>Return the centre of mass.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_centroid" title="stk.molecular.molecules.building_block.BuildingBlock.get_centroid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_centroid</span></code></a>(self[, atom_ids])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_centroid" title="stk.molecular.molecules.building_block.BuildingBlock.get_centroid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_centroid</span></code></a>(self[, atom_ids])</p></td>
 <td><p>Return the centroid.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_centroid_centroid_direction_vector" title="stk.molecular.molecules.building_block.BuildingBlock.get_centroid_centroid_direction_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_centroid_centroid_direction_vector</span></code></a>(self)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_centroid_centroid_direction_vector" title="stk.molecular.molecules.building_block.BuildingBlock.get_centroid_centroid_direction_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_centroid_centroid_direction_vector</span></code></a>(self)</p></td>
 <td><p>Return the direction vector between the 2 molecular centroids.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_direction" title="stk.molecular.molecules.building_block.BuildingBlock.get_direction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_direction</span></code></a>(self[, atom_ids])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_direction" title="stk.molecular.molecules.building_block.BuildingBlock.get_direction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_direction</span></code></a>(self[, atom_ids])</p></td>
 <td><p>Return a vector of best fit through the atoms.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_identity_key" title="stk.molecular.molecules.building_block.BuildingBlock.get_identity_key"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_identity_key</span></code></a>(self)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_identity_key" title="stk.molecular.molecules.building_block.BuildingBlock.get_identity_key"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_identity_key</span></code></a>(self)</p></td>
 <td><p>Return the identity key.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_maximum_diameter" title="stk.molecular.molecules.building_block.BuildingBlock.get_maximum_diameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_maximum_diameter</span></code></a>(self[, atom_ids])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_maximum_diameter" title="stk.molecular.molecules.building_block.BuildingBlock.get_maximum_diameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_maximum_diameter</span></code></a>(self[, atom_ids])</p></td>
 <td><p>Return the maximum diamater.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_plane_normal" title="stk.molecular.molecules.building_block.BuildingBlock.get_plane_normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_plane_normal</span></code></a>(self[, atom_ids])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_plane_normal" title="stk.molecular.molecules.building_block.BuildingBlock.get_plane_normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_plane_normal</span></code></a>(self[, atom_ids])</p></td>
 <td><p>Return the normal to the plane of best fit.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_position_matrix" title="stk.molecular.molecules.building_block.BuildingBlock.get_position_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_position_matrix</span></code></a>(self)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.get_position_matrix" title="stk.molecular.molecules.building_block.BuildingBlock.get_position_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_position_matrix</span></code></a>(self)</p></td>
 <td><p>Return a matrix holding the atomic positions.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.has_cached_mol" title="stk.molecular.molecules.building_block.BuildingBlock.has_cached_mol"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_cached_mol</span></code></a>(identity_key)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.has_cached_mol" title="stk.molecular.molecules.building_block.BuildingBlock.has_cached_mol"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_cached_mol</span></code></a>(identity_key)</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if molecule with <cite>identity_key</cite> is cached.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.init_from_dict" title="stk.molecular.molecules.building_block.BuildingBlock.init_from_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_from_dict</span></code></a>(mol_dict[, use_cache])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.init_from_dict" title="stk.molecular.molecules.building_block.BuildingBlock.init_from_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_from_dict</span></code></a>(mol_dict[, use_cache])</p></td>
 <td><p>Initialize from a <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code> representation.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.init_from_file" title="stk.molecular.molecules.building_block.BuildingBlock.init_from_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_from_file</span></code></a>(path[, functional_groups, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.init_from_file" title="stk.molecular.molecules.building_block.BuildingBlock.init_from_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_from_file</span></code></a>(path[, functional_groups, …])</p></td>
 <td><p>Initialize from a file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.init_from_molecule" title="stk.molecular.molecules.building_block.BuildingBlock.init_from_molecule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_from_molecule</span></code></a>(mol[, functional_groups, …])</p></td>
+<td><p>Initialize from a <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.init_from_random_file" title="stk.molecular.molecules.building_block.BuildingBlock.init_from_random_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_from_random_file</span></code></a>(file_glob[, …])</p></td>
 <td><p>Initialize from a random file in <cite>file_glob</cite>.</p></td>
@@ -471,6 +477,20 @@ rotation is restricted to the <cite>axis</cite>.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.molecular.molecules.building_block.BuildingBlock.clone">
+<code class="sig-name descname">clone</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.molecules.building_block.BuildingBlock.clone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a clone.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The clone.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock" title="stk.molecular.molecules.building_block.BuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">BuildingBlock</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -945,6 +965,36 @@ yet exist the created one will be added to the cache.</p></li>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><p><strong>ValueError</strong> – If the file type cannot be used for initialization.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.molecular.molecules.building_block.BuildingBlock.init_from_molecule">
+<em class="property">classmethod </em><code class="sig-name descname">init_from_molecule</code><span class="sig-paren">(</span><em class="sig-param">mol</em>, <em class="sig-param">functional_groups=None</em>, <em class="sig-param">use_cache=False</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.molecular.molecules.building_block.BuildingBlock.init_from_molecule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize from a <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule to initialize from. This can be a
+any <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>, such a <a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock" title="stk.molecular.molecules.building_block.BuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">BuildingBlock</span></code></a> or
+a <a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstructedMolecule</span></code></a>.</p></li>
+<li><p><strong>functional_groups</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">iterable</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, optional) – The names of the functional group types which are to be
+added to <a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock.func_groups" title="stk.molecular.molecules.building_block.BuildingBlock.func_groups"><code class="xref py py-attr docutils literal notranslate"><span class="pre">func_groups</span></code></a>. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, then no
+functional groups are added.</p></li>
+<li><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, a new <a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock" title="stk.molecular.molecules.building_block.BuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">BuildingBlock</span></code></a> will
+not be made if a cached and identical one already exists,
+the one which already exists will be returned. If <code class="docutils literal notranslate"><span class="pre">True</span></code>
+and a cached, identical <a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock" title="stk.molecular.molecules.building_block.BuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">BuildingBlock</span></code></a> does not
+yet exist the created one will be added to the cache.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The building block. It will have the same atoms, bonds and
+atomic positions as <cite>mol</cite>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#stk.molecular.molecules.building_block.BuildingBlock" title="stk.molecular.molecules.building_block.BuildingBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">BuildingBlock</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>

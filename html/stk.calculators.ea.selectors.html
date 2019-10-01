@@ -190,36 +190,90 @@
   <span class="target" id="module-stk.calculators.ea.selectors"></span><div class="section" id="selection">
 <h1>Selection<a class="headerlink" href="#selection" title="Permalink to this headline">¶</a></h1>
 <ol class="arabic simple">
-<li><p><a class="reference internal" href="#stk.calculators.ea.selectors.Fittest" title="stk.calculators.ea.selectors.Fittest"><code class="xref py py-class docutils literal notranslate"><span class="pre">Fittest</span></code></a></p></li>
+<li><p><a class="reference internal" href="#stk.calculators.ea.selectors.Best" title="stk.calculators.ea.selectors.Best"><code class="xref py py-class docutils literal notranslate"><span class="pre">Best</span></code></a></p></li>
+<li><p><a class="reference internal" href="#stk.calculators.ea.selectors.Worst" title="stk.calculators.ea.selectors.Worst"><code class="xref py py-class docutils literal notranslate"><span class="pre">Worst</span></code></a></p></li>
 <li><p><a class="reference internal" href="#stk.calculators.ea.selectors.Roulette" title="stk.calculators.ea.selectors.Roulette"><code class="xref py py-class docutils literal notranslate"><span class="pre">Roulette</span></code></a></p></li>
 <li><p><a class="reference internal" href="#stk.calculators.ea.selectors.AboveAverage" title="stk.calculators.ea.selectors.AboveAverage"><code class="xref py py-class docutils literal notranslate"><span class="pre">AboveAverage</span></code></a></p></li>
+<li><p><a class="reference internal" href="#stk.calculators.ea.selectors.Tournament" title="stk.calculators.ea.selectors.Tournament"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tournament</span></code></a></p></li>
+<li><p><a class="reference internal" href="#stk.calculators.ea.selectors.StochasticUniversalSampling" title="stk.calculators.ea.selectors.StochasticUniversalSampling"><code class="xref py py-class docutils literal notranslate"><span class="pre">StochasticUniversalSampling</span></code></a></p></li>
 <li><p><a class="reference internal" href="#stk.calculators.ea.selectors.SelectorSequence" title="stk.calculators.ea.selectors.SelectorSequence"><code class="xref py py-class docutils literal notranslate"><span class="pre">SelectorSequence</span></code></a></p></li>
-<li><p><a class="reference internal" href="#stk.calculators.ea.selectors.SelectorFunnel" title="stk.calculators.ea.selectors.SelectorFunnel"><code class="xref py py-class docutils literal notranslate"><span class="pre">SelectorFunnel</span></code></a></p></li>
+<li><p><a class="reference internal" href="#stk.calculators.ea.selectors.RemoveBatches" title="stk.calculators.ea.selectors.RemoveBatches"><code class="xref py py-class docutils literal notranslate"><span class="pre">RemoveBatches</span></code></a></p></li>
+<li><p><a class="reference internal" href="#stk.calculators.ea.selectors.RemoveMolecules" title="stk.calculators.ea.selectors.RemoveMolecules"><code class="xref py py-class docutils literal notranslate"><span class="pre">RemoveMolecules</span></code></a></p></li>
+<li><p><a class="reference internal" href="#stk.calculators.ea.selectors.FilterBatches" title="stk.calculators.ea.selectors.FilterBatches"><code class="xref py py-class docutils literal notranslate"><span class="pre">FilterBatches</span></code></a></p></li>
+<li><p><a class="reference internal" href="#stk.calculators.ea.selectors.FilterMolecules" title="stk.calculators.ea.selectors.FilterMolecules"><code class="xref py py-class docutils literal notranslate"><span class="pre">FilterMolecules</span></code></a></p></li>
 </ol>
 <p>Selection is carried out by <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> objects.
 Selectors are objects with a <a class="reference internal" href="#stk.calculators.ea.selectors.Selector.select" title="stk.calculators.ea.selectors.Selector.select"><code class="xref py py-meth docutils literal notranslate"><span class="pre">select()</span></code></a>
-method, which is used to select molecules from a <a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a>.
-Examples of how <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> classes can be used is given their
-documentation, for example <a class="reference internal" href="#stk.calculators.ea.selectors.Fittest" title="stk.calculators.ea.selectors.Fittest"><code class="xref py py-class docutils literal notranslate"><span class="pre">Fittest</span></code></a>, <a class="reference internal" href="#stk.calculators.ea.selectors.Roulette" title="stk.calculators.ea.selectors.Roulette"><code class="xref py py-class docutils literal notranslate"><span class="pre">Roulette</span></code></a> or
-<a class="reference internal" href="#stk.calculators.ea.selectors.AboveAverage" title="stk.calculators.ea.selectors.AboveAverage"><code class="xref py py-class docutils literal notranslate"><span class="pre">AboveAverage</span></code></a>.</p>
-<p><a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> can be combined to generate more complex selection
-processes, such as stochastic sampling, using
-<a class="reference internal" href="#stk.calculators.ea.selectors.SelectorSequence" title="stk.calculators.ea.selectors.SelectorSequence"><code class="xref py py-class docutils literal notranslate"><span class="pre">SelectorSequence</span></code></a> or <a class="reference internal" href="#stk.calculators.ea.selectors.SelectorFunnel" title="stk.calculators.ea.selectors.SelectorFunnel"><code class="xref py py-class docutils literal notranslate"><span class="pre">SelectorFunnel</span></code></a>. Examples of how
-this can happen are given in the documentation of these two classes.</p>
+method, which is used to select batches of molecules from a
+<a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a>. Examples of how <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> classes can be
+used is given their documentation, for example <a class="reference internal" href="#stk.calculators.ea.selectors.Best" title="stk.calculators.ea.selectors.Best"><code class="xref py py-class docutils literal notranslate"><span class="pre">Best</span></code></a>,
+:class:.`Roulette` or <a class="reference internal" href="#stk.calculators.ea.selectors.AboveAverage" title="stk.calculators.ea.selectors.AboveAverage"><code class="xref py py-class docutils literal notranslate"><span class="pre">AboveAverage</span></code></a>.</p>
+<p>Selectors can be combined to generate more complex selection
+processes. For example, let’s say we want to implement elitism.
+Elitism is when the best batches are guaranteed to be selected first,
+before the selection algorithm is carried out. The
+<a class="reference internal" href="#stk.calculators.ea.selectors.SelectorSequence" title="stk.calculators.ea.selectors.SelectorSequence"><code class="xref py py-class docutils literal notranslate"><span class="pre">SelectorSequence</span></code></a> exists precisely for this reason. It takes
+two selectors and yields batches from them one after the other</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="n">population</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">elite_roulette</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">SelectorSequence</span><span class="p">(</span>
+    <span class="n">selector1</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">Best</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+    <span class="n">selector2</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">Roulette</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="c1"># Select with Best first and then with Roulette.</span>
+<span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">elite_roulette</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">population</span><span class="p">):</span>
+    <span class="c1"># Do stuff with batch.</span>
+</pre></div>
+</div>
+<p>What if you did not want Roulette to yield any batches
+selected by <a class="reference internal" href="#stk.calculators.ea.selectors.Best" title="stk.calculators.ea.selectors.Best"><code class="xref py py-class docutils literal notranslate"><span class="pre">Best</span></code></a>? The <a class="reference internal" href="#stk.calculators.ea.selectors.RemoveBatches" title="stk.calculators.ea.selectors.RemoveBatches"><code class="xref py py-class docutils literal notranslate"><span class="pre">RemoveBatches</span></code></a> selector can be
+used for this. It takes two selectors, one called a <cite>remover</cite> and one
+called a <cite>selector</cite>. It first yields batches of molecules from a
+population with the <cite>remover</cite>. It then passes the same population
+to the <cite>selector</cite> but prevents it from yielding any batches
+selected by the <cite>remover</cite></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">roulette_without_elites</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">RemoveBatches</span><span class="p">(</span>
+    <span class="n">remover</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">Best</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+    <span class="n">selector</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">Roulettte</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="c1"># Select batches, excluding the top 5.</span>
+<span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">roulette_without_elites</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">population</span><span class="p">):</span>
+    <span class="c1"># Do stuff with batch.</span>
+</pre></div>
+</div>
+<p>You can combine <a class="reference internal" href="#stk.calculators.ea.selectors.RemoveBatches" title="stk.calculators.ea.selectors.RemoveBatches"><code class="xref py py-class docutils literal notranslate"><span class="pre">RemoveBatches</span></code></a> and <a class="reference internal" href="#stk.calculators.ea.selectors.SelectorSequence" title="stk.calculators.ea.selectors.SelectorSequence"><code class="xref py py-class docutils literal notranslate"><span class="pre">SelectorSequence</span></code></a>
+to get a selector which yields the top 5 batches first and then,
+using roulette, selects any of the other batches</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">elite_roulette2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">SelectorSequence</span><span class="p">(</span>
+    <span class="n">selector1</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">Best</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+    <span class="n">selector2</span><span class="o">=</span><span class="n">roulette_without_elites</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The same thing can be written more explicitly</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">elite_roulette2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">SelectorSequence</span><span class="p">(</span>
+    <span class="n">selector1</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">Best</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+    <span class="n">selector2</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">RemoveBatches</span><span class="p">(</span>
+        <span class="n">remover</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">Best</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+        <span class="n">selector</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">Roulette</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>You can also explore other combinations with <a class="reference internal" href="#stk.calculators.ea.selectors.FilterBatches" title="stk.calculators.ea.selectors.FilterBatches"><code class="xref py py-class docutils literal notranslate"><span class="pre">FilterBatches</span></code></a>,
+<a class="reference internal" href="#stk.calculators.ea.selectors.FilterMolecules" title="stk.calculators.ea.selectors.FilterMolecules"><code class="xref py py-class docutils literal notranslate"><span class="pre">FilterMolecules</span></code></a> and <a class="reference internal" href="#stk.calculators.ea.selectors.RemoveMolecules" title="stk.calculators.ea.selectors.RemoveMolecules"><code class="xref py py-class docutils literal notranslate"><span class="pre">RemoveMolecules</span></code></a>. Examples
+using these classes are given in their docstrings.</p>
 <div class="section" id="making-new-selectors">
 <span id="adding-selectors"></span><h2>Making New Selectors<a class="headerlink" href="#making-new-selectors" title="Permalink to this headline">¶</a></h2>
 <p>When a new <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> class is made it must inherit
-<a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> and define a <code class="xref py py-meth docutils literal notranslate"><span class="pre">select()</span></code> method.
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">select()</span></code> must take a single argument, which is the
-<a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a> from which molecules are selected.</p>
+<a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> and override the virtual <code class="xref py py-meth docutils literal notranslate"><span class="pre">_select()</span></code>
+method.</p>
 <dl class="class">
 <dt id="stk.calculators.ea.selectors.AboveAverage">
-<em class="property">class </em><code class="sig-name descname">AboveAverage</code><span class="sig-paren">(</span><em class="sig-param">duplicate_batches=False</em>, <em class="sig-param">num_batches=None</em>, <em class="sig-param">duplicates=True</em>, <em class="sig-param">use_rank=False</em>, <em class="sig-param">batch_size=1</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.AboveAverage" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-name descname">AboveAverage</code><span class="sig-paren">(</span><em class="sig-param">num_batches=None</em>, <em class="sig-param">batch_size=1</em>, <em class="sig-param">duplicate_mols=True</em>, <em class="sig-param">duplicate_batches=True</em>, <em class="sig-param">fitness_modifier=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.AboveAverage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.selectors.Selector</span></code></a></p>
 <p>Yields above average batches of molecules.</p>
-<p>The fitness of a batch is the sum of all fitness values of the
-molecules in the batch. Contrary to the name, this selector will
-also yield a batch which has exactly average fitness.</p>
 <p class="rubric">Examples</p>
 <p>Yielding molecules one at a time. For example, if molecules need
 to be selected for mutation or the next generation</p>
@@ -253,7 +307,7 @@ to be selected for crossover.</p>
     <span class="c1"># selected is a tuple of length 2, holding the selected</span>
     <span class="c1"># molecules. You can do stuff with the selected molecules</span>
     <span class="c1"># Like apply crossover operations on them.</span>
-    <span class="n">offspring</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">crosser</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="o">*</span><span class="n">selectd</span><span class="p">))</span>
+    <span class="n">offspring</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">crosser</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="o">*</span><span class="n">selected</span><span class="p">))</span>
 </pre></div>
 </div>
 <p class="rubric">Methods</p>
@@ -264,30 +318,29 @@ to be selected for crossover.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.selectors.AboveAverage.select" title="stk.calculators.ea.selectors.AboveAverage.select"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select</span></code></a>(self, population)</p></td>
-<td><p>Yield above average fitness batches of molecules.</p></td>
+<td><p>Select batches of molecules from <cite>population</cite>.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="stk.calculators.ea.selectors.AboveAverage.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">duplicate_batches=False</em>, <em class="sig-param">num_batches=None</em>, <em class="sig-param">duplicates=True</em>, <em class="sig-param">use_rank=False</em>, <em class="sig-param">batch_size=1</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.AboveAverage.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize a <a class="reference internal" href="#stk.calculators.ea.selectors.AboveAverage" title="stk.calculators.ea.selectors.AboveAverage"><code class="xref py py-class docutils literal notranslate"><span class="pre">AboveAverage</span></code></a> instance.</p>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">num_batches=None</em>, <em class="sig-param">batch_size=1</em>, <em class="sig-param">duplicate_mols=True</em>, <em class="sig-param">duplicate_batches=True</em>, <em class="sig-param">fitness_modifier=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.AboveAverage.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize an <a class="reference internal" href="#stk.calculators.ea.selectors.AboveAverage" title="stk.calculators.ea.selectors.AboveAverage"><code class="xref py py-class docutils literal notranslate"><span class="pre">AboveAverage</span></code></a> instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>duplicate_batches</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the same batch may be yielded more than
-once. For example, if the batch has a fitness twice above
-average it will be yielded twice, if it has a fitness
-three times above average, it will be yielded three times
-and so on.</p></li>
 <li><p><strong>num_batches</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The number of batches to yield. If <code class="docutils literal notranslate"><span class="pre">None</span></code> then yielding
 will continue forever or until the generator is exhausted,
 whichever comes first.</p></li>
-<li><p><strong>duplicates</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the same molecule can be yielded in more than
-one batch.</p></li>
-<li><p><strong>use_rank</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – When <code class="docutils literal notranslate"><span class="pre">True</span></code> the fitness value of an individual is
-calculated as <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">=</span> <span class="pre">1/rank</span></code>.</p></li>
 <li><p><strong>batch_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The number of molecules yielded at once.</p></li>
+<li><p><strong>duplicate_mols</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> the same molecule can be yielded in more than
+one batch.</p></li>
+<li><p><strong>duplicate_batches</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> the same batch can be yielded more than once.</p></li>
+<li><p><strong>fitness_modifier</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code>, optional) – Takes the population on which <code class="xref py py-meth docutils literal notranslate"><span class="pre">select`is</span> <span class="pre">called</span> <span class="pre">and</span>
+<span class="pre">returns</span> <span class="pre">a</span> <span class="pre">:class:`dict()</span></code> mapping molecules in the population
+to the fitness values the <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> should use.
+If <code class="docutils literal notranslate"><span class="pre">None</span></code>, each molecule is mapped to the fitness value
+found in its <code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code> attribute.</p></li>
 </ul>
 </dd>
 </dl>
@@ -296,13 +349,13 @@ calculated as <code class="docutils literal notranslate"><span class="pre">f</sp
 <dl class="method">
 <dt id="stk.calculators.ea.selectors.AboveAverage.select">
 <code class="sig-name descname">select</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">population</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.AboveAverage.select" title="Permalink to this definition">¶</a></dt>
-<dd><p>Yield above average fitness batches of molecules.</p>
+<dd><p>Select batches of molecules from <cite>population</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>population</strong> (<a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a>) – The population from which individuals are to be selected.</p>
+<dd class="field-odd"><p><strong>population</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">iterable</span></code>) – A collection of molecules from which batches are selected.</p>
 </dd>
 <dt class="field-even">Yields</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> – The next selected batch of molecules.</p>
+<dd class="field-even"><p><a class="reference internal" href="#stk.calculators.ea.selectors.Batch" title="stk.calculators.ea.selectors.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a> of <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> – A batch of selected molecules.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -310,12 +363,117 @@ calculated as <code class="docutils literal notranslate"><span class="pre">f</sp
 </dd></dl>
 
 <dl class="class">
-<dt id="stk.calculators.ea.selectors.Fittest">
-<em class="property">class </em><code class="sig-name descname">Fittest</code><span class="sig-paren">(</span><em class="sig-param">num_batches=None</em>, <em class="sig-param">duplicates=True</em>, <em class="sig-param">batch_size=1</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.Fittest" title="Permalink to this definition">¶</a></dt>
+<dt id="stk.calculators.ea.selectors.Batch">
+<em class="property">class </em><code class="sig-name descname">Batch</code><span class="sig-paren">(</span><em class="sig-param">mols</em>, <em class="sig-param">fitness_values</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.Batch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a batch of molecules.</p>
+<p>Batches can be compared, the comparison is based on their
+fitness values. Batches can also be iterated through, this
+iterates through all the molecules in the batch.</p>
+<p class="rubric">Examples</p>
+<p>Sorting batches causes them to be sorted by fitness value.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">batches</span> <span class="o">=</span> <span class="p">(</span><span class="n">Batch</span><span class="p">(</span><span class="o">...</span><span class="p">),</span> <span class="n">Batch</span><span class="p">(</span><span class="o">...</span><span class="p">),</span> <span class="n">Batch</span><span class="p">(</span><span class="o">...</span><span class="p">))</span>
+<span class="n">sorted_batches</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">batches</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Coparison is also based on fitness value</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">batch1</span> <span class="o">=</span> <span class="n">Batch</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">batch2</span> <span class="o">=</span> <span class="n">Batch</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">batch1</span> <span class="o">&gt;</span> <span class="n">batch2</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;batch1 has a larger fitness value than batch2.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Batches can be iterated through to get the molecules in the
+batch</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">batch</span> <span class="o">=</span> <span class="n">Batch</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">mol</span> <span class="ow">in</span> <span class="n">batch</span><span class="p">:</span>
+    <span class="c1"># Do stuff with mol.</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.selectors.Batch.get_fitness" title="stk.calculators.ea.selectors.Batch.get_fitness"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_fitness</span></code></a>(self)</p></td>
+<td><p>Get the fitness value of the batch.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.ea.selectors.Batch.get_identity_key" title="stk.calculators.ea.selectors.Batch.get_identity_key"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_identity_key</span></code></a>(self)</p></td>
+<td><p>Get the identity key of the batch.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.selectors.Batch.get_size" title="stk.calculators.ea.selectors.Batch.get_size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_size</span></code></a>(self)</p></td>
+<td><p>Get the number of molecules in the batch.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.calculators.ea.selectors.Batch.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mols</em>, <em class="sig-param">fitness_values</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.Batch.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a <a class="reference internal" href="#stk.calculators.ea.selectors.Batch" title="stk.calculators.ea.selectors.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mols</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecules which are part of the batch.</p></li>
+<li><p><strong>fitness_values</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>) – Maps each molecule in <cite>mols</cite> to its fitness value.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.selectors.Batch.get_fitness">
+<code class="sig-name descname">get_fitness</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.Batch.get_fitness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the fitness value of the batch.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The fitness value.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.selectors.Batch.get_identity_key">
+<code class="sig-name descname">get_identity_key</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.Batch.get_identity_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the identity key of the batch.</p>
+<p>If two batches hold the same molecules, the same number of
+times, they will have the same identity key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A hashable object which can be used to compare if two
+batches are the same.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.selectors.Batch.get_size">
+<code class="sig-name descname">get_size</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.Batch.get_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of molecules in the batch.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The number of molecules in the batch.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stk.calculators.ea.selectors.Best">
+<em class="property">class </em><code class="sig-name descname">Best</code><span class="sig-paren">(</span><em class="sig-param">num_batches=None</em>, <em class="sig-param">batch_size=1</em>, <em class="sig-param">duplicate_mols=True</em>, <em class="sig-param">duplicate_batches=True</em>, <em class="sig-param">fitness_modifier=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.Best" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.selectors.Selector</span></code></a></p>
-<p>Selects batches of molcules, fittest first.</p>
-<p>The fitness of a batch is the sum of the fitness values of the
-molecules in the batch.</p>
+<p>Selects batches of molecules, highest fitness value first.</p>
 <p class="rubric">Examples</p>
 <p>Yielding molecules one at a time. For example, if molecules need
 to be selected for mutation or the next generation.</p>
@@ -325,10 +483,10 @@ to be selected for mutation or the next generation.</p>
 <span class="n">pop</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
 
 <span class="c1"># Make the selector.</span>
-<span class="n">fittest</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Fittest</span><span class="p">()</span>
+<span class="n">best</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Best</span><span class="p">()</span>
 
 <span class="c1"># Select the molecules.</span>
-<span class="k">for</span> <span class="n">selected</span><span class="p">,</span> <span class="ow">in</span> <span class="n">fittest</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pop</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">selected</span><span class="p">,</span> <span class="ow">in</span> <span class="n">best</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pop</span><span class="p">):</span>
     <span class="c1"># Do stuff with each selected molecule, like apply a</span>
     <span class="c1"># mutation to it to generate a mutant.</span>
     <span class="n">mutant</span> <span class="o">=</span> <span class="n">mutator</span><span class="o">.</span><span class="n">mutate</span><span class="p">(</span><span class="n">selected</span><span class="p">)</span>
@@ -342,10 +500,10 @@ to be selected for crossover.</p>
 <span class="n">pop</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
 
 <span class="c1"># Make the selector.</span>
-<span class="n">fittest</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Fittest</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">best</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Best</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># Select the molecules.</span>
-<span class="k">for</span> <span class="n">selected</span> <span class="ow">in</span> <span class="n">fittest</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pop</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">selected</span> <span class="ow">in</span> <span class="n">best</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pop</span><span class="p">):</span>
     <span class="c1"># selected is a tuple of length 2, holding the selected</span>
     <span class="c1"># molecules. You can do stuff with the selected molecules</span>
     <span class="c1"># Like apply crossover operations on them.</span>
@@ -359,39 +517,302 @@ to be selected for crossover.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.selectors.Fittest.select" title="stk.calculators.ea.selectors.Fittest.select"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select</span></code></a>(self, population)</p></td>
-<td><p>Yield batches of molecules, fittest first.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.selectors.Best.select" title="stk.calculators.ea.selectors.Best.select"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select</span></code></a>(self, population)</p></td>
+<td><p>Select batches of molecules from <cite>population</cite>.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
-<dt id="stk.calculators.ea.selectors.Fittest.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">num_batches=None</em>, <em class="sig-param">duplicates=True</em>, <em class="sig-param">batch_size=1</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.Fittest.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize a <a class="reference internal" href="#stk.calculators.ea.selectors.Fittest" title="stk.calculators.ea.selectors.Fittest"><code class="xref py py-class docutils literal notranslate"><span class="pre">Fittest</span></code></a> instance.</p>
+<dt id="stk.calculators.ea.selectors.Best.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">num_batches=None</em>, <em class="sig-param">batch_size=1</em>, <em class="sig-param">duplicate_mols=True</em>, <em class="sig-param">duplicate_batches=True</em>, <em class="sig-param">fitness_modifier=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.Best.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a <a class="reference internal" href="#stk.calculators.ea.selectors.Best" title="stk.calculators.ea.selectors.Best"><code class="xref py py-class docutils literal notranslate"><span class="pre">Best</span></code></a> instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>num_batches</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The number of batches to yield. If <code class="docutils literal notranslate"><span class="pre">None</span></code> then yielding
-will continue until the generator is exhausted.</p></li>
-<li><p><strong>duplicates</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the same molecule can be yielded in more than
-one batch.</p></li>
+will continue forever or until the generator is exhausted,
+whichever comes first.</p></li>
 <li><p><strong>batch_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The number of molecules yielded at once.</p></li>
+<li><p><strong>duplicate_mols</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> the same molecule can be yielded in more than
+one batch.</p></li>
+<li><p><strong>duplicate_batches</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> the same batch can be yielded more than once.</p></li>
+<li><p><strong>fitness_modifier</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code>, optional) – Takes the population on which <code class="xref py py-meth docutils literal notranslate"><span class="pre">select`is</span> <span class="pre">called</span> <span class="pre">and</span>
+<span class="pre">returns</span> <span class="pre">a</span> <span class="pre">:class:`dict()</span></code> mapping molecules in the population
+to the fitness values the <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> should use.
+If <code class="docutils literal notranslate"><span class="pre">None</span></code>, each molecule is mapped to the fitness value
+found in its <code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code> attribute.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
-<dt id="stk.calculators.ea.selectors.Fittest.select">
-<code class="sig-name descname">select</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">population</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.Fittest.select" title="Permalink to this definition">¶</a></dt>
-<dd><p>Yield batches of molecules, fittest first.</p>
+<dt id="stk.calculators.ea.selectors.Best.select">
+<code class="sig-name descname">select</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">population</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.Best.select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select batches of molecules from <cite>population</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>population</strong> (<a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a>) – A <a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a> from which batches of molecules are
-selected.</p>
+<dd class="field-odd"><p><strong>population</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">iterable</span></code>) – A collection of molecules from which batches are selected.</p>
 </dd>
 <dt class="field-even">Yields</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> – A batch of selected molecules.</p>
+<dd class="field-even"><p><a class="reference internal" href="#stk.calculators.ea.selectors.Batch" title="stk.calculators.ea.selectors.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a> of <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> – A batch of selected molecules.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stk.calculators.ea.selectors.FilterBatches">
+<em class="property">class </em><code class="sig-name descname">FilterBatches</code><span class="sig-paren">(</span><em class="sig-param">filter</em>, <em class="sig-param">selector</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.FilterBatches" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.selectors.Selector</span></code></a></p>
+<p>Allows a <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> to select only some batches.</p>
+<p class="rubric">Examples</p>
+<p>You only want the <a class="reference internal" href="#stk.calculators.ea.selectors.Best" title="stk.calculators.ea.selectors.Best"><code class="xref py py-class docutils literal notranslate"><span class="pre">Best</span></code></a> 10 batches to participate in
+<a class="reference internal" href="#stk.calculators.ea.selectors.Roulette" title="stk.calculators.ea.selectors.Roulette"><code class="xref py py-class docutils literal notranslate"><span class="pre">Roulette</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="n">population</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">selector</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">FilterBatches</span><span class="p">(</span>
+    <span class="nb">filter</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">Best</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+    <span class="n">selector</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">Roulette</span><span class="p">(</span><span class="mi">7</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">selector</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">population</span><span class="p">):</span>
+    <span class="c1"># Do stuff with batch. It is one of the 10 best batches and</span>
+    <span class="c1"># was selected using roulette selection.</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.selectors.FilterBatches.select" title="stk.calculators.ea.selectors.FilterBatches.select"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select</span></code></a>(self, population)</p></td>
+<td><p>Select batches of molecules from <cite>population</cite>.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.calculators.ea.selectors.FilterBatches.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">filter</em>, <em class="sig-param">selector</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.FilterBatches.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a <a class="reference internal" href="#stk.calculators.ea.selectors.FilterBatches" title="stk.calculators.ea.selectors.FilterBatches"><code class="xref py py-class docutils literal notranslate"><span class="pre">FilterBatches</span></code></a> instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filter</strong> (<a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a>) – Selects batches which can be yielded by <cite>selector</cite>.</p></li>
+<li><p><strong>selector</strong> (<a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a>) – Selects batches, but only if they were also selected by
+<cite>filter</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.selectors.FilterBatches.select">
+<code class="sig-name descname">select</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">population</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.FilterBatches.select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select batches of molecules from <cite>population</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>population</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">iterable</span></code>) – A collection of molecules from which batches are selected.</p>
+</dd>
+<dt class="field-even">Yields</dt>
+<dd class="field-even"><p><a class="reference internal" href="#stk.calculators.ea.selectors.Batch" title="stk.calculators.ea.selectors.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a> of <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> – A batch of selected molecules.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stk.calculators.ea.selectors.FilterMolecules">
+<em class="property">class </em><code class="sig-name descname">FilterMolecules</code><span class="sig-paren">(</span><em class="sig-param">filter</em>, <em class="sig-param">selector</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.FilterMolecules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.selectors.Selector</span></code></a></p>
+<p>Allows a <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> to select only some molecules.</p>
+<p class="rubric">Examples</p>
+<p>You want to use <a class="reference internal" href="#stk.calculators.ea.selectors.Roulette" title="stk.calculators.ea.selectors.Roulette"><code class="xref py py-class docutils literal notranslate"><span class="pre">Roulette</span></code></a> on the molecules which belong
+to the <a class="reference internal" href="#stk.calculators.ea.selectors.Best" title="stk.calculators.ea.selectors.Best"><code class="xref py py-class docutils literal notranslate"><span class="pre">Best</span></code></a> 5 batches of size 3</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="n">population</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">selector</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">FilterMolecules</span><span class="p">(</span>
+    <span class="nb">filter</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">Best</span><span class="p">(</span><span class="n">num_batches</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span>
+    <span class="n">selector</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">Roulette</span><span class="p">(</span><span class="n">num_batches</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">selector</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">population</span><span class="p">):</span>
+    <span class="c1"># Do stuff with batch. All the molecules in the batch</span>
+    <span class="c1"># belong to the top 5 batches of size 3. The batch</span>
+    <span class="c1"># was selected using roulette selection.</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.selectors.FilterMolecules.select" title="stk.calculators.ea.selectors.FilterMolecules.select"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select</span></code></a>(self, population)</p></td>
+<td><p>Select batches of molecules from <cite>population</cite>.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.calculators.ea.selectors.FilterMolecules.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">filter</em>, <em class="sig-param">selector</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.FilterMolecules.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a <a class="reference internal" href="#stk.calculators.ea.selectors.FilterMolecules" title="stk.calculators.ea.selectors.FilterMolecules"><code class="xref py py-class docutils literal notranslate"><span class="pre">FilterMolecules</span></code></a> instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filter</strong> (<a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a>) – Selects molecules which can be yielded by <cite>selector</cite>.</p></li>
+<li><p><strong>selector</strong> (<a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a>) – Selects batches of molecules. The batches can only
+contain molecules yielded by <cite>filter</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.selectors.FilterMolecules.select">
+<code class="sig-name descname">select</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">population</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.FilterMolecules.select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select batches of molecules from <cite>population</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>population</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">iterable</span></code>) – A collection of molecules from which batches are selected.</p>
+</dd>
+<dt class="field-even">Yields</dt>
+<dd class="field-even"><p><a class="reference internal" href="#stk.calculators.ea.selectors.Batch" title="stk.calculators.ea.selectors.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a> of <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> – A batch of selected molecules.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stk.calculators.ea.selectors.RemoveBatches">
+<em class="property">class </em><code class="sig-name descname">RemoveBatches</code><span class="sig-paren">(</span><em class="sig-param">remover</em>, <em class="sig-param">selector</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.RemoveBatches" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.selectors.Selector</span></code></a></p>
+<p>Prevents a <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> from selecting some batches.</p>
+<p class="rubric">Examples</p>
+<p>You want to use <a class="reference internal" href="#stk.calculators.ea.selectors.Roulette" title="stk.calculators.ea.selectors.Roulette"><code class="xref py py-class docutils literal notranslate"><span class="pre">Roulette</span></code></a> selection on all but the
+5 <a class="reference internal" href="#stk.calculators.ea.selectors.Worst" title="stk.calculators.ea.selectors.Worst"><code class="xref py py-class docutils literal notranslate"><span class="pre">Worst</span></code></a> batches</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="n">population</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">selector</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">RemoveBatches</span><span class="p">(</span>
+    <span class="n">remover</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">Worst</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+    <span class="n">selector</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">Roulette</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">selector</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">population</span><span class="p">):</span>
+    <span class="c1"># Do stuff with batch. It was selected with roulette</span>
+    <span class="c1"># selection and is not one of the worst 5 batches.</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.selectors.RemoveBatches.select" title="stk.calculators.ea.selectors.RemoveBatches.select"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select</span></code></a>(self, population)</p></td>
+<td><p>Select batches of molecules from <cite>population</cite>.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.calculators.ea.selectors.RemoveBatches.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">remover</em>, <em class="sig-param">selector</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.RemoveBatches.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a <a class="reference internal" href="#stk.calculators.ea.selectors.RemoveBatches" title="stk.calculators.ea.selectors.RemoveBatches"><code class="xref py py-class docutils literal notranslate"><span class="pre">RemoveBatches</span></code></a> instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>remover</strong> (<a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a>) – Selects batches of molecules, which cannot be yielded by
+<cite>selector</cite>.</p></li>
+<li><p><strong>selector</strong> (<a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a>) – Selects batches of molecules, except those selected by
+<cite>remover</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.selectors.RemoveBatches.select">
+<code class="sig-name descname">select</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">population</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.RemoveBatches.select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select batches of molecules from <cite>population</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>population</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">iterable</span></code>) – A collection of molecules from which batches are selected.</p>
+</dd>
+<dt class="field-even">Yields</dt>
+<dd class="field-even"><p><a class="reference internal" href="#stk.calculators.ea.selectors.Batch" title="stk.calculators.ea.selectors.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a> of <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> – A batch of selected molecules.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stk.calculators.ea.selectors.RemoveMolecules">
+<em class="property">class </em><code class="sig-name descname">RemoveMolecules</code><span class="sig-paren">(</span><em class="sig-param">remover</em>, <em class="sig-param">selector</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.RemoveMolecules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.selectors.Selector</span></code></a></p>
+<p>Prevents a <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> from selecting some molecules.</p>
+<p class="rubric">Examples</p>
+<p>You want to prevent any of the molecules in the <a class="reference internal" href="#stk.calculators.ea.selectors.Best" title="stk.calculators.ea.selectors.Best"><code class="xref py py-class docutils literal notranslate"><span class="pre">Best</span></code></a>
+5 batches from being selected by <a class="reference internal" href="#stk.calculators.ea.selectors.Roulette" title="stk.calculators.ea.selectors.Roulette"><code class="xref py py-class docutils literal notranslate"><span class="pre">Roulette</span></code></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="n">population</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">selector</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">RemoveMolecules</span><span class="p">(</span>
+    <span class="n">remover</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">Best</span><span class="p">(</span><span class="n">num_batches</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span>
+    <span class="n">selector</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">Roulette</span><span class="p">(</span><span class="n">num_batches</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span>
+<span class="p">)</span>
+
+<span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">selector</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">population</span><span class="p">):</span>
+    <span class="c1"># Do stuff with batch. The batch is guaranteed not to</span>
+    <span class="c1"># contain any molecules which are found in the best 5</span>
+    <span class="c1"># batches of size 3.</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.selectors.RemoveMolecules.select" title="stk.calculators.ea.selectors.RemoveMolecules.select"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select</span></code></a>(self, population)</p></td>
+<td><p>Select batches of molecules from <cite>population</cite>.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.calculators.ea.selectors.RemoveMolecules.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">remover</em>, <em class="sig-param">selector</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.RemoveMolecules.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a <a class="reference internal" href="#stk.calculators.ea.selectors.RemoveMolecules" title="stk.calculators.ea.selectors.RemoveMolecules"><code class="xref py py-class docutils literal notranslate"><span class="pre">RemoveMolecules</span></code></a> instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>remover</strong> (<a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a>) – Selects batches molecules, any molecule selected cannot
+be selected by <cite>selector</cite>.</p></li>
+<li><p><strong>selector</strong> (<a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a>) – Selects batches of molecules, not containing any molecules
+selected by <cite>remover</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.selectors.RemoveMolecules.select">
+<code class="sig-name descname">select</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">population</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.RemoveMolecules.select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select batches of molecules from <cite>population</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>population</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">iterable</span></code>) – A collection of molecules from which batches are selected.</p>
+</dd>
+<dt class="field-even">Yields</dt>
+<dd class="field-even"><p><a class="reference internal" href="#stk.calculators.ea.selectors.Batch" title="stk.calculators.ea.selectors.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a> of <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> – A batch of selected molecules.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -400,7 +821,7 @@ selected.</p>
 
 <dl class="class">
 <dt id="stk.calculators.ea.selectors.Roulette">
-<em class="property">class </em><code class="sig-name descname">Roulette</code><span class="sig-paren">(</span><em class="sig-param">num_batches=None</em>, <em class="sig-param">duplicates=True</em>, <em class="sig-param">use_rank=False</em>, <em class="sig-param">batch_size=1</em>, <em class="sig-param">random_seed=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.Roulette" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-name descname">Roulette</code><span class="sig-paren">(</span><em class="sig-param">num_batches=None</em>, <em class="sig-param">batch_size=1</em>, <em class="sig-param">duplicate_mols=True</em>, <em class="sig-param">duplicate_batches=True</em>, <em class="sig-param">fitness_modifier=None</em>, <em class="sig-param">random_seed=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.Roulette" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.selectors.Selector</span></code></a></p>
 <p>Uses roulette selection to select batches of molecules.</p>
 <p>In roulette selection the probability a batch is selected
@@ -461,13 +882,13 @@ to be selected for crossover</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.selectors.Roulette.select" title="stk.calculators.ea.selectors.Roulette.select"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select</span></code></a>(self, population)</p></td>
-<td><p>Yield batches of molecules using roulette selection.</p></td>
+<td><p>Select batches of molecules from <cite>population</cite>.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="stk.calculators.ea.selectors.Roulette.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">num_batches=None</em>, <em class="sig-param">duplicates=True</em>, <em class="sig-param">use_rank=False</em>, <em class="sig-param">batch_size=1</em>, <em class="sig-param">random_seed=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.Roulette.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">num_batches=None</em>, <em class="sig-param">batch_size=1</em>, <em class="sig-param">duplicate_mols=True</em>, <em class="sig-param">duplicate_batches=True</em>, <em class="sig-param">fitness_modifier=None</em>, <em class="sig-param">random_seed=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.Roulette.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize a <a class="reference internal" href="#stk.calculators.ea.selectors.Roulette" title="stk.calculators.ea.selectors.Roulette"><code class="xref py py-class docutils literal notranslate"><span class="pre">Roulette</span></code></a> instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -475,11 +896,15 @@ to be selected for crossover</p>
 <li><p><strong>num_batches</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The number of batches to yield. If <code class="docutils literal notranslate"><span class="pre">None</span></code> then yielding
 will continue forever or until the generator is exhausted,
 whichever comes first.</p></li>
-<li><p><strong>duplicates</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> the same member can be yielded in more than
-one batch.</p></li>
-<li><p><strong>use_rank</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – When <code class="docutils literal notranslate"><span class="pre">True</span></code> the fitness value of an individual is
-calculated as <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">=</span> <span class="pre">1/rank</span></code>.</p></li>
 <li><p><strong>batch_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The number of molecules yielded at once.</p></li>
+<li><p><strong>duplicate_mols</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> the same molecule can be yielded in more than
+one batch.</p></li>
+<li><p><strong>duplicate_batches</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> the same batch can be yielded more than once.</p></li>
+<li><p><strong>fitness_modifier</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code>, optional) – Takes the population on which <code class="xref py py-meth docutils literal notranslate"><span class="pre">select`is</span> <span class="pre">called</span> <span class="pre">and</span>
+<span class="pre">returns</span> <span class="pre">a</span> <span class="pre">:class:`dict()</span></code> mapping molecules in the population
+to the fitness values the <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> should use.
+If <code class="docutils literal notranslate"><span class="pre">None</span></code>, each molecule is mapped to the fitness value
+found in its <code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code> attribute.</p></li>
 <li><p><strong>random_seed</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The random seed to use.</p></li>
 </ul>
 </dd>
@@ -489,14 +914,13 @@ calculated as <code class="docutils literal notranslate"><span class="pre">f</sp
 <dl class="method">
 <dt id="stk.calculators.ea.selectors.Roulette.select">
 <code class="sig-name descname">select</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">population</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.Roulette.select" title="Permalink to this definition">¶</a></dt>
-<dd><p>Yield batches of molecules using roulette selection.</p>
+<dd><p>Select batches of molecules from <cite>population</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>population</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Populaion</span></code>) – A <a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a> from which batches of molecules are
-selected.</p>
+<dd class="field-odd"><p><strong>population</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">iterable</span></code>) – A collection of molecules from which batches are selected.</p>
 </dd>
 <dt class="field-even">Yields</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> – A batch of selected molecules.</p>
+<dd class="field-even"><p><a class="reference internal" href="#stk.calculators.ea.selectors.Batch" title="stk.calculators.ea.selectors.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a> of <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> – A batch of selected molecules.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -505,7 +929,7 @@ selected.</p>
 
 <dl class="class">
 <dt id="stk.calculators.ea.selectors.Selector">
-<em class="property">class </em><code class="sig-name descname">Selector</code><span class="sig-paren">(</span><em class="sig-param">num_batches</em>, <em class="sig-param">duplicates</em>, <em class="sig-param">use_rank</em>, <em class="sig-param">batch_size</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.Selector" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-name descname">Selector</code><span class="sig-paren">(</span><em class="sig-param">num_batches</em>, <em class="sig-param">batch_size</em>, <em class="sig-param">duplicate_mols</em>, <em class="sig-param">duplicate_batches</em>, <em class="sig-param">fitness_modifier</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.Selector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Selects batches of molecules from a population.</p>
 <p>Molecules are selected in batches, and each batch is selected
@@ -526,7 +950,7 @@ size 1, if single molecules are to be yielded.</p>
 </table>
 <dl class="method">
 <dt id="stk.calculators.ea.selectors.Selector.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">num_batches</em>, <em class="sig-param">duplicates</em>, <em class="sig-param">use_rank</em>, <em class="sig-param">batch_size</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.Selector.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">num_batches</em>, <em class="sig-param">batch_size</em>, <em class="sig-param">duplicate_mols</em>, <em class="sig-param">duplicate_batches</em>, <em class="sig-param">fitness_modifier</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.Selector.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize a <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -534,11 +958,15 @@ size 1, if single molecules are to be yielded.</p>
 <li><p><strong>num_batches</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The number of batches to yield. If <code class="docutils literal notranslate"><span class="pre">None</span></code> then yielding
 will continue forever or until the generator is exhausted,
 whichever comes first.</p></li>
-<li><p><strong>duplicates</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> the same member can be yielded in more than one
-batch.</p></li>
-<li><p><strong>use_rank</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – When <code class="docutils literal notranslate"><span class="pre">True</span></code> the fitness value of a moleucle is calculated
-as <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">=</span> <span class="pre">1/rank</span></code>.</p></li>
 <li><p><strong>batch_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The number of molecules yielded at once.</p></li>
+<li><p><strong>duplicate_mols</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> the same molecule can be yielded in more than
+one batch.</p></li>
+<li><p><strong>duplicate_batches</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> the same batch can be yielded more than once.</p></li>
+<li><p><strong>fitness_modifier</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code>) – Takes the population on which <code class="xref py py-meth docutils literal notranslate"><span class="pre">select`is</span> <span class="pre">called</span> <span class="pre">and</span>
+<span class="pre">returns</span> <span class="pre">a</span> <span class="pre">:class:`dict()</span></code> mapping molecules in the population
+to the fitness values the <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> should use.
+If <code class="docutils literal notranslate"><span class="pre">None</span></code>, each molecule is mapped to the fitness value
+found in its <code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code> attribute.</p></li>
 </ul>
 </dd>
 </dl>
@@ -550,85 +978,10 @@ as <code class="docutils literal notranslate"><span class="pre">f</span> <span c
 <dd><p>Select batches of molecules from <cite>population</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>population</strong> (<a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a>) – A <a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a> from which batches of molecules are
-selected.</p>
+<dd class="field-odd"><p><strong>population</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">iterable</span></code>) – A collection of molecules from which batches are selected.</p>
 </dd>
 <dt class="field-even">Yields</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> – A batch of selected molecules.</p>
-</dd>
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><strong>NotImplementedError</strong> – This is a virtual method which needs to be implemented in a
-subclass.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="stk.calculators.ea.selectors.SelectorFunnel">
-<em class="property">class </em><code class="sig-name descname">SelectorFunnel</code><span class="sig-paren">(</span><em class="sig-param">*selectors</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.SelectorFunnel" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.selectors.Selector</span></code></a></p>
-<p>Applies <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> objects in order.</p>
-<p>Each <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> in <code class="xref py py-attr docutils literal notranslate"><span class="pre">selectors</span></code> is used until
-exhaustion. The molecules selected by each <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a>
-are passed to the next one for selection. As a result, only the
-final <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> can yield batches of size greater than 1.</p>
-<p class="rubric">Examples</p>
-<p>Use <a class="reference internal" href="#stk.calculators.ea.selectors.Roulette" title="stk.calculators.ea.selectors.Roulette"><code class="xref py py-class docutils literal notranslate"><span class="pre">Roulette</span></code></a> on only the 10 molecules with the highest
-fitness.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
-
-<span class="c1"># Make a population with 20 molecules.</span>
-<span class="n">pop</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-
-<span class="c1"># Create a Selector which yields the top 10 molecules according</span>
-<span class="c1"># to roulette selection.</span>
-<span class="n">fittest</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Fittest</span><span class="p">(</span><span class="n">num_batches</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">roulette</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Roulette</span><span class="p">()</span>
-<span class="n">elitist_roulette</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">SelectorFunnel</span><span class="p">(</span><span class="n">fittest</span><span class="p">,</span> <span class="n">roulette</span><span class="p">)</span>
-
-<span class="c1"># Use the selector to yield molecules.</span>
-<span class="k">for</span> <span class="n">selected_mol</span> <span class="ow">in</span> <span class="n">elitist_roulette</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pop</span><span class="p">):</span>
-    <span class="c1"># Do something with the selected molecules.</span>
-    <span class="o">...</span>
-</pre></div>
-</div>
-<p class="rubric">Methods</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.selectors.SelectorFunnel.select" title="stk.calculators.ea.selectors.SelectorFunnel.select"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select</span></code></a>(self, population)</p></td>
-<td><p>Yield batches of molecules.</p></td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="stk.calculators.ea.selectors.SelectorFunnel.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">*selectors</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.SelectorFunnel.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize a <a class="reference internal" href="#stk.calculators.ea.selectors.SelectorFunnel" title="stk.calculators.ea.selectors.SelectorFunnel"><code class="xref py py-class docutils literal notranslate"><span class="pre">SelectorFunnel</span></code></a> instance.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>*selectors</strong> (<a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a>) – The <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> objects used to select molecules. For
-all, except the last, <cite>num_batches</cite> must be <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="stk.calculators.ea.selectors.SelectorFunnel.select">
-<code class="sig-name descname">select</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">population</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.SelectorFunnel.select" title="Permalink to this definition">¶</a></dt>
-<dd><p>Yield batches of molecules.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>population</strong> (<a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a>) – A <a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a> from which batches of molecules are
-selected.</p>
-</dd>
-<dt class="field-even">Yields</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> – A batch of selected molecules.</p>
+<dd class="field-even"><p><a class="reference internal" href="#stk.calculators.ea.selectors.Batch" title="stk.calculators.ea.selectors.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a> of <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> – A batch of selected molecules.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -637,28 +990,23 @@ selected.</p>
 
 <dl class="class">
 <dt id="stk.calculators.ea.selectors.SelectorSequence">
-<em class="property">class </em><code class="sig-name descname">SelectorSequence</code><span class="sig-paren">(</span><em class="sig-param">*selectors</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.SelectorSequence" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-name descname">SelectorSequence</code><span class="sig-paren">(</span><em class="sig-param">selector1</em>, <em class="sig-param">selector2</em>, <em class="sig-param">num_batches=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.SelectorSequence" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.selectors.Selector</span></code></a></p>
 <p>Yields from selectors in order.</p>
 <p class="rubric">Examples</p>
-<p>First use <a class="reference internal" href="#stk.calculators.ea.selectors.Fittest" title="stk.calculators.ea.selectors.Fittest"><code class="xref py py-class docutils literal notranslate"><span class="pre">Fittest</span></code></a> to select the 10 fittest batches and
-then use <a class="reference internal" href="#stk.calculators.ea.selectors.Roulette" title="stk.calculators.ea.selectors.Roulette"><code class="xref py py-class docutils literal notranslate"><span class="pre">Roulette</span></code></a> to select batches in proportion to their
-fitness.</p>
+<p>First use <a class="reference internal" href="#stk.calculators.ea.selectors.Best" title="stk.calculators.ea.selectors.Best"><code class="xref py py-class docutils literal notranslate"><span class="pre">Best</span></code></a> to select the 10 best batches and
+then use <a class="reference internal" href="#stk.calculators.ea.selectors.Roulette" title="stk.calculators.ea.selectors.Roulette"><code class="xref py py-class docutils literal notranslate"><span class="pre">Roulette</span></code></a> to select batches in proportion to
+their fitness</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
 
-<span class="c1"># Make a population.</span>
-<span class="n">pop</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-
-<span class="c1"># Create a Selector which yields 10 batches of molecules and</span>
-<span class="c1"># then uses roulette selection indefinitely.</span>
-<span class="n">fittest</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Fittest</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">roulette</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Roulette</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">elitist_roulette</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">SelectorSequence</span><span class="p">(</span><span class="n">fittest</span><span class="p">,</span> <span class="n">roulette</span><span class="p">)</span>
-
-<span class="c1"># Use the selector to yield molecules.</span>
-<span class="k">for</span> <span class="n">selected_mol</span> <span class="ow">in</span> <span class="n">elitist_roulette</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pop</span><span class="p">):</span>
-    <span class="c1"># Do something with the selected molecules.</span>
-    <span class="o">...</span>
+<span class="n">population</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">selector</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">SelectorSequence</span><span class="p">(</span>
+    <span class="n">selector1</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">Best</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+    <span class="n">selector2</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">Roulette</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">selector</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">population</span><span class="p">):</span>
+    <span class="c1"># Do stuff with batch. Batches are first selected with</span>
+    <span class="c1"># Best(10) and then with Roulette(20).</span>
 </pre></div>
 </div>
 <p class="rubric">Methods</p>
@@ -669,17 +1017,22 @@ fitness.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.selectors.SelectorSequence.select" title="stk.calculators.ea.selectors.SelectorSequence.select"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select</span></code></a>(self, population)</p></td>
-<td><p>Yield batches of molecules.</p></td>
+<td><p>Select batches of molecules from <cite>population</cite>.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="stk.calculators.ea.selectors.SelectorSequence.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">*selectors</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.SelectorSequence.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">selector1</em>, <em class="sig-param">selector2</em>, <em class="sig-param">num_batches=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.SelectorSequence.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize a <a class="reference internal" href="#stk.calculators.ea.selectors.SelectorSequence" title="stk.calculators.ea.selectors.SelectorSequence"><code class="xref py py-class docutils literal notranslate"><span class="pre">SelectorSequence</span></code></a> instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>*selectors</strong> (<a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a>) – The <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> objects used to select molecules.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>selector1</strong> (<a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a>) – The selector from which batches are yielded first.</p></li>
+<li><p><strong>selector2</strong> (<a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a>) – The selector from which batches are yielded second.</p></li>
+<li><p><strong>num_batches</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The maximum number of batches which can be yielded across
+the entire sequence.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -687,14 +1040,253 @@ fitness.</p>
 <dl class="method">
 <dt id="stk.calculators.ea.selectors.SelectorSequence.select">
 <code class="sig-name descname">select</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">population</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.SelectorSequence.select" title="Permalink to this definition">¶</a></dt>
-<dd><p>Yield batches of molecules.</p>
+<dd><p>Select batches of molecules from <cite>population</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>population</strong> (<a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a>) – A <a class="reference internal" href="stk.populations.html#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a> from which batches of molecules are
-selected.</p>
+<dd class="field-odd"><p><strong>population</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">iterable</span></code>) – A collection of molecules from which batches are selected.</p>
 </dd>
 <dt class="field-even">Yields</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> – A batch of selected molecules.</p>
+<dd class="field-even"><p><a class="reference internal" href="#stk.calculators.ea.selectors.Batch" title="stk.calculators.ea.selectors.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a> of <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> – A batch of selected molecules.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stk.calculators.ea.selectors.StochasticUniversalSampling">
+<em class="property">class </em><code class="sig-name descname">StochasticUniversalSampling</code><span class="sig-paren">(</span><em class="sig-param">num_batches=None</em>, <em class="sig-param">batch_size=1</em>, <em class="sig-param">duplicate_mols=True</em>, <em class="sig-param">duplicate_batches=True</em>, <em class="sig-param">fitness_modifier=None</em>, <em class="sig-param">random_seed=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.StochasticUniversalSampling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.selectors.Selector</span></code></a></p>
+<p>Yields batches of molecules through stochastic universal sampling.</p>
+<p>Stochastic universal sampling lays out batches along a line, with
+each batch taking up length proprotional to its fitness. It
+then creates a set of evenly spaced pointers to different points
+on the line, each of which is occupied by a batch. Batches which
+are pointed to are yielded.</p>
+<p>This approach means weaker members of the population
+are given a greater chance to be chosen than in
+<a class="reference internal" href="#stk.calculators.ea.selectors.Roulette" title="stk.calculators.ea.selectors.Roulette"><code class="xref py py-class docutils literal notranslate"><span class="pre">Roulette</span></code></a> selection <a class="footnote-reference brackets" href="#id4" id="id3">2</a>.</p>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id3">2</a></span></dt>
+<dd><p><a class="reference external" href="https://en.wikipedia.org/wiki/Stochastic_universal_sampling">https://en.wikipedia.org/wiki/Stochastic_universal_sampling</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Yielding molecules one at a time. For example, if molecules need
+to be selected for mutation or the next generation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="c1"># Make a population holding some molecules.</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+<span class="c1"># Make the selector.</span>
+<span class="n">stochastic_sampling</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">StochasticUniversalSampling</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Select the molecules.</span>
+<span class="k">for</span> <span class="n">selected</span><span class="p">,</span> <span class="ow">in</span> <span class="n">stochastic_sampling</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pop</span><span class="p">):</span>
+    <span class="c1"># Do stuff with each selected molecule, like apply a</span>
+    <span class="c1"># mutation to it to generate a mutant.</span>
+    <span class="n">mutant</span> <span class="o">=</span> <span class="n">mutator</span><span class="o">.</span><span class="n">mutate</span><span class="p">(</span><span class="n">selected</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.selectors.StochasticUniversalSampling.select" title="stk.calculators.ea.selectors.StochasticUniversalSampling.select"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select</span></code></a>(self, population)</p></td>
+<td><p>Select batches of molecules from <cite>population</cite>.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.calculators.ea.selectors.StochasticUniversalSampling.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">num_batches=None</em>, <em class="sig-param">batch_size=1</em>, <em class="sig-param">duplicate_mols=True</em>, <em class="sig-param">duplicate_batches=True</em>, <em class="sig-param">fitness_modifier=None</em>, <em class="sig-param">random_seed=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.StochasticUniversalSampling.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a <a class="reference internal" href="#stk.calculators.ea.selectors.StochasticUniversalSampling" title="stk.calculators.ea.selectors.StochasticUniversalSampling"><code class="xref py py-class docutils literal notranslate"><span class="pre">StochasticUniversalSampling</span></code></a> instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_batches</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The number of batches to yield. If <code class="docutils literal notranslate"><span class="pre">None</span></code> then yielding
+will continue forever or until the generator is exhausted,
+whichever comes first.</p></li>
+<li><p><strong>batch_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The number of molecules yielded at once.</p></li>
+<li><p><strong>duplicate_mols</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> the same molecule can be yielded in more than
+one batch.</p></li>
+<li><p><strong>duplicate_batches</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> the same batch can be yielded more than once.</p></li>
+<li><p><strong>fitness_modifier</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code>, optional) – Takes the population on which <code class="xref py py-meth docutils literal notranslate"><span class="pre">select`is</span> <span class="pre">called</span> <span class="pre">and</span>
+<span class="pre">returns</span> <span class="pre">a</span> <span class="pre">:class:`dict()</span></code> mapping molecules in the population
+to the fitness values the <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> should use.
+If <code class="docutils literal notranslate"><span class="pre">None</span></code>, each molecule is mapped to the fitness value
+found in its <code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code> attribute.</p></li>
+<li><p><strong>random_seed</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The random seed to use.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.selectors.StochasticUniversalSampling.select">
+<code class="sig-name descname">select</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">population</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.StochasticUniversalSampling.select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select batches of molecules from <cite>population</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>population</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">iterable</span></code>) – A collection of molecules from which batches are selected.</p>
+</dd>
+<dt class="field-even">Yields</dt>
+<dd class="field-even"><p><a class="reference internal" href="#stk.calculators.ea.selectors.Batch" title="stk.calculators.ea.selectors.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a> of <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> – A batch of selected molecules.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stk.calculators.ea.selectors.Tournament">
+<em class="property">class </em><code class="sig-name descname">Tournament</code><span class="sig-paren">(</span><em class="sig-param">num_batches=None</em>, <em class="sig-param">batch_size=1</em>, <em class="sig-param">duplicate_mols=True</em>, <em class="sig-param">duplicate_batches=True</em>, <em class="sig-param">fitness_modifier=None</em>, <em class="sig-param">random_seed=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.Tournament" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.selectors.Selector</span></code></a></p>
+<p>Yields batches of molecules through tournament selection.</p>
+<p>In tournament selection, a random number of batches is chosen from
+the population undergo a competition. In each competition, the
+batch with the highest fitness value is yielded. This is repeated
+until <cite>num_batches</cite> are yielded.</p>
+<p class="rubric">Examples</p>
+<p>Yielding molecules one at a time. For example, if molecules need
+to be selected for mutation or the next generation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="c1"># Make a population holding some molecules.</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+<span class="c1"># Make the selector.</span>
+<span class="n">tournament</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Tournament</span><span class="p">(</span>
+    <span class="n">num_batches</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span>
+
+<span class="c1"># Select the molecules.</span>
+<span class="k">for</span> <span class="n">selected</span><span class="p">,</span> <span class="ow">in</span> <span class="n">tournament</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pop</span><span class="p">):</span>
+    <span class="c1"># Do stuff with each selected molecule, like apply a</span>
+    <span class="c1"># mutation to it to generate a mutant.</span>
+    <span class="n">mutant</span> <span class="o">=</span> <span class="n">mutator</span><span class="o">.</span><span class="n">mutate</span><span class="p">(</span><span class="n">selected</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.selectors.Tournament.select" title="stk.calculators.ea.selectors.Tournament.select"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select</span></code></a>(self, population)</p></td>
+<td><p>Select batches of molecules from <cite>population</cite>.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.calculators.ea.selectors.Tournament.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">num_batches=None</em>, <em class="sig-param">batch_size=1</em>, <em class="sig-param">duplicate_mols=True</em>, <em class="sig-param">duplicate_batches=True</em>, <em class="sig-param">fitness_modifier=None</em>, <em class="sig-param">random_seed=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.Tournament.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a <a class="reference internal" href="#stk.calculators.ea.selectors.Tournament" title="stk.calculators.ea.selectors.Tournament"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tournament</span></code></a> instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_batches</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The number of batches to yield. If <code class="docutils literal notranslate"><span class="pre">None</span></code> then yielding
+will continue forever or until the generator is exhausted,
+whichever comes first.</p></li>
+<li><p><strong>batch_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The number of molecules yielded at once.</p></li>
+<li><p><strong>duplicate_mols</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> the same molecule can be yielded in more than
+one batch.</p></li>
+<li><p><strong>duplicate_batches</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> the same batch can be yielded more than once.</p></li>
+<li><p><strong>fitness_modifier</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code>, optional) – Takes the population on which <code class="xref py py-meth docutils literal notranslate"><span class="pre">select`is</span> <span class="pre">called</span> <span class="pre">and</span>
+<span class="pre">returns</span> <span class="pre">a</span> <span class="pre">:class:`dict()</span></code> mapping molecules in the population
+to the fitness values the <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> should use.
+If <code class="docutils literal notranslate"><span class="pre">None</span></code>, each molecule is mapped to the fitness value
+found in its <code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code> attribute.</p></li>
+<li><p><strong>random_seed</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The random seed to use.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.selectors.Tournament.select">
+<code class="sig-name descname">select</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">population</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.Tournament.select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select batches of molecules from <cite>population</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>population</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">iterable</span></code>) – A collection of molecules from which batches are selected.</p>
+</dd>
+<dt class="field-even">Yields</dt>
+<dd class="field-even"><p><a class="reference internal" href="#stk.calculators.ea.selectors.Batch" title="stk.calculators.ea.selectors.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a> of <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> – A batch of selected molecules.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stk.calculators.ea.selectors.Worst">
+<em class="property">class </em><code class="sig-name descname">Worst</code><span class="sig-paren">(</span><em class="sig-param">num_batches=None</em>, <em class="sig-param">batch_size=1</em>, <em class="sig-param">duplicate_mols=True</em>, <em class="sig-param">duplicate_batches=True</em>, <em class="sig-param">fitness_modifier=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.Worst" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.selectors.Selector</span></code></a></p>
+<p>Selects batches of molecules, lowest fitness value first.</p>
+<p class="rubric">Examples</p>
+<p>Select the worst 5 batches of size 3</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
+
+<span class="n">population</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">worst</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Worst</span><span class="p">(</span><span class="n">num_batches</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">worst</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">population</span><span class="p">):</span>
+    <span class="c1"># Do stuff with batch.</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.selectors.Worst.select" title="stk.calculators.ea.selectors.Worst.select"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select</span></code></a>(self, population)</p></td>
+<td><p>Select batches of molecules from <cite>population</cite>.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.calculators.ea.selectors.Worst.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">num_batches=None</em>, <em class="sig-param">batch_size=1</em>, <em class="sig-param">duplicate_mols=True</em>, <em class="sig-param">duplicate_batches=True</em>, <em class="sig-param">fitness_modifier=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.Worst.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a <a class="reference internal" href="#stk.calculators.ea.selectors.Worst" title="stk.calculators.ea.selectors.Worst"><code class="xref py py-class docutils literal notranslate"><span class="pre">Worst</span></code></a> instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_batches</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The number of batches to yield. If <code class="docutils literal notranslate"><span class="pre">None</span></code> then yielding
+will continue forever or until the generator is exhausted,
+whichever comes first.</p></li>
+<li><p><strong>batch_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The number of molecules yielded at once.</p></li>
+<li><p><strong>duplicate_mols</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> the same molecule can be yielded in more than
+one batch.</p></li>
+<li><p><strong>duplicate_batches</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> the same batch can be yielded more than once.</p></li>
+<li><p><strong>fitness_modifier</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code>, optional) – Takes the population on which <code class="xref py py-meth docutils literal notranslate"><span class="pre">select`is</span> <span class="pre">called</span> <span class="pre">and</span>
+<span class="pre">returns</span> <span class="pre">a</span> <span class="pre">:class:`dict()</span></code> mapping molecules in the population
+to the fitness values the <a class="reference internal" href="#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> should use.
+If <code class="docutils literal notranslate"><span class="pre">None</span></code>, each molecule is mapped to the fitness value
+found in its <code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code> attribute.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.ea.selectors.Worst.select">
+<code class="sig-name descname">select</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">population</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.selectors.Worst.select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select batches of molecules from <cite>population</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>population</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">iterable</span></code>) – A collection of molecules from which batches are selected.</p>
+</dd>
+<dt class="field-even">Yields</dt>
+<dd class="field-even"><p><a class="reference internal" href="#stk.calculators.ea.selectors.Batch" title="stk.calculators.ea.selectors.Batch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></a> of <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> – A batch of selected molecules.</p>
 </dd>
 </dl>
 </dd></dl>
