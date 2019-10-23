@@ -109,6 +109,7 @@
 <li class="toctree-l1"><a class="reference internal" href="calculators.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stk.calculators.optimization.optimizers.html">Optimizers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stk.calculators.energy.energy_calculators.html">Energy Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.compound.html">Compound Calculators</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Evolutionary Algorithm</span></p>
 <ul>
@@ -192,7 +193,7 @@ operations on groups of <code class="docutils literal notranslate"><span class="
 <dt id="stk.populations.EAPopulation">
 <em class="property">class </em><code class="sig-name descname">EAPopulation</code><span class="sig-paren">(</span><em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.populations.EAPopulation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.populations.Population</span></code></a></p>
-<p>A population which also carries out evolutionary operations.</p>
+<p>A population which also stores fitness values of molecules.</p>
 <dl class="attribute">
 <dt id="stk.populations.EAPopulation.direct_members">
 <code class="sig-name descname">direct_members</code><a class="headerlink" href="#stk.populations.EAPopulation.direct_members" title="Permalink to this definition">¶</a></dt>
@@ -231,23 +232,17 @@ subpopulations. As a result, not all members of a
 <tr class="row-even"><td><p><a class="reference internal" href="#stk.populations.EAPopulation.add_subpopulation" title="stk.populations.EAPopulation.add_subpopulation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_subpopulation</span></code></a>(self, population)</p></td>
 <td><p>Add a clone of <cite>population</cite> to <a class="reference internal" href="#stk.populations.EAPopulation.subpopulations" title="stk.populations.EAPopulation.subpopulations"><code class="xref py py-attr docutils literal notranslate"><span class="pre">subpopulations</span></code></a>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#stk.populations.EAPopulation.calculate_member_fitness" title="stk.populations.EAPopulation.calculate_member_fitness"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_member_fitness</span></code></a>(self, …[, …])</p></td>
-<td><p>Calculates the fitness values of molecules.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#stk.populations.EAPopulation.clone" title="stk.populations.EAPopulation.clone"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clone</span></code></a>(self)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.populations.EAPopulation.clone" title="stk.populations.EAPopulation.clone"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clone</span></code></a>(self)</p></td>
 <td><p>Return a clone.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.populations.EAPopulation.close_process_pool" title="stk.populations.EAPopulation.close_process_pool"><code class="xref py py-obj docutils literal notranslate"><span class="pre">close_process_pool</span></code></a>(self)</p></td>
+<td><p>Close an open process pool.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#stk.populations.EAPopulation.dump" title="stk.populations.EAPopulation.dump"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dump</span></code></a>(self, path[, include_attrs, …])</p></td>
 <td><p>Dump the <a class="reference internal" href="#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a> to a file.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#stk.populations.EAPopulation.get_mutants" title="stk.populations.EAPopulation.get_mutants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_mutants</span></code></a>(self)</p></td>
-<td><p>Perform mutations and return the mutants.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#stk.populations.EAPopulation.get_next_generation" title="stk.populations.EAPopulation.get_next_generation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_next_generation</span></code></a>(self)</p></td>
-<td><p>Get the next genetic algorithm generation.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#stk.populations.EAPopulation.get_offspring" title="stk.populations.EAPopulation.get_offspring"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_offspring</span></code></a>(self)</p></td>
-<td><p>Perform crossover operations and return the offspring.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.populations.EAPopulation.get_fitness_values" title="stk.populations.EAPopulation.get_fitness_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_fitness_values</span></code></a>(self)</p></td>
+<td><p>Return the fitness values of molecules.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#stk.populations.EAPopulation.init_all" title="stk.populations.EAPopulation.init_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_all</span></code></a>(building_blocks, topology_graphs[, …])</p></td>
 <td><p>Make all possible molecules from groups of building blocks.</p></td>
@@ -264,17 +259,23 @@ subpopulations. As a result, not all members of a
 <tr class="row-odd"><td><p><a class="reference internal" href="#stk.populations.EAPopulation.load" title="stk.populations.EAPopulation.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a>(path[, use_cache])</p></td>
 <td><p>Initialize a <a class="reference internal" href="#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a> from one dumped to a file.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#stk.populations.EAPopulation.optimize" title="stk.populations.EAPopulation.optimize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">optimize</span></code></a>(self, optimizer[, num_processes])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.populations.EAPopulation.open_process_pool" title="stk.populations.EAPopulation.open_process_pool"><code class="xref py py-obj docutils literal notranslate"><span class="pre">open_process_pool</span></code></a>(self[, num_processes])</p></td>
+<td><p>Open a process pool.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.populations.EAPopulation.optimize" title="stk.populations.EAPopulation.optimize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">optimize</span></code></a>(self, optimizer[, num_processes])</p></td>
 <td><p>Optimize the structures of molecules in the population.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#stk.populations.EAPopulation.remove_duplicates" title="stk.populations.EAPopulation.remove_duplicates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_duplicates</span></code></a>(self[, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.populations.EAPopulation.remove_duplicates" title="stk.populations.EAPopulation.remove_duplicates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_duplicates</span></code></a>(self[, …])</p></td>
 <td><p>Remove duplicates from the population.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#stk.populations.EAPopulation.remove_members" title="stk.populations.EAPopulation.remove_members"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_members</span></code></a>(self, key)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.populations.EAPopulation.remove_members" title="stk.populations.EAPopulation.remove_members"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_members</span></code></a>(self, key)</p></td>
 <td><p>Remove all members where <code class="docutils literal notranslate"><span class="pre">key(member)</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#stk.populations.EAPopulation.set_ea_tools" title="stk.populations.EAPopulation.set_ea_tools"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_ea_tools</span></code></a>(self, generation_selector, …)</p></td>
-<td><p>Set the genetic algorithm calculators.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.populations.EAPopulation.set_fitness_values_from_calculators" title="stk.populations.EAPopulation.set_fitness_values_from_calculators"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_fitness_values_from_calculators</span></code></a>(self, …)</p></td>
+<td><p>Set the fitness values of molecules.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.populations.EAPopulation.set_fitness_values_from_dict" title="stk.populations.EAPopulation.set_fitness_values_from_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_fitness_values_from_dict</span></code></a>(self, …)</p></td>
+<td><p>Set the fitness values of molecules.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#stk.populations.EAPopulation.set_mol_ids" title="stk.populations.EAPopulation.set_mol_ids"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_mol_ids</span></code></a>(self, n[, overwrite])</p></td>
 <td><p>Give each member of the population an id starting from <cite>n</cite>.</p></td>
@@ -357,28 +358,6 @@ molecules it holds are not copies.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="stk.populations.EAPopulation.calculate_member_fitness">
-<code class="sig-name descname">calculate_member_fitness</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">fitness_calculator</em>, <em class="sig-param">num_processes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.populations.EAPopulation.calculate_member_fitness" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates the fitness values of molecules.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>fitness_calculator</strong> (<a class="reference internal" href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.FitnessCalculator" title="stk.calculators.ea.fitness_calculators.FitnessCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">FitnessCalculator</span></code></a>) – The <a class="reference internal" href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.FitnessCalculator" title="stk.calculators.ea.fitness_calculators.FitnessCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">FitnessCalculator</span></code></a> used to calculate the
-fitness.</p></li>
-<li><p><strong>num_processes</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The number of processes to create. If <code class="docutils literal notranslate"><span class="pre">1</span></code> then fitness
-values are calculated serially.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>None</strong></p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
 <dt id="stk.populations.EAPopulation.clone">
 <code class="sig-name descname">clone</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.populations.EAPopulation.clone" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a clone.</p>
@@ -401,6 +380,20 @@ values are calculated serially.</p></li>
 <span class="n">clone</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
 </pre></div>
 </div>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.populations.EAPopulation.close_process_pool">
+<code class="sig-name descname">close_process_pool</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.populations.EAPopulation.close_process_pool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close an open process pool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The population.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -429,45 +422,15 @@ held by a <a class="reference internal" href="stk.molecular.molecules.molecule.h
 </dd></dl>
 
 <dl class="method">
-<dt id="stk.populations.EAPopulation.get_mutants">
-<code class="sig-name descname">get_mutants</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.populations.EAPopulation.get_mutants" title="Permalink to this definition">¶</a></dt>
-<dd><p>Perform mutations and return the mutants.</p>
+<dt id="stk.populations.EAPopulation.get_fitness_values">
+<code class="sig-name descname">get_fitness_values</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.populations.EAPopulation.get_fitness_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the fitness values of molecules.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The generated mutants, minus those already in the
-population.</p>
+<dd class="field-odd"><p>Maps a <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> to its fitness value.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> of <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="stk.populations.EAPopulation.get_next_generation">
-<code class="sig-name descname">get_next_generation</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.populations.EAPopulation.get_next_generation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the next genetic algorithm generation.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The next generation.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#stk.populations.EAPopulation" title="stk.populations.EAPopulation"><code class="xref py py-class docutils literal notranslate"><span class="pre">EAPopulation</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="stk.populations.EAPopulation.get_offspring">
-<code class="sig-name descname">get_offspring</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.populations.EAPopulation.get_offspring" title="Permalink to this definition">¶</a></dt>
-<dd><p>Perform crossover operations and return the offspring.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The generated offspring, minus those already in the
-population.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> of <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a></p>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -845,6 +808,27 @@ create some random cage complexes.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="stk.populations.EAPopulation.open_process_pool">
+<code class="sig-name descname">open_process_pool</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">num_processes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.populations.EAPopulation.open_process_pool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open a process pool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>num_processes</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The number of processes in the pool. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, then
+creates a process for each core on the computer.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The population.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>RuntimeError</strong> – If a process pool is already open.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="stk.populations.EAPopulation.optimize">
 <code class="sig-name descname">optimize</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">optimizer</em>, <em class="sig-param">num_processes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.populations.EAPopulation.optimize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Optimize the structures of molecules in the population.</p>
@@ -853,14 +837,15 @@ if <cite>num_processes</cite> is <code class="docutils literal notranslate"><spa
 faster in cases where all molecules have already been
 optimized and the <cite>optimizer</cite> will skip them.
 In this case creating a parallel process pool creates
-unncessary overhead.</p>
+unnecessary overhead.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>optimizer</strong> (<a class="reference internal" href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.Optimizer" title="stk.calculators.optimization.optimizers.Optimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Optimizer</span></code></a>) – The optimizer used to carry out the optimizations.</p></li>
 <li><p><strong>num_processes</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The number of parallel processes to create. Optimization
 will run serially if <code class="docutils literal notranslate"><span class="pre">1</span></code>. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, creates a
-process for each core on the computer.</p></li>
+process for each core on the computer. This parameter will
+be ignored if the population has an open process pool.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -928,19 +913,43 @@ population.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="stk.populations.EAPopulation.set_ea_tools">
-<code class="sig-name descname">set_ea_tools</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">generation_selector</em>, <em class="sig-param">mutation_selector</em>, <em class="sig-param">crossover_selector</em>, <em class="sig-param">mutator</em>, <em class="sig-param">crosser</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.populations.EAPopulation.set_ea_tools" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the genetic algorithm calculators.</p>
+<dt id="stk.populations.EAPopulation.set_fitness_values_from_calculators">
+<code class="sig-name descname">set_fitness_values_from_calculators</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">fitness_calculator</em>, <em class="sig-param">fitness_normalizer=None</em>, <em class="sig-param">num_processes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.populations.EAPopulation.set_fitness_values_from_calculators" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the fitness values of molecules.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>generation_selector</strong> (<a class="reference internal" href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a>) – A <a class="reference internal" href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> used to select molecules in the next
-generation.</p></li>
-<li><p><strong>mutation_selector</strong> (<a class="reference internal" href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a>) – A <a class="reference internal" href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> used to select molecules for mutation.</p></li>
-<li><p><strong>crossover_selector</strong> (<a class="reference internal" href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a>) – A <a class="reference internal" href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> used to select molecules for crossover.</p></li>
-<li><p><strong>mutator</strong> (<a class="reference internal" href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.Mutator" title="stk.calculators.ea.mutators.Mutator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mutator</span></code></a>) – Carries out the mutation of molecules.</p></li>
-<li><p><strong>crosser</strong> (<a class="reference internal" href="stk.calculators.ea.crossers.html#stk.calculators.ea.crossers.Crosser" title="stk.calculators.ea.crossers.Crosser"><code class="xref py py-class docutils literal notranslate"><span class="pre">Crosser</span></code></a>) – Carries out the crossover of molecules.</p></li>
+<li><p><strong>fitness_calculator</strong> (<a class="reference internal" href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.FitnessCalculator" title="stk.calculators.ea.fitness_calculators.FitnessCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">FitnessCalculator</span></code></a>) – Used to calculate the initial fitness values.</p></li>
+<li><p><strong>fitness_normalizer</strong> (<a class="reference internal" href="stk.calculators.ea.fitness_normalizers.html#stk.calculators.ea.fitness_normalizers.FitnessNormalizer" title="stk.calculators.ea.fitness_normalizers.FitnessNormalizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">FitnessNormalizer</span></code></a>, optional) – Used to normalize the fitness values.</p></li>
+<li><p><strong>num_processes</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The number of parallel processes to create. Calculations
+will run serially if <code class="docutils literal notranslate"><span class="pre">1</span></code>. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, creates a
+process for each core on the computer. This parameter will
+be ignored if the population has an open process pool.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The population is returned.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#stk.populations.EAPopulation" title="stk.populations.EAPopulation"><code class="xref py py-class docutils literal notranslate"><span class="pre">EAPopulation</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.populations.EAPopulation.set_fitness_values_from_dict">
+<code class="sig-name descname">set_fitness_values_from_dict</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">fitness_values</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.populations.EAPopulation.set_fitness_values_from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the fitness values of molecules.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fitness_values</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>) – Maps molecules in the population to their fitness
+values.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The population is returned.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#stk.populations.EAPopulation" title="stk.populations.EAPopulation"><code class="xref py py-class docutils literal notranslate"><span class="pre">EAPopulation</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1018,7 +1027,7 @@ is written.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A container for  <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> objects.</p>
 <p><a class="reference internal" href="#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a> instances can be nested.</p>
-<p>In addtion to holding <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> objects, the
+<p>In addition to holding <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> objects, the
 <a class="reference internal" href="#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a> class can be used to create large numbers of
 these instances through the class methods beginning with “init”.</p>
 <p><a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> instances held by a <a class="reference internal" href="#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a> can have
@@ -1093,7 +1102,7 @@ Indices have access to all members in the population</p>
 </pre></div>
 </div>
 <p>Indices will first access direct members of the population and then
-acess members in the subpopulations. Indices access nested members
+access members in the subpopulations. Indices access nested members
 depth-first</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pop2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="n">bb1</span><span class="p">,</span> <span class="n">bb2</span><span class="p">,</span> <span class="n">stk</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="n">bb3</span><span class="p">,</span> <span class="n">bb4</span><span class="p">))</span>
 <span class="c1"># Get bb1.</span>
@@ -1142,6 +1151,23 @@ populations as subpopulations</p>
 <span class="n">bb2</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">pop3</span>
 </pre></div>
 </div>
+<p>If you want to run multiple <a class="reference internal" href="#stk.populations.Population.optimize" title="stk.populations.Population.optimize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">optimize()</span></code></a> calls in a row, use
+the “with” statement. This keeps a single process pool open, and
+means you do not create a new one for each <a class="reference internal" href="#stk.populations.Population.optimize" title="stk.populations.Population.optimize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">optimize()</span></code></a> call.
+It also automatically closes the pool for you when the block
+exits</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">population</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Population</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="c1"># Keep a process pool open through the &quot;with&quot; statement.</span>
+<span class="k">with</span> <span class="n">population</span><span class="o">.</span><span class="n">open_process_pool</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+    <span class="c1"># All optimize calls within this block will use the</span>
+    <span class="c1"># same process pool.</span>
+    <span class="n">population</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">stk</span><span class="o">.</span><span class="n">UFF</span><span class="p">())</span>
+    <span class="n">population</span><span class="o">.</span><span class="n">add_members</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    <span class="n">population</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">stk</span><span class="o">.</span><span class="n">UFF</span><span class="p">())</span>
+<span class="c1"># Process pool is automatically cleaned up when the block</span>
+<span class="c1"># exits.</span>
+</pre></div>
+</div>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -1158,23 +1184,29 @@ populations as subpopulations</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#stk.populations.Population.clone" title="stk.populations.Population.clone"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clone</span></code></a>(self)</p></td>
 <td><p>Return a clone.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#stk.populations.Population.dump" title="stk.populations.Population.dump"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dump</span></code></a>(self, path[, include_attrs, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.populations.Population.close_process_pool" title="stk.populations.Population.close_process_pool"><code class="xref py py-obj docutils literal notranslate"><span class="pre">close_process_pool</span></code></a>(self)</p></td>
+<td><p>Close an open process pool.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.populations.Population.dump" title="stk.populations.Population.dump"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dump</span></code></a>(self, path[, include_attrs, …])</p></td>
 <td><p>Dump the <a class="reference internal" href="#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a> to a file.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#stk.populations.Population.init_all" title="stk.populations.Population.init_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_all</span></code></a>(building_blocks, topology_graphs[, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.populations.Population.init_all" title="stk.populations.Population.init_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_all</span></code></a>(building_blocks, topology_graphs[, …])</p></td>
 <td><p>Make all possible molecules from groups of building blocks.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#stk.populations.Population.init_diverse" title="stk.populations.Population.init_diverse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_diverse</span></code></a>(building_blocks, …[, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.populations.Population.init_diverse" title="stk.populations.Population.init_diverse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_diverse</span></code></a>(building_blocks, …[, …])</p></td>
 <td><p>Construct a chemically diverse <a class="reference internal" href="#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#stk.populations.Population.init_from_list" title="stk.populations.Population.init_from_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_from_list</span></code></a>(pop_list[, use_cache])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.populations.Population.init_from_list" title="stk.populations.Population.init_from_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_from_list</span></code></a>(pop_list[, use_cache])</p></td>
 <td><p>Initialize a population from a <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> representation.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#stk.populations.Population.init_random" title="stk.populations.Population.init_random"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_random</span></code></a>(building_blocks, …[, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.populations.Population.init_random" title="stk.populations.Population.init_random"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_random</span></code></a>(building_blocks, …[, …])</p></td>
 <td><p>Construct molecules for a random <a class="reference internal" href="#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#stk.populations.Population.load" title="stk.populations.Population.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a>(path[, use_cache])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.populations.Population.load" title="stk.populations.Population.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a>(path[, use_cache])</p></td>
 <td><p>Initialize a <a class="reference internal" href="#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a> from one dumped to a file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.populations.Population.open_process_pool" title="stk.populations.Population.open_process_pool"><code class="xref py py-obj docutils literal notranslate"><span class="pre">open_process_pool</span></code></a>(self[, num_processes])</p></td>
+<td><p>Open a process pool.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#stk.populations.Population.optimize" title="stk.populations.Population.optimize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">optimize</span></code></a>(self, optimizer[, num_processes])</p></td>
 <td><p>Optimize the structures of molecules in the population.</p></td>
@@ -1288,6 +1320,20 @@ molecules it holds are not copies.</p>
 <span class="n">clone</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
 </pre></div>
 </div>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.populations.Population.close_process_pool">
+<code class="sig-name descname">close_process_pool</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.populations.Population.close_process_pool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close an open process pool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The population.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -1688,6 +1734,27 @@ create some random cage complexes.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="stk.populations.Population.open_process_pool">
+<code class="sig-name descname">open_process_pool</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">num_processes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.populations.Population.open_process_pool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open a process pool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>num_processes</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The number of processes in the pool. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, then
+creates a process for each core on the computer.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The population.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#stk.populations.Population" title="stk.populations.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>RuntimeError</strong> – If a process pool is already open.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="stk.populations.Population.optimize">
 <code class="sig-name descname">optimize</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">optimizer</em>, <em class="sig-param">num_processes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.populations.Population.optimize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Optimize the structures of molecules in the population.</p>
@@ -1696,14 +1763,15 @@ if <cite>num_processes</cite> is <code class="docutils literal notranslate"><spa
 faster in cases where all molecules have already been
 optimized and the <cite>optimizer</cite> will skip them.
 In this case creating a parallel process pool creates
-unncessary overhead.</p>
+unnecessary overhead.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>optimizer</strong> (<a class="reference internal" href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.Optimizer" title="stk.calculators.optimization.optimizers.Optimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Optimizer</span></code></a>) – The optimizer used to carry out the optimizations.</p></li>
 <li><p><strong>num_processes</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The number of parallel processes to create. Optimization
 will run serially if <code class="docutils literal notranslate"><span class="pre">1</span></code>. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, creates a
-process for each core on the computer.</p></li>
+process for each core on the computer. This parameter will
+be ignored if the population has an open process pool.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

@@ -112,6 +112,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.compound.html">Compound Calculators</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Evolutionary Algorithm</span></p>
 <ul>
@@ -197,6 +198,10 @@
 <li><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.FormationEnergy" title="stk.calculators.energy.energy_calculators.FormationEnergy"><code class="xref py py-class docutils literal notranslate"><span class="pre">FormationEnergy</span></code></a></p></li>
 <li><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.XTBEnergy" title="stk.calculators.energy.energy_calculators.XTBEnergy"><code class="xref py py-class docutils literal notranslate"><span class="pre">XTBEnergy</span></code></a></p></li>
 <li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">XTBFreeEnergy</span></code></p></li>
+<li><p><a class="reference internal" href="stk.calculators.compound.html#stk.calculators.compound.If" title="stk.calculators.compound.If"><code class="xref py py-class docutils literal notranslate"><span class="pre">If</span></code></a></p></li>
+<li><p><a class="reference internal" href="stk.calculators.compound.html#stk.calculators.compound.TryCatch" title="stk.calculators.compound.TryCatch"><code class="xref py py-class docutils literal notranslate"><span class="pre">TryCatch</span></code></a></p></li>
+<li><p><a class="reference internal" href="stk.calculators.compound.html#stk.calculators.compound.Random" title="stk.calculators.compound.Random"><code class="xref py py-class docutils literal notranslate"><span class="pre">Random</span></code></a></p></li>
+<li><p><a class="reference internal" href="stk.calculators.compound.html#stk.calculators.compound.RaisingCalculator" title="stk.calculators.compound.RaisingCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">RaisingCalculator</span></code></a></p></li>
 </ol>
 <p>Energy calculators are objects which calculate the energy of molecules.
 Each <a class="reference internal" href="#stk.calculators.energy.energy_calculators.EnergyCalculator" title="stk.calculators.energy.energy_calculators.EnergyCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnergyCalculator</span></code></a> is initialized with some settings and
@@ -235,18 +240,13 @@ calculator a second time</p>
 <div class="section" id="making-new-energy-calculators">
 <span id="adding-energy-calculators"></span><h2>Making New Energy Calculators<a class="headerlink" href="#making-new-energy-calculators" title="Permalink to this headline">¶</a></h2>
 <p>New energy calculators can be made by simply making a class which
-inherits the <a class="reference internal" href="#stk.calculators.energy.energy_calculators.EnergyCalculator" title="stk.calculators.energy.energy_calculators.EnergyCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnergyCalculator</span></code></a> class. In addition to this,
-the new class must define a <a class="reference internal" href="#stk.calculators.energy.energy_calculators.EnergyCalculator.get_energy" title="stk.calculators.energy.energy_calculators.EnergyCalculator.get_energy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_energy()</span></code></a>
-method. The method must take 1 parameter, <cite>mol</cite>. The method will then
-calculate and return the energy. There are no requirements regarding
-how it should go about calculating the energy. New energy calculators
-can be added into the <a class="reference internal" href="#module-stk.calculators.energy.energy_calculators" title="stk.calculators.energy.energy_calculators"><code class="xref py py-mod docutils literal notranslate"><span class="pre">energy_calculators</span></code></a> submodule or into a
-new submodule.</p>
+inherits the <a class="reference internal" href="#stk.calculators.energy.energy_calculators.EnergyCalculator" title="stk.calculators.energy.energy_calculators.EnergyCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnergyCalculator</span></code></a> abstract base class and
+implements its virtual methods.</p>
 <dl class="class">
 <dt id="stk.calculators.energy.energy_calculators.EnergyCalculator">
-<em class="property">class </em><code class="sig-name descname">EnergyCalculator</code><span class="sig-paren">(</span><em class="sig-param">use_cache=False</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.EnergyCalculator" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Calculates the energy of molecules.</p>
+<em class="property">class </em><code class="sig-name descname">EnergyCalculator</code><a class="headerlink" href="#stk.calculators.energy.energy_calculators.EnergyCalculator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="stk.calculators.base_calculators.html#stk.calculators.base_calculators.MoleculeCalculator" title="stk.calculators.base_calculators.MoleculeCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.base_calculators.MoleculeCalculator</span></code></a></p>
+<p>An abstract base class for energy calculators.</p>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -254,20 +254,73 @@ new submodule.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.EnergyCalculator.add_to_cache" title="stk.calculators.energy.energy_calculators.EnergyCalculator.add_to_cache"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_to_cache</span></code></a>(self, mol[, value])</p></td>
+<td><p>Add a molecule to the cache.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.EnergyCalculator.get_cached_value" title="stk.calculators.energy.energy_calculators.EnergyCalculator.get_cached_value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cached_value</span></code></a>(self, mol)</p></td>
+<td><p>Return the value stored in the cache for <cite>mol</cite>.</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.EnergyCalculator.get_energy" title="stk.calculators.energy.energy_calculators.EnergyCalculator.get_energy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_energy</span></code></a>(self, mol)</p></td>
 <td><p>Calculate the energy of <cite>mol</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.EnergyCalculator.is_caching" title="stk.calculators.energy.energy_calculators.EnergyCalculator.is_caching"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_caching</span></code></a>(self)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the calculator has caching turned on.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.EnergyCalculator.is_in_cache" title="stk.calculators.energy.energy_calculators.EnergyCalculator.is_in_cache"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_in_cache</span></code></a>(self, mol)</p></td>
+<td><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if <cite>mol</cite> is cached.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.EnergyCalculator.set_cache_use" title="stk.calculators.energy.energy_calculators.EnergyCalculator.set_cache_use"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cache_use</span></code></a>(self, use_cache)</p></td>
+<td><p>Set cache use on or off.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="stk.calculators.energy.energy_calculators.EnergyCalculator.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">use_cache=False</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.EnergyCalculator.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize a <a class="reference internal" href="#stk.calculators.energy.energy_calculators.EnergyCalculator" title="stk.calculators.energy.energy_calculators.EnergyCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnergyCalculator</span></code></a> instance.</p>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">/</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.EnergyCalculator.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.energy.energy_calculators.EnergyCalculator.add_to_cache">
+<code class="sig-name descname">add_to_cache</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em>, <em class="sig-param">value=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.EnergyCalculator.add_to_cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a molecule to the cache.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> <a class="reference internal" href="#stk.calculators.energy.energy_calculators.EnergyCalculator.get_energy" title="stk.calculators.energy.energy_calculators.EnergyCalculator.get_energy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_energy()</span></code></a> will not run twice on the
-same molecule, but will instead return the previously
-calculated value.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule to be added to the cache.</p></li>
+<li><p><strong>value</strong> (class:<cite>object</cite>, optional) – The cached value associated with the molecule.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The calculator.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="stk.calculators.base_calculators.html#stk.calculators.base_calculators.MoleculeCalculator" title="stk.calculators.base_calculators.MoleculeCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MoleculeCalculator</span></code></a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> – This is a virtual method and needs to be implemented in a
+subclass.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.energy.energy_calculators.EnergyCalculator.get_cached_value">
+<code class="sig-name descname">get_cached_value</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.EnergyCalculator.get_cached_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value stored in the cache for <cite>mol</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule whose cached value is to be returned.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The cached value.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> – This is a virtual method and needs to be implemented in a
+subclass.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -285,6 +338,62 @@ calculated value.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.energy.energy_calculators.EnergyCalculator.is_caching">
+<code class="sig-name descname">is_caching</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.EnergyCalculator.is_caching" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the calculator has caching turned on.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the calculator has caching turned on.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>NotImplementedError</strong> – This is a virtual method and needs to be implemented in a
+subclass.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.energy.energy_calculators.EnergyCalculator.is_in_cache">
+<code class="sig-name descname">is_in_cache</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.EnergyCalculator.is_in_cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if <cite>mol</cite> is cached.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule being checked.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if <cite>mol</cite> is cached.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> – This is a virtual method and needs to be implemented in a
+subclass.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.energy.energy_calculators.EnergyCalculator.set_cache_use">
+<code class="sig-name descname">set_cache_use</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">use_cache</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.EnergyCalculator.set_cache_use" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set cache use on or off.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> if the cache is to be used.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The calculator.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="stk.calculators.base_calculators.html#stk.calculators.base_calculators.MoleculeCalculator" title="stk.calculators.base_calculators.MoleculeCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MoleculeCalculator</span></code></a></p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><p><strong>NotImplementedError</strong> – This is a virtual method and needs to be implemented in a
@@ -323,7 +432,7 @@ set self.__traceback__ to tb and return self.</p>
 <dl class="class">
 <dt id="stk.calculators.energy.energy_calculators.FormationEnergy">
 <em class="property">class </em><code class="sig-name descname">FormationEnergy</code><span class="sig-paren">(</span><em class="sig-param">energy_calculator</em>, <em class="sig-param">reactants</em>, <em class="sig-param">products</em>, <em class="sig-param">use_cache=False</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.FormationEnergy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stk.calculators.energy.energy_calculators.EnergyCalculator" title="stk.calculators.energy.energy_calculators.EnergyCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.energy.energy_calculators.EnergyCalculator</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.base_calculators._MoleculeCalculator</span></code>, <a class="reference internal" href="#stk.calculators.energy.energy_calculators.EnergyCalculator" title="stk.calculators.energy.energy_calculators.EnergyCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.energy.energy_calculators.EnergyCalculator</span></code></a></p>
 <p>Calculates the formation energy of a molecule.</p>
 <p class="rubric">Examples</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
@@ -360,8 +469,23 @@ set self.__traceback__ to tb and return self.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.FormationEnergy.add_to_cache" title="stk.calculators.energy.energy_calculators.FormationEnergy.add_to_cache"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_to_cache</span></code></a>(self, mol[, value])</p></td>
+<td><p>Add a molecule to the cache.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.FormationEnergy.get_cached_value" title="stk.calculators.energy.energy_calculators.FormationEnergy.get_cached_value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cached_value</span></code></a>(self, mol)</p></td>
+<td><p>Return the value stored in the cache for <cite>mol</cite>.</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.FormationEnergy.get_energy" title="stk.calculators.energy.energy_calculators.FormationEnergy.get_energy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_energy</span></code></a>(self, mol)</p></td>
-<td><p>Calculate the formation energy of <cite>mol</cite>.</p></td>
+<td><p>Calculate the energy of <cite>mol</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.FormationEnergy.is_caching" title="stk.calculators.energy.energy_calculators.FormationEnergy.is_caching"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_caching</span></code></a>(self)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the calculator has caching turned on.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.FormationEnergy.is_in_cache" title="stk.calculators.energy.energy_calculators.FormationEnergy.is_in_cache"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_in_cache</span></code></a>(self, mol)</p></td>
+<td><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if <cite>mol</cite> is cached.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.FormationEnergy.set_cache_use" title="stk.calculators.energy.energy_calculators.FormationEnergy.set_cache_use"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cache_use</span></code></a>(self, use_cache)</p></td>
+<td><p>Set cache use on or off.</p></td>
 </tr>
 </tbody>
 </table>
@@ -390,19 +514,103 @@ calculated value.</p></li>
 </dd></dl>
 
 <dl class="method">
-<dt id="stk.calculators.energy.energy_calculators.FormationEnergy.get_energy">
-<code class="sig-name descname">get_energy</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.FormationEnergy.get_energy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate the formation energy of <cite>mol</cite>.</p>
+<dt id="stk.calculators.energy.energy_calculators.FormationEnergy.add_to_cache">
+<code class="sig-name descname">add_to_cache</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em>, <em class="sig-param">value=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.FormationEnergy.add_to_cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a molecule to the cache.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> whose formation energy is to be
-calculated.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule to be added to the cache.</p></li>
+<li><p><strong>value</strong> (class:<cite>object</cite>, optional) – The cached value associated with the molecule.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>The formation energy.</p>
+<dd class="field-even"><p>The calculator.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="stk.calculators.base_calculators.html#stk.calculators.base_calculators.MoleculeCalculator" title="stk.calculators.base_calculators.MoleculeCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MoleculeCalculator</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.energy.energy_calculators.FormationEnergy.get_cached_value">
+<code class="sig-name descname">get_cached_value</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.FormationEnergy.get_cached_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value stored in the cache for <cite>mol</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule whose cached value is to be returned.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The cached value.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.energy.energy_calculators.FormationEnergy.get_energy">
+<code class="sig-name descname">get_energy</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.FormationEnergy.get_energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the energy of <cite>mol</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> whose energy is to be calculated.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The energy.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.energy.energy_calculators.FormationEnergy.is_caching">
+<code class="sig-name descname">is_caching</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.FormationEnergy.is_caching" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the calculator has caching turned on.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the calculator has caching turned on.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.energy.energy_calculators.FormationEnergy.is_in_cache">
+<code class="sig-name descname">is_in_cache</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.FormationEnergy.is_in_cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if <cite>mol</cite> is cached.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule being checked.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if <cite>mol</cite> is cached.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.energy.energy_calculators.FormationEnergy.set_cache_use">
+<code class="sig-name descname">set_cache_use</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">use_cache</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.FormationEnergy.set_cache_use" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set cache use on or off.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> if the cache is to be used.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The calculator.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="stk.calculators.base_calculators.html#stk.calculators.base_calculators.MoleculeCalculator" title="stk.calculators.base_calculators.MoleculeCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MoleculeCalculator</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -412,7 +620,7 @@ calculated.</p>
 <dl class="class">
 <dt id="stk.calculators.energy.energy_calculators.MMFFEnergy">
 <em class="property">class </em><code class="sig-name descname">MMFFEnergy</code><span class="sig-paren">(</span><em class="sig-param">use_cache=False</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.MMFFEnergy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stk.calculators.energy.energy_calculators.EnergyCalculator" title="stk.calculators.energy.energy_calculators.EnergyCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.energy.energy_calculators.EnergyCalculator</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.base_calculators._MoleculeCalculator</span></code>, <a class="reference internal" href="#stk.calculators.energy.energy_calculators.EnergyCalculator" title="stk.calculators.energy.energy_calculators.EnergyCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.energy.energy_calculators.EnergyCalculator</span></code></a></p>
 <p>Uses the MMFF force field to calculate energies.</p>
 <p class="rubric">Examples</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
@@ -434,20 +642,71 @@ calculated.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.MMFFEnergy.add_to_cache" title="stk.calculators.energy.energy_calculators.MMFFEnergy.add_to_cache"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_to_cache</span></code></a>(self, mol[, value])</p></td>
+<td><p>Add a molecule to the cache.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.MMFFEnergy.get_cached_value" title="stk.calculators.energy.energy_calculators.MMFFEnergy.get_cached_value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cached_value</span></code></a>(self, mol)</p></td>
+<td><p>Return the value stored in the cache for <cite>mol</cite>.</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.MMFFEnergy.get_energy" title="stk.calculators.energy.energy_calculators.MMFFEnergy.get_energy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_energy</span></code></a>(self, mol)</p></td>
 <td><p>Calculate the energy of <cite>mol</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.MMFFEnergy.is_caching" title="stk.calculators.energy.energy_calculators.MMFFEnergy.is_caching"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_caching</span></code></a>(self)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the calculator has caching turned on.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.MMFFEnergy.is_in_cache" title="stk.calculators.energy.energy_calculators.MMFFEnergy.is_in_cache"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_in_cache</span></code></a>(self, mol)</p></td>
+<td><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if <cite>mol</cite> is cached.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.MMFFEnergy.set_cache_use" title="stk.calculators.energy.energy_calculators.MMFFEnergy.set_cache_use"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cache_use</span></code></a>(self, use_cache)</p></td>
+<td><p>Set cache use on or off.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="stk.calculators.energy.energy_calculators.MMFFEnergy.__init__">
 <code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">use_cache=False</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.MMFFEnergy.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize a <a class="reference internal" href="#stk.calculators.energy.energy_calculators.EnergyCalculator" title="stk.calculators.energy.energy_calculators.EnergyCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnergyCalculator</span></code></a> instance.</p>
+<dd><p>Initialize the <a class="reference internal" href="stk.calculators.base_calculators.html#stk.calculators.base_calculators.Calculator" title="stk.calculators.base_calculators.Calculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Calculator</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> <a class="reference internal" href="#stk.calculators.energy.energy_calculators.MMFFEnergy.get_energy" title="stk.calculators.energy.energy_calculators.MMFFEnergy.get_energy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_energy()</span></code></a> will not run twice on the
-same molecule, but will instead return the previously
-calculated value.</p>
+<dd class="field-odd"><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, a calculation will not be performed on the
+same molecule twice.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.energy.energy_calculators.MMFFEnergy.add_to_cache">
+<code class="sig-name descname">add_to_cache</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em>, <em class="sig-param">value=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.MMFFEnergy.add_to_cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a molecule to the cache.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule to be added to the cache.</p></li>
+<li><p><strong>value</strong> (class:<cite>object</cite>, optional) – The cached value associated with the molecule.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The calculator.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="stk.calculators.base_calculators.html#stk.calculators.base_calculators.MoleculeCalculator" title="stk.calculators.base_calculators.MoleculeCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MoleculeCalculator</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.energy.energy_calculators.MMFFEnergy.get_cached_value">
+<code class="sig-name descname">get_cached_value</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.MMFFEnergy.get_cached_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value stored in the cache for <cite>mol</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule whose cached value is to be returned.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The cached value.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -469,12 +728,60 @@ calculated value.</p>
 </dl>
 </dd></dl>
 
+<dl class="method">
+<dt id="stk.calculators.energy.energy_calculators.MMFFEnergy.is_caching">
+<code class="sig-name descname">is_caching</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.MMFFEnergy.is_caching" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the calculator has caching turned on.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the calculator has caching turned on.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.energy.energy_calculators.MMFFEnergy.is_in_cache">
+<code class="sig-name descname">is_in_cache</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.MMFFEnergy.is_in_cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if <cite>mol</cite> is cached.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule being checked.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if <cite>mol</cite> is cached.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.energy.energy_calculators.MMFFEnergy.set_cache_use">
+<code class="sig-name descname">set_cache_use</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">use_cache</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.MMFFEnergy.set_cache_use" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set cache use on or off.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> if the cache is to be used.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The calculator.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="stk.calculators.base_calculators.html#stk.calculators.base_calculators.MoleculeCalculator" title="stk.calculators.base_calculators.MoleculeCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MoleculeCalculator</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="stk.calculators.energy.energy_calculators.UFFEnergy">
 <em class="property">class </em><code class="sig-name descname">UFFEnergy</code><span class="sig-paren">(</span><em class="sig-param">use_cache=False</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.UFFEnergy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stk.calculators.energy.energy_calculators.EnergyCalculator" title="stk.calculators.energy.energy_calculators.EnergyCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.energy.energy_calculators.EnergyCalculator</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.base_calculators._MoleculeCalculator</span></code>, <a class="reference internal" href="#stk.calculators.energy.energy_calculators.EnergyCalculator" title="stk.calculators.energy.energy_calculators.EnergyCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.energy.energy_calculators.EnergyCalculator</span></code></a></p>
 <p>Uses the UFF force field to calculate energies.</p>
 <p class="rubric">Examples</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
@@ -496,20 +803,71 @@ calculated value.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.UFFEnergy.add_to_cache" title="stk.calculators.energy.energy_calculators.UFFEnergy.add_to_cache"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_to_cache</span></code></a>(self, mol[, value])</p></td>
+<td><p>Add a molecule to the cache.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.UFFEnergy.get_cached_value" title="stk.calculators.energy.energy_calculators.UFFEnergy.get_cached_value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cached_value</span></code></a>(self, mol)</p></td>
+<td><p>Return the value stored in the cache for <cite>mol</cite>.</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.UFFEnergy.get_energy" title="stk.calculators.energy.energy_calculators.UFFEnergy.get_energy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_energy</span></code></a>(self, mol)</p></td>
 <td><p>Calculate the energy of <cite>mol</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.UFFEnergy.is_caching" title="stk.calculators.energy.energy_calculators.UFFEnergy.is_caching"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_caching</span></code></a>(self)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the calculator has caching turned on.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.UFFEnergy.is_in_cache" title="stk.calculators.energy.energy_calculators.UFFEnergy.is_in_cache"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_in_cache</span></code></a>(self, mol)</p></td>
+<td><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if <cite>mol</cite> is cached.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.UFFEnergy.set_cache_use" title="stk.calculators.energy.energy_calculators.UFFEnergy.set_cache_use"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cache_use</span></code></a>(self, use_cache)</p></td>
+<td><p>Set cache use on or off.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="stk.calculators.energy.energy_calculators.UFFEnergy.__init__">
 <code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">use_cache=False</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.UFFEnergy.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize a <a class="reference internal" href="#stk.calculators.energy.energy_calculators.EnergyCalculator" title="stk.calculators.energy.energy_calculators.EnergyCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnergyCalculator</span></code></a> instance.</p>
+<dd><p>Initialize the <a class="reference internal" href="stk.calculators.base_calculators.html#stk.calculators.base_calculators.Calculator" title="stk.calculators.base_calculators.Calculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Calculator</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> <a class="reference internal" href="#stk.calculators.energy.energy_calculators.UFFEnergy.get_energy" title="stk.calculators.energy.energy_calculators.UFFEnergy.get_energy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_energy()</span></code></a> will not run twice on the
-same molecule, but will instead return the previously
-calculated value.</p>
+<dd class="field-odd"><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, optional) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, a calculation will not be performed on the
+same molecule twice.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.energy.energy_calculators.UFFEnergy.add_to_cache">
+<code class="sig-name descname">add_to_cache</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em>, <em class="sig-param">value=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.UFFEnergy.add_to_cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a molecule to the cache.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule to be added to the cache.</p></li>
+<li><p><strong>value</strong> (class:<cite>object</cite>, optional) – The cached value associated with the molecule.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The calculator.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="stk.calculators.base_calculators.html#stk.calculators.base_calculators.MoleculeCalculator" title="stk.calculators.base_calculators.MoleculeCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MoleculeCalculator</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.energy.energy_calculators.UFFEnergy.get_cached_value">
+<code class="sig-name descname">get_cached_value</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.UFFEnergy.get_cached_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value stored in the cache for <cite>mol</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule whose cached value is to be returned.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The cached value.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -531,12 +889,60 @@ calculated value.</p>
 </dl>
 </dd></dl>
 
+<dl class="method">
+<dt id="stk.calculators.energy.energy_calculators.UFFEnergy.is_caching">
+<code class="sig-name descname">is_caching</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.UFFEnergy.is_caching" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the calculator has caching turned on.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the calculator has caching turned on.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.energy.energy_calculators.UFFEnergy.is_in_cache">
+<code class="sig-name descname">is_in_cache</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.UFFEnergy.is_in_cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if <cite>mol</cite> is cached.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule being checked.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if <cite>mol</cite> is cached.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.energy.energy_calculators.UFFEnergy.set_cache_use">
+<code class="sig-name descname">set_cache_use</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">use_cache</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.UFFEnergy.set_cache_use" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set cache use on or off.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> if the cache is to be used.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The calculator.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="stk.calculators.base_calculators.html#stk.calculators.base_calculators.MoleculeCalculator" title="stk.calculators.base_calculators.MoleculeCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MoleculeCalculator</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="stk.calculators.energy.energy_calculators.XTBEnergy">
 <em class="property">class </em><code class="sig-name descname">XTBEnergy</code><span class="sig-paren">(</span><em class="sig-param">xtb_path</em>, <em class="sig-param">gfn_version=2</em>, <em class="sig-param">output_dir=None</em>, <em class="sig-param">num_cores=1</em>, <em class="sig-param">calculate_free_energy=False</em>, <em class="sig-param">electronic_temperature=300</em>, <em class="sig-param">solvent=None</em>, <em class="sig-param">solvent_grid='normal'</em>, <em class="sig-param">charge=0</em>, <em class="sig-param">num_unpaired_electrons=0</em>, <em class="sig-param">unlimited_memory=False</em>, <em class="sig-param">use_cache=False</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.XTBEnergy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stk.calculators.energy.energy_calculators.EnergyCalculator" title="stk.calculators.energy.energy_calculators.EnergyCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.energy.energy_calculators.EnergyCalculator</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.base_calculators._MoleculeCalculator</span></code>, <a class="reference internal" href="#stk.calculators.energy.energy_calculators.EnergyCalculator" title="stk.calculators.energy.energy_calculators.EnergyCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.energy.energy_calculators.EnergyCalculator</span></code></a></p>
 <p>Uses GFN-xTB <a class="reference internal" href="#r6e92b130b761-1" id="id1"><span>[R6e92b130b761-1]</span></a> to calculate energy and other properties.</p>
 <p>By default, <a class="reference internal" href="#stk.calculators.energy.energy_calculators.XTBEnergy.get_energy" title="stk.calculators.energy.energy_calculators.XTBEnergy.get_energy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_energy()</span></code></a> will extract other properties of the
 <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> passed to <a class="reference internal" href="#stk.calculators.energy.energy_calculators.XTBEnergy.get_energy" title="stk.calculators.energy.energy_calculators.XTBEnergy.get_energy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_energy()</span></code></a>, which
@@ -769,8 +1175,23 @@ well optimized structure be used as input for these calculations</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.XTBEnergy.add_to_cache" title="stk.calculators.energy.energy_calculators.XTBEnergy.add_to_cache"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_to_cache</span></code></a>(self, mol[, value])</p></td>
+<td><p>Add a molecule to the cache.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.XTBEnergy.get_cached_value" title="stk.calculators.energy.energy_calculators.XTBEnergy.get_cached_value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cached_value</span></code></a>(self, mol)</p></td>
+<td><p>Return the value stored in the cache for <cite>mol</cite>.</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.XTBEnergy.get_energy" title="stk.calculators.energy.energy_calculators.XTBEnergy.get_energy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_energy</span></code></a>(self, mol)</p></td>
 <td><p>Calculate the energy of <cite>mol</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.XTBEnergy.is_caching" title="stk.calculators.energy.energy_calculators.XTBEnergy.is_caching"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_caching</span></code></a>(self)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the calculator has caching turned on.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.XTBEnergy.is_in_cache" title="stk.calculators.energy.energy_calculators.XTBEnergy.is_in_cache"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_in_cache</span></code></a>(self, mol)</p></td>
+<td><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if <cite>mol</cite> is cached.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.energy.energy_calculators.XTBEnergy.set_cache_use" title="stk.calculators.energy.energy_calculators.XTBEnergy.set_cache_use"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cache_use</span></code></a>(self, use_cache)</p></td>
+<td><p>Set cache use on or off.</p></td>
 </tr>
 </tbody>
 </table>
@@ -816,6 +1237,43 @@ molecule.</p></li>
 </dd></dl>
 
 <dl class="method">
+<dt id="stk.calculators.energy.energy_calculators.XTBEnergy.add_to_cache">
+<code class="sig-name descname">add_to_cache</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em>, <em class="sig-param">value=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.XTBEnergy.add_to_cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a molecule to the cache.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule to be added to the cache.</p></li>
+<li><p><strong>value</strong> (class:<cite>object</cite>, optional) – The cached value associated with the molecule.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The calculator.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="stk.calculators.base_calculators.html#stk.calculators.base_calculators.MoleculeCalculator" title="stk.calculators.base_calculators.MoleculeCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MoleculeCalculator</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.energy.energy_calculators.XTBEnergy.get_cached_value">
+<code class="sig-name descname">get_cached_value</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.XTBEnergy.get_cached_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value stored in the cache for <cite>mol</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule whose cached value is to be returned.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The cached value.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="stk.calculators.energy.energy_calculators.XTBEnergy.get_energy">
 <code class="sig-name descname">get_energy</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.XTBEnergy.get_energy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the energy of <cite>mol</cite>.</p>
@@ -828,6 +1286,54 @@ molecule.</p></li>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.energy.energy_calculators.XTBEnergy.is_caching">
+<code class="sig-name descname">is_caching</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.XTBEnergy.is_caching" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the calculator has caching turned on.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the calculator has caching turned on.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.energy.energy_calculators.XTBEnergy.is_in_cache">
+<code class="sig-name descname">is_in_cache</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.XTBEnergy.is_in_cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if <cite>mol</cite> is cached.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule being checked.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if <cite>mol</cite> is cached.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.energy.energy_calculators.XTBEnergy.set_cache_use">
+<code class="sig-name descname">set_cache_use</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">use_cache</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.energy.energy_calculators.XTBEnergy.set_cache_use" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set cache use on or off.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> if the cache is to be used.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The calculator.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="stk.calculators.base_calculators.html#stk.calculators.base_calculators.MoleculeCalculator" title="stk.calculators.base_calculators.MoleculeCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MoleculeCalculator</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>

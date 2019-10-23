@@ -1,0 +1,463 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Base Calculators &mdash; stk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> stk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">stk</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_examples.html">Basic Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cookbook.html">Cookbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Molecules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.molecules.building_block.html">Building Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html">Constructed Molecule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.functional_groups.html">Functional Groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.populations.html">Populations</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Topology Graphs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.polymer.html">Polymer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.cage.base.html">Organic Cage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.cof.html">Covalent Organic Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.host_guest.html">Host Guest Complex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.macrocycle.html">Macrocycle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.rotaxane.html">Rotaxane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.molecular.topology_graphs.topology_graph.html">Adding Topology Graphs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Calculators</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="calculators.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.optimization.optimizers.html">Optimizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.energy.energy_calculators.html">Energy Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.compound.html">Compound Calculators</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Evolutionary Algorithm</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ea.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.fitness_calculators.html">Fitness Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.fitness_normalizers.html">Fitness Normalizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.selectors.html">Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.mutators.html">Mutation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.crossers.html">Crossover</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.terminators.html">Termination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.ea.plotters.html">Plotting</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">stk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Base Calculators</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/stk.calculators.base_calculators.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="module-stk.calculators.base_calculators"></span><div class="section" id="base-calculators">
+<h1>Base Calculators<a class="headerlink" href="#base-calculators" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#stk.calculators.base_calculators.Calculator" title="stk.calculators.base_calculators.Calculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Calculator</span></code></a></p></li>
+<li><p><a class="reference internal" href="#stk.calculators.base_calculators.MoleculeCalculator" title="stk.calculators.base_calculators.MoleculeCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MoleculeCalculator</span></code></a></p></li>
+<li><p><a class="reference internal" href="#stk.calculators.base_calculators.EAOperation" title="stk.calculators.base_calculators.EAOperation"><code class="xref py py-class docutils literal notranslate"><span class="pre">EAOperation</span></code></a></p></li>
+</ol>
+<p>This module provides calculator classes which serve as abstract base
+classes for other types for calculators. Note that calculators defined
+here do not act as direct base classes for calculators which are used
+by users. The ususal inheritance scheme is <a class="reference internal" href="#stk.calculators.base_calculators.Calculator" title="stk.calculators.base_calculators.Calculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Calculator</span></code></a> is
+subclassed by <code class="xref py py-class docutils literal notranslate"><span class="pre">CalculatorType</span></code> which is subclassed by
+<code class="xref py py-class docutils literal notranslate"><span class="pre">UserCalculatorType</span></code>. For example, <a class="reference internal" href="#stk.calculators.base_calculators.Calculator" title="stk.calculators.base_calculators.Calculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Calculator</span></code></a> is
+subclassed by <a class="reference internal" href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.Optimizer" title="stk.calculators.optimization.optimizers.Optimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Optimizer</span></code></a> and <a class="reference internal" href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.Optimizer" title="stk.calculators.optimization.optimizers.Optimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Optimizer</span></code></a> is
+subclassed by <a class="reference internal" href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.ETKDG" title="stk.calculators.optimization.optimizers.ETKDG"><code class="xref py py-class docutils literal notranslate"><span class="pre">ETKDG</span></code></a>. Only <a class="reference internal" href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.ETKDG" title="stk.calculators.optimization.optimizers.ETKDG"><code class="xref py py-class docutils literal notranslate"><span class="pre">ETKDG</span></code></a> is instantiated
+and used by the user. Note that <a class="reference internal" href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.Optimizer" title="stk.calculators.optimization.optimizers.Optimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Optimizer</span></code></a> does not
+subclass <a class="reference internal" href="#stk.calculators.base_calculators.Calculator" title="stk.calculators.base_calculators.Calculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Calculator</span></code></a> directly, it is subclassed via
+<code class="xref py py-class docutils literal notranslate"><span class="pre">MolecularCalculator</span></code>, this is an implementation detail of the
+<a class="reference internal" href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.Optimizer" title="stk.calculators.optimization.optimizers.Optimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Optimizer</span></code></a> class.</p>
+<p><a class="reference internal" href="#stk.calculators.base_calculators.Calculator" title="stk.calculators.base_calculators.Calculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Calculator</span></code></a> simply serves as a common abstract base class
+for every other <code class="docutils literal notranslate"><span class="pre">stk</span></code> calculator. The direct subclass of
+<a class="reference internal" href="#stk.calculators.base_calculators.Calculator" title="stk.calculators.base_calculators.Calculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Calculator</span></code></a> is an abstract base class which defines a new
+type of calculator for <code class="docutils literal notranslate"><span class="pre">stk</span></code>, for example <a class="reference internal" href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.Optimizer" title="stk.calculators.optimization.optimizers.Optimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Optimizer</span></code></a>
+or <a class="reference internal" href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.EnergyCalculator" title="stk.calculators.energy.energy_calculators.EnergyCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnergyCalculator</span></code></a>. These define an interface for the new
+type of calculation. Finally the subclasses of <a class="reference internal" href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.Optimizer" title="stk.calculators.optimization.optimizers.Optimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Optimizer</span></code></a> or
+<code class="xref py py-class docutils literal notranslate"><span class="pre">EnergyCalculator</span></code> implement the calculation. For example
+<a class="reference internal" href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.ETKDG" title="stk.calculators.optimization.optimizers.ETKDG"><code class="xref py py-class docutils literal notranslate"><span class="pre">ETKDG</span></code></a> or :class:<a href="#id1"><span class="problematic" id="id2">`</span></a>.MMFF``or different implementations of an
+optimization, which the user can use.</p>
+<p>For some of the abstract base classes provided here, an implementation
+is also provided. If the implementation is inherited, the abstract base
+class it implements should also be inherited, explicitly and directly.
+This is because inheriting the implementation class is purely an
+implementation detail that should be treated as invisible to the user
+of the class.</p>
+<dl class="class">
+<dt id="stk.calculators.base_calculators.Calculator">
+<em class="property">class </em><code class="sig-name descname">Calculator</code><a class="headerlink" href="#stk.calculators.base_calculators.Calculator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Abstract base class for all calculators.</p>
+<dl class="method">
+<dt id="stk.calculators.base_calculators.Calculator.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">/</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.base_calculators.Calculator.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stk.calculators.base_calculators.EAOperation">
+<em class="property">class </em><code class="sig-name descname">EAOperation</code><a class="headerlink" href="#stk.calculators.base_calculators.EAOperation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stk.calculators.base_calculators.Calculator" title="stk.calculators.base_calculators.Calculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.base_calculators.Calculator</span></code></a></p>
+<p>Abstract base class for operations such as mutation or crossover.</p>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.base_calculators.EAOperation.set_cache_use" title="stk.calculators.base_calculators.EAOperation.set_cache_use"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cache_use</span></code></a>(self, use_cache)</p></td>
+<td><p>Set use of the molecular cache on or off.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.calculators.base_calculators.EAOperation.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">/</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.base_calculators.EAOperation.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.base_calculators.EAOperation.set_cache_use">
+<code class="sig-name descname">set_cache_use</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">use_cache</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.base_calculators.EAOperation.set_cache_use" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set use of the molecular cache on or off.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> if the molecular cache is to be used.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The calculator.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#stk.calculators.base_calculators.EAOperation" title="stk.calculators.base_calculators.EAOperation"><code class="xref py py-class docutils literal notranslate"><span class="pre">EAOperation</span></code></a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> – This is a virtual method and needs to be implemented in a
+subclass.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stk.calculators.base_calculators.MoleculeCalculator">
+<em class="property">class </em><code class="sig-name descname">MoleculeCalculator</code><a class="headerlink" href="#stk.calculators.base_calculators.MoleculeCalculator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stk.calculators.base_calculators.Calculator" title="stk.calculators.base_calculators.Calculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.base_calculators.Calculator</span></code></a></p>
+<p>Abstract base class for calculators used on single molecules.</p>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.base_calculators.MoleculeCalculator.add_to_cache" title="stk.calculators.base_calculators.MoleculeCalculator.add_to_cache"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_to_cache</span></code></a>(self, mol[, value])</p></td>
+<td><p>Add a molecule to the cache.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.base_calculators.MoleculeCalculator.get_cached_value" title="stk.calculators.base_calculators.MoleculeCalculator.get_cached_value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cached_value</span></code></a>(self, mol)</p></td>
+<td><p>Return the value stored in the cache for <cite>mol</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.base_calculators.MoleculeCalculator.is_caching" title="stk.calculators.base_calculators.MoleculeCalculator.is_caching"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_caching</span></code></a>(self)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the calculator has caching turned on.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.base_calculators.MoleculeCalculator.is_in_cache" title="stk.calculators.base_calculators.MoleculeCalculator.is_in_cache"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_in_cache</span></code></a>(self, mol)</p></td>
+<td><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if <cite>mol</cite> is cached.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.base_calculators.MoleculeCalculator.set_cache_use" title="stk.calculators.base_calculators.MoleculeCalculator.set_cache_use"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cache_use</span></code></a>(self, use_cache)</p></td>
+<td><p>Set cache use on or off.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stk.calculators.base_calculators.MoleculeCalculator.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">/</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.base_calculators.MoleculeCalculator.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.base_calculators.MoleculeCalculator.add_to_cache">
+<code class="sig-name descname">add_to_cache</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em>, <em class="sig-param">value=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.base_calculators.MoleculeCalculator.add_to_cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a molecule to the cache.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule to be added to the cache.</p></li>
+<li><p><strong>value</strong> (class:<cite>object</cite>, optional) – The cached value associated with the molecule.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The calculator.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#stk.calculators.base_calculators.MoleculeCalculator" title="stk.calculators.base_calculators.MoleculeCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MoleculeCalculator</span></code></a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> – This is a virtual method and needs to be implemented in a
+subclass.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.base_calculators.MoleculeCalculator.get_cached_value">
+<code class="sig-name descname">get_cached_value</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.base_calculators.MoleculeCalculator.get_cached_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value stored in the cache for <cite>mol</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule whose cached value is to be returned.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The cached value.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> – This is a virtual method and needs to be implemented in a
+subclass.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.base_calculators.MoleculeCalculator.is_caching">
+<code class="sig-name descname">is_caching</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.base_calculators.MoleculeCalculator.is_caching" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the calculator has caching turned on.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the calculator has caching turned on.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>NotImplementedError</strong> – This is a virtual method and needs to be implemented in a
+subclass.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.base_calculators.MoleculeCalculator.is_in_cache">
+<code class="sig-name descname">is_in_cache</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.base_calculators.MoleculeCalculator.is_in_cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if <cite>mol</cite> is cached.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule being checked.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if <cite>mol</cite> is cached.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> – This is a virtual method and needs to be implemented in a
+subclass.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.base_calculators.MoleculeCalculator.set_cache_use">
+<code class="sig-name descname">set_cache_use</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">use_cache</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.base_calculators.MoleculeCalculator.set_cache_use" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set cache use on or off.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> if the cache is to be used.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The calculator.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#stk.calculators.base_calculators.MoleculeCalculator" title="stk.calculators.base_calculators.MoleculeCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MoleculeCalculator</span></code></a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> – This is a virtual method and needs to be implemented in a
+subclass.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Lukas Turcani
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

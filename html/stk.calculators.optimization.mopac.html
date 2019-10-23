@@ -107,6 +107,7 @@
 <li class="toctree-l1"><a class="reference internal" href="calculators.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stk.calculators.optimization.optimizers.html">Optimizers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stk.calculators.energy.energy_calculators.html">Energy Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.compound.html">Compound Calculators</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Evolutionary Algorithm</span></p>
 <ul>
@@ -314,14 +315,20 @@ is no timeout.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.optimization.mopac.MOPAC.add_to_cache" title="stk.calculators.optimization.mopac.MOPAC.add_to_cache"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_to_cache</span></code></a>(self, mol)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.optimization.mopac.MOPAC.add_to_cache" title="stk.calculators.optimization.mopac.MOPAC.add_to_cache"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_to_cache</span></code></a>(self, mol[, value])</p></td>
 <td><p>Add a molecule to the cache.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.optimization.mopac.MOPAC.generate_mop" title="stk.calculators.optimization.mopac.MOPAC.generate_mop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_mop</span></code></a>(self, mol, conformer)</p></td>
 <td><p>Creates the <code class="docutils literal notranslate"><span class="pre">.mop</span></code> file for the optimization.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.optimization.mopac.MOPAC.is_caching" title="stk.calculators.optimization.mopac.MOPAC.is_caching"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_caching</span></code></a>(self)</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the optimizer has caching turned on.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.optimization.mopac.MOPAC.get_cached_value" title="stk.calculators.optimization.mopac.MOPAC.get_cached_value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cached_value</span></code></a>(self, mol)</p></td>
+<td><p>Return the value stored in the cache for <cite>mol</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.optimization.mopac.MOPAC.is_caching" title="stk.calculators.optimization.mopac.MOPAC.is_caching"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_caching</span></code></a>(self)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the calculator has caching turned on.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.optimization.mopac.MOPAC.is_in_cache" title="stk.calculators.optimization.mopac.MOPAC.is_in_cache"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_in_cache</span></code></a>(self, mol)</p></td>
+<td><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if <cite>mol</cite> is cached.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.optimization.mopac.MOPAC.kill_mopac" title="stk.calculators.optimization.mopac.MOPAC.kill_mopac"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kill_mopac</span></code></a>(self, mol)</p></td>
 <td><p>Kills an in-progress MOPAC run.</p></td>
@@ -404,17 +411,24 @@ molecule and conformer.</p></li>
 
 <dl class="method">
 <dt id="stk.calculators.optimization.mopac.MOPAC.add_to_cache">
-<code class="sig-name descname">add_to_cache</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.mopac.MOPAC.add_to_cache" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_to_cache</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em>, <em class="sig-param">value=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.mopac.MOPAC.add_to_cache" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a molecule to the cache.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule to be added to the cache.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule to be added to the cache.</p></li>
+<li><p><strong>value</strong> (class:<cite>object</cite>, optional) – The cached value associated with the molecule.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>None</strong></p>
+<dd class="field-even"><p>The calculator.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+<dd class="field-odd"><p><a class="reference internal" href="stk.calculators.base_calculators.html#stk.calculators.base_calculators.MoleculeCalculator" title="stk.calculators.base_calculators.MoleculeCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MoleculeCalculator</span></code></a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> – This is a virtual method and needs to be implemented in a
+subclass.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -441,15 +455,61 @@ structure file is converted to a <code class="docutils literal notranslate"><spa
 </dd></dl>
 
 <dl class="method">
+<dt id="stk.calculators.optimization.mopac.MOPAC.get_cached_value">
+<code class="sig-name descname">get_cached_value</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.mopac.MOPAC.get_cached_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value stored in the cache for <cite>mol</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule whose cached value is to be returned.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The cached value.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> – This is a virtual method and needs to be implemented in a
+subclass.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="stk.calculators.optimization.mopac.MOPAC.is_caching">
 <code class="sig-name descname">is_caching</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.mopac.MOPAC.is_caching" title="Permalink to this definition">¶</a></dt>
-<dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the optimizer has caching turned on.</p>
+<dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the calculator has caching turned on.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the optimizer has caching turned on.</p>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the calculator has caching turned on.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>NotImplementedError</strong> – This is a virtual method and needs to be implemented in a
+subclass.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="stk.calculators.optimization.mopac.MOPAC.is_in_cache">
+<code class="sig-name descname">is_in_cache</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mol</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.optimization.mopac.MOPAC.is_in_cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if <cite>mol</cite> is cached.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mol</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecule being checked.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if <cite>mol</cite> is cached.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> – This is a virtual method and needs to be implemented in a
+subclass.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -522,10 +582,14 @@ formatted for the input file.</p>
 <dd class="field-odd"><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> if the cache is to be used.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>None</strong></p>
+<dd class="field-even"><p>The calculator.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+<dd class="field-odd"><p><a class="reference internal" href="stk.calculators.base_calculators.html#stk.calculators.base_calculators.MoleculeCalculator" title="stk.calculators.base_calculators.MoleculeCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MoleculeCalculator</span></code></a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> – This is a virtual method and needs to be implemented in a
+subclass.</p>
 </dd>
 </dl>
 </dd></dl>

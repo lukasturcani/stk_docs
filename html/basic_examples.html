@@ -123,6 +123,7 @@
 <li class="toctree-l1"><a class="reference internal" href="calculators.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stk.calculators.optimization.optimizers.html">Optimizers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stk.calculators.energy.energy_calculators.html">Energy Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.compound.html">Compound Calculators</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Evolutionary Algorithm</span></p>
 <ul>
@@ -327,7 +328,7 @@ second optimization from being run on the same molecule twice</p>
 </pre></div>
 </div>
 <p>An important optimizer to take note of is the
-<a class="reference internal" href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.OptimizerSequence" title="stk.calculators.optimization.optimizers.OptimizerSequence"><code class="xref py py-class docutils literal notranslate"><span class="pre">OptimizerSequence</span></code></a>, which allows you to chain multiple
+<code class="xref py py-class docutils literal notranslate"><span class="pre">OptimizerSequence</span></code>, which allows you to chain multiple
 optimizers in one go. For example, you may wish to embed a molecule
 with the ETKDG algorithm before running a UFF optimization</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sequence</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">OptimizerSequence</span><span class="p">(</span>

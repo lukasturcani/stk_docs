@@ -107,6 +107,7 @@
 <li class="toctree-l1"><a class="reference internal" href="calculators.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stk.calculators.optimization.optimizers.html">Optimizers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stk.calculators.energy.energy_calculators.html">Energy Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.compound.html">Compound Calculators</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Evolutionary Algorithm</span></p>
 <ul class="current">
@@ -190,27 +191,31 @@
   <span class="target" id="module-stk.calculators.ea.crossers"></span><div class="section" id="crossover">
 <h1>Crossover<a class="headerlink" href="#crossover" title="Permalink to this headline">¶</a></h1>
 <ol class="arabic simple">
-<li><p><a class="reference internal" href="#stk.calculators.ea.crossers.RandomCrossover" title="stk.calculators.ea.crossers.RandomCrossover"><code class="xref py py-class docutils literal notranslate"><span class="pre">RandomCrossover</span></code></a></p></li>
 <li><p><a class="reference internal" href="#stk.calculators.ea.crossers.GeneticRecombination" title="stk.calculators.ea.crossers.GeneticRecombination"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeneticRecombination</span></code></a></p></li>
 <li><p><a class="reference internal" href="#stk.calculators.ea.crossers.Jumble" title="stk.calculators.ea.crossers.Jumble"><code class="xref py py-class docutils literal notranslate"><span class="pre">Jumble</span></code></a></p></li>
+<li><p><a class="reference internal" href="stk.calculators.compound.html#stk.calculators.compound.If" title="stk.calculators.compound.If"><code class="xref py py-class docutils literal notranslate"><span class="pre">If</span></code></a></p></li>
+<li><p><a class="reference internal" href="stk.calculators.compound.html#stk.calculators.compound.TryCatch" title="stk.calculators.compound.TryCatch"><code class="xref py py-class docutils literal notranslate"><span class="pre">TryCatch</span></code></a></p></li>
+<li><p><a class="reference internal" href="stk.calculators.compound.html#stk.calculators.compound.Random" title="stk.calculators.compound.Random"><code class="xref py py-class docutils literal notranslate"><span class="pre">Random</span></code></a></p></li>
+<li><p><a class="reference internal" href="stk.calculators.compound.html#stk.calculators.compound.RaisingCalculator" title="stk.calculators.compound.RaisingCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">RaisingCalculator</span></code></a></p></li>
 </ol>
 <p>Crossover is implement through <a class="reference internal" href="#stk.calculators.ea.crossers.Crosser" title="stk.calculators.ea.crossers.Crosser"><code class="xref py py-class docutils literal notranslate"><span class="pre">Crosser</span></code></a> objects. Crossers take
 a group of molecules and recombine
 them to produce offspring molecules. How crossers are used can be
 seen in the documentation of the various <a class="reference internal" href="#stk.calculators.ea.crossers.Crosser" title="stk.calculators.ea.crossers.Crosser"><code class="xref py py-class docutils literal notranslate"><span class="pre">Crosser</span></code></a> classes,
-for example <a class="reference internal" href="#stk.calculators.ea.crossers.GeneticRecombination" title="stk.calculators.ea.crossers.GeneticRecombination"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeneticRecombination</span></code></a>,
-<a class="reference internal" href="#stk.calculators.ea.crossers.Jumble" title="stk.calculators.ea.crossers.Jumble"><code class="xref py py-class docutils literal notranslate"><span class="pre">Jumble</span></code></a> or <a class="reference internal" href="#stk.calculators.ea.crossers.RandomCrossover" title="stk.calculators.ea.crossers.RandomCrossover"><code class="xref py py-class docutils literal notranslate"><span class="pre">RandomCrossover</span></code></a>.</p>
+for example <a class="reference internal" href="#stk.calculators.ea.crossers.GeneticRecombination" title="stk.calculators.ea.crossers.GeneticRecombination"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeneticRecombination</span></code></a> or
+<a class="reference internal" href="#stk.calculators.ea.crossers.Jumble" title="stk.calculators.ea.crossers.Jumble"><code class="xref py py-class docutils literal notranslate"><span class="pre">Jumble</span></code></a>.</p>
 <div class="section" id="making-new-crossers">
 <span id="adding-crossers"></span><h2>Making New Crossers<a class="headerlink" href="#making-new-crossers" title="Permalink to this headline">¶</a></h2>
 <p>To add a new <a class="reference internal" href="#stk.calculators.ea.crossers.Crosser" title="stk.calculators.ea.crossers.Crosser"><code class="xref py py-class docutils literal notranslate"><span class="pre">Crosser</span></code></a>, make a new class which inherits
-<a class="reference internal" href="#stk.calculators.ea.crossers.Crosser" title="stk.calculators.ea.crossers.Crosser"><code class="xref py py-class docutils literal notranslate"><span class="pre">Crosser</span></code></a> and defines a method called
-<a class="reference internal" href="#stk.calculators.ea.crossers.Crosser.cross" title="stk.calculators.ea.crossers.Crosser.cross"><code class="xref py py-meth docutils literal notranslate"><span class="pre">cross()</span></code></a>. The method is a generator, which can take
-any number of molecules and yields the offspring molecules.</p>
+<a class="reference internal" href="#stk.calculators.ea.crossers.Crosser" title="stk.calculators.ea.crossers.Crosser"><code class="xref py py-class docutils literal notranslate"><span class="pre">Crosser</span></code></a>. This is an abstract base class and all of its
+virtual methods need to be implemented.</p>
 <dl class="class">
 <dt id="stk.calculators.ea.crossers.Crosser">
-<em class="property">class </em><code class="sig-name descname">Crosser</code><span class="sig-paren">(</span><em class="sig-param">use_cache</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.crossers.Crosser" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Carries out crossover on molecules.</p>
+<em class="property">class </em><code class="sig-name descname">Crosser</code><a class="headerlink" href="#stk.calculators.ea.crossers.Crosser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="stk.calculators.base_calculators.html#stk.calculators.base_calculators.EAOperation" title="stk.calculators.base_calculators.EAOperation"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.base_calculators.EAOperation</span></code></a></p>
+<p>Abstract base class for crossers.</p>
+<p>Crossers take multiple molecules and recombine them to make
+new, offspring, molecules.</p>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -222,19 +227,14 @@ any number of molecules and yields the offspring molecules.</p>
 <td><p>Cross <cite>mols</cite>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.ea.crossers.Crosser.set_cache_use" title="stk.calculators.ea.crossers.Crosser.set_cache_use"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cache_use</span></code></a>(self, use_cache)</p></td>
-<td><p>Set cache use on or off.</p></td>
+<td><p>Set use of the molecular cache on or off.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="stk.calculators.ea.crossers.Crosser.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">use_cache</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.crossers.Crosser.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize a <a class="reference internal" href="#stk.calculators.ea.crossers.Crosser" title="stk.calculators.ea.crossers.Crosser"><code class="xref py py-class docutils literal notranslate"><span class="pre">Crosser</span></code></a>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Toggles use of the molecular cache.</p>
-</dd>
-</dl>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">/</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.crossers.Crosser.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
 <dl class="method">
@@ -254,16 +254,20 @@ any number of molecules and yields the offspring molecules.</p>
 <dl class="method">
 <dt id="stk.calculators.ea.crossers.Crosser.set_cache_use">
 <code class="sig-name descname">set_cache_use</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">use_cache</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.crossers.Crosser.set_cache_use" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set cache use on or off.</p>
+<dd><p>Set use of the molecular cache on or off.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> if the cache is to be used.</p>
+<dd class="field-odd"><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> if the molecular cache is to be used.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>None</strong></p>
+<dd class="field-even"><p>The calculator.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+<dd class="field-odd"><p><a class="reference internal" href="stk.calculators.base_calculators.html#stk.calculators.base_calculators.EAOperation" title="stk.calculators.base_calculators.EAOperation"><code class="xref py py-class docutils literal notranslate"><span class="pre">EAOperation</span></code></a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> – This is a virtual method and needs to be implemented in a
+subclass.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -273,7 +277,7 @@ any number of molecules and yields the offspring molecules.</p>
 <dl class="class">
 <dt id="stk.calculators.ea.crossers.GeneticRecombination">
 <em class="property">class </em><code class="sig-name descname">GeneticRecombination</code><span class="sig-paren">(</span><em class="sig-param">key</em>, <em class="sig-param">random_yield_order=True</em>, <em class="sig-param">random_seed=None</em>, <em class="sig-param">use_cache=False</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.crossers.GeneticRecombination" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stk.calculators.ea.crossers.Crosser" title="stk.calculators.ea.crossers.Crosser"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.crossers.Crosser</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.base_calculators._EAOperation</span></code>, <a class="reference internal" href="#stk.calculators.ea.crossers.Crosser" title="stk.calculators.ea.crossers.Crosser"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.crossers.Crosser</span></code></a></p>
 <p>Recombine building blocks using biological systems as a model.</p>
 <p>Overall, this crosser mimics how animals and plants inherit
 DNA from their parents, except generalized to work with any
@@ -325,7 +329,7 @@ each building block of the parent molecules into genes using
 the <cite>key</cite> parameter. Then, to generate a single offspring, it
 picks a random building block for every gene. The picked
 building blocks are used to construct the offspring. The
-topoogy graph of the offspring is one of the parent’s.
+topology graph of the offspring is one of the parent’s.
 For obvious reasons, this approach works with any number of
 parents.</p>
 <p class="rubric">Examples</p>
@@ -337,14 +341,14 @@ parents.</p>
 <span class="n">bb2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;O=CCCCC=O&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;aldehyde&#39;</span><span class="p">])</span>
 <span class="n">polymer1</span>  <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
     <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">bb1</span><span class="p">,</span> <span class="n">bb2</span><span class="p">],</span>
-    <span class="n">topolgy_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="s1">&#39;AB&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="s1">&#39;AB&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="p">)</span>
 
 <span class="n">bb3</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NCCCN&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;amine&#39;</span><span class="p">])</span>
 <span class="n">bb4</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;O=C[Si]CCC=O&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;aldehyde&#39;</span><span class="p">])</span>
 <span class="n">polymer2</span>  <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
     <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">bb3</span><span class="p">,</span> <span class="n">bb4</span><span class="p">],</span>
-    <span class="n">topolog_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="s1">&#39;AB&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="s1">&#39;AB&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="p">)</span>
 
 <span class="n">bb5</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NC[Si]CN&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;amine&#39;</span><span class="p">])</span>
@@ -388,7 +392,7 @@ parents.</p>
 <td><p>Cross <cite>mols</cite>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.ea.crossers.GeneticRecombination.set_cache_use" title="stk.calculators.ea.crossers.GeneticRecombination.set_cache_use"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cache_use</span></code></a>(self, use_cache)</p></td>
-<td><p>Set cache use on or off.</p></td>
+<td><p>Set use of the molecular cache on or off.</p></td>
 </tr>
 </tbody>
 </table>
@@ -416,10 +420,10 @@ picked at random.</p></li>
 <dd><p>Cross <cite>mols</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>*mols</strong> (<a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstructedMolecule</span></code></a>) – The molecules to crossed.</p>
+<dd class="field-odd"><p><strong>*mols</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecules on which a crossover operation is performed.</p>
 </dd>
 <dt class="field-even">Yields</dt>
-<dd class="field-even"><p><a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstructedMolecule</span></code></a> – The generated offspring.</p>
+<dd class="field-even"><p><a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> – The generated offspring.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -427,16 +431,16 @@ picked at random.</p></li>
 <dl class="method">
 <dt id="stk.calculators.ea.crossers.GeneticRecombination.set_cache_use">
 <code class="sig-name descname">set_cache_use</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">use_cache</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.crossers.GeneticRecombination.set_cache_use" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set cache use on or off.</p>
+<dd><p>Set use of the molecular cache on or off.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> if the cache is to be used.</p>
+<dd class="field-odd"><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> if the molecular cache is to be used.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>None</strong></p>
+<dd class="field-even"><p>The calculator.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+<dd class="field-odd"><p><a class="reference internal" href="stk.calculators.base_calculators.html#stk.calculators.base_calculators.EAOperation" title="stk.calculators.base_calculators.EAOperation"><code class="xref py py-class docutils literal notranslate"><span class="pre">EAOperation</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -446,7 +450,7 @@ picked at random.</p></li>
 <dl class="class">
 <dt id="stk.calculators.ea.crossers.Jumble">
 <em class="property">class </em><code class="sig-name descname">Jumble</code><span class="sig-paren">(</span><em class="sig-param">num_offspring_building_blocks</em>, <em class="sig-param">duplicate_building_blocks=False</em>, <em class="sig-param">random_yield_order=True</em>, <em class="sig-param">random_seed=None</em>, <em class="sig-param">use_cache=False</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.crossers.Jumble" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stk.calculators.ea.crossers.Crosser" title="stk.calculators.ea.crossers.Crosser"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.crossers.Crosser</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.base_calculators._EAOperation</span></code>, <a class="reference internal" href="#stk.calculators.ea.crossers.Crosser" title="stk.calculators.ea.crossers.Crosser"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.crossers.Crosser</span></code></a></p>
 <p>Distributes all building blocks among offspring.</p>
 <p>Puts all the building blocks from each parent into one big pot
 and building blocks are drawn from the pot to generate the
@@ -504,7 +508,7 @@ parents.</p>
 <td><p>Cross <cite>mols</cite>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.ea.crossers.Jumble.set_cache_use" title="stk.calculators.ea.crossers.Jumble.set_cache_use"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cache_use</span></code></a>(self, use_cache)</p></td>
-<td><p>Set cache use on or off.</p></td>
+<td><p>Set use of the molecular cache on or off.</p></td>
 </tr>
 </tbody>
 </table>
@@ -531,10 +535,10 @@ offspring must all be unique.</p></li>
 <dd><p>Cross <cite>mols</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>*mols</strong> (<a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstructedMolecule</span></code></a>) – The molecules to cross.</p>
+<dd class="field-odd"><p><strong>*mols</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecules on which a crossover operation is performed.</p>
 </dd>
 <dt class="field-even">Yields</dt>
-<dd class="field-even"><p><a class="reference internal" href="stk.molecular.molecules.constructed_molecule.html#stk.molecular.molecules.constructed_molecule.ConstructedMolecule" title="stk.molecular.molecules.constructed_molecule.ConstructedMolecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstructedMolecule</span></code></a> – An offspring molecule.</p>
+<dd class="field-even"><p><a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> – The generated offspring.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -542,141 +546,16 @@ offspring must all be unique.</p></li>
 <dl class="method">
 <dt id="stk.calculators.ea.crossers.Jumble.set_cache_use">
 <code class="sig-name descname">set_cache_use</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">use_cache</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.crossers.Jumble.set_cache_use" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set cache use on or off.</p>
+<dd><p>Set use of the molecular cache on or off.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> if the cache is to be used.</p>
+<dd class="field-odd"><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> if the molecular cache is to be used.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>None</strong></p>
+<dd class="field-even"><p>The calculator.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="stk.calculators.ea.crossers.RandomCrossover">
-<em class="property">class </em><code class="sig-name descname">RandomCrossover</code><span class="sig-paren">(</span><em class="sig-param">*crossers</em>, <em class="sig-param">weights=None</em>, <em class="sig-param">random_seed=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.crossers.RandomCrossover" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#stk.calculators.ea.crossers.Crosser" title="stk.calculators.ea.crossers.Crosser"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.crossers.Crosser</span></code></a></p>
-<p>Uses a random <a class="reference internal" href="#stk.calculators.ea.crossers.Crosser" title="stk.calculators.ea.crossers.Crosser"><code class="xref py py-class docutils literal notranslate"><span class="pre">Crosser</span></code></a> to carry out crossovers.</p>
-<p class="rubric">Examples</p>
-<p>Note that the crossover operations used in this example accept
-any number of parents.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stk</span>
-
-<span class="c1"># Create the molecules which will be crossed.</span>
-<span class="n">bb1</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NCCN&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;amine&#39;</span><span class="p">])</span>
-<span class="n">bb2</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;O=CCCCC=O&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;aldehyde&#39;</span><span class="p">])</span>
-<span class="n">polymer1</span>  <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
-    <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">bb1</span><span class="p">,</span> <span class="n">bb2</span><span class="p">],</span>
-    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="s1">&#39;AB&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="p">)</span>
-
-<span class="n">bb3</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NCCCN&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;amine&#39;</span><span class="p">])</span>
-<span class="n">bb4</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;O=C[Si]CCC=O&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;aldehyde&#39;</span><span class="p">])</span>
-<span class="n">polymer2</span>  <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
-    <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">bb3</span><span class="p">,</span> <span class="n">bb4</span><span class="p">],</span>
-    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="s1">&#39;AB&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="p">)</span>
-
-<span class="n">bb5</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;NC[Si]CN&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;amine&#39;</span><span class="p">])</span>
-<span class="n">bb6</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">BuildingBlock</span><span class="p">(</span><span class="s1">&#39;O=CCNNCCC=O&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;aldehyde&#39;</span><span class="p">])</span>
-<span class="n">polymer3</span>  <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">ConstructedMolecule</span><span class="p">(</span>
-    <span class="n">building_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">bb5</span><span class="p">,</span> <span class="n">bb6</span><span class="p">],</span>
-    <span class="n">topology_graph</span><span class="o">=</span><span class="n">stk</span><span class="o">.</span><span class="n">polymer</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="s1">&#39;AB&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="p">)</span>
-
-<span class="c1"># Create the crossers.</span>
-<span class="n">recombination</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">GeneticRecombination</span><span class="p">(</span>
-    <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">mol</span><span class="p">:</span> <span class="n">mol</span><span class="o">.</span><span class="n">func_groups</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">fg_type</span><span class="o">.</span><span class="n">name</span>
-<span class="p">)</span>
-<span class="n">jumble</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">Jumble</span><span class="p">(</span><span class="n">num_offspring_building_blocks</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">random_crossover</span> <span class="o">=</span> <span class="n">stk</span><span class="o">.</span><span class="n">RandomCrossover</span><span class="p">(</span><span class="n">recombination</span><span class="p">,</span> <span class="n">jumble</span><span class="p">)</span>
-
-<span class="c1"># Get the offspring molecules, either recombination or jumble</span>
-<span class="c1"># will be used to make them.</span>
-<span class="n">cohort1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
-    <span class="n">random_crossover</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">polymer1</span><span class="p">,</span> <span class="n">polymer2</span><span class="p">,</span> <span class="n">polymer3</span><span class="p">)</span>
-<span class="p">)</span>
-
-<span class="c1"># Get a second set of offspring molecules, either recombination</span>
-<span class="c1"># or jumble will be used to make them.</span>
-<span class="n">cohort2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
-    <span class="n">random_crossover</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">polymer1</span><span class="p">,</span> <span class="n">polymer2</span><span class="p">,</span> <span class="n">polymer3</span><span class="p">)</span>
-<span class="p">)</span>
-
-<span class="c1"># Make a third set of offspring molecules by crossing two of</span>
-<span class="c1"># the offspring molecules. Either recombination or jumble will</span>
-<span class="c1"># be used to make them.</span>
-<span class="n">offspring1</span><span class="p">,</span> <span class="n">offspring2</span><span class="p">,</span> <span class="o">*</span><span class="n">rest</span> <span class="o">=</span> <span class="n">cohort1</span>
-<span class="n">cohort3</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
-    <span class="n">random_crossover</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">offspring1</span><span class="p">,</span> <span class="n">offspring2</span><span class="p">)</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<p class="rubric">Methods</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#stk.calculators.ea.crossers.RandomCrossover.cross" title="stk.calculators.ea.crossers.RandomCrossover.cross"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cross</span></code></a>(self, \*mols)</p></td>
-<td><p>Cross <cite>mols</cite>.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#stk.calculators.ea.crossers.RandomCrossover.set_cache_use" title="stk.calculators.ea.crossers.RandomCrossover.set_cache_use"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cache_use</span></code></a>(self, use_cache)</p></td>
-<td><p>Set cache use on or off.</p></td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="stk.calculators.ea.crossers.RandomCrossover.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">*crossers</em>, <em class="sig-param">weights=None</em>, <em class="sig-param">random_seed=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.crossers.RandomCrossover.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize a <a class="reference internal" href="#stk.calculators.ea.crossers.RandomCrossover" title="stk.calculators.ea.crossers.RandomCrossover"><code class="xref py py-class docutils literal notranslate"><span class="pre">RandomCrossover</span></code></a> instance.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>*crossers</strong> (<a class="reference internal" href="#stk.calculators.ea.crossers.Crosser" title="stk.calculators.ea.crossers.Crosser"><code class="xref py py-class docutils literal notranslate"><span class="pre">Crosser</span></code></a>) – <a class="reference internal" href="#stk.calculators.ea.crossers.Crosser" title="stk.calculators.ea.crossers.Crosser"><code class="xref py py-class docutils literal notranslate"><span class="pre">Crosser</span></code></a> objects which are used to carry out the
-crossovers.</p></li>
-<li><p><strong>weights</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, optional) – The probability that each <a class="reference internal" href="#stk.calculators.ea.crossers.Crosser" title="stk.calculators.ea.crossers.Crosser"><code class="xref py py-class docutils literal notranslate"><span class="pre">Crosser</span></code></a> will be selected
-to carry out a crossover.</p></li>
-<li><p><strong>random_seed</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, optional) – The random seed to use.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="stk.calculators.ea.crossers.RandomCrossover.cross">
-<code class="sig-name descname">cross</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">*mols</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.crossers.RandomCrossover.cross" title="Permalink to this definition">¶</a></dt>
-<dd><p>Cross <cite>mols</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>*mols</strong> (<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>) – The molecules to be crossed.</p>
-</dd>
-<dt class="field-even">Yields</dt>
-<dd class="field-even"><p><a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> – A generated offspring</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="stk.calculators.ea.crossers.RandomCrossover.set_cache_use">
-<code class="sig-name descname">set_cache_use</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">use_cache</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.crossers.RandomCrossover.set_cache_use" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set cache use on or off.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> if the cache is to be used.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>None</strong></p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NoneType</span></code></p>
+<dd class="field-odd"><p><a class="reference internal" href="stk.calculators.base_calculators.html#stk.calculators.base_calculators.EAOperation" title="stk.calculators.base_calculators.EAOperation"><code class="xref py py-class docutils literal notranslate"><span class="pre">EAOperation</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>

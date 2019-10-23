@@ -108,6 +108,7 @@
 <li class="toctree-l1"><a class="reference internal" href="calculators.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stk.calculators.optimization.optimizers.html">Optimizers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stk.calculators.energy.energy_calculators.html">Energy Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.compound.html">Compound Calculators</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Evolutionary Algorithm</span></p>
 <ul>
@@ -274,6 +275,8 @@
 </li>
         <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.CageOptimizerSequence.__init__">(CageOptimizerSequence method)</a>
 </li>
+        <li><a href="stk.calculators.base_calculators.html#stk.calculators.base_calculators.Calculator.__init__">(Calculator method)</a>
+</li>
         <li><a href="stk.molecular.elements.html#stk.molecular.elements.Cd.__init__">(Cd method)</a>
 </li>
         <li><a href="stk.molecular.elements.html#stk.molecular.elements.Ce.__init__">(Ce method)</a>
@@ -308,11 +311,15 @@
 </li>
         <li><a href="stk.molecular.elements.html#stk.molecular.elements.Db.__init__">(Db method)</a>
 </li>
+        <li><a href="stk.calculators.ea.fitness_normalizers.html#stk.calculators.ea.fitness_normalizers.DivideByMean.__init__">(DivideByMean method)</a>
+</li>
         <li><a href="stk.molecular.elements.html#stk.molecular.elements.Ds.__init__">(Ds method)</a>
 </li>
         <li><a href="stk.molecular.elements.html#stk.molecular.elements.Dy.__init__">(Dy method)</a>
 </li>
         <li><a href="stk.ea.html#stk.ea.EAHistory.__init__">(EAHistory method)</a>
+</li>
+        <li><a href="stk.calculators.base_calculators.html#stk.calculators.base_calculators.EAOperation.__init__">(EAOperation method)</a>
 </li>
         <li><a href="stk.populations.html#stk.populations.EAPopulation.__init__">(EAPopulation method)</a>
 </li>
@@ -349,6 +356,8 @@
         <li><a href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.FilterMolecules.__init__">(FilterMolecules method)</a>
 </li>
         <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.FitnessCalculator.__init__">(FitnessCalculator method)</a>
+</li>
+        <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.FitnessFunction.__init__">(FitnessFunction method)</a>
 </li>
         <li><a href="stk.calculators.ea.fitness_normalizers.html#stk.calculators.ea.fitness_normalizers.FitnessNormalizer.__init__">(FitnessNormalizer method)</a>
 </li>
@@ -399,6 +408,8 @@
         <li><a href="stk.molecular.elements.html#stk.molecular.elements.Hs.__init__">(Hs method)</a>
 </li>
         <li><a href="stk.molecular.elements.html#stk.molecular.elements.I.__init__">(I method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.If.__init__">(If method)</a>
 </li>
         <li><a href="stk.molecular.elements.html#stk.molecular.elements.In.__init__">(In method)</a>
 </li>
@@ -474,6 +485,8 @@
 </li>
         <li><a href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule.__init__">(Molecule method)</a>
 </li>
+        <li><a href="stk.calculators.base_calculators.html#stk.calculators.base_calculators.MoleculeCalculator.__init__">(MoleculeCalculator method)</a>
+</li>
         <li><a href="stk.calculators.ea.terminators.html#stk.calculators.ea.terminators.MoleculePresent.__init__">(MoleculePresent method)</a>
 </li>
         <li><a href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.MoleculeSubclassError.__init__">(MoleculeSubclassError method)</a>
@@ -504,8 +517,6 @@
 </li>
         <li><a href="stk.molecular.elements.html#stk.molecular.elements.No.__init__">(No method)</a>
 </li>
-        <li><a href="stk.calculators.ea.fitness_normalizers.html#stk.calculators.ea.fitness_normalizers.NormalizerSequence.__init__">(NormalizerSequence method)</a>
-</li>
         <li><a href="stk.molecular.elements.html#stk.molecular.elements.Np.__init__">(Np method)</a>
 </li>
         <li><a href="stk.calculators.ea.fitness_normalizers.html#stk.calculators.ea.fitness_normalizers.NullFitnessNormalizer.__init__">(NullFitnessNormalizer method)</a>
@@ -521,8 +532,6 @@
         <li><a href="stk.molecular.topology_graphs.cage.three_plus_three.html#stk.molecular.topology_graphs.cage.three_plus_three.OnePlusOne.__init__">(OnePlusOne method)</a>
 </li>
         <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.Optimizer.__init__">(Optimizer method)</a>
-</li>
-        <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.OptimizerSequence.__init__">(OptimizerSequence method)</a>
 </li>
         <li><a href="stk.molecular.elements.html#stk.molecular.elements.Os.__init__">(Os method)</a>
 </li>
@@ -560,19 +569,13 @@
 </li>
         <li><a href="stk.molecular.elements.html#stk.molecular.elements.Ra.__init__">(Ra method)</a>
 </li>
-        <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.RaisingFitnessCalculator.__init__">(RaisingFitnessCalculator method)</a>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.RaisingCalculator.__init__">(RaisingCalculator method)</a>
 </li>
-        <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.RaisingFitnessCalculatorError.__init__">(RaisingFitnessCalculatorError method)</a>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.RaisingCalculatorError.__init__">(RaisingCalculatorError method)</a>
 </li>
-        <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.RaisingOptimizer.__init__">(RaisingOptimizer method)</a>
-</li>
-        <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.RaisingOptimizerError.__init__">(RaisingOptimizerError method)</a>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.Random.__init__">(Random method)</a>
 </li>
         <li><a href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.RandomBuildingBlock.__init__">(RandomBuildingBlock method)</a>
-</li>
-        <li><a href="stk.calculators.ea.crossers.html#stk.calculators.ea.crossers.RandomCrossover.__init__">(RandomCrossover method)</a>
-</li>
-        <li><a href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.RandomMutation.__init__">(RandomMutation method)</a>
 </li>
         <li><a href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.RandomTopologyGraph.__init__">(RandomTopologyGraph method)</a>
 </li>
@@ -585,6 +588,8 @@
         <li><a href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.RemoveBatches.__init__">(RemoveBatches method)</a>
 </li>
         <li><a href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.RemoveMolecules.__init__">(RemoveMolecules method)</a>
+</li>
+        <li><a href="stk.calculators.ea.fitness_normalizers.html#stk.calculators.ea.fitness_normalizers.ReplaceFitness.__init__">(ReplaceFitness method)</a>
 </li>
         <li><a href="stk.molecular.elements.html#stk.molecular.elements.Rf.__init__">(Rf method)</a>
 </li>
@@ -604,15 +609,13 @@
 </li>
         <li><a href="stk.molecular.elements.html#stk.molecular.elements.Sc.__init__">(Sc method)</a>
 </li>
-        <li><a href="stk.calculators.ea.fitness_normalizers.html#stk.calculators.ea.fitness_normalizers.ScaleByMean.__init__">(ScaleByMean method)</a>
-</li>
         <li><a href="stk.molecular.elements.html#stk.molecular.elements.Se.__init__">(Se method)</a>
 </li>
         <li><a href="stk.calculators.ea.plotters.html#stk.calculators.ea.plotters.SelectionPlotter.__init__">(SelectionPlotter method)</a>
 </li>
         <li><a href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.Selector.__init__">(Selector method)</a>
 </li>
-        <li><a href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.SelectorSequence.__init__">(SelectorSequence method)</a>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.Sequence.__init__">(Sequence method)</a>
 </li>
         <li><a href="stk.molecular.elements.html#stk.molecular.elements.Sg.__init__">(Sg method)</a>
 </li>
@@ -666,7 +669,7 @@
 </li>
         <li><a href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.Tournament.__init__">(Tournament method)</a>
 </li>
-        <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.TryCatchOptimizer.__init__">(TryCatchOptimizer method)</a>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.TryCatch.__init__">(TryCatch method)</a>
 </li>
         <li><a href="stk.molecular.elements.html#stk.molecular.elements.Ts.__init__">(Ts method)</a>
 </li>
@@ -748,33 +751,53 @@
       <ul>
         <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.ETKDG.add_to_cache">(ETKDG method)</a>
 </li>
+        <li><a href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.EnergyCalculator.add_to_cache">(EnergyCalculator method)</a>
+</li>
         <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.FitnessCalculator.add_to_cache">(FitnessCalculator method)</a>
+</li>
+        <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.FitnessFunction.add_to_cache">(FitnessFunction method)</a>
+</li>
+        <li><a href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.FormationEnergy.add_to_cache">(FormationEnergy method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.If.add_to_cache">(If method)</a>
 </li>
         <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.MMFF.add_to_cache">(MMFF method)</a>
 </li>
+        <li><a href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.MMFFEnergy.add_to_cache">(MMFFEnergy method)</a>
+</li>
         <li><a href="stk.calculators.optimization.mopac.html#stk.calculators.optimization.mopac.MOPAC.add_to_cache">(MOPAC method)</a>
+</li>
+        <li><a href="stk.calculators.energy.mopac.html#stk.calculators.energy.mopac.MOPACEnergy.add_to_cache">(MOPACEnergy method)</a>
+</li>
+        <li><a href="stk.calculators.energy.macromodel.html#stk.calculators.energy.macromodel.MacroModelEnergy.add_to_cache">(MacroModelEnergy method)</a>
 </li>
         <li><a href="stk.calculators.optimization.macromodel.html#stk.calculators.optimization.macromodel.MacroModelForceField.add_to_cache">(MacroModelForceField method)</a>
 </li>
         <li><a href="stk.calculators.optimization.macromodel.html#stk.calculators.optimization.macromodel.MacroModelMD.add_to_cache">(MacroModelMD method)</a>
 </li>
+        <li><a href="stk.calculators.base_calculators.html#stk.calculators.base_calculators.MoleculeCalculator.add_to_cache">(MoleculeCalculator method)</a>
+</li>
         <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.NullOptimizer.add_to_cache">(NullOptimizer method)</a>
 </li>
         <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.Optimizer.add_to_cache">(Optimizer method)</a>
 </li>
-        <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.OptimizerSequence.add_to_cache">(OptimizerSequence method)</a>
-</li>
         <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.PropertyVector.add_to_cache">(PropertyVector method)</a>
 </li>
-        <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.RaisingFitnessCalculator.add_to_cache">(RaisingFitnessCalculator method)</a>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.RaisingCalculator.add_to_cache">(RaisingCalculator method)</a>
 </li>
-        <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.RaisingOptimizer.add_to_cache">(RaisingOptimizer method)</a>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.Random.add_to_cache">(Random method)</a>
 </li>
-        <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.TryCatchOptimizer.add_to_cache">(TryCatchOptimizer method)</a>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.Sequence.add_to_cache">(Sequence method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.TryCatch.add_to_cache">(TryCatch method)</a>
 </li>
         <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.UFF.add_to_cache">(UFF method)</a>
 </li>
+        <li><a href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.UFFEnergy.add_to_cache">(UFFEnergy method)</a>
+</li>
         <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.XTB.add_to_cache">(XTB method)</a>
+</li>
+        <li><a href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.XTBEnergy.add_to_cache">(XTBEnergy method)</a>
 </li>
       </ul></li>
       <li><a href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex.after_assign_func_groups_to_edges">after_assign_func_groups_to_edges() (Vertex method)</a>
@@ -858,9 +881,7 @@
 </li>
         <li><a href="stk.utilities.utilities.html#stk.utilities.utilities.PopulationSizeError.args">(PopulationSizeError attribute)</a>
 </li>
-        <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.RaisingFitnessCalculatorError.args">(RaisingFitnessCalculatorError attribute)</a>
-</li>
-        <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.RaisingOptimizerError.args">(RaisingOptimizerError attribute)</a>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.RaisingCalculatorError.args">(RaisingCalculatorError attribute)</a>
 </li>
         <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.XTBConvergenceError.args">(XTBConvergenceError attribute)</a>
 </li>
@@ -1261,7 +1282,7 @@
 </li>
       <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.CageOptimizerSequence">CageOptimizerSequence (class in stk.calculators.optimization.optimizers)</a>
 </li>
-      <li><a href="stk.populations.html#stk.populations.EAPopulation.calculate_member_fitness">calculate_member_fitness() (EAPopulation method)</a>
+      <li><a href="stk.calculators.base_calculators.html#stk.calculators.base_calculators.Calculator">Calculator (class in stk.calculators.base_calculators)</a>
 </li>
       <li><a href="stk.molecular.elements.html#stk.molecular.elements.Cd">Cd (class in stk.molecular.elements)</a>
 </li>
@@ -1547,6 +1568,12 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="stk.populations.html#stk.populations.EAPopulation.close_process_pool">close_process_pool() (EAPopulation method)</a>
+
+      <ul>
+        <li><a href="stk.populations.html#stk.populations.Population.close_process_pool">(Population method)</a>
+</li>
+      </ul></li>
       <li><a href="stk.molecular.elements.html#stk.molecular.elements.Cm">Cm (class in stk.molecular.elements)</a>
 </li>
       <li><a href="stk.molecular.elements.html#stk.molecular.elements.Cn">Cn (class in stk.molecular.elements)</a>
@@ -1636,9 +1663,15 @@
       <ul>
         <li><a href="stk.calculators.ea.crossers.html#stk.calculators.ea.crossers.GeneticRecombination.cross">(GeneticRecombination method)</a>
 </li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.If.cross">(If method)</a>
+</li>
         <li><a href="stk.calculators.ea.crossers.html#stk.calculators.ea.crossers.Jumble.cross">(Jumble method)</a>
 </li>
-        <li><a href="stk.calculators.ea.crossers.html#stk.calculators.ea.crossers.RandomCrossover.cross">(RandomCrossover method)</a>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.RaisingCalculator.cross">(RaisingCalculator method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.Random.cross">(Random method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.TryCatch.cross">(TryCatch method)</a>
 </li>
       </ul></li>
       <li><a href="stk.calculators.ea.crossers.html#stk.calculators.ea.crossers.Crosser">Crosser (class in stk.calculators.ea.crossers)</a>
@@ -1675,14 +1708,16 @@
         <li><a href="stk.calculators.electronic_property.mopac.html#stk.calculators.electronic_property.mopac.MOPACElectronicProperties.dipole_moment">(MOPACElectronicProperties method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="stk.populations.html#stk.populations.EAPopulation.direct_members">direct_members (EAPopulation attribute)</a>
 
       <ul>
         <li><a href="stk.populations.html#stk.populations.Population.direct_members">(Population attribute)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="stk.calculators.ea.fitness_normalizers.html#stk.calculators.ea.fitness_normalizers.DivideByMean">DivideByMean (class in stk.calculators.ea.fitness_normalizers)</a>
+</li>
       <li><a href="stk.molecular.elements.html#stk.molecular.elements.Ds">Ds (class in stk.molecular.elements)</a>
 </li>
       <li><a href="stk.molecular.molecules.building_block.html#stk.molecular.molecules.building_block.BuildingBlock.dump">dump() (BuildingBlock method)</a>
@@ -1699,6 +1734,8 @@
         <li><a href="stk.populations.html#stk.populations.Population.dump">(Population method)</a>
 </li>
       </ul></li>
+      <li><a href="stk.ea.html#stk.ea.EAHistory.dump_attrs">dump_attrs (EAHistory attribute)</a>
+</li>
       <li><a href="stk.molecular.elements.html#stk.molecular.elements.Dy">Dy (class in stk.molecular.elements)</a>
 </li>
   </ul></td>
@@ -1710,6 +1747,8 @@
       <li><a href="stk.ea.html#stk.ea.ea_run">ea_run() (in module stk.ea)</a>
 </li>
       <li><a href="stk.ea.html#stk.ea.EAHistory">EAHistory (class in stk.ea)</a>
+</li>
+      <li><a href="stk.calculators.base_calculators.html#stk.calculators.base_calculators.EAOperation">EAOperation (class in stk.calculators.base_calculators)</a>
 </li>
       <li><a href="stk.populations.html#stk.populations.EAPopulation">EAPopulation (class in stk.populations)</a>
 </li>
@@ -1901,6 +1940,8 @@
 </li>
       <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.FitnessCalculator">FitnessCalculator (class in stk.calculators.ea.fitness_calculators)</a>
 </li>
+      <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.FitnessFunction">FitnessFunction (class in stk.calculators.ea.fitness_calculators)</a>
+</li>
       <li><a href="stk.calculators.ea.fitness_normalizers.html#stk.calculators.ea.fitness_normalizers.FitnessNormalizer">FitnessNormalizer (class in stk.calculators.ea.fitness_normalizers)</a>
 </li>
       <li><a href="stk.calculators.ea.terminators.html#stk.calculators.ea.terminators.FitnessPlateau">FitnessPlateau (class in stk.calculators.ea.terminators)</a>
@@ -2011,6 +2052,60 @@
         <li><a href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule.get_cached_mol">(Molecule class method)</a>
 </li>
       </ul></li>
+      <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.CageOptimizerSequence.get_cached_value">get_cached_value() (CageOptimizerSequence method)</a>
+
+      <ul>
+        <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.ETKDG.get_cached_value">(ETKDG method)</a>
+</li>
+        <li><a href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.EnergyCalculator.get_cached_value">(EnergyCalculator method)</a>
+</li>
+        <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.FitnessCalculator.get_cached_value">(FitnessCalculator method)</a>
+</li>
+        <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.FitnessFunction.get_cached_value">(FitnessFunction method)</a>
+</li>
+        <li><a href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.FormationEnergy.get_cached_value">(FormationEnergy method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.If.get_cached_value">(If method)</a>
+</li>
+        <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.MMFF.get_cached_value">(MMFF method)</a>
+</li>
+        <li><a href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.MMFFEnergy.get_cached_value">(MMFFEnergy method)</a>
+</li>
+        <li><a href="stk.calculators.optimization.mopac.html#stk.calculators.optimization.mopac.MOPAC.get_cached_value">(MOPAC method)</a>
+</li>
+        <li><a href="stk.calculators.energy.mopac.html#stk.calculators.energy.mopac.MOPACEnergy.get_cached_value">(MOPACEnergy method)</a>
+</li>
+        <li><a href="stk.calculators.energy.macromodel.html#stk.calculators.energy.macromodel.MacroModelEnergy.get_cached_value">(MacroModelEnergy method)</a>
+</li>
+        <li><a href="stk.calculators.optimization.macromodel.html#stk.calculators.optimization.macromodel.MacroModelForceField.get_cached_value">(MacroModelForceField method)</a>
+</li>
+        <li><a href="stk.calculators.optimization.macromodel.html#stk.calculators.optimization.macromodel.MacroModelMD.get_cached_value">(MacroModelMD method)</a>
+</li>
+        <li><a href="stk.calculators.base_calculators.html#stk.calculators.base_calculators.MoleculeCalculator.get_cached_value">(MoleculeCalculator method)</a>
+</li>
+        <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.NullOptimizer.get_cached_value">(NullOptimizer method)</a>
+</li>
+        <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.Optimizer.get_cached_value">(Optimizer method)</a>
+</li>
+        <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.PropertyVector.get_cached_value">(PropertyVector method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.RaisingCalculator.get_cached_value">(RaisingCalculator method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.Random.get_cached_value">(Random method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.Sequence.get_cached_value">(Sequence method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.TryCatch.get_cached_value">(TryCatch method)</a>
+</li>
+        <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.UFF.get_cached_value">(UFF method)</a>
+</li>
+        <li><a href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.UFFEnergy.get_cached_value">(UFFEnergy method)</a>
+</li>
+        <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.XTB.get_cached_value">(XTB method)</a>
+</li>
+        <li><a href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.XTBEnergy.get_cached_value">(XTBEnergy method)</a>
+</li>
+      </ul></li>
       <li><a href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex.get_cell">get_cell() (Vertex method)</a>
 </li>
       <li><a href="stk.molecular.molecules.building_block.html#stk.molecular.molecules.building_block.BuildingBlock.get_center_of_mass">get_center_of_mass() (BuildingBlock method)</a>
@@ -2021,6 +2116,8 @@
         <li><a href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule.get_center_of_mass">(Molecule method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="stk.molecular.molecules.building_block.html#stk.molecular.molecules.building_block.BuildingBlock.get_centroid">get_centroid() (BuildingBlock method)</a>
 
       <ul>
@@ -2043,8 +2140,6 @@
       </ul></li>
       <li><a href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.EdgeData.get_edge">get_edge() (EdgeData method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex.get_edge_ids">get_edge_ids() (Vertex method)</a>
 </li>
       <li><a href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.EnergyCalculator.get_energy">get_energy() (EnergyCalculator method)</a>
@@ -2052,11 +2147,19 @@
       <ul>
         <li><a href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.FormationEnergy.get_energy">(FormationEnergy method)</a>
 </li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.If.get_energy">(If method)</a>
+</li>
         <li><a href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.MMFFEnergy.get_energy">(MMFFEnergy method)</a>
 </li>
         <li><a href="stk.calculators.energy.mopac.html#stk.calculators.energy.mopac.MOPACEnergy.get_energy">(MOPACEnergy method)</a>
 </li>
         <li><a href="stk.calculators.energy.macromodel.html#stk.calculators.energy.macromodel.MacroModelEnergy.get_energy">(MacroModelEnergy method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.RaisingCalculator.get_energy">(RaisingCalculator method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.Random.get_energy">(Random method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.TryCatch.get_energy">(TryCatch method)</a>
 </li>
         <li><a href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.UFFEnergy.get_energy">(UFFEnergy method)</a>
 </li>
@@ -2068,11 +2171,21 @@
       <ul>
         <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.FitnessCalculator.get_fitness">(FitnessCalculator method)</a>
 </li>
+        <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.FitnessFunction.get_fitness">(FitnessFunction method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.If.get_fitness">(If method)</a>
+</li>
         <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.PropertyVector.get_fitness">(PropertyVector method)</a>
 </li>
-        <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.RaisingFitnessCalculator.get_fitness">(RaisingFitnessCalculator method)</a>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.RaisingCalculator.get_fitness">(RaisingCalculator method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.Random.get_fitness">(Random method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.TryCatch.get_fitness">(TryCatch method)</a>
 </li>
       </ul></li>
+      <li><a href="stk.populations.html#stk.populations.EAPopulation.get_fitness_values">get_fitness_values() (EAPopulation method)</a>
+</li>
       <li><a href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge.get_func_groups">get_func_groups() (Edge method)</a>
 </li>
       <li><a href="stk.molecular.functional_groups.html#stk.molecular.functional_groups.FGType.get_functional_groups">get_functional_groups() (FGType method)</a>
@@ -2095,13 +2208,7 @@
         <li><a href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule.get_maximum_diameter">(Molecule method)</a>
 </li>
       </ul></li>
-      <li><a href="stk.populations.html#stk.populations.EAPopulation.get_mutants">get_mutants() (EAPopulation method)</a>
-</li>
-      <li><a href="stk.populations.html#stk.populations.EAPopulation.get_next_generation">get_next_generation() (EAPopulation method)</a>
-</li>
       <li><a href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex.get_num_edges">get_num_edges() (Vertex method)</a>
-</li>
-      <li><a href="stk.populations.html#stk.populations.EAPopulation.get_offspring">get_offspring() (EAPopulation method)</a>
 </li>
       <li><a href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Edge.get_periodicity">get_periodicity() (Edge method)</a>
 </li>
@@ -2197,6 +2304,8 @@
         <li><a href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.VertexData.id">(VertexData attribute)</a>
 </li>
       </ul></li>
+      <li><a href="stk.calculators.compound.html#stk.calculators.compound.If">If (class in stk.calculators.compound)</a>
+</li>
       <li><a href="stk.molecular.elements.html#stk.molecular.elements.In">In (class in stk.molecular.elements)</a>
 </li>
       <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.XTB.incomplete">incomplete (XTB attribute)</a>
@@ -2239,8 +2348,6 @@
 </li>
       <li><a href="stk.molecular.molecules.building_block.html#stk.molecular.molecules.building_block.BuildingBlock.init_from_rdkit_mol">init_from_rdkit_mol() (BuildingBlock class method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="stk.populations.html#stk.populations.EAPopulation.init_random">init_random() (EAPopulation class method)</a>
 
       <ul>
@@ -2260,33 +2367,109 @@
       <ul>
         <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.ETKDG.is_caching">(ETKDG method)</a>
 </li>
+        <li><a href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.EnergyCalculator.is_caching">(EnergyCalculator method)</a>
+</li>
         <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.FitnessCalculator.is_caching">(FitnessCalculator method)</a>
+</li>
+        <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.FitnessFunction.is_caching">(FitnessFunction method)</a>
+</li>
+        <li><a href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.FormationEnergy.is_caching">(FormationEnergy method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.If.is_caching">(If method)</a>
 </li>
         <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.MMFF.is_caching">(MMFF method)</a>
 </li>
+        <li><a href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.MMFFEnergy.is_caching">(MMFFEnergy method)</a>
+</li>
         <li><a href="stk.calculators.optimization.mopac.html#stk.calculators.optimization.mopac.MOPAC.is_caching">(MOPAC method)</a>
+</li>
+        <li><a href="stk.calculators.energy.mopac.html#stk.calculators.energy.mopac.MOPACEnergy.is_caching">(MOPACEnergy method)</a>
+</li>
+        <li><a href="stk.calculators.energy.macromodel.html#stk.calculators.energy.macromodel.MacroModelEnergy.is_caching">(MacroModelEnergy method)</a>
 </li>
         <li><a href="stk.calculators.optimization.macromodel.html#stk.calculators.optimization.macromodel.MacroModelForceField.is_caching">(MacroModelForceField method)</a>
 </li>
         <li><a href="stk.calculators.optimization.macromodel.html#stk.calculators.optimization.macromodel.MacroModelMD.is_caching">(MacroModelMD method)</a>
 </li>
+        <li><a href="stk.calculators.base_calculators.html#stk.calculators.base_calculators.MoleculeCalculator.is_caching">(MoleculeCalculator method)</a>
+</li>
         <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.NullOptimizer.is_caching">(NullOptimizer method)</a>
 </li>
         <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.Optimizer.is_caching">(Optimizer method)</a>
 </li>
-        <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.OptimizerSequence.is_caching">(OptimizerSequence method)</a>
-</li>
         <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.PropertyVector.is_caching">(PropertyVector method)</a>
 </li>
-        <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.RaisingFitnessCalculator.is_caching">(RaisingFitnessCalculator method)</a>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.RaisingCalculator.is_caching">(RaisingCalculator method)</a>
 </li>
-        <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.RaisingOptimizer.is_caching">(RaisingOptimizer method)</a>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.Random.is_caching">(Random method)</a>
 </li>
-        <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.TryCatchOptimizer.is_caching">(TryCatchOptimizer method)</a>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.Sequence.is_caching">(Sequence method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.TryCatch.is_caching">(TryCatch method)</a>
 </li>
         <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.UFF.is_caching">(UFF method)</a>
 </li>
+        <li><a href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.UFFEnergy.is_caching">(UFFEnergy method)</a>
+</li>
         <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.XTB.is_caching">(XTB method)</a>
+</li>
+        <li><a href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.XTBEnergy.is_caching">(XTBEnergy method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.CageOptimizerSequence.is_in_cache">is_in_cache() (CageOptimizerSequence method)</a>
+
+      <ul>
+        <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.ETKDG.is_in_cache">(ETKDG method)</a>
+</li>
+        <li><a href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.EnergyCalculator.is_in_cache">(EnergyCalculator method)</a>
+</li>
+        <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.FitnessCalculator.is_in_cache">(FitnessCalculator method)</a>
+</li>
+        <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.FitnessFunction.is_in_cache">(FitnessFunction method)</a>
+</li>
+        <li><a href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.FormationEnergy.is_in_cache">(FormationEnergy method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.If.is_in_cache">(If method)</a>
+</li>
+        <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.MMFF.is_in_cache">(MMFF method)</a>
+</li>
+        <li><a href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.MMFFEnergy.is_in_cache">(MMFFEnergy method)</a>
+</li>
+        <li><a href="stk.calculators.optimization.mopac.html#stk.calculators.optimization.mopac.MOPAC.is_in_cache">(MOPAC method)</a>
+</li>
+        <li><a href="stk.calculators.energy.mopac.html#stk.calculators.energy.mopac.MOPACEnergy.is_in_cache">(MOPACEnergy method)</a>
+</li>
+        <li><a href="stk.calculators.energy.macromodel.html#stk.calculators.energy.macromodel.MacroModelEnergy.is_in_cache">(MacroModelEnergy method)</a>
+</li>
+        <li><a href="stk.calculators.optimization.macromodel.html#stk.calculators.optimization.macromodel.MacroModelForceField.is_in_cache">(MacroModelForceField method)</a>
+</li>
+        <li><a href="stk.calculators.optimization.macromodel.html#stk.calculators.optimization.macromodel.MacroModelMD.is_in_cache">(MacroModelMD method)</a>
+</li>
+        <li><a href="stk.calculators.base_calculators.html#stk.calculators.base_calculators.MoleculeCalculator.is_in_cache">(MoleculeCalculator method)</a>
+</li>
+        <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.NullOptimizer.is_in_cache">(NullOptimizer method)</a>
+</li>
+        <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.Optimizer.is_in_cache">(Optimizer method)</a>
+</li>
+        <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.PropertyVector.is_in_cache">(PropertyVector method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.RaisingCalculator.is_in_cache">(RaisingCalculator method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.Random.is_in_cache">(Random method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.Sequence.is_in_cache">(Sequence method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.TryCatch.is_in_cache">(TryCatch method)</a>
+</li>
+        <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.UFF.is_in_cache">(UFF method)</a>
+</li>
+        <li><a href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.UFFEnergy.is_in_cache">(UFFEnergy method)</a>
+</li>
+        <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.XTB.is_in_cache">(XTB method)</a>
+</li>
+        <li><a href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.XTBEnergy.is_in_cache">(XTBEnergy method)</a>
 </li>
       </ul></li>
       <li><a href="stk.molecular.bonds.html#stk.molecular.bonds.Bond.is_periodic">is_periodic() (Bond method)</a>
@@ -2673,6 +2856,8 @@
 </li>
       <li><a href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule">Molecule (class in stk.molecular.molecules.molecule)</a>
 </li>
+      <li><a href="stk.calculators.base_calculators.html#stk.calculators.base_calculators.MoleculeCalculator">MoleculeCalculator (class in stk.calculators.base_calculators)</a>
+</li>
       <li><a href="stk.calculators.ea.terminators.html#stk.calculators.ea.terminators.MoleculePresent">MoleculePresent (class in stk.calculators.ea.terminators)</a>
 </li>
       <li><a href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.MoleculeSubclassError">MoleculeSubclassError</a>
@@ -2695,16 +2880,22 @@
 </li>
       <li><a href="stk.calculators.ea.fitness_normalizers.html#stk.calculators.ea.fitness_normalizers.Multiply">Multiply (class in stk.calculators.ea.fitness_normalizers)</a>
 </li>
-      <li><a href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.Mutator.mutate">mutate() (Mutator method)</a>
+      <li><a href="stk.calculators.compound.html#stk.calculators.compound.If.mutate">mutate() (If method)</a>
 
       <ul>
-        <li><a href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.RandomBuildingBlock.mutate">(RandomBuildingBlock method)</a>
+        <li><a href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.Mutator.mutate">(Mutator method)</a>
 </li>
-        <li><a href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.RandomMutation.mutate">(RandomMutation method)</a>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.RaisingCalculator.mutate">(RaisingCalculator method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.Random.mutate">(Random method)</a>
+</li>
+        <li><a href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.RandomBuildingBlock.mutate">(RandomBuildingBlock method)</a>
 </li>
         <li><a href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.RandomTopologyGraph.mutate">(RandomTopologyGraph method)</a>
 </li>
         <li><a href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.SimilarBuildingBlock.mutate">(SimilarBuildingBlock method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.TryCatch.mutate">(TryCatch method)</a>
 </li>
       </ul></li>
       <li><a href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.MutationError">MutationError</a>
@@ -2735,27 +2926,35 @@
 </li>
       <li><a href="stk.molecular.elements.html#stk.molecular.elements.No">No (class in stk.molecular.elements)</a>
 </li>
-      <li><a href="stk.calculators.ea.fitness_normalizers.html#stk.calculators.ea.fitness_normalizers.FitnessNormalizer.normalize">normalize() (FitnessNormalizer method)</a>
+      <li><a href="stk.calculators.ea.fitness_normalizers.html#stk.calculators.ea.fitness_normalizers.DivideByMean.normalize">normalize() (DivideByMean method)</a>
 
       <ul>
-        <li><a href="stk.calculators.ea.fitness_normalizers.html#stk.calculators.ea.fitness_normalizers.Multiply.normalize">(Multiply method)</a>
+        <li><a href="stk.calculators.ea.fitness_normalizers.html#stk.calculators.ea.fitness_normalizers.FitnessNormalizer.normalize">(FitnessNormalizer method)</a>
 </li>
-        <li><a href="stk.calculators.ea.fitness_normalizers.html#stk.calculators.ea.fitness_normalizers.NormalizerSequence.normalize">(NormalizerSequence method)</a>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.If.normalize">(If method)</a>
+</li>
+        <li><a href="stk.calculators.ea.fitness_normalizers.html#stk.calculators.ea.fitness_normalizers.Multiply.normalize">(Multiply method)</a>
 </li>
         <li><a href="stk.calculators.ea.fitness_normalizers.html#stk.calculators.ea.fitness_normalizers.NullFitnessNormalizer.normalize">(NullFitnessNormalizer method)</a>
 </li>
         <li><a href="stk.calculators.ea.fitness_normalizers.html#stk.calculators.ea.fitness_normalizers.Power.normalize">(Power method)</a>
 </li>
-        <li><a href="stk.calculators.ea.fitness_normalizers.html#stk.calculators.ea.fitness_normalizers.ScaleByMean.normalize">(ScaleByMean method)</a>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.RaisingCalculator.normalize">(RaisingCalculator method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.Random.normalize">(Random method)</a>
+</li>
+        <li><a href="stk.calculators.ea.fitness_normalizers.html#stk.calculators.ea.fitness_normalizers.ReplaceFitness.normalize">(ReplaceFitness method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.Sequence.normalize">(Sequence method)</a>
 </li>
         <li><a href="stk.calculators.ea.fitness_normalizers.html#stk.calculators.ea.fitness_normalizers.ShiftUp.normalize">(ShiftUp method)</a>
 </li>
         <li><a href="stk.calculators.ea.fitness_normalizers.html#stk.calculators.ea.fitness_normalizers.Sum.normalize">(Sum method)</a>
 </li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.TryCatch.normalize">(TryCatch method)</a>
+</li>
       </ul></li>
       <li><a href="stk.utilities.utilities.html#stk.utilities.utilities.normalize_vector">normalize_vector() (in module stk.utilities.utilities)</a>
-</li>
-      <li><a href="stk.calculators.ea.fitness_normalizers.html#stk.calculators.ea.fitness_normalizers.NormalizerSequence">NormalizerSequence (class in stk.calculators.ea.fitness_normalizers)</a>
 </li>
       <li><a href="stk.molecular.elements.html#stk.molecular.elements.Np">Np (class in stk.molecular.elements)</a>
 </li>
@@ -2857,12 +3056,20 @@
 </li>
       <li><a href="stk.molecular.topology_graphs.cage.three_plus_three.html#stk.molecular.topology_graphs.cage.three_plus_three.OnePlusOne">OnePlusOne (class in stk.molecular.topology_graphs.cage.three_plus_three)</a>
 </li>
+      <li><a href="stk.populations.html#stk.populations.EAPopulation.open_process_pool">open_process_pool() (EAPopulation method)</a>
+
+      <ul>
+        <li><a href="stk.populations.html#stk.populations.Population.open_process_pool">(Population method)</a>
+</li>
+      </ul></li>
       <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.CageOptimizerSequence.optimize">optimize() (CageOptimizerSequence method)</a>
 
       <ul>
         <li><a href="stk.populations.html#stk.populations.EAPopulation.optimize">(EAPopulation method)</a>
 </li>
         <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.ETKDG.optimize">(ETKDG method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.If.optimize">(If method)</a>
 </li>
         <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.MMFF.optimize">(MMFF method)</a>
 </li>
@@ -2876,13 +3083,15 @@
 </li>
         <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.Optimizer.optimize">(Optimizer method)</a>
 </li>
-        <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.OptimizerSequence.optimize">(OptimizerSequence method)</a>
-</li>
         <li><a href="stk.populations.html#stk.populations.Population.optimize">(Population method)</a>
 </li>
-        <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.RaisingOptimizer.optimize">(RaisingOptimizer method)</a>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.RaisingCalculator.optimize">(RaisingCalculator method)</a>
 </li>
-        <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.TryCatchOptimizer.optimize">(TryCatchOptimizer method)</a>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.Random.optimize">(Random method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.Sequence.optimize">(Sequence method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.TryCatch.optimize">(TryCatch method)</a>
 </li>
         <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.UFF.optimize">(UFF method)</a>
 </li>
@@ -2892,8 +3101,6 @@
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.Optimizer">Optimizer (class in stk.calculators.optimization.optimizers)</a>
-</li>
-      <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.OptimizerSequence">OptimizerSequence (class in stk.calculators.optimization.optimizers)</a>
 </li>
       <li><a href="stk.molecular.bonds.html#stk.molecular.bonds.Bond.order">order (Bond attribute)</a>, <a href="stk.molecular.bonds.html#stk.molecular.bonds.Bond.order">[1]</a>
 </li>
@@ -3005,19 +3212,13 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="stk.molecular.elements.html#stk.molecular.elements.Ra">Ra (class in stk.molecular.elements)</a>
 </li>
-      <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.RaisingFitnessCalculator">RaisingFitnessCalculator (class in stk.calculators.ea.fitness_calculators)</a>
+      <li><a href="stk.calculators.compound.html#stk.calculators.compound.RaisingCalculator">RaisingCalculator (class in stk.calculators.compound)</a>
 </li>
-      <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.RaisingFitnessCalculatorError">RaisingFitnessCalculatorError</a>
+      <li><a href="stk.calculators.compound.html#stk.calculators.compound.RaisingCalculatorError">RaisingCalculatorError</a>
 </li>
-      <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.RaisingOptimizer">RaisingOptimizer (class in stk.calculators.optimization.optimizers)</a>
-</li>
-      <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.RaisingOptimizerError">RaisingOptimizerError</a>
+      <li><a href="stk.calculators.compound.html#stk.calculators.compound.Random">Random (class in stk.calculators.compound)</a>
 </li>
       <li><a href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.RandomBuildingBlock">RandomBuildingBlock (class in stk.calculators.ea.mutators)</a>
-</li>
-      <li><a href="stk.calculators.ea.crossers.html#stk.calculators.ea.crossers.RandomCrossover">RandomCrossover (class in stk.calculators.ea.crossers)</a>
-</li>
-      <li><a href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.RandomMutation">RandomMutation (class in stk.calculators.ea.mutators)</a>
 </li>
       <li><a href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.RandomTopologyGraph">RandomTopologyGraph (class in stk.calculators.ea.mutators)</a>
 </li>
@@ -3035,17 +3236,19 @@
         <li><a href="stk.populations.html#stk.populations.Population.remove_duplicates">(Population method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="stk.populations.html#stk.populations.EAPopulation.remove_members">remove_members() (EAPopulation method)</a>
 
       <ul>
         <li><a href="stk.populations.html#stk.populations.Population.remove_members">(Population method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.RemoveBatches">RemoveBatches (class in stk.calculators.ea.selectors)</a>
 </li>
       <li><a href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.RemoveMolecules">RemoveMolecules (class in stk.calculators.ea.selectors)</a>
+</li>
+      <li><a href="stk.calculators.ea.fitness_normalizers.html#stk.calculators.ea.fitness_normalizers.ReplaceFitness">ReplaceFitness (class in stk.calculators.ea.fitness_normalizers)</a>
 </li>
       <li><a href="stk.molecular.elements.html#stk.molecular.elements.Rf">Rf (class in stk.molecular.elements)</a>
 </li>
@@ -3077,8 +3280,6 @@
 </li>
       <li><a href="stk.molecular.elements.html#stk.molecular.elements.Sc">Sc (class in stk.molecular.elements)</a>
 </li>
-      <li><a href="stk.calculators.ea.fitness_normalizers.html#stk.calculators.ea.fitness_normalizers.ScaleByMean">ScaleByMean (class in stk.calculators.ea.fitness_normalizers)</a>
-</li>
       <li><a href="stk.molecular.elements.html#stk.molecular.elements.Se">Se (class in stk.molecular.elements)</a>
 </li>
       <li><a href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.AboveAverage.select">select() (AboveAverage method)</a>
@@ -3090,6 +3291,10 @@
 </li>
         <li><a href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.FilterMolecules.select">(FilterMolecules method)</a>
 </li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.If.select">(If method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.Random.select">(Random method)</a>
+</li>
         <li><a href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.RemoveBatches.select">(RemoveBatches method)</a>
 </li>
         <li><a href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.RemoveMolecules.select">(RemoveMolecules method)</a>
@@ -3098,7 +3303,7 @@
 </li>
         <li><a href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.Selector.select">(Selector method)</a>
 </li>
-        <li><a href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.SelectorSequence.select">(SelectorSequence method)</a>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.Sequence.select">(Sequence method)</a>
 </li>
         <li><a href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.StochasticUniversalSampling.select">(StochasticUniversalSampling method)</a>
 </li>
@@ -3111,28 +3316,46 @@
 </li>
       <li><a href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.Selector">Selector (class in stk.calculators.ea.selectors)</a>
 </li>
-      <li><a href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.SelectorSequence">SelectorSequence (class in stk.calculators.ea.selectors)</a>
+      <li><a href="stk.calculators.compound.html#stk.calculators.compound.Sequence">Sequence (class in stk.calculators.compound)</a>
 </li>
       <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.CageOptimizerSequence.set_cache_use">set_cache_use() (CageOptimizerSequence method)</a>
 
       <ul>
         <li><a href="stk.calculators.ea.crossers.html#stk.calculators.ea.crossers.Crosser.set_cache_use">(Crosser method)</a>
 </li>
+        <li><a href="stk.calculators.base_calculators.html#stk.calculators.base_calculators.EAOperation.set_cache_use">(EAOperation method)</a>
+</li>
         <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.ETKDG.set_cache_use">(ETKDG method)</a>
+</li>
+        <li><a href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.EnergyCalculator.set_cache_use">(EnergyCalculator method)</a>
 </li>
         <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.FitnessCalculator.set_cache_use">(FitnessCalculator method)</a>
 </li>
+        <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.FitnessFunction.set_cache_use">(FitnessFunction method)</a>
+</li>
+        <li><a href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.FormationEnergy.set_cache_use">(FormationEnergy method)</a>
+</li>
         <li><a href="stk.calculators.ea.crossers.html#stk.calculators.ea.crossers.GeneticRecombination.set_cache_use">(GeneticRecombination method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.If.set_cache_use">(If method)</a>
 </li>
         <li><a href="stk.calculators.ea.crossers.html#stk.calculators.ea.crossers.Jumble.set_cache_use">(Jumble method)</a>
 </li>
         <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.MMFF.set_cache_use">(MMFF method)</a>
 </li>
+        <li><a href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.MMFFEnergy.set_cache_use">(MMFFEnergy method)</a>
+</li>
         <li><a href="stk.calculators.optimization.mopac.html#stk.calculators.optimization.mopac.MOPAC.set_cache_use">(MOPAC method)</a>
+</li>
+        <li><a href="stk.calculators.energy.mopac.html#stk.calculators.energy.mopac.MOPACEnergy.set_cache_use">(MOPACEnergy method)</a>
+</li>
+        <li><a href="stk.calculators.energy.macromodel.html#stk.calculators.energy.macromodel.MacroModelEnergy.set_cache_use">(MacroModelEnergy method)</a>
 </li>
         <li><a href="stk.calculators.optimization.macromodel.html#stk.calculators.optimization.macromodel.MacroModelForceField.set_cache_use">(MacroModelForceField method)</a>
 </li>
         <li><a href="stk.calculators.optimization.macromodel.html#stk.calculators.optimization.macromodel.MacroModelMD.set_cache_use">(MacroModelMD method)</a>
+</li>
+        <li><a href="stk.calculators.base_calculators.html#stk.calculators.base_calculators.MoleculeCalculator.set_cache_use">(MoleculeCalculator method)</a>
 </li>
         <li><a href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.Mutator.set_cache_use">(Mutator method)</a>
 </li>
@@ -3140,29 +3363,29 @@
 </li>
         <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.Optimizer.set_cache_use">(Optimizer method)</a>
 </li>
-        <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.OptimizerSequence.set_cache_use">(OptimizerSequence method)</a>
-</li>
         <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.PropertyVector.set_cache_use">(PropertyVector method)</a>
 </li>
-        <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.RaisingFitnessCalculator.set_cache_use">(RaisingFitnessCalculator method)</a>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.RaisingCalculator.set_cache_use">(RaisingCalculator method)</a>
 </li>
-        <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.RaisingOptimizer.set_cache_use">(RaisingOptimizer method)</a>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.Random.set_cache_use">(Random method)</a>
 </li>
         <li><a href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.RandomBuildingBlock.set_cache_use">(RandomBuildingBlock method)</a>
 </li>
-        <li><a href="stk.calculators.ea.crossers.html#stk.calculators.ea.crossers.RandomCrossover.set_cache_use">(RandomCrossover method)</a>
-</li>
-        <li><a href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.RandomMutation.set_cache_use">(RandomMutation method)</a>
-</li>
         <li><a href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.RandomTopologyGraph.set_cache_use">(RandomTopologyGraph method)</a>
+</li>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.Sequence.set_cache_use">(Sequence method)</a>
 </li>
         <li><a href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.SimilarBuildingBlock.set_cache_use">(SimilarBuildingBlock method)</a>
 </li>
-        <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.TryCatchOptimizer.set_cache_use">(TryCatchOptimizer method)</a>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.TryCatch.set_cache_use">(TryCatch method)</a>
 </li>
         <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.UFF.set_cache_use">(UFF method)</a>
 </li>
+        <li><a href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.UFFEnergy.set_cache_use">(UFFEnergy method)</a>
+</li>
         <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.XTB.set_cache_use">(XTB method)</a>
+</li>
+        <li><a href="stk.calculators.energy.energy_calculators.html#stk.calculators.energy.energy_calculators.XTBEnergy.set_cache_use">(XTBEnergy method)</a>
 </li>
       </ul></li>
       <li><a href="stk.molecular.molecules.building_block.html#stk.molecular.molecules.building_block.BuildingBlock.set_centroid">set_centroid() (BuildingBlock method)</a>
@@ -3175,7 +3398,9 @@
       </ul></li>
       <li><a href="stk.molecular.topology_graphs.topology_graph.html#stk.molecular.topology_graphs.topology_graph.Vertex.set_contructed_molecule">set_contructed_molecule() (Vertex method)</a>
 </li>
-      <li><a href="stk.populations.html#stk.populations.EAPopulation.set_ea_tools">set_ea_tools() (EAPopulation method)</a>
+      <li><a href="stk.populations.html#stk.populations.EAPopulation.set_fitness_values_from_calculators">set_fitness_values_from_calculators() (EAPopulation method)</a>
+</li>
+      <li><a href="stk.populations.html#stk.populations.EAPopulation.set_fitness_values_from_dict">set_fitness_values_from_dict() (EAPopulation method)</a>
 </li>
       <li><a href="stk.populations.html#stk.populations.EAPopulation.set_mol_ids">set_mol_ids() (EAPopulation method)</a>
 
@@ -3191,6 +3416,8 @@
         <li><a href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule.set_position_matrix">(Molecule method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="stk.molecular.elements.html#stk.molecular.elements.Sg">Sg (class in stk.molecular.elements)</a>
 </li>
       <li><a href="stk.calculators.ea.fitness_normalizers.html#stk.calculators.ea.fitness_normalizers.ShiftUp">ShiftUp (class in stk.calculators.ea.fitness_normalizers)</a>
@@ -3199,8 +3426,6 @@
 </li>
       <li><a href="stk.calculators.ea.mutators.html#stk.calculators.ea.mutators.SimilarBuildingBlock">SimilarBuildingBlock (class in stk.calculators.ea.mutators)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="stk.molecular.topology_graphs.cage.three_plus_four.html#stk.molecular.topology_graphs.cage.three_plus_four.SixPlusEight">SixPlusEight (class in stk.molecular.topology_graphs.cage.three_plus_four)</a>
 </li>
       <li><a href="stk.molecular.topology_graphs.cage.two_plus_three.html#stk.molecular.topology_graphs.cage.two_plus_three.SixPlusNine">SixPlusNine (class in stk.molecular.topology_graphs.cage.two_plus_three)</a>
@@ -3218,6 +3443,10 @@
       <li><a href="stk.html#module-stk">stk (module)</a>
 </li>
       <li><a href="stk.calculators.html#module-stk.calculators">stk.calculators (module)</a>
+</li>
+      <li><a href="stk.calculators.base_calculators.html#module-stk.calculators.base_calculators">stk.calculators.base_calculators (module)</a>
+</li>
+      <li><a href="stk.calculators.compound.html#module-stk.calculators.compound">stk.calculators.compound (module)</a>
 </li>
       <li><a href="stk.calculators.ea.html#module-stk.calculators.ea">stk.calculators.ea (module)</a>
 </li>
@@ -3409,7 +3638,7 @@
 </li>
       <li><a href="stk.utilities.utilities.html#stk.utilities.utilities.translation_component">translation_component() (in module stk.utilities.utilities)</a>
 </li>
-      <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.TryCatchOptimizer">TryCatchOptimizer (class in stk.calculators.optimization.optimizers)</a>
+      <li><a href="stk.calculators.compound.html#stk.calculators.compound.TryCatch">TryCatch (class in stk.calculators.compound)</a>
 </li>
       <li><a href="stk.molecular.elements.html#stk.molecular.elements.Ts">Ts (class in stk.molecular.elements)</a>
 </li>
@@ -3630,9 +3859,7 @@
 </li>
         <li><a href="stk.utilities.utilities.html#stk.utilities.utilities.PopulationSizeError.with_traceback">(PopulationSizeError method)</a>
 </li>
-        <li><a href="stk.calculators.ea.fitness_calculators.html#stk.calculators.ea.fitness_calculators.RaisingFitnessCalculatorError.with_traceback">(RaisingFitnessCalculatorError method)</a>
-</li>
-        <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.RaisingOptimizerError.with_traceback">(RaisingOptimizerError method)</a>
+        <li><a href="stk.calculators.compound.html#stk.calculators.compound.RaisingCalculatorError.with_traceback">(RaisingCalculatorError method)</a>
 </li>
         <li><a href="stk.calculators.optimization.optimizers.html#stk.calculators.optimization.optimizers.XTBConvergenceError.with_traceback">(XTBConvergenceError method)</a>
 </li>

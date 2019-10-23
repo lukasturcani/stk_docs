@@ -107,6 +107,7 @@
 <li class="toctree-l1"><a class="reference internal" href="calculators.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stk.calculators.optimization.optimizers.html">Optimizers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stk.calculators.energy.energy_calculators.html">Energy Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.compound.html">Compound Calculators</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Evolutionary Algorithm</span></p>
 <ul class="current">
@@ -252,7 +253,7 @@ a subpopulation.</p>
 
 <dl class="class">
 <dt id="stk.calculators.ea.plotters.ProgressPlotter">
-<em class="property">class </em><code class="sig-name descname">ProgressPlotter</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">property_fn</em>, <em class="sig-param">y_label</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.plotters.ProgressPlotter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-name descname">ProgressPlotter</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">property_fn</em>, <em class="sig-param">y_label</em>, <em class="sig-param">progress_fn=None</em>, <em class="sig-param">filter=&lt;function ProgressPlotter.&lt;lambda&gt;&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.plotters.ProgressPlotter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#stk.calculators.ea.plotters.Plotter" title="stk.calculators.ea.plotters.Plotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">stk.calculators.ea.plotters.Plotter</span></code></a></p>
 <p>Plots how a property changes during a GA run.</p>
 <p>The produced plot will show the GA generations on the x axis and
@@ -298,19 +299,27 @@ the min, mean and max values of an attribute on the y axis.</p>
 </table>
 <dl class="method">
 <dt id="stk.calculators.ea.plotters.ProgressPlotter.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">filename</em>, <em class="sig-param">property_fn</em>, <em class="sig-param">y_label</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.plotters.ProgressPlotter.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">filename</em>, <em class="sig-param">property_fn</em>, <em class="sig-param">y_label</em>, <em class="sig-param">progress_fn=None</em>, <em class="sig-param">filter=&lt;function ProgressPlotter.&lt;lambda&gt; at 0x7fcf9a683b00&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.plotters.ProgressPlotter.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize a <a class="reference internal" href="#stk.calculators.ea.plotters.ProgressPlotter" title="stk.calculators.ea.plotters.ProgressPlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProgressPlotter</span></code></a> instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>filename</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The basename of the files. This means it should not include
 file extensions.</p></li>
-<li><p><strong>propety_fn</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code>) – A <code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code> which takes a <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>
-object and returns a property value of that molecule,
-which is used for the plot. The <code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code> must
-return a valid value for each <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> in the
-population.</p></li>
+<li><p><strong>property_fn</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code>) – A <code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code> which takes a <a class="reference internal" href="stk.populations.html#stk.populations.EAPopulation" title="stk.populations.EAPopulation"><code class="xref py py-class docutils literal notranslate"><span class="pre">EAPopulation</span></code></a>
+and a <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> object and returns a property
+value of that molecule, which is used for the plot.
+The <code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code> must return a valid value for each
+<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> in the population.</p></li>
 <li><p><strong>y_label</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The y label for the produced graph.</p></li>
+<li><p><strong>progress_fn</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code>, optional) – Takes the population passed to <a class="reference internal" href="#stk.calculators.ea.plotters.ProgressPlotter.plot" title="stk.calculators.ea.plotters.ProgressPlotter.plot"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot()</span></code></a> and excutes a
+computation on it. This may be useful if you want to
+apply a normalization to the fitness values in the
+progress population, for example.</p></li>
+<li><p><strong>filter</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code>, optional) – Takes an <a class="reference internal" href="stk.populations.html#stk.populations.EAPopulation" title="stk.populations.EAPopulation"><code class="xref py py-class docutils literal notranslate"><span class="pre">EAPopulation</span></code></a> and a <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> as
+input and returns <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. Only molecules
+which return <code class="docutils literal notranslate"><span class="pre">True</span></code> will be plotted. Default is for all
+molecules to be plotted.</p></li>
 </ul>
 </dd>
 </dl>
@@ -391,7 +400,7 @@ a subpopulation.</p>
 </table>
 <dl class="method">
 <dt id="stk.calculators.ea.plotters.SelectionPlotter.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">filename</em>, <em class="sig-param">selector</em>, <em class="sig-param">x_label='Molecule: name - fitness value'</em>, <em class="sig-param">molecule_label=&lt;function SelectionPlotter.&lt;lambda&gt; at 0x7fb19b5520e0&gt;</em>, <em class="sig-param">heat_map_value=&lt;function SelectionPlotter.&lt;lambda&gt; at 0x7fb19b552170&gt;</em>, <em class="sig-param">heat_map_label='Fitness'</em>, <em class="sig-param">order_by=&lt;function SelectionPlotter.&lt;lambda&gt; at 0x7fb19b552200&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.plotters.SelectionPlotter.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">filename</em>, <em class="sig-param">selector</em>, <em class="sig-param">x_label='Molecule: name - fitness value'</em>, <em class="sig-param">molecule_label=&lt;function SelectionPlotter.&lt;lambda&gt; at 0x7fcf96cb7830&gt;</em>, <em class="sig-param">heat_map_value=&lt;function SelectionPlotter.&lt;lambda&gt; at 0x7fcf96cb78c0&gt;</em>, <em class="sig-param">heat_map_label='Fitness'</em>, <em class="sig-param">order_by=&lt;function SelectionPlotter.&lt;lambda&gt; at 0x7fcf96cb7950&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.calculators.ea.plotters.SelectionPlotter.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize a <a class="reference internal" href="#stk.calculators.ea.plotters.SelectionPlotter" title="stk.calculators.ea.plotters.SelectionPlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SelectionPlotter</span></code></a> instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -401,22 +410,21 @@ file extensions.</p></li>
 <li><p><strong>selector</strong> (<a class="reference internal" href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a>) – The <a class="reference internal" href="stk.calculators.ea.selectors.html#stk.calculators.ea.selectors.Selector" title="stk.calculators.ea.selectors.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> whose selection of molecules is
 plotted.</p></li>
 <li><p><strong>x_label</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, optional) – The label use for the x axis.</p></li>
-<li><p><strong>molecule_label</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code>, optional) – A <code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code> which takes one parameter, a
-<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> which is to be included on the x-axis
-of the counter plot. It shoud return a string, which is the
-label used for the <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> on the plot.</p></li>
-<li><p><strong>heat_map_value</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code>, optional) – <dl class="simple">
-<dt>A <code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code>, which takes a single parameter,</dt><dd><p>a <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> which is to be included on the x-axis
-and returns a value. The value is used for coloring the
-heat map used in the plot.</p>
-</dd>
-</dl>
-</p></li>
+<li><p><strong>molecule_label</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code>, optional) – A <code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code> which takes a <a class="reference internal" href="stk.populations.html#stk.populations.EAPopulation" title="stk.populations.EAPopulation"><code class="xref py py-class docutils literal notranslate"><span class="pre">EAPopulation</span></code></a>
+and a <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>, for each molecule which is to be
+included on the x-axis of the counter plot. It should
+return a string, which is the label used for the
+<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> on the plot.</p></li>
+<li><p><strong>heat_map_value</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code>, optional) – A <code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code>, which takes a <a class="reference internal" href="stk.populations.html#stk.populations.EAPopulation" title="stk.populations.EAPopulation"><code class="xref py py-class docutils literal notranslate"><span class="pre">EAPopulation</span></code></a>
+and a <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>, for each molecule which is to be
+included on the x-axis, and returns a value. The value is
+used for coloring the heat map used in the plot.</p></li>
 <li><p><strong>heat_map_label</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, optional) – The label used for the heat map key.</p></li>
-<li><p><strong>order_by</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code>, optional) – A <code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code>, which takes a single parameter, a
-<a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a> which is to be included on the x-axis
-and returns a value. The value is used to sort the plotted
-molecules along the x-axis in descending order.</p></li>
+<li><p><strong>order_by</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code>, optional) – A <code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code>, which takes a <a class="reference internal" href="stk.populations.html#stk.populations.EAPopulation" title="stk.populations.EAPopulation"><code class="xref py py-class docutils literal notranslate"><span class="pre">EAPopulation</span></code></a>
+and a <a class="reference internal" href="stk.molecular.molecules.molecule.html#stk.molecular.molecules.molecule.Molecule" title="stk.molecular.molecules.molecule.Molecule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Molecule</span></code></a>, for each molecule which is to be
+included on the x-axis, and returns a value. The value is
+used to sort the plotted molecules along the x-axis in
+descending order.</p></li>
 </ul>
 </dd>
 </dl>

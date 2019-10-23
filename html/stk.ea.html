@@ -107,6 +107,7 @@
 <li class="toctree-l1"><a class="reference internal" href="calculators.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stk.calculators.optimization.optimizers.html">Optimizers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stk.calculators.energy.energy_calculators.html">Energy Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stk.calculators.compound.html">Compound Calculators</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Evolutionary Algorithm</span></p>
 <ul>
@@ -184,7 +185,7 @@
             
   <span class="target" id="module-stk.ea"></span><dl class="class">
 <dt id="stk.ea.EAHistory">
-<em class="property">class </em><code class="sig-name descname">EAHistory</code><span class="sig-paren">(</span><em class="sig-param">fitness_calculator</em>, <em class="sig-param">log_file</em>, <em class="sig-param">progress_dump</em>, <em class="sig-param">database_dump</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.ea.EAHistory" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-name descname">EAHistory</code><span class="sig-paren">(</span><em class="sig-param">fitness_calculator</em>, <em class="sig-param">log_file</em>, <em class="sig-param">progress_dump</em>, <em class="sig-param">database_dump</em>, <em class="sig-param">dump_attrs</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.ea.EAHistory" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Deals with logging the EA’s history.</p>
 <dl class="attribute">
@@ -244,6 +245,18 @@ EA.</p>
 </dl>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="stk.ea.EAHistory.dump_attrs">
+<code class="sig-name descname">dump_attrs</code><a class="headerlink" href="#stk.ea.EAHistory.dump_attrs" title="Permalink to this definition">¶</a></dt>
+<dd><p>The names of attributes of the molecule to be added to
+the JSON.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -278,7 +291,7 @@ EA.</p>
 </table>
 <dl class="method">
 <dt id="stk.ea.EAHistory.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">fitness_calculator</em>, <em class="sig-param">log_file</em>, <em class="sig-param">progress_dump</em>, <em class="sig-param">database_dump</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.ea.EAHistory.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">fitness_calculator</em>, <em class="sig-param">log_file</em>, <em class="sig-param">progress_dump</em>, <em class="sig-param">database_dump</em>, <em class="sig-param">dump_attrs</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.ea.EAHistory.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -309,7 +322,7 @@ EA.</p>
 <div><dl class="simple">
 <dt>progress.log</dt><dd><p>This file holds the progress of the EA in text form.
 Each generation is reprented by the names of the
-molecules and their key and fitness.</p>
+molecules and their key.</p>
 </dd>
 <dt>progress.json</dt><dd><p>A population dump file holding <cite>progress</cite>. Only made if
 <a class="reference internal" href="#stk.ea.EAHistory.progress_dump" title="stk.ea.EAHistory.progress_dump"><code class="xref py py-attr docutils literal notranslate"><span class="pre">progress_dump</span></code></a> is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
@@ -348,7 +361,7 @@ the EA. Only made if <a class="reference internal" href="#stk.ea.EAHistory.db_po
 
 <dl class="method">
 <dt id="stk.ea.EAHistory.pop_log_content">
-<code class="sig-name descname">pop_log_content</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">pop</em>, <em class="sig-param">underline</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.ea.EAHistory.pop_log_content" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">pop_log_content</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">pop</em>, <em class="sig-param">underline</em>, <em class="sig-param">fitness_values</em><span class="sig-paren">)</span><a class="headerlink" href="#stk.ea.EAHistory.pop_log_content" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
